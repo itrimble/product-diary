@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Nightly product diary. Install into ~/Library/LaunchAgents on the Mac mini.
+     A user-domain agent, because the NAS is mounted in the user's session. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ian.product-diary</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Volumes/nas/projects/product-diary/bin/nightly-diary.sh</string>
+  </array>
+
+  <!-- 00:12, not 00:00: nothing else is competing for the minute, and the
+       day being written about has definitely rolled over. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>0</integer>
+    <key>Minute</key><integer>12</integer>
+  </dict>
+
+  <!-- If the mini was asleep or off at 00:12, run as soon as it is back. -->
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StartOnMount</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Volumes/nas/projects/product-diary/logs/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Volumes/nas/projects/product-diary/logs/launchd.err.log</string>
+
+  <key>WorkingDirectory</key>
+  <string>/Volumes/nas/projects/product-diary</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>Nice</key>
+  <integer>5</integer>
+</dict>
+</plist>
