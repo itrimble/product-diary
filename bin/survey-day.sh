@@ -42,7 +42,13 @@ if [ "${1:-}" = "--one" ]; then
     if [ $? -ne 0 ]; then
       n=$(gitcount 90)
       if [ $? -ne 0 ]; then
-        printf '%s\terror:could-not-read-log\n' "$name"
+        # The repo is there but git cannot walk it — a corrupt ref, a bad HEAD,
+        # an interrupted operation. Fall back to file dates so the day still gets
+        # a signal, and say why the commit count is missing.
+        m=$(timeout 60 find "$dir" -maxdepth 3 -type f -newermt "$from" ! -newermt "$to" \
+              -not -path '*/.git/*' -not -path '*/node_modules/*' -not -path '*/dist/*' \
+              -not -path '*/build/*' 2>/dev/null | wc -l | tr -d ' ')
+        printf '%s\tfiles:%s\tgit:unreadable\n' "$name" "${m:-0}"
         exit 0
       fi
     fi
