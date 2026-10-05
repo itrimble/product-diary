@@ -19,6 +19,14 @@ BUILD_TIMEOUT=${DIARY_SHOT_BUILD_TIMEOUT:-900}
 
 skip() { echo "no screenshot: $*"; exit 0; }
 [ -d "$dir" ] || skip "$name does not exist"
+
+# A screenshot shows the app as it is now. On a day being written up after the
+# fact that is not what the entry describes, and a picture presented as that
+# day's state would be a quiet lie. Only photograph recent days.
+age=$(( ( $(date +%s) - $(date -j -f %Y-%m-%d "$date" +%s 2>/dev/null || date +%s) ) / 86400 ))
+if [ "$age" -gt 2 ]; then
+  skip "$date is $age days ago; a capture today would show a build that did not exist then"
+fi
 mkdir -p "$(dirname "$out")"
 
 # ---- iOS app in an Xcode project ------------------------------------------
