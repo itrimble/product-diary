@@ -6,12 +6,14 @@ name: Verify published entries
 # checks the two things it can check from here: that every published day carries
 # a signature from the machine that can actually see the projects, and that the
 # entries still meet the contract's shape.
+# No path filter: "verify" is a required check on main, and a required check
+# that never reports leaves every pull request that does not touch posts/
+# permanently unmergeable. The job runs always and does nothing when no day
+# changed.
 on:
   push:
     branches: [main]
-    paths: ['posts/**']
   pull_request:
-    paths: ['posts/**']
 
 jobs:
   verify:
