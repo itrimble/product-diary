@@ -1,0 +1,1 @@
+SnapDog is a Mac app for taking screenshots and recording the screen, with an editor for annotating captures and a history you can filter. It is still being polished. Recent work has gone into small things that make recording feel natural, such as returning focus to the app you are capturing.
