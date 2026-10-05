@@ -1,0 +1,1 @@
+Civic Fortune 2026 is an iPhone game where you steer a household through 52 weeks of money, stress and civic life, aiming for one of five endings. It has pixel-art sprites, random events and a shop. All five endings are now reachable, runs save automatically, and the next step is more balance testing.
