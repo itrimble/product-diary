@@ -5,3 +5,4 @@ dist/
 logs/
 .diary.lock/
 logs/rejected/
+logs/surveys/

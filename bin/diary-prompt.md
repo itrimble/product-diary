@@ -17,23 +17,35 @@ Everything below refers to that date.
 
 A project qualifies if it has real file changes dated `DIARY_DATE`.
 
-**Survey cheaply first, then go deep only on what qualifies.** The projects live
-on an SMB mount where a deep `find` is punishingly slow, and you are on a clock.
-One pass to build the shortlist:
+**The survey has already been run for you.** Read it:
 
 ```sh
-cd /Volumes/nas/projects
-for d in */; do
-  d=${d%/}
-  if [ -d "$d/.git" ]; then
-    git -C "$d" log --since=DIARY_DATE --until=DIARY_DATE+1day --oneline 2>/dev/null | head -20
-  else
-    find "$d" -maxdepth 3 -type f -newermt DIARY_DATE ! -newermt DIARY_DATE+1day \
-      -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/dist/*' \
-      -not -path '*/build/*' 2>/dev/null | head -20
-  fi
-done
+cat /Volumes/nas/projects/product-diary/logs/surveys/DIARY_DATE.tsv
 ```
+
+One line per project folder. The folders with a non-zero count are your
+shortlist — do not survey again, and do not write your own survey.
+
+`bin/survey-day.sh` produced it before you started. It exists because this is
+the part that goes wrong: surveying folder by folder took 49 minutes and never
+finished, and ad-hoc commands here trip over folder names with spaces, xargs
+argument limits, and repos whose working tree is dirty with old work rather than
+this day's.
+
+Line formats:
+
+- `name<TAB>commits:N` — N commits on the date. `commits:0` means nothing.
+- `name<TAB>commits:0<TAB>dirty:N<TAB>mtime:M` — uncommitted work actually
+  touched on the date. This counts as a day's work; describe it from the diff
+  (`git -C <dir> diff`), not from the commit log.
+- `name<TAB>files:N` — not a git repo; N files changed on the date.
+
+**The survey file is checked.** The validator compares it against the real
+folder list and rejects the day if any folder is unaccounted for, because
+"nothing shipped today" and "I ran out of time looking" produce identical output
+otherwise. Do not edit it.
+
+Then go deep only on the folders the survey flagged.
 
 Git repos are the cheap, reliable case — prefer `git log`, `git diff --stat` and
 `git show` over walking the filesystem. Reserve the `find` fallback for folders

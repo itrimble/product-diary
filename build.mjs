@@ -206,8 +206,20 @@ const dayAssets = collectDayAssets();
 // Home: every day, newest first.
 const home = parseOptional(path.join(ROOT, "index.md"));
 let homeHtml = marked.parse(home.body);
-for (const [date, items] of groupByDay(entries))
-  homeHtml += `<h2><a href="/${date}/">${date}</a></h2>${list(items)}`;
+// Every day that was written about appears here, including quiet ones. Listing
+// only days that have entries made a published quiet day invisible, so the site
+// looked like nothing had ever run.
+for (const date of days) {
+  const items = entries.filter((e) => e.date === date);
+  homeHtml += `<h2><a href="/${date}/">${date}</a></h2>`;
+  if (items.length) {
+    homeHtml += list(items);
+  } else {
+    const f = path.join(POSTS, date, "index.md");
+    const note = fs.existsSync(f) ? parse(f).body.trim().split(/(?<=[.!?])\s/)[0] : "";
+    homeHtml += `<p class="quiet">${esc(note || "Nothing shipped.")}</p>`;
+  }
+}
 write(
   "",
   page(

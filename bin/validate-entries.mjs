@@ -83,6 +83,43 @@ if (!fs.existsSync(DAY)) {
   process.exit(1);
 }
 
+// --- survey coverage --------------------------------------------------------
+// A quiet day and a failed survey look identical in the output, so the claim has
+// to be checkable: the agent writes one line per project folder, and every
+// folder that exists must be accounted for. Without this, "nothing shipped"
+// silently means "I ran out of time".
+const PROJECTS_DIR = process.env.DIARY_PROJECTS_DIR || "/Volumes/nas/projects";
+const surveyFile = path.join(ROOT, "logs", "surveys", `${date}.tsv`);
+let surveyChecked = null;
+if (!fs.existsSync(surveyFile)) {
+  bad("survey", `logs/surveys/${date}.tsv is missing — the survey is not optional`);
+} else {
+  surveyChecked = new Set(
+    fs
+      .readFileSync(surveyFile, "utf8")
+      .split("\n")
+      .map((l) => l.split("\t")[0].trim())
+      .filter(Boolean),
+  );
+  let actual = [];
+  try {
+    actual = fs
+      .readdirSync(PROJECTS_DIR, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && !d.name.startsWith(".") && d.name !== "product-diary")
+      .map((d) => d.name);
+  } catch {
+    bad("survey", `cannot read ${PROJECTS_DIR} to check survey coverage`);
+  }
+  const missed = actual.filter((d) => !surveyChecked.has(d));
+  if (missed.length) {
+    bad(
+      "survey",
+      `${missed.length} of ${actual.length} project folders were never surveyed` +
+        ` (e.g. ${missed.slice(0, 5).join(", ")}${missed.length > 5 ? ", ..." : ""})`,
+    );
+  }
+}
+
 const files = fs.readdirSync(DAY).filter((f) => f.endsWith(".md"));
 const entries = files.filter((f) => f !== "index.md");
 const assetsDir = path.join(DAY, "assets");
@@ -107,7 +144,7 @@ if (entries.length === 0) {
     console.log(`FAIL ${date}\n  ` + problems.join("\n  "));
     process.exit(1);
   }
-  console.log(`OK ${date}: quiet day, overview only`);
+  console.log(`OK ${date}: quiet day, overview only (${surveyChecked ? surveyChecked.size : 0} folders surveyed)`);
   process.exit(0);
 }
 
@@ -191,4 +228,4 @@ if (problems.length) {
   console.log(`FAIL ${date} (${entries.length} entries)\n  ` + problems.join("\n  "));
   process.exit(1);
 }
-console.log(`OK ${date}: ${entries.length} entries conform` + (orphans.length ? `; ${orphans.length} unreferenced asset(s): ${orphans.join(", ")}` : ""));
+console.log(`OK ${date}: ${entries.length} entries conform, ${surveyChecked ? surveyChecked.size : 0} folders surveyed` + (orphans.length ? `; ${orphans.length} unreferenced asset(s): ${orphans.join(", ")}` : ""));

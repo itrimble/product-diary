@@ -123,6 +123,14 @@ run_provider() {
   )
 }
 
+# Survey before any model runs. Doing it here rather than in the prompt means
+# every provider gets the same shortlist and the receipt always exists, so the
+# only thing that varies between providers is the prose.
+echo "--- survey start $(date '+%T') ---"
+if ! bash "$REPO/bin/survey-day.sh" "$DATE"; then
+  fail "survey failed; refusing to guess at the day"
+fi
+
 PROVIDER_USED=""
 if [ -n "${DIARY_SKIP_AGENT:-}" ]; then
   echo "--- agent skipped (DIARY_SKIP_AGENT set) ---"
