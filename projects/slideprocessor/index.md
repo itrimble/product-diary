@@ -1,0 +1,1 @@
+Lectern is a Mac app that takes a slide deck and produces speaker notes, talk tracks, quizzes and handouts using AI providers. It can use cloud services or models running locally on the machine. It is being polished toward release, with the wizard screens and local model setup the current focus.

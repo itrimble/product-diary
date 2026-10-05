@@ -1,0 +1,1 @@
+QixForge is an iPhone and iPad take on the classic Qix territory game, where you claim ground by drawing lines while avoiding a roaming monster. It has stages with their own twists, power-ups, a neon look and high-score boards. It is in an active polish and play-testing phase, with upright and sideways layouts both working.
