@@ -74,4 +74,22 @@ warn: no $ENVFILE — the agent will probably fail to authenticate.
                          chmod 600 $ENVFILE
 MSG
 fi
-exec /bin/bash "$REPO/bin/nightly-diary.sh" "$@"
+# Not exec: the backfill below has to run after the night's own entry.
+/bin/bash "$REPO/bin/nightly-diary.sh" "$@"
+rc=$?
+
+# The runner only ever writes about one date. If the mini was asleep at 00:12 or
+# a run aborted, that day is lost and nothing says so. On the scheduled run (no
+# date argument) fill in up to two recent holes, oldest first, so a gap closes
+# over a couple of nights instead of staying open forever.
+if [ $# -eq 0 ]; then
+  missed=$(bash "$REPO/bin/missing-days.sh" 7 2>/dev/null | head -2)
+  if [ -n "$missed" ]; then
+    echo "=== missed days to backfill: $(echo "$missed" | tr '\n' ' ')==="
+    for d in $missed; do
+      echo "=== backfilling $d ==="
+      /bin/bash "$REPO/bin/nightly-diary.sh" "$d" || echo "backfill for $d did not publish"
+    done
+  fi
+fi
+exit $rc
