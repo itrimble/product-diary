@@ -40,7 +40,9 @@ else echo "  MISS NAS not mounted at /Volumes/nas"; ok=0; fi
 if [ -d /Volumes/nas/projects/product-diary/.git ]; then echo "  ok   diary repo visible"
 else echo "  MISS diary repo"; ok=0; fi
 # A headless agent cannot log in interactively, so Claude must already be authed.
-if timeout 90 claude -p 'reply with only the word ready' 2>/dev/null | grep -qi ready
+# </dev/null matters: this block arrives on stdin via `bash -s`, and a command
+# that reads stdin swallows the rest of the script.
+if timeout 90 claude -p 'reply with only the word ready' </dev/null 2>/dev/null | grep -qi ready
 then echo "  ok   claude authenticated"
 else echo "  WARN claude may not be authenticated — run 'claude' once on the mini and sign in"; fi
 # launchd runs node as the job's program precisely because node holds the
