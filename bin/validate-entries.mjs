@@ -111,8 +111,14 @@ function folderDisplayNames() {
   return map;
 }
 const surveyFile = path.join(ROOT, "logs", "surveys", `${date}.tsv`);
+// The receipts live only on the NAS and are never committed, so CI cannot see
+// them. CI proves provenance with bin/attest-day.sh instead. Locally this is
+// never set, and the survey remains mandatory.
+const NO_SURVEY = !!process.env.DIARY_NO_SURVEY;
 let surveyChecked = null;
-if (!fs.existsSync(surveyFile)) {
+if (NO_SURVEY) {
+  // Shape checks only.
+} else if (!fs.existsSync(surveyFile)) {
   bad("survey", `logs/surveys/${date}.tsv is missing — the survey is not optional`);
 } else {
   const surveyRows = fs
@@ -175,7 +181,7 @@ if (files.includes("index.md")) {
 // This is the failure this whole gate exists for: a day reported as quiet while
 // the survey shows work. It is how "I ran out of time looking" gets published as
 // "nothing shipped".
-if (entries.length === 0 && surveyChanged.size) {
+if (!NO_SURVEY && entries.length === 0 && surveyChanged.size) {
   bad(
     "index.md",
     `declares a quiet day, but the survey flagged ${surveyChanged.size} changed folder(s): ` +
@@ -292,7 +298,7 @@ for (const f of entries) {
     const claimed = meta && meta.project ? slugify(meta.project) : "";
     const ok = changedSlugs.has(slug) || changedByProduct.has(slug) ||
       (claimed && (changedSlugs.has(claimed) || changedByProduct.has(claimed)));
-    if (!ok && surveyChecked) {
+    if (!ok && surveyChecked && !NO_SURVEY) {
       bad(
         f,
         `the survey shows no change in "${slug}"${claimed && claimed !== slug ? ` or "${claimed}"` : ""}` +

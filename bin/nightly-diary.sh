@@ -189,6 +189,12 @@ fi
 # pages the build also renders. Anything else in the tree is not this run's work.
 PATHS=("$DAYDIR")
 [ -d projects ] && PATHS+=(projects)
+# Sign the day before committing. CI verifies this signature, so a push from
+# anywhere that does not hold the mini's key cannot publish an entry.
+if [ "$PROVIDER_USED" != "skipped" ] && [ -d "$DAYDIR" ]; then
+  bash "$REPO/bin/attest-day.sh" sign "$DATE" || fail "could not sign $DAYDIR"
+fi
+
 if [ -n "${DIARY_DRY_RUN:-}" ]; then
   echo "dry run: not committing, pushing or deploying"
   echo "=== finished $(date '+%F %T %Z') ==="

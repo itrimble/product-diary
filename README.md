@@ -110,6 +110,25 @@ The build swaps `dist/` aside by rename instead of deleting it: on the SMB mount
 a recursive delete leaves `.smbdelete*` tombstones behind and every later build
 fails with `ENOTEMPTY`.
 
+## Only a local run can publish
+
+The survey receipts that prove a day was really looked at live on the NAS and are
+never committed, so CI cannot check them. Anything else holding a token for this
+repo could otherwise push a fabricated entry straight to `main`.
+
+So each day is signed before it is committed. `bin/attest-day.sh sign` writes
+`posts/<date>/.attest`, a hash of every file in that day, and signs it with an
+ed25519 key that exists only on the Mac mini. `.github/workflows/verify-entries.yml`
+re-derives the manifest from what was committed and verifies the signature against
+`.github/allowed_signers`, then re-checks the contract's shape.
+
+Nothing secret is given to GitHub: the repo holds the public half only. Set the key
+up once with `bin/mini-attest-setup.sh` on the mini, and add the line it prints to
+`.github/allowed_signers`.
+
+A push fails CI if the day has no signature, if the files no longer match the signed
+manifest, or if the signature came from a key that is not in `allowed_signers`.
+
 ## The repo is public
 
 GitHub Pages requires it on this plan, so `main` is as public as the site. Never

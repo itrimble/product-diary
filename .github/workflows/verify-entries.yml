@@ -1,0 +1,57 @@
+name: Verify published entries
+
+# Anything holding a token for this repo can push to main — a stray cloud agent,
+# a scheduled task nobody can find. The survey receipts that prove a day was
+# really looked at live only on the NAS and are never committed, so this job
+# checks the two things it can check from here: that every published day carries
+# a signature from the machine that can actually see the projects, and that the
+# entries still meet the contract's shape.
+on:
+  push:
+    branches: [main]
+    paths: ['posts/**']
+  pull_request:
+    paths: ['posts/**']
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Which days changed
+        id: days
+        run: |
+          if [ "${{ github.event_name }}" = pull_request ]; then
+            base=${{ github.event.pull_request.base.sha }}
+          else
+            base=$(git rev-parse 'HEAD^' 2>/dev/null || git hash-object -t tree /dev/null)
+          fi
+          days=$(git diff --name-only "$base" HEAD -- posts/ \
+                 | sed -n 's#^posts/\([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\)/.*#\1#p' \
+                 | sort -u | tr '\n' ' ')
+          echo "days=$days" >> "$GITHUB_OUTPUT"
+          echo "changed days: ${days:-none}"
+
+      - name: Verify signature and contract
+        if: steps.days.outputs.days != ''
+        run: |
+          set -e
+          npm ci --silent || npm install --silent
+          fail=0
+          for d in ${{ steps.days.outputs.days }}; do
+            echo "::group::$d"
+            # Provenance: only a run on the mini holds the signing key.
+            bash bin/attest-day.sh verify "$d" || fail=1
+            # Shape: the survey-dependent checks need the NAS, so they are
+            # skipped here and enforced locally before the day is ever signed.
+            DIARY_NO_SURVEY=1 node bin/validate-entries.mjs "$d" || fail=1
+            echo "::endgroup::"
+          done
+          exit $fail
