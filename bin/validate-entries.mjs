@@ -177,6 +177,36 @@ if (files.includes("index.md")) {
   }
 }
 
+// --- project pages ----------------------------------------------------------
+// Validated only when present, so this cannot fail a day written before the
+// project page existed.
+{
+  const PROJ = path.join(ROOT, "projects");
+  if (fs.existsSync(PROJ)) {
+    for (const slug of fs.readdirSync(PROJ)) {
+      const f = path.join(PROJ, slug, "index.md");
+      if (!fs.existsSync(f)) continue;
+      const rel = `projects/${slug}/index.md`;
+      const src = fs.readFileSync(f, "utf8");
+      scanShared(rel, src);
+      if (/^---\n/.test(src)) bad(rel, "must not have frontmatter");
+      if (/^#{1,6}\s/m.test(src)) bad(rel, "must not have a heading");
+      const words = src.trim().split(/\s+/).filter(Boolean).length;
+      if (words < 25 || words > 120) bad(rel, `${words} words, contract says 25-120`);
+      const paras = src.trim().split(/\n\s*\n/).filter((p2) => p2.trim());
+      if (paras.length > 1) bad(rel, `${paras.length} paragraphs, contract says 1`);
+      const sentences = src.trim().split(/[.!?]+(?:\s|$)/).filter((x) => x.trim());
+      if (sentences.length < 2 || sentences.length > 4) {
+        bad(rel, `${sentences.length} sentences, contract says 2-4`);
+      }
+      for (const w of BANNED_WORDS) {
+        const m = src.match(new RegExp(`\\b${w}\\b`, "i"));
+        if (m) bad(rel, `banned word "${m[0]}"`);
+      }
+    }
+  }
+}
+
 // --- a quiet day is legitimate, but only if the survey agrees --------------
 // This is the failure this whole gate exists for: a day reported as quiet while
 // the survey shows work. It is how "I ran out of time looking" gets published as

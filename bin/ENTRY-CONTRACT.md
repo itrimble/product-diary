@@ -46,6 +46,18 @@ No other keys. `title` is allowed but optional; the build derives one otherwise.
 No frontmatter. 1-3 sentences framing the day across projects. On a day where
 nothing qualified, it says so plainly and is the **only** file written.
 
+## The project page
+
+`projects/<project-slug>/index.md`, written or refreshed whenever that project
+gets an entry:
+
+- No frontmatter, no heading.
+- One paragraph, 2-4 sentences, 25-120 words.
+- Present tense, describing what the project is and where it stands. Not news,
+  not a changelog — someone arriving from a search result should learn what they
+  are looking at.
+- Same banned words and same secret and internal-host rules as an entry.
+
 ## Entries must match the evidence
 
 An entry may only describe work the day's survey actually saw. The validator

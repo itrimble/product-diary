@@ -83,6 +83,34 @@ If a project's only changes that day touch that material, describe it at a high
 level ("expanded the exam bank") or leave the project out. Never quote it. When
 in doubt, leave it out — a thin diary is fine, a leak is not.
 
+## Read what you already wrote
+
+Each night starts with no memory of the last one. Before writing about a
+project, run:
+
+```sh
+/Volumes/nas/projects/product-diary/bin/recent-entries.sh <project-slug>
+```
+
+It prints that project's last three entries. Use them:
+
+- Do not re-introduce a project the diary has already introduced.
+- Do not repeat background an earlier entry already covered.
+- Refer back when it helps ("the capture fix from Thursday held").
+- Never contradict a published entry. If the earlier one turned out to be
+  wrong, say so plainly in the new one.
+
+## Keep the project page current
+
+Each project has a standing page at `projects/<project-slug>/index.md`, shown
+above its list of entries. When you write an entry for a project, write or
+refresh that file: one short paragraph, two to four sentences, saying what the
+project is and where it currently stands. No frontmatter, no heading.
+
+It is the answer to "what is this thing?" for someone landing on the page from a
+search result, so it should read as current fact, not as news. If the file
+already says something still true, leave it alone.
+
 ## What to write
 
 The exact required shape — filenames, frontmatter, lengths, banned words, and a
