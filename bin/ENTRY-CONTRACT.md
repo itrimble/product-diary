@@ -63,7 +63,8 @@ first paragraph should still have learned something true and complete.
 
 ## Day overview (`index.md`)
 
-No frontmatter. 1-3 sentences framing the day across projects. On a day where
+No frontmatter. 1-3 sentences framing the day across projects, or up to 6 when
+it has to account for flagged folders. On a day where
 nothing qualified, it says so plainly and is the **only** file written.
 
 If the survey flagged folders you decided not to write about — noise, generated
