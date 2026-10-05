@@ -247,6 +247,12 @@ fi
 
 if [ -n "${DIARY_DRY_RUN:-}" ]; then
   echo "dry run: not committing, pushing or deploying"
+  # Put the tree back. A dry run that leaves its work behind seeds the next real
+  # run: the commit scope includes projects/, so a discarded benchmark entry
+  # would be published by whoever runs next.
+  git checkout -- "${PATHS[@]}" 2>/dev/null
+  git clean -fdq -- "${PATHS[@]}" 2>/dev/null
+  echo "dry run: working tree restored"
   echo "=== finished $(date '+%F %T %Z') ==="
   exit 0
 fi
