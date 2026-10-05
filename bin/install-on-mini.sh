@@ -77,7 +77,8 @@ echo "--- installing the local wrapper and LaunchAgent ---"
 ssh "$HOST" "mkdir -p ~/bin ~/Library/Logs/product-diary ~/Library/LaunchAgents \
   && cp '$REPO/bin/mini-wrapper.sh' ~/bin/product-diary-run.sh \
   && cp '$REPO/bin/mini-launch.js' ~/bin/product-diary-launch.js \
-  && chmod +x ~/bin/product-diary-run.sh ~/bin/product-diary-launch.js \
+  && cp '$REPO/bin/mini-token.sh' ~/bin/product-diary-token \
+  && chmod +x ~/bin/product-diary-run.sh ~/bin/product-diary-launch.js ~/bin/product-diary-token \
   && cp '$REPO/bin/$LABEL.plist' ~/Library/LaunchAgents/$LABEL.plist \
   && plutil -lint ~/Library/LaunchAgents/$LABEL.plist"
 # bootout first so a re-run is an upgrade rather than an error.
