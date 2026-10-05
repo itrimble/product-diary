@@ -203,12 +203,39 @@ fi
 if [ -z "$(git status --porcelain -- "${PATHS[@]}")" ]; then
   echo "nothing new under ${PATHS[*]} — not committing"
 else
+  # main is protected and requires the "verify" check, so nothing can be pushed
+  # to it directly — not even an admin, and not the runner. Publishing goes
+  # through a pull request that CI has to pass, which is the whole point: a day
+  # that is not signed by this machine cannot reach the site.
+  command -v gh >/dev/null || fail "gh is required to publish (main is protected)"
+  BRANCH="diary/$DATE"
+  git checkout -q -B "$BRANCH" || fail "could not switch to $BRANCH"
   git add -A -- "${PATHS[@]}"
   git -c user.name="${GIT_AUTHOR_NAME:-$(git config user.name)}" \
       -c user.email="${GIT_AUTHOR_EMAIL:-$(git config user.email)}" \
-      commit -q -m "Diary entry for $DATE${PROVIDER_USED:+ (via $PROVIDER_USED)}" || fail "commit failed"
-  git push -q origin main || fail "push failed"
-  echo "committed and pushed"
+      commit -q -m "Diary entry for $DATE${PROVIDER_USED:+ (via $PROVIDER_USED)}" || {
+        git checkout -q main; fail "commit failed"; }
+  git push -q -f origin "$BRANCH" || { git checkout -q main; fail "could not push $BRANCH"; }
+
+  if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number' 2>/dev/null)" ]; then
+    gh pr create --head "$BRANCH" --base main \
+      --title "Diary entry for $DATE${PROVIDER_USED:+ (via $PROVIDER_USED)}" \
+      --body "Written by \`$PROVIDER_USED\`, validated against bin/ENTRY-CONTRACT.md and signed on $(hostname -s)." \
+      >/dev/null || { git checkout -q main; fail "could not open the pull request"; }
+  fi
+
+  echo "waiting for the verify check on $BRANCH"
+  if ! gh pr checks "$BRANCH" --watch --fail-fast >/dev/null 2>&1; then
+    git checkout -q main
+    fail "the verify check did not pass for $DATE; nothing published (see the PR)"
+  fi
+  gh pr merge "$BRANCH" --squash --delete-branch >/dev/null || {
+    git checkout -q main; fail "could not merge $BRANCH"; }
+  echo "published $DATE via pull request"
+
+  # Leave the working tree exactly on what was merged, so the next run rebases
+  # cleanly rather than carrying a commit that was squashed upstream.
+  git checkout -q main && git fetch -q origin main && git reset -q --hard origin/main
 fi
 
 npm run --silent deploy || fail "deploy failed"
