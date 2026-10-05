@@ -1,0 +1,1 @@
+StatBar is a Mac menu bar app that shows what the computer is doing: processor and memory use, which program started which process, and now temperatures and fan speeds with fan control. It is packaged for sale through Gumroad. The release script signs the app and sends it to Apple for a security check, and that step now has a time limit.
