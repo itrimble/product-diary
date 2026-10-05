@@ -97,6 +97,14 @@ function collectDayAssets() {
   return byDate;
 }
 
+// og:image wants an absolute path; entries reference images by bare filename.
+function firstImage(p) {
+  const m = p.html.match(/<img[^>]*\ssrc="([^"]+)"/);
+  if (!m) return "";
+  const file = path.basename(m[1]);
+  return `/assets/${p.date}/${encodeURIComponent(file)}`;
+}
+
 function rewriteAssets(html, date, dayAssets) {
   return html.replace(/(<img[^>]*\ssrc=")([^"]+)(")/g, (full, a, src, c) => {
     if (/^(https?:)?\/\//.test(src) || src.startsWith("/")) return full;
@@ -107,13 +115,29 @@ function rewriteAssets(html, date, dayAssets) {
 }
 
 // ---- page shell ------------------------------------------------------------
-const page = (title, content) => `<!doctype html>
+// opts: { desc, path, image } — path is the route, used for canonical and og:url.
+const page = (title, content, opts = {}) => {
+  const desc = opts.desc || "What changed across the projects, day by day.";
+  const url = `https://${DOMAIN}${opts.path ? `/${opts.path}/` : "/"}`.replace(/\/+$/, "/");
+  const img = opts.image ? `https://${DOMAIN}${opts.image}` : "";
+  return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title><link rel="stylesheet" href="/styles.css"></head>
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${esc(url)}">
+<meta property="og:site_name" content="${esc(SITE)}">
+<meta property="og:type" content="${opts.path && opts.path.includes("/") ? "article" : "website"}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${esc(url)}">${img ? `\n<meta property="og:image" content="${esc(img)}">` : ""}
+<meta name="twitter:card" content="${img ? "summary_large_image" : "summary"}">
+<link rel="alternate" type="application/rss+xml" title="${esc(SITE)}" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
 <body><header><a href="/" class="brand">${SITE}</a><span class="by">Remnant Security</span></header>
 <main>${content}</main>
-<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a></footer></body></html>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>
 `;
+};
 
 const groupByDay = (items) => {
   const out = new Map();
@@ -189,6 +213,7 @@ write(
   page(
     home.meta.title || SITE,
     `<h1>${esc(home.meta.title || SITE)}</h1>${homeHtml || `<p class="lede">What changed across the projects, day by day.</p>`}`,
+    { path: "" },
   ),
 );
 
@@ -199,7 +224,12 @@ for (const date of days) {
   const inner = fs.existsSync(f)
     ? marked.parse(parse(f).body)
     : `<p class="lede">${items.length} project${items.length === 1 ? "" : "s"} changed.</p>`;
-  write(date, page(`${date} · ${SITE}`, `<h1>${date}</h1>${inner}${list(items)}`));
+  write(date, page(`${date} · ${SITE}`, `<h1>${date}</h1>${inner}${list(items)}`, {
+    path: date,
+    desc: items.length
+      ? `${items.length} project${items.length === 1 ? "" : "s"} changed on ${date}: ${items.map((i) => i.project).join(", ")}.`
+      : `Nothing shipped on ${date}.`,
+  }));
 }
 
 // Per-project rolling pages and single-day entries.
@@ -208,13 +238,17 @@ for (const [slug, items] of groupBySlug(entries)) {
   const body = fs.existsSync(pj)
     ? marked.parse(parse(pj).body)
     : `<p class="lede">Rolling diary for ${esc(items[0].project)}.</p>`;
-  write(slug, page(`${items[0].project} · ${SITE}`, `<h1>${esc(items[0].project)}</h1>${body}${list(items)}`));
+  write(slug, page(`${items[0].project} · ${SITE}`, `<h1>${esc(items[0].project)}</h1>${body}${list(items)}`, {
+    path: slug,
+    desc: `Diary entries for ${items[0].project} — ${items.length} day${items.length === 1 ? "" : "s"}.`,
+  }));
   for (const p of items) {
     write(
       path.join(slug, p.date),
       page(
         `${p.title} · ${SITE}`,
         `<article><p class="crumbs"><a href="/${slug}/">${esc(p.project)}</a> · <time>${p.date}</time></p><h1>${esc(p.title)}</h1>${rewriteAssets(p.html, p.date, dayAssets.get(p.date))}</article>`,
+        { path: `${slug}/${p.date}`, desc: p.summary || `${p.project} on ${p.date}.`, image: firstImage(p) },
       ),
     );
   }
@@ -229,13 +263,66 @@ function groupBySlug(items) {
   return m;
 }
 
-write("404", page(`Not found · ${SITE}`, `<h1>Not found</h1><p><a href="/">Back to the diary</a></p>`));
+write("404", page(`Not found · ${SITE}`, `<h1>Not found</h1><p><a href="/">Back to the diary</a></p>`, { path: "404" }));
 fs.renameSync(path.join(DIST, "404", "index.html"), path.join(DIST, "404.html"));
 fs.rmdirSync(path.join(DIST, "404"));
+
+// ---- feed, sitemap, robots -------------------------------------------------
+// A blog without a feed is a web page. Dates carry no time of day, so entries
+// are stamped at midnight UTC on their date.
+const rfc822 = (d) => new Date(`${d}T00:00:00Z`).toUTCString();
+const feedItems = entries
+  .slice(0, 50)
+  .map(
+    (p) => `  <item>
+    <title>${esc(p.title)}</title>
+    <link>https://${DOMAIN}/${p.slug}/${p.date}/</link>
+    <guid isPermaLink="true">https://${DOMAIN}/${p.slug}/${p.date}/</guid>
+    <pubDate>${rfc822(p.date)}</pubDate>
+    <category>${esc(p.project)}</category>
+    <description>${esc(p.summary || p.title)}</description>
+  </item>`,
+  )
+  .join("\n");
+fs.writeFileSync(
+  path.join(DIST, "feed.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${esc(SITE)}</title>
+  <link>https://${DOMAIN}/</link>
+  <atom:link href="https://${DOMAIN}/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>What changed across the projects, day by day.</description>
+  <language>en</language>${days.length ? `\n  <lastBuildDate>${rfc822(days[0])}</lastBuildDate>` : ""}
+${feedItems}
+</channel>
+</rss>
+`,
+);
+
+const urls = [
+  "",
+  ...days.map((d) => d),
+  ...[...groupBySlug(entries).keys()],
+  ...entries.map((p) => `${p.slug}/${p.date}`),
+];
+fs.writeFileSync(
+  path.join(DIST, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((u) => `  <url><loc>https://${DOMAIN}/${u ? `${u}/` : ""}</loc></url>`).join("\n")}
+</urlset>
+`,
+);
+fs.writeFileSync(
+  path.join(DIST, "robots.txt"),
+  `User-agent: *\nAllow: /\nSitemap: https://${DOMAIN}/sitemap.xml\n`,
+);
 
 fs.writeFileSync(path.join(DIST, "styles.css"), fs.readFileSync(path.join(ROOT, "styles.css")));
 fs.writeFileSync(path.join(DIST, "CNAME"), DOMAIN + "\n");
 fs.writeFileSync(path.join(DIST, ".nojekyll"), "");
 console.log(
-  `Built ${entries.length} entries across ${groupBySlug(entries).size} projects, ${days.length} days -> dist/`,
+  `Built ${entries.length} entries across ${groupBySlug(entries).size} projects, ${days.length} days, ` +
+    `+ feed/sitemap/robots -> dist/`,
 );

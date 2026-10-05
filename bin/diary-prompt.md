@@ -73,30 +73,17 @@ in doubt, leave it out — a thin diary is fine, a leak is not.
 
 ## What to write
 
-For each qualifying project, write `posts/DIARY_DATE/<project-slug>.md`:
-
-```
----
-project: Display Name From PROJECTS.md
-summary: One sentence, plain, what actually changed.
----
-
-Two or three short paragraphs on what changed and why it matters. Concrete.
-Name the feature or the bug. No filler, no "exciting developments".
-```
-
-Optionally write `posts/DIARY_DATE/index.md` — a few sentences framing the day
-across projects. No frontmatter needed.
+The exact required shape — filenames, frontmatter, lengths, banned words, and a
+worked example — is the entry contract appended to the end of this prompt. It is
+not advice. `bin/validate-entries.mjs` checks every entry against it, and a day
+that fails is thrown away rather than published, so a run that ignores the
+contract is a wasted run.
 
 Screenshots are welcome but strictly optional. Put them in
 `posts/DIARY_DATE/assets/` and reference them by bare filename
-(`![home](snapdog-home.png)`); the build rewrites the path. **Bound every
-capture**: wrap builds and app launches in `timeout 600 …`. If a capture fails
-or hangs, drop it and move on. One stuck build must degrade one post, never the
-run.
-
-If nothing qualifies, write only `posts/DIARY_DATE/index.md` saying plainly that
-nothing shipped that day. Do not invent an entry.
+(`![home](snapdog-home.png)`). **Bound every capture**: wrap builds and app
+launches in `timeout 600 ...`. If a capture fails or hangs, drop it and move on.
+One stuck build must degrade one post, never the run.
 
 ## Finishing
 
