@@ -45,9 +45,50 @@ bin/install-on-mini.sh                # over Tailscale (100.120.153.82)
 bin/install-on-mini.sh aimacmini      # over the LAN
 ```
 
-It checks prerequisites (`claude`, `node`, `npm`, `git`, the NAS mount, and that
-Claude is signed in — a headless agent cannot log in), then installs and loads
-`com.ian.product-diary` as a user LaunchAgent firing at **00:12 local**.
+It checks prerequisites, then installs `bin/mini-launch.js` and
+`bin/mini-wrapper.sh` into `~/bin` on the mini and loads
+`com.ian.product-diary` as a user LaunchAgent firing at **00:12 Central**.
+
+### Two macOS constraints, both learned the hard way
+
+**launchd cannot touch the SMB mount when setting a job up.** A job whose
+program, stdout or working directory is under `/Volumes/nas` fails with exit 78
+(`EX_CONFIG`) before it runs. So everything launchd itself references lives on
+the internal disk, and the wrapper hands off to the NAS copy.
+
+**macOS gates network volumes behind TCC, per binary.** Apple's platform
+binaries — `/bin/bash`, `/bin/ls`, `/usr/bin/tee` — have no
+`kTCCServiceSystemPolicyNetworkVolumes` grant, so a LaunchAgent running
+`/bin/bash` gets "Operation not permitted" on every path under `/Volumes/nas`.
+Homebrew's `node` **is** granted, and children inherit the responsible process's
+grant, so the job's program is node (`bin/mini-launch.js`) and the whole subtree
+— bash, the agent, git, npm — inherits access.
+
+That grant is recorded against node's *versioned* Cellar path, so
+`brew upgrade node` can silently revoke it. The wrapper verifies a real read
+before doing any work and aborts loudly, because a denied read otherwise looks
+exactly like a quiet day. To check:
+
+```sh
+sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db   'select client from access where service="kTCCServiceSystemPolicyNetworkVolumes";'
+```
+
+### The headless token
+
+launchd cannot reach the login keychain, so `claude -p` fails there with
+"OAuth session expired and could not be refreshed" even while the same command
+works over SSH. Run this **once on the mini**:
+
+```sh
+claude setup-token
+mkdir -p ~/.config/product-diary
+printf 'CLAUDE_CODE_OAUTH_TOKEN=%s\n' '<token>' > ~/.config/product-diary/env
+chmod 600 ~/.config/product-diary/env
+```
+
+The wrapper sources that file and refuses to read it unless it is mode 600.
+`ANTHROPIC_API_KEY` works there too, but bills the API rather than the
+subscription. The file is outside the repo; never commit a token.
 
 A *user* agent, not a daemon, because the NAS is mounted in the login session.
 The mini therefore needs to be logged in; the runner aborts loudly rather than

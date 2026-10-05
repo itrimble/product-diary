@@ -1,0 +1,11 @@
+=== product diary for 2026-10-04 — started 2026-10-05 09:48:49 CDT on AIMacMini ===
+Created autostash: f41dd80
+Applied autostash.
+--- agent start 09:49:12 (timeout 3600s) ---
+Failed to authenticate: OAuth session expired and could not be refreshed
+--- agent exit 1 ---
+warn: agent exited 1; publishing whatever it wrote
+nothing new under posts/2026-10-04 — not committing
+Built 0 entries across 0 projects, 0 days -> dist/
+Deployed to https://blog.remnantsecurity.com
+=== finished 2026-10-05 09:49:41 CDT ===

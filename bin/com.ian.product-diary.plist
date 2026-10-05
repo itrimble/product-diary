@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Nightly product diary. Install into ~/Library/LaunchAgents on the Mac mini.
-     A user-domain agent, because the NAS is mounted in the user's session. -->
+<!-- Nightly product diary, installed into ~/Library/LaunchAgents on the Mac mini.
+     A user agent, not a daemon, because the NAS is mounted in the login session.
+
+     Two macOS constraints shape this file, both learned the hard way:
+
+     1. Every path launchd itself touches is on the internal disk. A job whose
+        program, stdout or working directory lives on the SMB mount fails to set
+        up at all, with exit 78 (EX_CONFIG).
+     2. The program is Homebrew node, not /bin/bash. macOS gates network volumes
+        behind TCC per binary; Apple's platform binaries have no grant, so a bash
+        job gets "Operation not permitted" on everything under /Volumes/nas.
+        Homebrew node is granted and children inherit it. See bin/mini-launch.js.
+
+     bin/install-on-mini.sh copies mini-launch.js and mini-wrapper.sh into ~/bin. -->
 <plist version="1.0">
 <dict>
   <key>Label</key>
@@ -9,36 +21,33 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/bash</string>
-    <string>/Volumes/nas/projects/product-diary/bin/nightly-diary.sh</string>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/ian/bin/product-diary-launch.js</string>
   </array>
 
-  <!-- 00:12, not 00:00: nothing else is competing for the minute, and the
-       day being written about has definitely rolled over. -->
+  <!-- 00:12 Central on the mini: nothing competes for the minute, and the day
+       being written about has definitely rolled over. -->
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key><integer>0</integer>
     <key>Minute</key><integer>12</integer>
   </dict>
 
-  <!-- If the mini was asleep or off at 00:12, run as soon as it is back. -->
   <key>RunAtLoad</key>
-  <false/>
-  <key>StartOnMount</key>
   <false/>
 
   <key>StandardOutPath</key>
-  <string>/Volumes/nas/projects/product-diary/logs/launchd.out.log</string>
+  <string>/Users/ian/Library/Logs/product-diary/launchd.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/Volumes/nas/projects/product-diary/logs/launchd.err.log</string>
+  <string>/Users/ian/Library/Logs/product-diary/launchd.err.log</string>
 
   <key>WorkingDirectory</key>
-  <string>/Volumes/nas/projects/product-diary</string>
+  <string>/Users/ian</string>
 
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
-    <string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <string>/Users/ian/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
   </dict>
 
   <key>ProcessType</key>

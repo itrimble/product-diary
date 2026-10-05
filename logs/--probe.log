@@ -1,0 +1,43 @@
+=== product diary for --probe — started 2026-10-05 09:45:09 CDT on AIMacMini ===
+fatal: invalid upstream 'FETCH_HEAD'
+warn: rebase onto origin/main failed, continuing on local state
+--- agent start 09:45:14 (timeout 3600s) ---
+[mcp-sdk] SEP-2352: stored OAuth credential has no 'issuer' stamp (pre-upgrade storage or provider not round-tripping the value). SEP-2352 isolation is inactive for this read; ensure your provider round-trips the issuer field.
+Failed to authenticate: OAuth session expired and could not be refreshed
+--- agent exit 1 ---
+warn: agent exited 1; publishing whatever it wrote
+nothing new under posts/--probe — not committing
+Built 0 entries across 0 projects, 0 days -> dist/
+=== product diary for --probe — started 2026-10-05 09:45:26 CDT on AIMacMini ===
+Created autostash: bd9a881
+Applied autostash.
+--- agent start 09:45:29 (timeout 3600s) ---
+Deployed to https://blog.remnantsecurity.com
+=== finished 2026-10-05 09:45:31 CDT ===
+I wrote nothing, because `--probe` isn't a date.
+
+`bin/nightly-diary.sh:16` takes the day from its first argument, `DATE=${1:-$(date -v-1d +%F)}`. Something ran it with `--probe` as that argument. `logs/--probe.log` shows the run: "product diary for --probe — started 2026-10-05 09:45". It looks like a test of the runner or wrapper.
+
+The real previous day is 2026-10-04. I couldn't tell whether that is the day you meant, so I didn't scan any projects.
+
+`posts/--probe/index.md` would be a junk "nothing shipped" entry, and the runner would publish it. A project scan against a bogus date would be just as meaningless.
+
+To avoid this, have `nightly-diary.sh` reject any `$1` that isn't `YYYY-MM-DD`. To write 2026-10-04, rerun the runner with that date.
+
+Also from the log: the runner's rebase step failed with `fatal: invalid upstream 'FETCH_HEAD'`. It continued on the local state.
+--- agent exit 0 ---
+nothing new under posts/--probe — not committing
+Built 0 entries across 0 projects, 0 days -> dist/
+Deployed to https://blog.remnantsecurity.com
+=== finished 2026-10-05 09:45:50 CDT ===
+=== product diary for --probe — started 2026-10-05 09:46:10 CDT on AIMacMini ===
+Created autostash: 8975f55
+Applied autostash.
+--- agent start 09:46:17 (timeout 3600s) ---
+Failed to authenticate: OAuth session expired and could not be refreshed
+--- agent exit 1 ---
+warn: agent exited 1; publishing whatever it wrote
+nothing new under posts/--probe — not committing
+Built 0 entries across 0 projects, 0 days -> dist/
+Deployed to https://blog.remnantsecurity.com
+=== finished 2026-10-05 09:46:30 CDT ===
