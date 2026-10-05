@@ -48,6 +48,15 @@ done
 
 cd "$REPO" || fail "cannot enter $REPO"
 
+# A run that was killed part-way through publishing leaves the repo on its
+# diary/<date> branch, and the next night would then rebase and commit on top of
+# it. Always start from main.
+current=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)
+if [ "$current" != main ]; then
+  echo "warn: repo was left on $current; returning to main"
+  git checkout -q main || fail "cannot return to main from $current"
+fi
+
 # This repo is a single working tree that both the mini and the MacBook mount
 # over SMB. Two gits in it at once corrupt scratch files — a concurrent push
 # while this job fetched left FETCH_HEAD padded with spaces and git reported
