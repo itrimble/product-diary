@@ -1,0 +1,1 @@
+SnapDog had a day of editor and recording fixes plus a website rework, and QixForge got a full campaign balance pass with music and story scenes. Not written up: gameengine (one commit, but PROJECTS.md marks it do not promote; it carried the music rendering change QixForge uses) and alttabmacapp (the survey could not read its git history, so nothing about it is known).
