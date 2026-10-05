@@ -89,18 +89,51 @@ if (!fs.existsSync(DAY)) {
 // folder that exists must be accounted for. Without this, "nothing shipped"
 // silently means "I ran out of time".
 const PROJECTS_DIR = process.env.DIARY_PROJECTS_DIR || "/Volumes/nas/projects";
+const surveyChanged = new Set();
+
+// Folder names carry capitals, spaces and underscores ("AI Mesh", "SkillClaw",
+// "threat_intel_hunter"); entry slugs are lowercase and hyphenated. Compare on
+// a normalised form.
+const slugify = (s2) =>
+  String(s2).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+// PROJECTS.md maps folders to display names, and several folders can be one
+// product (qix-clone and qix-swift are both QixForge), so an entry may be named
+// for the product rather than the folder that changed.
+function folderDisplayNames() {
+  const map = new Map();
+  const f = path.join(PROJECTS_DIR, "PROJECTS.md");
+  if (!fs.existsSync(f)) return map;
+  for (const line of fs.readFileSync(f, "utf8").split("\n")) {
+    const m = line.match(/^\|\s*(?:nas|ext)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/);
+    if (m) map.set(m[1], m[2]);
+  }
+  return map;
+}
 const surveyFile = path.join(ROOT, "logs", "surveys", `${date}.tsv`);
 let surveyChecked = null;
 if (!fs.existsSync(surveyFile)) {
   bad("survey", `logs/surveys/${date}.tsv is missing — the survey is not optional`);
 } else {
-  surveyChecked = new Set(
-    fs
-      .readFileSync(surveyFile, "utf8")
-      .split("\n")
-      .map((l) => l.split("\t")[0].trim())
-      .filter(Boolean),
-  );
+  const surveyRows = fs
+    .readFileSync(surveyFile, "utf8")
+    .split("\n")
+    .filter(Boolean)
+    .map((l) => l.split("\t"));
+  surveyChecked = new Set(surveyRows.map((r) => r[0].trim()).filter(Boolean));
+  // A folder counts as changed if any of its counters is non-zero. The dirty
+  // form (commits:0 + dirty:N + mtime:M) is only emitted when files actually
+  // moved on the date, so its presence is itself the signal.
+  for (const r of surveyRows) {
+    const name = r[0].trim();
+    if (!name) continue;
+    const counters = r.slice(1);
+    const changed = counters.some((c) => {
+      const [, v] = c.split(":");
+      return Number(v) > 0;
+    });
+    if (changed) surveyChanged.add(name);
+  }
   let actual = [];
   try {
     actual = fs
@@ -138,7 +171,19 @@ if (files.includes("index.md")) {
   }
 }
 
-// --- a quiet day is legitimate ---------------------------------------------
+// --- a quiet day is legitimate, but only if the survey agrees --------------
+// This is the failure this whole gate exists for: a day reported as quiet while
+// the survey shows work. It is how "I ran out of time looking" gets published as
+// "nothing shipped".
+if (entries.length === 0 && surveyChanged.size) {
+  bad(
+    "index.md",
+    `declares a quiet day, but the survey flagged ${surveyChanged.size} changed folder(s): ` +
+      [...surveyChanged].slice(0, 5).join(", ") +
+      (surveyChanged.size > 5 ? ", ..." : ""),
+  );
+}
+
 if (entries.length === 0) {
   if (problems.length) {
     console.log(`FAIL ${date}\n  ` + problems.join("\n  "));
@@ -204,16 +249,70 @@ for (const f of entries) {
     if (re.test(withoutFences)) bad(f, `banned construction ${re}`);
   }
 
-  // At least one concrete specific: a number, an identifier, or inline code.
-  const concrete = /`[^`]+`/.test(body) || /\d/.test(withoutFences) ||
-    /\b[a-z]+[A-Z]\w*\b/.test(withoutFences) || /\b[\w-]+\.(swift|ts|tsx|js|mjs|py|md|json|yml|sh)\b/.test(withoutFences);
-  if (!concrete) bad(f, "no concrete specific (a name, number, file or command)");
+  // At least one concrete specific. Deliberately broad: a narrow version of
+  // this rejected an entry that said "four victory conditions" and named the
+  // Continue and Play Again actions, which would only teach a model to sprinkle
+  // backticks. Rejecting good writing is worse here than missing vague writing,
+  // which the banned-word list already catches.
+  const signals = [
+    /`[^`]+`/.test(body),                                    // inline code
+    /\d/.test(withoutFences),                                // any digit
+    /\b[a-z]+[A-Z]\w*\b/.test(withoutFences),                // camelCase
+    /\b[\w-]+\.(swift|ts|tsx|js|mjs|py|md|json|yml|yaml|sh|rs|go|c|h|m)\b/.test(withoutFences),
+    /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b/i.test(withoutFences),
+    /[a-z,]\s[A-Z][a-z]+/.test(withoutFences),                // a named thing mid-sentence
+  ];
+  if (!signals.some(Boolean)) bad(f, "no concrete specific (a name, number, file or command)");
 
   // Images must be bare filenames that exist.
   for (const m of body.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)) {
     const src2 = m[1];
     if (src2.includes("/")) bad(f, `image "${src2}" must be a bare filename`);
     else if (!assets.has(src2)) bad(f, `image "${src2}" is not in posts/${date}/assets/`);
+  }
+}
+
+// --- entries must match the evidence ---------------------------------------
+// The rest of this file checks shape. This checks that an entry is about work
+// that happened: without it, a model can write a plausible entry for a project
+// that did not change that day, and nothing would notice.
+{
+  const display = folderDisplayNames();
+  const changedSlugs = new Set([...surveyChanged].map(slugify));
+  // Folders that changed, keyed by the product name they roll up to.
+  const changedByProduct = new Set();
+  for (const folder of surveyChanged) {
+    const name = display.get(folder);
+    if (name) changedByProduct.add(slugify(name));
+  }
+
+  for (const f of entries) {
+    const slug = slugify(f.replace(/\.md$/, ""));
+    const { meta } = frontmatter(fs.readFileSync(path.join(DAY, f), "utf8"));
+    const claimed = meta && meta.project ? slugify(meta.project) : "";
+    const ok = changedSlugs.has(slug) || changedByProduct.has(slug) ||
+      (claimed && (changedSlugs.has(claimed) || changedByProduct.has(claimed)));
+    if (!ok && surveyChecked) {
+      bad(
+        f,
+        `the survey shows no change in "${slug}"${claimed && claimed !== slug ? ` or "${claimed}"` : ""}` +
+          ` on ${date} — an entry must describe work the survey saw`,
+      );
+    }
+  }
+
+  // The reverse is a judgement call, not a failure: the agent is told to omit or
+  // summarise private material, and to ignore noise.
+  const entrySlugs = new Set(
+    entries.map((f) => slugify(f.replace(/\.md$/, ""))),
+  );
+  const unwritten = [...surveyChanged].filter((folder) => {
+    const s2 = slugify(folder);
+    const d = display.get(folder);
+    return !entrySlugs.has(s2) && !(d && entrySlugs.has(slugify(d)));
+  });
+  if (unwritten.length) {
+    console.log(`note ${date}: changed but no entry: ${unwritten.join(", ")}`);
   }
 }
 

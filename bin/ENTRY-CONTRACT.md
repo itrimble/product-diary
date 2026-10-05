@@ -46,6 +46,21 @@ No other keys. `title` is allowed but optional; the build derives one otherwise.
 No frontmatter. 1-3 sentences framing the day across projects. On a day where
 nothing qualified, it says so plainly and is the **only** file written.
 
+## Entries must match the evidence
+
+An entry may only describe work the day's survey actually saw. The validator
+compares each entry against `logs/surveys/YYYY-MM-DD.tsv`, by folder name or by
+the display name PROJECTS.md maps it to, and rejects an entry for a project the
+survey shows as unchanged.
+
+A day declared quiet while the survey flagged changes is also rejected. Those two
+states — nothing happened, and nobody finished looking — produce identical prose,
+and only the survey can tell them apart.
+
+The reverse is allowed: a changed project with no entry is a judgement call, since
+noise is meant to be ignored and private material is meant to be left out. It is
+reported as a note, not a failure.
+
 ## Voice
 
 Notes-to-self, not marketing. Short sentences. Name the thing. Past tense for
