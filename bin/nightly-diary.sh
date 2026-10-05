@@ -66,6 +66,14 @@ cd "$REPO" || fail "cannot enter $REPO"
 # A run that was killed part-way through publishing leaves the repo on its
 # diary/<date> branch, and the next night would then rebase and commit on top of
 # it. Always start from main.
+# A killed run can leave a rebase half-done, and every later run then dies with
+# "there is already a rebase-merge directory". Clear it before anything else.
+if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+  echo "warn: a previous run left a rebase in progress; aborting it"
+  git rebase --abort 2>/dev/null
+  rm -rf .git/rebase-merge .git/rebase-apply
+fi
+
 current=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)
 if [ "$current" != main ]; then
   echo "warn: repo was left on $current; returning to main"
@@ -83,13 +91,15 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   age=$(( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || date +%s) ))
   if [ "$age" -gt "$STALE" ]; then
     echo "warn: taking over a stale lock (${age}s old, held by $(cat "$LOCK/owner" 2>/dev/null || echo unknown))"
-    rm -rf "$LOCK"; mkdir "$LOCK" || fail "cannot create $LOCK"
+    mv "$LOCK" "$LOCK.dead.$$" 2>/dev/null && rm -rf "$LOCK.dead.$$" 2>/dev/null
+    rm -rf "$LOCK" 2>/dev/null
+    mkdir "$LOCK" || fail "cannot create $LOCK"
   else
     fail "another diary run holds $LOCK (${age}s old, $(cat "$LOCK/owner" 2>/dev/null || echo unknown)); not running two at once"
   fi
 fi
 printf '%s pid %s since %s\n' "$(hostname -s)" "$$" "$(date '+%F %T %Z')" > "$LOCK/owner"
-trap 'rm -rf "$LOCK"' EXIT
+trap 'mv "$LOCK" "$LOCK.dead.$$" 2>/dev/null && rm -rf "$LOCK.dead.$$" 2>/dev/null || rm -rf "$LOCK" 2>/dev/null' EXIT
 # origin/main is a real ref that survives a racing writer; FETCH_HEAD is a
 # scratch file and was the thing that got corrupted.
 if git fetch -q origin; then
