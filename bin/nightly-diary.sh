@@ -38,6 +38,21 @@ if ! command -v node >/dev/null && [ -d "$HOME/.nvm/versions/node" ]; then
 fi
 export PATH
 
+# Load the headless token here rather than only in the wrapper. Anything that
+# calls this script directly — the backfill, a manual re-run, a future caller —
+# otherwise finds no provider token and aborts with "no provider produced a day",
+# which reads like a model failure rather than a missing credential.
+ENVFILE=${DIARY_ENV_FILE:-$HOME/.config/product-diary/env}
+if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${ANTHROPIC_API_KEY:-}${ZAI_API_KEY:-}${DEEPSEEK_API_KEY:-}" ] \
+   && [ -f "$ENVFILE" ]; then
+  if [ "$(stat -f '%Lp' "$ENVFILE")" = 600 ]; then
+    set -a; . "$ENVFILE"; set +a
+    echo "loaded provider credentials from $ENVFILE"
+  else
+    echo "warn: $ENVFILE is not mode 600; not reading it"
+  fi
+fi
+
 for t in "$CLAUDE_BIN" node npm git; do
   command -v "$t" >/dev/null || fail "$t not on PATH ($PATH)"
 done
