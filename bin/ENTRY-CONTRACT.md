@@ -48,8 +48,9 @@ first paragraph should still have learned something true and complete.
 - **80-450 words.** Below 80 it is a changelog line, not an entry; above 450 it
   stops being a diary. The floor is deliberately low: a floor set too high is
   itself a cause of padding.
-- **2-5 paragraphs**, blank-line separated. No headings — the page supplies the
-  heading. The word count is the real limit; this only stops a wall of text.
+- **2-6 paragraphs**, blank-line separated. No headings — the page supplies the
+  heading. The 450-word ceiling is the real limit; this only stops a wall of
+  text, and it has rejected good entries twice, so it is deliberately loose.
 - At least one **concrete specific**: a feature, file, command, bug, number or
   decision. "Various improvements" is a validation failure, not a style note.
 - Images referenced by bare filename only (`![alt](shot.png)`), and the file must
