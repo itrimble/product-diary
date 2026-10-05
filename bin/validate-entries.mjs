@@ -285,6 +285,34 @@ for (const f of entries) {
     if (re.test(withoutFences)) bad(f, `banned construction ${re}`);
   }
 
+  // The first paragraph is for a non-technical reader, so it is the one place
+  // jargon is a failure rather than a style note. Later paragraphs are free.
+  const lead = (paras[0] || "").trim();
+  if (lead) {
+    const jargon = [
+      [/`[^`]+`/, "inline code"],
+      [/\b[\w-]+\.(swift|ts|tsx|js|mjs|py|json|yml|yaml|sh|rs|go|h|m|xcodeproj)\b/, "a filename"],
+      [/\b[a-z]+[A-Z]\w*\b/, "a camelCase identifier"],
+      [/\b\w+\(\)/, "a function call"],
+      [/\b[A-Z][a-zA-Z]+\.[a-zA-Z]+\b/, "a dotted type name"],
+      [/\b(API|CLI|SDK|JSON|YAML|HTTP|HTTPS|SQL|UUID|SHA|HMAC|OAuth|CRUD|ORM|regex|async|enum|struct|boolean|null|nil)\b/i, "a technical acronym or keyword"],
+    ];
+    for (const [re, what] of jargon) {
+      const m = lead.match(re);
+      if (m) {
+        bad(f, `the first paragraph must read for a non-technical audience; it contains ${what} ("${m[0]}")`);
+        break;
+      }
+    }
+  }
+
+  // The summary sits under the headline on every index page, so it gets the
+  // same treatment.
+  if (meta.summary) {
+    const m = meta.summary.match(/`[^`]+`|\b[a-z]+[A-Z]\w*\b|\b[\w-]+\.(swift|ts|js|py|json|sh)\b/);
+    if (m) bad(f, `summary must be plain language; it contains "${m[0]}"`);
+  }
+
   // At least one concrete specific. Deliberately broad: a narrow version of
   // this rejected an entry that said "four victory conditions" and named the
   // Continue and Play Again actions, which would only teach a model to sprinkle

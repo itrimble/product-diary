@@ -22,12 +22,28 @@ display name.
 ---
 project: Display Name          # required, from PROJECTS.md, 2-40 chars
 summary: One plain sentence.   # required, 40-160 chars, ends with . ! or ?
+                               # Plain language, same rule as the first
+                               # paragraph: no code, no identifiers.
 ---
 ```
 
 No other keys. `title` is allowed but optional; the build derives one otherwise.
 
 ## Entry body
+
+**The first paragraph is for someone who does not write software.** It says what
+changed from the point of view of a person using the thing, and why that matters.
+It is the only part most readers will read.
+
+In that first paragraph: no code, no filenames, no function or type names, no
+camelCase, no acronyms beyond ordinary English. Say "the game could not be won
+three of the five ways it promised", not "three victory conditions returned
+false". Say "the app forgot your progress when you quit", not "no persistence
+layer". If a technical thing has to be named, say what it does instead.
+
+Paragraphs after the first may be as technical as the work deserves. That is
+where files, commands, numbers and causes belong. A reader who stops after the
+first paragraph should still have learned something true and complete.
 
 - **80-450 words.** Below 80 it is a changelog line, not an entry; above 450 it
   stops being a diary. The floor is deliberately low: a floor set too high is
@@ -38,6 +54,10 @@ No other keys. `title` is allowed but optional; the build derives one otherwise.
   decision. "Various improvements" is a validation failure, not a style note.
 - Images referenced by bare filename only (`![alt](shot.png)`), and the file must
   exist under that day's `assets/`.
+- **Try for a picture.** Run `bin/shot-project.sh <folder> <date>` for each
+  project you write about and include what it returns. It prints a filename on
+  success or a one-line reason it could not, and never fails the run. A reason
+  is an acceptable outcome; not trying is not.
 - No code fences longer than 12 lines. No bare URLs to internal hosts
   (`192.168.*`, `*.local`, `/Volumes/*`).
 
@@ -92,17 +112,25 @@ Em dashes are allowed but at most one per paragraph.
 ```markdown
 ---
 project: SnapDog
-summary: Fixed the capture path that silently dropped every second frame.
+summary: Screenshots taken on a high-resolution display were coming out blank.
 ---
-The capture path dropped every second frame on retina displays. The scale factor
-in `CaptureSession.swift` was applied twice, once when building the pixel buffer
-and again when writing it out, so frames arrived at half the expected height and
-the encoder discarded them without raising an error.
+Screenshots taken on a high-resolution display were coming out blank, and the
+app gave no sign anything was wrong — it reported success and wrote an empty
+file. Anyone on a modern laptop was affected, which is to say nearly everyone.
+It now works, and a test will catch it if it ever breaks again.
+
+The cause was a scale factor applied twice in `CaptureSession.swift`, once when
+building the pixel buffer and again when writing it out. Frames arrived at half
+the expected height and the encoder discarded them without raising an error,
+which is why nothing surfaced.
 
 The fix reads the scale factor once at session start and passes it down. A test
-now captures 30 frames at 2x and asserts the count, which is what would have
-caught this the first time.
+captures 30 frames at 2x and asserts the count, which is what would have caught
+this the first time.
+
+![The app capturing a window on a high-resolution display](snapdog-home.png)
 ```
 
-Note what it does: names the file, says what was wrong, says what changed, and
-says what now prevents it. No adjectives doing the work of facts.
+Note the shape: the first paragraph could be read aloud to anyone and would
+land. The second and third name the file, the cause and the fix. Nothing in the
+first paragraph requires knowing what a pixel buffer is.

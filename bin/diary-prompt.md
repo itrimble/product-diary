@@ -83,6 +83,19 @@ If a project's only changes that day touch that material, describe it at a high
 level ("expanded the exam bank") or leave the project out. Never quote it. When
 in doubt, leave it out — a thin diary is fine, a leak is not.
 
+## Write for someone who does not write software
+
+Most people who land on this blog do not code. The first paragraph of every
+entry is for them: what changed from the point of view of someone using the
+thing, and why it matters. No code, no filenames, no camelCase, no acronyms.
+
+Then go as deep as the work deserves. The rest of the entry is where the file
+names, causes and numbers belong, and it should not be watered down.
+
+The test: if someone read only the first paragraph, would they have learned
+something true and complete? The validator enforces this on the first paragraph
+and on the summary, and rejects the day if it reads like release notes.
+
 ## Read what you already wrote
 
 Each night starts with no memory of the last one. Before writing about a
@@ -119,11 +132,21 @@ not advice. `bin/validate-entries.mjs` checks every entry against it, and a day
 that fails is thrown away rather than published, so a run that ignores the
 contract is a wasted run.
 
-Screenshots are welcome but strictly optional. Put them in
-`posts/DIARY_DATE/assets/` and reference them by bare filename
-(`![home](snapdog-home.png)`). **Bound every capture**: wrap builds and app
-launches in `timeout 600 ...`. If a capture fails or hangs, drop it and move on.
-One stuck build must degrade one post, never the run.
+**Take a picture of each project you write about.** Run:
+
+```sh
+/Volumes/nas/projects/product-diary/bin/shot-project.sh <project-folder> DIARY_DATE
+```
+
+It builds the app, runs it in a simulator and screenshots it, or renders a web
+project, all under its own timeouts. It prints either a bare filename to use, or
+one line saying why it could not — it never fails the run, so always try it. If
+it prints a filename, reference it by that bare name
+(`![what the reader is looking at](civic-fortune.png)`) and write alt text that
+says what is in the picture. If it prints a reason, carry on without a picture.
+
+Do not write your own build or screenshot commands. That is how a run ends up
+stuck at 3am on a build nobody is watching.
 
 ## Finishing
 
