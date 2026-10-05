@@ -15,9 +15,37 @@ Everything below refers to that date.
 
 ## What counts as a day's work
 
-A project qualifies if it has real file changes dated `DIARY_DATE`. In a git
-repo, use `git log --since/--until` on that date. Otherwise fall back to file
-mtimes. Ignore:
+A project qualifies if it has real file changes dated `DIARY_DATE`.
+
+**Survey cheaply first, then go deep only on what qualifies.** The projects live
+on an SMB mount where a deep `find` is punishingly slow, and you are on a clock.
+One pass to build the shortlist:
+
+```sh
+cd /Volumes/nas/projects
+for d in */; do
+  d=${d%/}
+  if [ -d "$d/.git" ]; then
+    git -C "$d" log --since=DIARY_DATE --until=DIARY_DATE+1day --oneline 2>/dev/null | head -20
+  else
+    find "$d" -maxdepth 3 -type f -newermt DIARY_DATE ! -newermt DIARY_DATE+1day \
+      -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/dist/*' \
+      -not -path '*/build/*' 2>/dev/null | head -20
+  fi
+done
+```
+
+Git repos are the cheap, reliable case — prefer `git log`, `git diff --stat` and
+`git show` over walking the filesystem. Reserve the `find` fallback for folders
+with no `.git`, and keep `-maxdepth` small.
+
+**Write each entry as soon as you have examined that project, before moving to
+the next one.** Do not gather everything and write at the end: you are bounded by
+a timeout, and a run that is cut off mid-way should leave the entries it already
+finished rather than nothing at all. Budget roughly three minutes per project; if
+one is taking longer than that, write what you know and move on.
+
+Ignore:
 
 - `product-diary` itself.
 - Any folder PROJECTS.md marks as infra or "do not promote".

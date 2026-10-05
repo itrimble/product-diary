@@ -44,11 +44,36 @@ done
 [ -f "$PROJECTS/PROJECTS.md" ] || fail "$PROJECTS/PROJECTS.md missing — is the NAS mounted?"
 
 cd "$REPO" || fail "cannot enter $REPO"
-if git fetch -q origin main; then
-  git rebase -q --autostash FETCH_HEAD || {
-    git rebase --abort 2>/dev/null
-    echo "warn: rebase onto origin/main failed, continuing on local state"
-  }
+
+# This repo is a single working tree that both the mini and the MacBook mount
+# over SMB. Two gits in it at once corrupt scratch files — a concurrent push
+# while this job fetched left FETCH_HEAD padded with spaces and git reported
+# "fatal: invalid upstream 'FETCH_HEAD'". Serialise runs, and take over a lock
+# left behind by a crashed one.
+LOCK="$REPO/.diary.lock"
+STALE=$((AGENT_TIMEOUT + 1800))
+if ! mkdir "$LOCK" 2>/dev/null; then
+  age=$(( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || date +%s) ))
+  if [ "$age" -gt "$STALE" ]; then
+    echo "warn: taking over a stale lock (${age}s old, held by $(cat "$LOCK/owner" 2>/dev/null || echo unknown))"
+    rm -rf "$LOCK"; mkdir "$LOCK" || fail "cannot create $LOCK"
+  else
+    fail "another diary run holds $LOCK (${age}s old, $(cat "$LOCK/owner" 2>/dev/null || echo unknown)); not running two at once"
+  fi
+fi
+printf '%s pid %s since %s\n' "$(hostname -s)" "$$" "$(date '+%F %T %Z')" > "$LOCK/owner"
+trap 'rm -rf "$LOCK"' EXIT
+# origin/main is a real ref that survives a racing writer; FETCH_HEAD is a
+# scratch file and was the thing that got corrupted.
+if git fetch -q origin; then
+  if git rev-parse -q --verify origin/main >/dev/null; then
+    git rebase -q --autostash origin/main || {
+      git rebase --abort 2>/dev/null
+      echo "warn: rebase onto origin/main failed, continuing on local state"
+    }
+  else
+    echo "warn: origin/main does not resolve, continuing on local state"
+  fi
 else
   echo "warn: git fetch failed, continuing on local state"
 fi
@@ -72,11 +97,15 @@ fi
 [ $rc -ne 0 ] && [ $rc -ne 124 ] && echo "warn: agent exited $rc; publishing whatever it wrote"
 
 # --- publish ----------------------------------------------------------------
+# posts/<date> is the day's entry; projects/ holds optional rolling per-project
+# pages the build also renders. Anything else in the tree is not this run's work.
 DAYDIR="posts/$DATE"
-if [ -z "$(git status --porcelain -- "$DAYDIR")" ]; then
-  echo "nothing new under $DAYDIR — not committing"
+PATHS=("$DAYDIR")
+[ -d projects ] && PATHS+=(projects)
+if [ -z "$(git status --porcelain -- "${PATHS[@]}")" ]; then
+  echo "nothing new under ${PATHS[*]} — not committing"
 else
-  git add -A -- "$DAYDIR"
+  git add -A -- "${PATHS[@]}"
   git -c user.name="${GIT_AUTHOR_NAME:-$(git config user.name)}" \
       -c user.email="${GIT_AUTHOR_EMAIL:-$(git config user.email)}" \
       commit -q -m "Diary entry for $DATE" || fail "commit failed"
