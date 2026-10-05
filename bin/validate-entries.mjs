@@ -135,7 +135,8 @@ if (NO_SURVEY) {
     if (!name) continue;
     const counters = r.slice(1);
     const changed = counters.some((c) => {
-      const [, v] = c.split(":");
+      const [k, v] = c.split(":");
+      if (k === "error") return true; // unreadable is not the same as unchanged
       return Number(v) > 0;
     });
     if (changed) surveyChanged.add(name);
@@ -212,12 +213,32 @@ if (files.includes("index.md")) {
 // the survey shows work. It is how "I ran out of time looking" gets published as
 // "nothing shipped".
 if (!NO_SURVEY && entries.length === 0 && surveyChanged.size) {
-  bad(
-    "index.md",
-    `declares a quiet day, but the survey flagged ${surveyChanged.size} changed folder(s): ` +
-      [...surveyChanged].slice(0, 5).join(", ") +
-      (surveyChanged.size > 5 ? ", ..." : ""),
-  );
+  // "Nothing happened" and "I ran out of time looking" read identically, which
+  // is why this check exists. But "I looked, and it was a coding assistant's
+  // config file" is a legitimate quiet day, and failing it threw away a good
+  // honest overview. The rule is therefore to account for what was seen, not to
+  // forbid the conclusion: name each changed folder and say why it was left out.
+  const overviewPath = path.join(DAY, "index.md");
+  const overview = fs.existsSync(overviewPath)
+    ? fs.readFileSync(overviewPath, "utf8").toLowerCase()
+    : "";
+  const display = folderDisplayNames();
+  const unnamed = [...surveyChanged].filter((folder) => {
+    const d = display.get(folder);
+    return (
+      !overview.includes(folder.toLowerCase()) &&
+      !(d && overview.includes(d.toLowerCase()))
+    );
+  });
+  if (unnamed.length) {
+    bad(
+      "index.md",
+      `declares a quiet day without accounting for ${unnamed.length} folder(s) the survey flagged: ` +
+        unnamed.slice(0, 5).join(", ") +
+        (unnamed.length > 5 ? ", ..." : "") +
+        " — name each one and say why it was left out",
+    );
+  }
 }
 
 if (entries.length === 0) {
@@ -262,7 +283,7 @@ for (const f of entries) {
   if (words < 80 || words > 450) bad(f, `body is ${words} words, contract says 80-450`);
 
   const paras = body.trim().split(/\n\s*\n/).filter((p) => p.trim() && !p.trim().startsWith("```"));
-  if (paras.length < 2 || paras.length > 4) bad(f, `${paras.length} paragraphs, contract says 2-4`);
+  if (paras.length < 2 || paras.length > 5) bad(f, `${paras.length} paragraphs, contract says 2-5`);
 
   if (/^#{1,6}\s/m.test(body)) bad(f, "contains a heading; the page supplies the heading");
 

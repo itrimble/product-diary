@@ -48,8 +48,8 @@ first paragraph should still have learned something true and complete.
 - **80-450 words.** Below 80 it is a changelog line, not an entry; above 450 it
   stops being a diary. The floor is deliberately low: a floor set too high is
   itself a cause of padding.
-- **2-4 paragraphs**, blank-line separated. No headings — the page supplies the
-  heading.
+- **2-5 paragraphs**, blank-line separated. No headings — the page supplies the
+  heading. The word count is the real limit; this only stops a wall of text.
 - At least one **concrete specific**: a feature, file, command, bug, number or
   decision. "Various improvements" is a validation failure, not a style note.
 - Images referenced by bare filename only (`![alt](shot.png)`), and the file must
@@ -65,6 +65,12 @@ first paragraph should still have learned something true and complete.
 
 No frontmatter. 1-3 sentences framing the day across projects. On a day where
 nothing qualified, it says so plainly and is the **only** file written.
+
+If the survey flagged folders you decided not to write about — noise, generated
+files, private material — the overview must **name each one** and say why. A day
+cannot be declared quiet while leaving flagged folders unexplained, because
+"nothing happened" and "I ran out of time looking" otherwise read the same. A
+folder the survey could not read at all (`error:`) counts as flagged.
 
 ## The project page
 
