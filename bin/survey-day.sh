@@ -19,15 +19,21 @@ if [ "${1:-}" = "--one" ]; then
   date=$2 dir=$3
   name=$(basename "$dir")
   next=$(date -j -v+1d -f %Y-%m-%d "$date" +%F 2>/dev/null) || next=$date
+  # Both boundaries must be explicit midnights. `git log --since=2026-10-04`
+  # means "2026-10-04 at the current time of day", so a run at 11:34 on the 5th
+  # counted the 5th's commits as the 4th's. Found by the agent, which refused to
+  # write entries for commits whose dates did not match the day it was given.
+  from="${date}T00:00:00"
+  to="${next}T00:00:00"
   if [ -d "$dir/.git" ]; then
-    n=$(timeout 25 git -C "$dir" log --all --since="$date" --until="$next" --oneline 2>/dev/null | wc -l | tr -d ' ')
+    n=$(timeout 25 git -C "$dir" log --all --since="$from" --until="$to" --oneline 2>/dev/null | wc -l | tr -d ' ')
     n=${n:-0}
     if [ "$n" = 0 ]; then
       # Uncommitted edits are still a day's work, and are the easiest thing to miss.
       dirty=$(timeout 25 git -C "$dir" status --porcelain 2>/dev/null | wc -l | tr -d ' ')
       mod=0
       if [ "${dirty:-0}" -gt 0 ]; then
-        mod=$(timeout 25 find "$dir" -maxdepth 3 -type f -newermt "$date" ! -newermt "$next" \
+        mod=$(timeout 25 find "$dir" -maxdepth 3 -type f -newermt "$from" ! -newermt "$to" \
                 -not -path '*/.git/*' -not -path '*/node_modules/*' 2>/dev/null | wc -l | tr -d ' ')
       fi
       if [ "${mod:-0}" -gt 0 ]; then
@@ -41,7 +47,7 @@ if [ "${1:-}" = "--one" ]; then
       printf '%s\tcommits:%s\n' "$name" "$n"
     fi
   else
-    n=$(timeout 30 find "$dir" -maxdepth 3 -type f -newermt "$date" ! -newermt "$next" \
+    n=$(timeout 30 find "$dir" -maxdepth 3 -type f -newermt "$from" ! -newermt "$to" \
           -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/dist/*' \
           -not -path '*/build/*' -not -path '*/Pods/*' -not -path '*/DerivedData/*' \
           -not -path '*/.venv/*' -not -path '*/__pycache__/*' 2>/dev/null | wc -l | tr -d ' ')
