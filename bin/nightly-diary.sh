@@ -233,7 +233,17 @@ else
       >/dev/null || { git checkout -q main; fail "could not open the pull request"; }
   fi
 
-  echo "waiting for the verify check on $BRANCH"
+  # `gh pr checks` exits non-zero when no check has registered yet, which is the
+  # normal state for the first seconds after a pull request is opened. Without
+  # this wait it reports failure on a run whose check then passes, and the day
+  # sits unpublished in an open PR.
+  echo "waiting for the verify check to register on $BRANCH"
+  for _ in $(seq 1 30); do
+    n=$(gh pr view "$BRANCH" --json statusCheckRollup --jq '.statusCheckRollup | length' 2>/dev/null || echo 0)
+    [ "${n:-0}" -gt 0 ] && break
+    sleep 10
+  done
+  echo "waiting for the verify check to pass"
   if ! gh pr checks "$BRANCH" --watch --fail-fast >/dev/null 2>&1; then
     git checkout -q main
     fail "the verify check did not pass for $DATE; nothing published (see the PR)"
