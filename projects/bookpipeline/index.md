@@ -1,0 +1,1 @@
+BookForge pipeline is the toolchain and Mac app Ian uses to turn manuscripts into finished books. It handles chapters, covers, Kindle and print packages, analytics and review passes. The app currently carries a new visual design called Imprint, with a cloth-bound, printed-book look applied across its main screens and sheets.
