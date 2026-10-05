@@ -138,6 +138,10 @@ run_provider() {
     return 2
   fi
   echo "--- provider $name (model $model) start $(date '+%T'), timeout ${AGENT_TIMEOUT}s ---"
+  # Benchmarking: DIARY_USAGE_DIR makes the agent report token usage as JSON so a
+  # run's real cost can be computed from each provider's own rates.
+  local fmt=()
+  [ -n "${DIARY_USAGE_DIR:-}" ] && { mkdir -p "$DIARY_USAGE_DIR"; fmt=(--output-format json); }
   (
     unset ANTHROPIC_API_KEY CLAUDE_CODE_OAUTH_TOKEN ANTHROPIC_AUTH_TOKEN ANTHROPIC_BASE_URL
     unset ANTHROPIC_MODEL ANTHROPIC_DEFAULT_SONNET_MODEL ANTHROPIC_DEFAULT_OPUS_MODEL ANTHROPIC_DEFAULT_HAIKU_MODEL
@@ -147,12 +151,24 @@ run_provider() {
       export ANTHROPIC_MODEL="$model" ANTHROPIC_DEFAULT_SONNET_MODEL="$model"
       export ANTHROPIC_DEFAULT_OPUS_MODEL="$model" ANTHROPIC_DEFAULT_HAIKU_MODEL="$model"
       export API_TIMEOUT_MS=3000000
-      timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
-        --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS"
+      if [ -n "${DIARY_USAGE_DIR:-}" ]; then
+        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
+          --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" \
+          > "$DIARY_USAGE_DIR/$name.json"
+      else
+        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
+          --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS"
+      fi
     else
       export CLAUDE_CODE_OAUTH_TOKEN="$token"
-      timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
-        --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" --model "$model"
+      if [ -n "${DIARY_USAGE_DIR:-}" ]; then
+        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
+          --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" --model "$model" \
+          > "$DIARY_USAGE_DIR/$name.json"
+      else
+        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
+          --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" --model "$model"
+      fi
     fi
   )
 }

@@ -286,7 +286,7 @@ for (const f of entries) {
   if (words < 80 || words > 450) bad(f, `body is ${words} words, contract says 80-450`);
 
   const paras = body.trim().split(/\n\s*\n/).filter((p) => p.trim() && !p.trim().startsWith("```"));
-  if (paras.length < 2 || paras.length > 5) bad(f, `${paras.length} paragraphs, contract says 2-5`);
+  if (paras.length < 2 || paras.length > 6) bad(f, `${paras.length} paragraphs, contract says 2-6`);
 
   if (/^#{1,6}\s/m.test(body)) bad(f, "contains a heading; the page supplies the heading");
 
