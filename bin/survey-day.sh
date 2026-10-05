@@ -25,8 +25,27 @@ if [ "${1:-}" = "--one" ]; then
   # write entries for commits whose dates did not match the day it was given.
   from="${date}T00:00:00"
   to="${next}T00:00:00"
+  # A timeout must never look like "no commits". Piping straight into wc -l
+  # turns a killed git into a confident zero, which is how eight commits in
+  # snapdog disappeared from the 2026-10-01 survey. Capture the status, retry
+  # once with more room, and say "error" rather than guess.
+  gitcount() {
+    local out rc
+    out=$(timeout "$1" git -C "$dir" log --all --since="$from" --until="$to" --oneline 2>/dev/null)
+    rc=$?
+    [ $rc -ne 0 ] && return $rc
+    printf '%s' "$out" | grep -c . || true
+  }
+
   if [ -d "$dir/.git" ]; then
-    n=$(timeout 25 git -C "$dir" log --all --since="$from" --until="$to" --oneline 2>/dev/null | wc -l | tr -d ' ')
+    n=$(gitcount 25)
+    if [ $? -ne 0 ]; then
+      n=$(gitcount 90)
+      if [ $? -ne 0 ]; then
+        printf '%s\terror:could-not-read-log\n' "$name"
+        exit 0
+      fi
+    fi
     n=${n:-0}
     if [ "$n" = 0 ]; then
       # Uncommitted edits are still a day's work, and are the easiest thing to miss.
@@ -67,6 +86,8 @@ find "$PROJECTS" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -not -name prod
   | sort > "$out"
 
 total=$(wc -l < "$out" | tr -d ' ')
+# error rows are listed too: an unreadable repo is something to account for, not
+# something to drop.
 changed=$(grep -vE '\tcommits:0$|\tfiles:0$' "$out" || true)
 echo "surveyed $total folders for $date -> logs/surveys/$date.tsv"
 if [ -n "$changed" ]; then
