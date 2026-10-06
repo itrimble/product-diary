@@ -125,7 +125,13 @@ $(sed "s/YYYY-MM-DD/$DATE/g" "$REPO/bin/ENTRY-CONTRACT.md")"
 
 # Never silently rewrite a day that is already published.
 if [ -n "$(git ls-files -- "$DAYDIR")" ] && [ -z "${DIARY_FORCE:-}" ]; then
-  fail "$DAYDIR is already committed; re-run with DIARY_FORCE=1 to replace it"
+  # Already written — by an earlier run, or by hand. That is a no-op, not a
+  # failure: exiting non-zero here made launchd record "last exit code = 1" on a
+  # night when the job did exactly the right thing. Say so and leave quietly, so
+  # a real failure still stands out in the log.
+  echo "$DAYDIR is already published; nothing to do (DIARY_FORCE=1 to rewrite it)"
+  echo "=== finished $(date '+%F %T %Z') ==="
+  exit 0
 fi
 
 # Run one provider. Its credentials live only inside the subshell, so a later
