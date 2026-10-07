@@ -12,7 +12,9 @@
 set -uo pipefail
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
-PROJECTS=${DIARY_PROJECTS_DIR:-/Volumes/nas/projects}
+# ~/projects is the source of truth; the NAS copy is a backup. The wrapper
+# exports DIARY_PROJECTS_DIR, so this default only applies to manual runs.
+PROJECTS=${DIARY_PROJECTS_DIR:-$HOME/projects}
 DATE=${1:-$(date -v-1d +%F)}
 LOG="$REPO/logs/$DATE.log"
 # A capture or a wedged build must not hold the machine overnight.
