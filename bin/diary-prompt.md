@@ -6,11 +6,11 @@ Everything below refers to that date.
 
 ## Where things are
 
-- Projects to scan: every folder directly under `/Volumes/nas/projects`.
-- Canonical names: read `/Volumes/nas/projects/PROJECTS.md` **first**. It maps
+- Projects to scan: every folder directly under `DIARY_PROJECTS`.
+- Canonical names: read `DIARY_PROJECTS/PROJECTS.md` **first**. It maps
   folders to display names. Use those names, and never emit two entries for one
   product — `qix-clone` and `qix-swift` are both QixForge.
-- Output repo: `/Volumes/nas/projects/product-diary`. This is the only publish
+- Output repo: `DIARY_REPO`. This is the only publish
   target. Do not create repos, and do not publish anywhere else.
 
 ## What counts as a day's work
@@ -20,7 +20,7 @@ A project qualifies if it has real file changes dated `DIARY_DATE`.
 **The survey has already been run for you.** Read it:
 
 ```sh
-cat /Volumes/nas/projects/product-diary/logs/surveys/DIARY_DATE.tsv
+cat DIARY_REPO/logs/surveys/DIARY_DATE.tsv
 ```
 
 One line per project folder. The folders with a non-zero count are your
@@ -102,7 +102,7 @@ Each night starts with no memory of the last one. Before writing about a
 project, run:
 
 ```sh
-/Volumes/nas/projects/product-diary/bin/recent-entries.sh <project-slug>
+DIARY_REPO/bin/recent-entries.sh <project-slug>
 ```
 
 It prints that project's last three entries. Use them:
@@ -135,7 +135,7 @@ contract is a wasted run.
 **Take a picture of each project you write about.** Run:
 
 ```sh
-/Volumes/nas/projects/product-diary/bin/shot-project.sh <project-folder> DIARY_DATE
+DIARY_REPO/bin/shot-project.sh <project-folder> DIARY_DATE
 ```
 
 It builds the app, runs it in a simulator and screenshots it, or renders a web
