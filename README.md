@@ -36,6 +36,34 @@ run time.
 
 Logs land in `logs/YYYY-MM-DD.log`.
 
+## Menu bar status (SwiftBar)
+
+`swiftbar/product-diary.30m.sh` reports the diary's health in the menu bar.
+Install it on any Mac with SwiftBar:
+
+```sh
+install -m 755 swiftbar/product-diary.30m.sh \
+  "$HOME/Library/Application Support/SwiftBar/Plugins/product-diary.30m.sh"
+open -g "swiftbar://refreshallplugins"
+```
+
+It shows the latest published day, that day's project entries, checkout drift
+against `origin/main`, the last run's outcome, and the LaunchAgent's state on
+the Mac that runs the diary. Health follows the schedule: the diary writes
+*yesterday's* entry just after midnight, so a one-day lag is green, two days
+amber, three or more red.
+
+Two details it has to get right:
+
+- **The repo is resolved local-first** — `~/projects/product-diary`, then the
+  mini's share, then the NAS — and the menu names which one it used. Reading a
+  local checkout means a dropped share cannot make the diary look broken.
+- **`logs/` is gitignored**, so only the Mac that ran the diary has real logs.
+  `posts/` is tracked and therefore accurate everywhere. The plugin sources the
+  log separately (this Mac only if it has the LaunchAgent, else the mini's
+  share, else the NAS) and always labels where the log came from, so a stale
+  local log is never presented as the last run.
+
 ## Installing on the Mac mini
 
 From any Mac that can reach the mini:
