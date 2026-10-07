@@ -19,6 +19,12 @@ DATE=${1:-$(date -v-1d +%F)}
 LOG="$REPO/logs/$DATE.log"
 # A capture or a wedged build must not hold the machine overnight.
 AGENT_TIMEOUT=${DIARY_AGENT_TIMEOUT:-3600}
+# `timeout` sends TERM and then waits for the child to exit. The agent does not
+# exit on TERM mid-request, so without a kill grace the timeout is advisory
+# only: on 2026-10-07 the first provider was given 3600s, reported rc=124
+# ("hit the timeout"), and still ran 8h49m, which cost the night its two
+# fallbacks. --kill-after makes the limit real.
+AGENT_KILL_GRACE=${DIARY_AGENT_KILL_GRACE:-120}
 # Overridable so a specific CLI build can be pinned, and so the provider loop
 # can be exercised against a stub in tests.
 CLAUDE_BIN=${DIARY_CLAUDE_BIN:-claude}
@@ -169,21 +175,21 @@ run_provider() {
       export ANTHROPIC_DEFAULT_OPUS_MODEL="$model" ANTHROPIC_DEFAULT_HAIKU_MODEL="$model"
       export API_TIMEOUT_MS=3000000
       if [ -n "${DIARY_USAGE_DIR:-}" ]; then
-        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
+        timeout --kill-after="$AGENT_KILL_GRACE" "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
           --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" \
           > "$DIARY_USAGE_DIR/$name.json"
       else
-        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
+        timeout --kill-after="$AGENT_KILL_GRACE" "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
           --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS"
       fi
     else
       export CLAUDE_CODE_OAUTH_TOKEN="$token"
       if [ -n "${DIARY_USAGE_DIR:-}" ]; then
-        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
+        timeout --kill-after="$AGENT_KILL_GRACE" "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" "${fmt[@]}" \
           --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" --model "$model" \
           > "$DIARY_USAGE_DIR/$name.json"
       else
-        timeout "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
+        timeout --kill-after="$AGENT_KILL_GRACE" "$AGENT_TIMEOUT" "$CLAUDE_BIN" -p "$prompt" \
           --allowedTools Bash Read Write Edit Glob Grep --add-dir "$PROJECTS" --model "$model"
       fi
     fi
@@ -231,8 +237,9 @@ else
     run_provider "$pname" "$pbase" "$pmodel" "$ptoken"
     rc=$?
     [ $rc -eq 2 ] && continue
-    [ $rc -eq 124 ] && echo "warn: provider $pname hit the timeout"
-    [ $rc -ne 0 ] && [ $rc -ne 124 ] && echo "warn: provider $pname exited $rc"
+    [ $rc -eq 124 ] && echo "warn: provider $pname hit the timeout (${AGENT_TIMEOUT}s)"
+    [ $rc -eq 137 ] && echo "warn: provider $pname ignored TERM and was killed after ${AGENT_TIMEOUT}s + ${AGENT_KILL_GRACE}s"
+    [ $rc -ne 0 ] && [ $rc -ne 124 ] && [ $rc -ne 137 ] && echo "warn: provider $pname exited $rc"
 
     # The contract is what makes the blog consistent across providers.
     if node "$REPO/bin/validate-entries.mjs" "$DATE"; then
