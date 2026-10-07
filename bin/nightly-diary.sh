@@ -12,7 +12,9 @@
 set -uo pipefail
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
-PROJECTS=${DIARY_PROJECTS_DIR:-/Volumes/nas/projects}
+# ~/projects is the source of truth; the NAS copy is a backup. The wrapper
+# exports DIARY_PROJECTS_DIR, so this default only applies to manual runs.
+PROJECTS=${DIARY_PROJECTS_DIR:-$HOME/projects}
 DATE=${1:-$(date -v-1d +%F)}
 LOG="$REPO/logs/$DATE.log"
 # A capture or a wedged build must not hold the machine overnight.
@@ -120,7 +122,16 @@ DAYDIR="posts/$DATE"
 # The prompt and the validator are held to one source of truth: the contract is
 # appended to the prompt, so what the agent is told and what is enforced cannot
 # drift apart.
-prompt="$(sed "s/DIARY_DATE/$DATE/g" "$REPO/bin/diary-prompt.md")
+# DIARY_REPO and DIARY_PROJECTS are substituted for the same reason DIARY_DATE
+# is: the prompt used to hardcode /Volumes/nas/projects/product-diary, so when
+# the runner moved to ~/projects the agent wrote to one checkout while the
+# validator read the other and reported "the agent wrote nothing" -- three
+# providers in a row, each having written a perfectly good entry elsewhere.
+# The prompt must never name a path the runner did not choose.
+prompt="$(sed -e "s/DIARY_DATE/$DATE/g" \
+              -e "s|DIARY_REPO|$REPO|g" \
+              -e "s|DIARY_PROJECTS|$PROJECTS|g" \
+              "$REPO/bin/diary-prompt.md")
 $(sed "s/YYYY-MM-DD/$DATE/g" "$REPO/bin/ENTRY-CONTRACT.md")"
 
 # Never silently rewrite a day that is already published.

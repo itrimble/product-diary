@@ -11,7 +11,9 @@ set -euo pipefail
 
 HOST=${1:-100.120.153.82}
 USER_AT=${HOST%%@*}; [ "$USER_AT" = "$HOST" ] && HOST="ian@$HOST"
-REPO=/Volumes/nas/projects/product-diary
+# Expanded on the mini, not here: ~/projects is the source of truth and the
+# NAS copy is only a backup, so the installer must read the local checkout.
+REPO='$HOME/projects/product-diary'
 LABEL=com.ian.product-diary
 
 echo "--- reaching $HOST ---"
@@ -35,10 +37,10 @@ for t in claude node npm git; do
   if command -v "$t" >/dev/null; then echo "  ok   $t -> $(command -v $t)"
   else echo "  MISS $t"; ok=0; fi
 done
-if [ -f /Volumes/nas/projects/PROJECTS.md ]; then echo "  ok   NAS mounted"
-else echo "  MISS NAS not mounted at /Volumes/nas"; ok=0; fi
-if [ -d /Volumes/nas/projects/product-diary/.git ]; then echo "  ok   diary repo visible"
-else echo "  MISS diary repo"; ok=0; fi
+if [ -f "$HOME/projects/PROJECTS.md" ]; then echo "  ok   ~/projects present"
+else echo "  MISS ~/projects/PROJECTS.md - is this the source-of-truth checkout?"; ok=0; fi
+if [ -d "$HOME/projects/product-diary/.git" ]; then echo "  ok   diary repo in ~/projects"
+else echo "  MISS ~/projects/product-diary/.git"; ok=0; fi
 # A headless agent cannot log in interactively, so Claude must already be authed.
 # </dev/null matters: this block arrives on stdin via `bash -s`, and a command
 # that reads stdin swallows the rest of the script.
@@ -75,11 +77,11 @@ echo "--- installing the local wrapper and LaunchAgent ---"
 # The wrapper goes on the internal disk: launchd refuses to set up a job whose
 # program, stdout or working directory sits on the SMB mount (exit 78).
 ssh "$HOST" "mkdir -p ~/bin ~/Library/Logs/product-diary ~/Library/LaunchAgents \
-  && cp '$REPO/bin/mini-wrapper.sh' ~/bin/product-diary-run.sh \
-  && cp '$REPO/bin/mini-launch.js' ~/bin/product-diary-launch.js \
-  && cp '$REPO/bin/mini-token.sh' ~/bin/product-diary-token \
+  && cp $REPO/bin/mini-wrapper.sh ~/bin/product-diary-run.sh \
+  && cp $REPO/bin/mini-launch.js ~/bin/product-diary-launch.js \
+  && cp $REPO/bin/mini-token.sh ~/bin/product-diary-token \
   && chmod +x ~/bin/product-diary-run.sh ~/bin/product-diary-launch.js ~/bin/product-diary-token \
-  && cp '$REPO/bin/$LABEL.plist' ~/Library/LaunchAgents/$LABEL.plist \
+  && cp $REPO/bin/$LABEL.plist ~/Library/LaunchAgents/$LABEL.plist \
   && plutil -lint ~/Library/LaunchAgents/$LABEL.plist"
 # bootout first so a re-run is an upgrade rather than an error.
 ssh "$HOST" "launchctl bootout gui/\$(id -u)/$LABEL 2>/dev/null; launchctl bootstrap gui/\$(id -u) ~/Library/LaunchAgents/$LABEL.plist && launchctl print gui/\$(id -u)/$LABEL | sed -n '1,6p;/next fire/p'"
