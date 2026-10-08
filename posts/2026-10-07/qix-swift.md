@@ -1,0 +1,13 @@
+---
+project: QixForge
+summary: The game's hardest level became finishable for ordinary players, and everything was fitted to the phone screen for release.
+---
+QixForge spent the day getting ready to ship. The campaign's final stage was close to unwinnable for an ordinary player, and it was tuned until a computer stand-in that plays like an average person could finish it, without getting easier for a skilled one. The game's menus, achievement pages, credits and tip popups were re-fitted to a phone-sized screen, the flashing effects were turned down for players sensitive to them, and the words for the store listing, including the name Qix Sectors, were drafted.
+
+The level fix is documented in `docs/release/balance/FINAL_GAUNTLET_VALIDATION.md`, dated the 7th. Stage 99 opened with thirteen small hunters; it now opens with eight. The average-policy bot went from clearing 7 of 12 seeded full-core runs to 12 of 12, and 8 of 12 to 10 of 12 on held-out seeds it had never seen. An average level-99 attempt fell from 106 seconds to 66, expert from 152 to 119. Every other stage's results matched the baseline exactly, and a regression test now pins the eight-hunter rule so it cannot silently drift back.
+
+The phone fitting is a visible iteration trail under `docs/release/iphone-qa/`, captured on a dedicated "Qix Compact iPhone QA" simulator. Session folders name their own progress: compact-achievements, then -clipped, then -bounded; compact-tip-backing, -padded, -rotation, and magma-tip through to magma-tip-settled. Achievement details, ending credits, acknowledgments and the touch-controls overlay each cycled until they fit. Alongside sit capture comparisons for turning the phone, a check for short sideways drags, and a settings-failure folder whose crash was later closed out by settings-credits. New UI tests cover achievements, credits, settings, touch controls, menu transitions and cinematic playback.
+
+The rest of the release pile: two new painted backdrops (ice crystal, magma basalt) each with an art note, a soundtrack analysis pass through BalanceSim's MusicCheck confirming the per-stage music behaves, a privacy manifest backed by a source audit, an acknowledgments file with its sources listed, and named guardian encounter phases in `Forge.toml` (Reef Crown, Caldera Heart, Ice Warden). The store copy is explicitly a local draft, no store record created. None of this is committed yet; the whole pass sits in the working tree, 44 files touched on the day.
+
+![The guardian introduction screen on a phone, showing the Reef Crown encounter in the magma sector with its tip text and a tap-to-begin prompt](qix-swift.png)
