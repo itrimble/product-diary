@@ -23,8 +23,15 @@ if [ "${1:-}" = "--one" ]; then
   # means "2026-10-04 at the current time of day", so a run at 11:34 on the 5th
   # counted the 5th's commits as the 4th's. Found by the agent, which refused to
   # write entries for commits whose dates did not match the day it was given.
-  from="${date}T00:00:00"
-  to="${next}T00:00:00"
+  # Space, not "T". BSD find's -newermt silently misparses the ISO-8601
+  # "2026-10-07T00:00:00" form and lands the boundary far in the past, so the
+  # window swallowed earlier days: the 2026-10-07 survey reported 22 changed
+  # files in snapdog that were all stamped 2026-10-06 16:37. Measured on this
+  # machine: -newermt '2026-10-07' and '2026-10-07 00:00:00' both matched 1
+  # file, '2026-10-07T00:00:00' matched 61. git parses either form identically,
+  # so one space-separated string serves both find and git log.
+  from="${date} 00:00:00"
+  to="${next} 00:00:00"
   # A timeout must never look like "no commits". Piping straight into wc -l
   # turns a killed git into a confident zero, which is how eight commits in
   # snapdog disappeared from the 2026-10-01 survey. Capture the status, retry
