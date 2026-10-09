@@ -1,0 +1,1 @@
+SecureWatch is a security monitoring platform. It has a Rust agent that runs on each computer, web apps that show the results, and parsers that read logs from other security tools. Its history was cleaned of build leftovers on October 8, though a committed Python environment remains to be removed.

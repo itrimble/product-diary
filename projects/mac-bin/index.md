@@ -1,0 +1,1 @@
+mac-bin is a folder of small utility scripts for running a set of Macs. Its main tool, skill-sync, keeps Claude's skills and plugin list the same on all three machines by only ever adding, never deleting. It follows links inside the shared skills folder and refuses to write through any others.
