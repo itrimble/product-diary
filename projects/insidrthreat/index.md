@@ -1,0 +1,1 @@
+The Insider Threat Assessment Tool is a website where an organisation answers questions about its defences and gets a report on how exposed it is to threats from its own people. It has an admin area, AI-written recommendations and sign-in. As of October 8 it builds cleanly for the first time since May 2025, but it has not been deployed yet.
