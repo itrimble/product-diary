@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mac-bin — 2026-10-08 · Product Diary</title>
+<meta name="description" content="The tool that keeps Claude&#39;s skills in step across three Macs stopped treating its own backups as skills.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/mac-bin/2026-10-08/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac-bin — 2026-10-08 · Product Diary">
+<meta property="og:description" content="The tool that keeps Claude&#39;s skills in step across three Macs stopped treating its own backups as skills.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/mac-bin/2026-10-08/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/mac-bin/">mac-bin</a> · <time>2026-10-08</time></p><h1>mac-bin — 2026-10-08</h1><p>mac-bin holds small scripts for running my three Macs. One of them copies Claude&#39;s add-on skills between the machines so each one has everything. Three changes landed in it, and the last fixed a mistake that showed up on the first real run. Skills are no longer lost, doubled up or written through the wrong link.</p>
+<p>The first change, <code>21da188</code>, added the sync itself. It only ever adds: a skill created on one Mac appears on the others, and a Mac that has never seen a skill cannot remove it. Deleting a skill therefore means deleting it everywhere, which I accepted. The second, <code>7820c36</code>, fixed symlinks. Skipping all of them was wrong. Many real skills live in <code>~/.agents/skills</code> and are linked in, so five of the eleven skills the mini had were being ignored. Links that stay inside that folder are now followed. Links pointing anywhere else are left alone, because they are that machine&#39;s own install.</p>
+<p>That second case needed a guard, not just an exclusion. rsync follows a symlink and writes into whatever it points at. Pulling <code>video-use</code>, a real directory on one Mac and a link to a developer checkout on the others, would have written into that checkout.</p>
+<p>The third, <code>e4231ae</code>, came from the first union run. Each replaced skill was backed up to a folder starting with a dot, and I assumed a dot hid it. Claude Code ignores that, so twelve backups loaded as duplicate skills. Backups now go to <code>~/.claude/skill-sync-backups</code>, outside the scanned tree, and dot-folders are skipped when listing skills. None of the twelve reached the shared store. The ones already written on the laptop were moved, not deleted.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

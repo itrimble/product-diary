@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Civic Fortune 2026 — 2026-10-05 · Product Diary</title>
+<meta name="description" content="Three of the game&#39;s five ways to win could never be won; they now can, and a run saves itself so you can quit and come back.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/civic-fortune-2026-ios/2026-10-05/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Civic Fortune 2026 — 2026-10-05 · Product Diary">
+<meta property="og:description" content="Three of the game&#39;s five ways to win could never be won; they now can, and a run saves itself so you can quit and come back.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/civic-fortune-2026-ios/2026-10-05/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-05/civic-fortune-2026-ios.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/civic-fortune-2026-ios/">Civic Fortune 2026</a> · <time>2026-10-05</time></p><h1>Civic Fortune 2026 — 2026-10-05</h1><p>Three of the five ways to win Civic Fortune 2026 could not actually be won, and nothing had told me. The game also forgot your run the moment you closed it, which hurts in a game that lasts 52 weeks. Both are fixed. You can now quit mid-run and the menu offers to continue from the week you left, and every win condition can be reached. The buy button in the shop also works for people using the phone&#39;s screen reader, which it did not before.</p>
+<p>The cause of the dead victories was <code>String.hashValue</code>, which Swift reseeds on every launch, so each run sampled a different game. The balance probe printed win rates but asserted nothing, so it passed on a broken game. A new <code>StableHash</code> (FNV-1a) replaced it at both call sites, and two probe runs are now byte-identical. A test greps the source for <code>.hashValue</code> outside comments.</p>
+<p>With stable routing the real numbers appeared. Financial Runway, Influence and Stabilized all sat at 0%, and Mutual Resilience won every run on week 4. Assets could be bought endlessly because nothing set <code>isUnique</code>. Runway needed the <code>lease</code> asset, which drains 60 cash a week against a 2,400 cash gate. Cheap baseline wins fired on week 8 and pre-empted the expensive ones, so designed wins now floor at week 16 and the baseline at week 28.</p>
+<p>Autosave is <code>RunStore</code>, one atomic slot in Application Support. It refuses saves from a newer format and shows a message on the menu if the file is corrupt. Finished runs clear the slot, and the end screen got Play Again. I played 7 weeks, killed the app, and the menu offered &quot;Continue Run, Week 8&quot;. Haptics now fire on routes, event answers, Rest and Buy. The shop row had merged its whole contents for VoiceOver, hiding the Buy button, so now only the description merges and the button reads &quot;Buy Side Hustle for 240 dollars&quot;. 47 tests pass.
+<img src="/assets/2026-10-05/civic-fortune-2026-ios.png" alt="The Civic Fortune 2026 game screen"></p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

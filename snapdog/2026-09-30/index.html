@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SnapDog — 2026-09-30 · Product Diary</title>
+<meta name="description" content="Starting a screen recording no longer leaves SnapDog in front, so your first click lands in the app you are recording.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/snapdog/2026-09-30/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SnapDog — 2026-09-30 · Product Diary">
+<meta property="og:description" content="Starting a screen recording no longer leaves SnapDog in front, so your first click lands in the app you are recording.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/snapdog/2026-09-30/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/snapdog/">SnapDog</a> · <time>2026-09-30</time></p><h1>SnapDog — 2026-09-30</h1><p>When you started a screen recording in SnapDog, the app stayed in front of everything else after you picked what to record. Your first click in the app you were recording was spent waking that app up instead of pressing the button you aimed at. Recording now hands control back to the right app as soon as you choose, so the first click does what you meant it to.</p>
+<p>The cause was the pickers for a whole display, a single window and a region of the screen. Each one pulls SnapDog to the front so Esc and Space work while you choose. Nothing ever gave that focus back. The change is an uncommitted edit to <code>RecordingManager.swift</code> plus a new file, <code>RecordingFocus.swift</code>.</p>
+<p><code>RecordingManager.start</code> now notes which app was frontmost when you asked to record. Once a target is chosen, it works out who owns it: the window&#39;s owning app for a window, nothing for a full display, and for a region the topmost normal window under the middle of the selection. That lookup walks the on-screen window list front to back and skips SnapDog&#39;s own windows. The region case needs a coordinate flip, because the picker view has a top-left origin and the screen list uses a different one.</p>
+<p>The pick is a small pure function, <code>appToActivate</code>. It prefers the target&#39;s owner, falls back to the app that was frontmost before, and never returns SnapDog itself. A test file, <code>RecordingFocusTests.swift</code>, was added for it, but I could not confirm it runs and none of this is committed yet. The countdown that follows the pick is unchanged.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

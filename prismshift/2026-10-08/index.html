@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prism Shift — 2026-10-08 · Product Diary</title>
+<meta name="description" content="All fifteen levels now have their own music, backdrops and layouts, and the music slides from one level into the next without stopping play.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/prismshift/2026-10-08/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prism Shift — 2026-10-08 · Product Diary">
+<meta property="og:description" content="All fifteen levels now have their own music, backdrops and layouts, and the music slides from one level into the next without stopping play.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/prismshift/2026-10-08/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-08/prismshift.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/prismshift/">Prism Shift</a> · <time>2026-10-08</time></p><h1>Prism Shift — 2026-10-08</h1><p>Prism Shift now feels like fifteen different places instead of three. Every level has its own piece of music, its own layout of crystals and its own scenery behind the board. The second and third worlds got new paintings, and the crystals themselves are cut differently in each world. When you clear a level, the next level&#39;s music fades in over the old one and you can keep playing through the fade instead of waiting for it.</p>
+<p>Until now only the first ten levels had recorded music. The five cave levels were thin synthesized loops that faded out and cut in. They are now composed separately, each with its own melody, bass line and rhythm, and rendered in stereo. They run on the same two-track hand-off as the recorded scores, so both tracks overlap while the volume ramps. Gameplay resumes the moment the incoming track starts.</p>
+<p>The details are in <code>docs/SOUNDTRACK_AND_WORLD_VARIETY_OCT08.md</code> and <code>docs/LEVEL_AND_SOUNDTRACK_COMPLETION.md</code>. Each level now carries a design record in <code>Level.swift</code> with its own piece mix, a shape family and a landmark drawn behind the board. Examples are the blossoms in First Light, the broken signals in Neon District and the heartstone altar in Crystal Caverns. Because the piece mix changed, all fifteen balance targets were measured again from the original five seeds. The old Heartstone ceiling failed the +20% check, so the whole baseline was re-derived. No gate was loosened.</p>
+<p>For listening, <code>docs/audio-review/oct08/</code> holds a medley of all fifteen levels with 0.8-second crossfades, plus 5, 15 and 30 minute fatigue loops. The ten recorded scores have ten different file hashes, and all fifty stems pass the loop and headroom checks. Different hashes show the tracks differ. They do not show they sound good. Nobody has listened on a real phone yet, and the licensing for the recorded music is still unresolved. The repo is still not under version control, so tonight&#39;s changes are only on disk.</p>
+<p><img src="/assets/2026-10-08/prismshift.png" alt="The Prism Shift title screen on a phone, with the Play button and the world and level picker"></p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

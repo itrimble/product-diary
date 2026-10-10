@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Product Diary</title>
+  <link>https://blog.remnantsecurity.com/</link>
+  <atom:link href="https://blog.remnantsecurity.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>What changed across the projects, day by day.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Insider Threat Assessment Tool — 2026-10-08</title>
+    <link>https://blog.remnantsecurity.com/insidrthreat/2026-10-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/insidrthreat/2026-10-08/</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Insider Threat Assessment Tool</category>
+    <description>A website for rating how ready an organisation is for insider threats compiles again for the first time in over a year.</description>
+  </item>
+  <item>
+    <title>mac-bin — 2026-10-08</title>
+    <link>https://blog.remnantsecurity.com/mac-bin/2026-10-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/mac-bin/2026-10-08/</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>mac-bin</category>
+    <description>The tool that keeps Claude&#39;s skills in step across three Macs stopped treating its own backups as skills.</description>
+  </item>
+  <item>
+    <title>Prism Shift — 2026-10-08</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-10-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-10-08/</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Prism Shift</category>
+    <description>All fifteen levels now have their own music, backdrops and layouts, and the music slides from one level into the next without stopping play.</description>
+  </item>
+  <item>
+    <title>QixForge — 2026-10-08</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-08/</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>QixForge</category>
+    <description>Every level got hand-built obstacles to claim around, and a slower or faster game pace can now be chosen in the options.</description>
+  </item>
+  <item>
+    <title>SecureWatch — 2026-10-08</title>
+    <link>https://blog.remnantsecurity.com/securewatch/2026-10-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/securewatch/2026-10-08/</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>SecureWatch</category>
+    <description>The code history was cleared of nearly fifteen thousand leftover build files that were clogging every status check.</description>
+  </item>
+  <item>
+    <title>Prism Shift — 2026-10-07</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-10-07/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-10-07/</guid>
+    <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Prism Shift</category>
+    <description>Every scripted walkthrough of the whole game now passes on a small phone screen, three days before its planned release.</description>
+  </item>
+  <item>
+    <title>QixForge — 2026-10-07</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-07/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-07/</guid>
+    <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>QixForge</category>
+    <description>The game&#39;s hardest level became finishable for ordinary players, and everything was fitted to the phone screen for release.</description>
+  </item>
+  <item>
+    <title>CyberSim — 2026-10-06</title>
+    <link>https://blog.remnantsecurity.com/cybertestapp/2026-10-06/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/cybertestapp/2026-10-06/</guid>
+    <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+    <category>CyberSim</category>
+    <description>CyberSim got its App Store page written and its release paperwork set up, so version 1.1.0 can be sent to Apple.</description>
+  </item>
+  <item>
+    <title>Civic Fortune 2026 — 2026-10-05</title>
+    <link>https://blog.remnantsecurity.com/civic-fortune-2026-ios/2026-10-05/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/civic-fortune-2026-ios/2026-10-05/</guid>
+    <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Civic Fortune 2026</category>
+    <description>Three of the game&#39;s five ways to win could never be won; they now can, and a run saves itself so you can quit and come back.</description>
+  </item>
+  <item>
+    <title>SnapDog — 2026-10-02</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-02/</guid>
+    <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    <category>SnapDog</category>
+    <description>The recording focus fix is still unfinished, and the product site gained new pictures of the order page.</description>
+  </item>
+  <item>
+    <title>QixForge — 2026-10-01</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-01/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-01/</guid>
+    <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    <category>QixForge</category>
+    <description>All 100 levels were play-tested by a bot and rebalanced, and the game gained story scenes and per-sector music.</description>
+  </item>
+  <item>
+    <title>SnapDog — 2026-10-01</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-01/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-01/</guid>
+    <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+    <category>SnapDog</category>
+    <description>Arrows drawn leftward no longer flip, new captures open clean, and click rings in recordings land on the click.</description>
+  </item>
+  <item>
+    <title>SnapDog — 2026-09-30</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-09-30/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-09-30/</guid>
+    <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    <category>SnapDog</category>
+    <description>Starting a screen recording no longer leaves SnapDog in front, so your first click lands in the app you are recording.</description>
+  </item>
+  <item>
+    <title>Lectern — 2026-09-29</title>
+    <link>https://blog.remnantsecurity.com/slideprocessor/2026-09-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/slideprocessor/2026-09-29/</guid>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+    <category>Lectern</category>
+    <description>Lectern can now find and download local AI models inside the app, and the main screens were reworked.</description>
+  </item>
+  <item>
+    <title>QixForge — 2026-09-29</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-09-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-09-29/</guid>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+    <category>QixForge</category>
+    <description>QixForge now explains why you lost a life, plays properly sideways, and starts on a dark screen.</description>
+  </item>
+  <item>
+    <title>BookForge pipeline — 2026-09-28</title>
+    <link>https://blog.remnantsecurity.com/bookpipeline/2026-09-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/bookpipeline/2026-09-28/</guid>
+    <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    <category>BookForge pipeline</category>
+    <description>The BookForge Mac app got a consistent look and stopped claiming a book had no chapters while it loaded.</description>
+  </item>
+  <item>
+    <title>StatBar — 2026-09-28</title>
+    <link>https://blog.remnantsecurity.com/statbar/2026-09-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar/2026-09-28/</guid>
+    <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    <category>StatBar</category>
+    <description>Building a release of the app no longer hangs forever waiting on Apple&#39;s security check.</description>
+  </item>
+</channel>
+</rss>

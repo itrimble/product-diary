@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SnapDog — 2026-10-01 · Product Diary</title>
+<meta name="description" content="Arrows drawn leftward no longer flip, new captures open clean, and click rings in recordings land on the click.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/snapdog/2026-10-01/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SnapDog — 2026-10-01 · Product Diary">
+<meta property="og:description" content="Arrows drawn leftward no longer flip, new captures open clean, and click rings in recordings land on the click.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/snapdog/2026-10-01/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/snapdog/">SnapDog</a> · <time>2026-10-01</time></p><h1>SnapDog — 2026-10-01</h1><p>Three things in SnapDog that looked wrong now look right. An arrow or line dragged to the left or upward used to come out pointing the wrong way. The editor also reopened with the previous screenshot and its markings still on it, so a new capture started on top of old work. And in screen recordings, the yellow ring that marks a click swept in from a corner of the screen instead of growing where you clicked. All three are fixed, each with a test that fails without the fix.</p>
+<p>The arrow bug was in <code>Annotation.swift</code>. The end point was read from a rectangle&#39;s width and height, and those are always positive, so any drag toward the left or top lost its sign. A new <code>vectorEnd</code> reads the signed size, and the renderer and live preview both use it. The selection box is normalized separately.</p>
+<p>The stale editor came from the reused editor window keeping its <code>@State</code> between captures. <code>EditorState</code> now reloads when the incoming image ID changes, and the content is keyed on that state so zoom and pan reset too. Re-creating the whole view was tried in passing and rejected: it re-fit the window to the loading placeholder and pushed Save into the toolbar overflow. Undo snapshots now include <code>nextCounterValue</code>, so undoing a numbered step reuses its number. Tests: <code>AnnotationDirectionTests</code>.</p>
+<p>The click ring was a zero-size layer at the overlay origin with the circle baked into its path. Scale animations run around the anchor point, so the ring grew from the corner. <code>ClickRippleOverlay.swift</code> now sizes the layer to the circle, centres it on the click, and converts global event positions to panel-relative ones. <code>ClickRippleTests</code> covers it.</p>
+<p>The rest of the day went to the website. The feature sections now show things in action instead of settings screenshots, section 04 animates the on-device analysis, every page works on phones, the Record section shows a real recording, and the logo is the app icon. Changes someone made directly to the published site were merged back in. No screenshot: the capture script only photographs today&#39;s build.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BookForge pipeline — 2026-09-28 · Product Diary</title>
+<meta name="description" content="The BookForge Mac app got a consistent look and stopped claiming a book had no chapters while it loaded.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/bookpipeline/2026-09-28/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BookForge pipeline — 2026-09-28 · Product Diary">
+<meta property="og:description" content="The BookForge Mac app got a consistent look and stopped claiming a book had no chapters while it loaded.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/bookpipeline/2026-09-28/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/bookpipeline/">BookForge pipeline</a> · <time>2026-09-28</time></p><h1>BookForge pipeline — 2026-09-28</h1><p>The BookForge Mac app had a bad habit of telling you a 17-chapter book had no chapters. It said &quot;No chapters yet&quot; while the book was still loading. It now shows a loading message until the chapters arrive. The rest of the day went into making the app look like one thing: empty screens, pop-up sheets and Settings now share the same ink colour and the same book-like styling.</p>
+<p>The loading fix is in <code>ContentView.swift</code>. The manuscript tab waited on the board data but treated &quot;not here yet&quot; as &quot;empty&quot;. The same commit renamed the &quot;Persona Review&quot; button to &quot;Review&quot;, which is what the job is called everywhere else, and it makes the action row wrap less.</p>
+<p>Most of the other work was the design pass called Imprint, seven commits in about twenty minutes. The cause of one visible bug was <code>Color.accentColor</code>, which follows the system accent and ignores the app&#39;s own tint. The cover sheet&#39;s selected model card showed system blue. The tint is now applied at the window and Settings roots, so every sheet inherits it. Pass and ready greens across the KDP, print cover, production, release evidence and ship screens use the app ink, while orange and red are kept for warnings and failures.</p>
+<p>Three empty states were redrawn instead of using stock placeholders. Bring Existing Books shows loose manuscript sheets turning into a cloth-bound book, with Choose Folder as the main action. Analytics shows an empty axis holding the one recorded day. New Book shows a cloth case that takes the title as you type and changes cloth with the template. <code>DESIGN.md</code> and <code>.impeccable/design.json</code> now record the system, and a <code>BF_OPEN_SHEET=new|bring</code> dev hook opens those sheets for screenshots.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

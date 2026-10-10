@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StatBar — 2026-09-28 · Product Diary</title>
+<meta name="description" content="Building a release of the app no longer hangs forever waiting on Apple&#39;s security check.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/statbar/2026-09-28/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StatBar — 2026-09-28 · Product Diary">
+<meta property="og:description" content="Building a release of the app no longer hangs forever waiting on Apple&#39;s security check.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/statbar/2026-09-28/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/statbar/">StatBar</a> · <time>2026-09-28</time></p><h1>StatBar — 2026-09-28</h1><p>Putting out a new copy of StatBar no longer hangs forever when Apple&#39;s security check does not answer. Last week a release attempt sat for two days with no message and no error, because the Mac went to sleep in the middle of the upload. Now the process gives up after half an hour and says so, so a stuck release is something you notice the same morning.</p>
+<p>The change is one flag in <code>scripts/release.sh</code>. Both calls to <code>xcrun notarytool submit</code>, one for the app zip and one for the disk image, now pass <code>--timeout 30m</code> next to <code>--wait</code>. Before, <code>--wait</code> had no limit, so the script held until the upload finished or someone killed it. The disk image upload was the one that stalled.</p>
+<p>Nothing in the app itself changed. This is the release path for the Gumroad build added on 24 September, and it is the first fix to come out of actually trying to ship it.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

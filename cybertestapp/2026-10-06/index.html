@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CyberSim — 2026-10-06 · Product Diary</title>
+<meta name="description" content="CyberSim got its App Store page written and its release paperwork set up, so version 1.1.0 can be sent to Apple.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/cybertestapp/2026-10-06/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CyberSim — 2026-10-06 · Product Diary">
+<meta property="og:description" content="CyberSim got its App Store page written and its release paperwork set up, so version 1.1.0 can be sent to Apple.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/cybertestapp/2026-10-06/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-06/cybertestapp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/cybertestapp/">CyberSim</a> · <time>2026-10-06</time></p><h1>CyberSim — 2026-10-06</h1><p>CyberSim, the practice-exam app for cybersecurity certifications, spent the day getting ready to be shipped rather than getting new features. Its App Store page now has real text: a name, a subtitle, and a long description that lists the ten certifications it covers and the four ways to practise. A new set of screenshots for phones and tablets was captured to go with it. Nothing in the app itself changed for people who already have it.</p>
+<p>The listing is stored as files in <code>metadata/</code>, with <code>en-US.json</code> for the page text, <code>app-info/en-US.json</code> for the name and subtitle, and <code>version/1.1.0/en-US.json</code> for the release notes of this version. The name is &quot;CyberSim: Cert Exam Practice&quot; and the subtitle is &quot;Security+ CISSP CEH Exam Prep&quot;. The description leads with the ten exams and the question types beyond multiple choice, such as typing real terminal commands and dragging pieces around a network diagram.</p>
+<p>On the release side, the <code>fastlane/</code> release tooling was updated rather than set up fresh: the <code>Appfile</code>, the <code>Fastfile</code> (about 6 KB) and a short README have been there since April, and all three were touched, keeping uploads to one command instead of a session in a web form. The Xcode project file, its shared scheme and the package lock were also touched, which is the usual footprint of preparing a build for submission. I did not read the diff closely, so I cannot say which settings moved.</p>
+<p>About 24 screenshots sit in the project root, including <code>ipad_02_certs.png</code>, <code>ipad_03_cert_selected.png</code>, <code>06_social_proof.png</code> and <code>07_solution.png</code>. The last two are marketing frames rather than raw captures. The git history for this folder stops in April, so none of this is committed yet. The app-previews folder is still empty.</p>
+<p><img src="/assets/2026-10-06/cybertestapp.png" alt="The CyberSim app on a simulator"></p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

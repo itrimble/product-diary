@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lectern — 2026-09-29 · Product Diary</title>
+<meta name="description" content="Lectern can now find and download local AI models inside the app, and the main screens were reworked.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/slideprocessor/2026-09-29/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lectern — 2026-09-29 · Product Diary">
+<meta property="og:description" content="Lectern can now find and download local AI models inside the app, and the main screens were reworked.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/slideprocessor/2026-09-29/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/slideprocessor/">Lectern</a> · <time>2026-09-29</time></p><h1>Lectern — 2026-09-29</h1><p>Lectern, the Mac app that turns slide decks into lecture material, can now manage local AI models by itself. You can see which models are available on your own machine, download one without leaving the app, and the defaults are chosen to suit smaller Macs. The main steps of the app were also tidied so they stay readable at small window sizes in both light and dark mode.</p>
+<p>The work was one large commit, &quot;add oMLX model management and polish Lectern UI&quot;, touching 52 files. <code>LocalProviderModelManagementService.swift</code> gained about 175 lines for authenticated model discovery and in-app downloads against an oMLX server. <code>LocalModelCatalog.swift</code> and a new machine profile hold the defaults that suit the MacBook Neo.</p>
+<p>On the interface side, <code>FileSelectionView</code>, <code>PreviewView</code>, <code>OutputOptionsView</code> and <code>ContentView</code> were reworked, along with shared colours in <code>Theme.swift</code> and the button and badge styles. <code>ProviderArchitectureV2Test</code> grew by about 200 lines to cover the new provider behaviour.</p>
+<p>A second commit updated the handover notes after a colour review checkpoint. No screenshot today, because the capture script refused a past date.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

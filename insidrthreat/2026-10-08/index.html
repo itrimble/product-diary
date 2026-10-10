@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insider Threat Assessment Tool — 2026-10-08 · Product Diary</title>
+<meta name="description" content="A website for rating how ready an organisation is for insider threats compiles again for the first time in over a year.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/insidrthreat/2026-10-08/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Insider Threat Assessment Tool — 2026-10-08 · Product Diary">
+<meta property="og:description" content="A website for rating how ready an organisation is for insider threats compiles again for the first time in over a year.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/insidrthreat/2026-10-08/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-08/insidrthreat.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/insidrthreat/">Insider Threat Assessment Tool</a> · <time>2026-10-08</time></p><h1>Insider Threat Assessment Tool — 2026-10-08</h1><p>The Insider Threat Assessment Tool is a website where an organisation answers questions and gets a report on how exposed it is to people inside the company. It could not be built at all for over a year, so it was never put online. It builds cleanly again. Along the way three real faults came to light that would have broken sign-in and sign-up once it went live.</p>
+<p>The cause was a merge in May 2025 that left half-finished conflict markers in the admin benchmarks page, so the file was not even valid code. Fixing that exposed 22 more errors. Three mattered. <code>pages/_app.tsx</code> pulled its sign-in provider from a second copy of Clerk, and two copies in one app break authentication at runtime. <code>middleware.ts</code> gave Clerk&#39;s v5 middleware a callback with the wrong arguments. <code>AppContext.tsx</code> described the user with a type taken from a private Clerk path that moves between releases. I replaced it with a small <code>AppUser</code> type holding what the app really stores: id, name, email, sector and company size.</p>
+<p>The rest was mechanical. The webhook handlers now check the event type before reading user fields, since a deletion event carries none. The Firebase setup deliberately exports nothing when it is not configured, so three call sites now check for that. <code>getUserList</code> returns a paged envelope in v5. Two imports pointed at things that no longer exist.</p>
+<p>The check was a full production build: types clean, 23 of 23 pages generated, middleware compiled. One catch for deployment: the <code>/results</code> page creates its OpenAI client when the module loads, so the build needs <code>OPENAI_API_KEY</code> set or that page fails to prerender.</p>
+<p><img src="/assets/2026-10-08/insidrthreat.png" alt="The assessment tool&#39;s landing page"></p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

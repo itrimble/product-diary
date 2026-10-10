@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QixForge — 2026-10-08 · Product Diary</title>
+<meta name="description" content="Every level got hand-built obstacles to claim around, and a slower or faster game pace can now be chosen in the options.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/qix-swift/2026-10-08/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QixForge — 2026-10-08 · Product Diary">
+<meta property="og:description" content="Every level got hand-built obstacles to claim around, and a slower or faster game pace can now be chosen in the options.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/qix-swift/2026-10-08/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-08/qix-swift.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/qix-swift/">QixForge</a> · <time>2026-10-08</time></p><h1>QixForge — 2026-10-08</h1><p>QixForge levels now have solid blocks and walls on the board, and each one has a route to clear. Before, every stage was an empty rectangle. Claiming ground around an obstacle works the way you would hope, and the blocks never count against your percentage target. There is also a new Game Pace setting. Standard is the original speed. Fast runs the game 1.5 times quicker while the music and menus stay at normal speed. The choice is saved, and Restore Defaults puts it back to Standard without touching progress.</p>
+<p>The measurements are in <code>docs/DESIGN.md</code> under &quot;October 8 terrain redesign&quot;. A computer player at average skill cleared 282 of 300 full-campaign runs on the new terrain, against 289 on the old. Expert went from 298 to 299. Both used three seeds. The first ten stages cleared 120 of 120. The average bot loses runs on levels 58, 70, 78, 79, 83, 88, 89 and 99, and those are now the tuning list. Level 88 looked worse on one sample, and a mirrored layout did equally badly, so I did not flip its orientation on that evidence. Orientation did change on stages 28, 30, 34 and 39, after measurement.</p>
+<p>Fast pace is harder as expected: 265 of 300 average clears versus 282. Standard results match the previous build stage for stage. Average runs lasted 44.6 seconds on Standard and 31.4 on Fast.</p>
+<p>In code, <code>BalanceSim</code> gained a pace argument that splits each frame into steps no longer than 1/60 second, a <code>gauntlet-search</code> mode for the level 99 hunter count and a <code>music-export</code> command. <code>TerritoryBoard.swift</code> excludes solid area from both captured and claimable area. A fixture claims a 14 by 12 rectangle around a 4 by 4 block and expects 152 of 384 on a 20 by 20 board. Menus, achievements, a campaign progress file and a render budget also appeared. All of it is uncommitted: 129 files changed, plus a pile of new ones.</p>
+<p><img src="/assets/2026-10-08/qix-swift.png" alt="The QixForge guardian introduction screen on a phone"></p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>

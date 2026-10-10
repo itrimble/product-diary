@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QixForge — 2026-09-29 · Product Diary</title>
+<meta name="description" content="QixForge now explains why you lost a life, plays properly sideways, and starts on a dark screen.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/qix-swift/2026-09-29/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QixForge — 2026-09-29 · Product Diary">
+<meta property="og:description" content="QixForge now explains why you lost a life, plays properly sideways, and starts on a dark screen.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/qix-swift/2026-09-29/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="stylesheet" href="/styles.css"></head>
+<body><header><a href="/" class="brand">Product Diary</a><span class="by">Remnant Security</span></header>
+<main><article><p class="crumbs"><a href="/qix-swift/">QixForge</a> · <time>2026-09-29</time></p><h1>QixForge — 2026-09-29</h1><p>QixForge got a big round of play-testing and polish. When you lose a life, the game now tells you why, whether a monster cut your line, you crossed your own trail, or something else got you. Every screen now works when the phone or tablet is held sideways, where several menus used to spill off the edge. The game also opens on a dark screen instead of flashing white before the neon menu.</p>
+<p>Fourteen commits landed. The death explanation comes from a recorded cause (Qix cut, mini cut, Sparx, self-cross, decay, bolt) that the scene shows in a callout when a life is lost. Upgrades, shield saves and boss phases use the same callout style, as pills over the arena.</p>
+<p>Sideways play was the largest piece. Options, High Scores and Achievements stack their header in a left column and give content the right. Sector Complete uses two columns. A crash when opening a sub-screen before the first layout (a negative mask size) is fixed. On iPad, the interface scale is now measured against a phone in the same orientation, so side columns no longer stay tiny. Smaller fixes: zero-point runs no longer post &quot;PLAYER 0&quot; on the leaderboard, and a bug where rounds never ended in real play is fixed. The power tray no longer shows a permanent &quot;1&quot; on timed powers. The launch screen colour is #05070D from the art bible.</p>
+<p>New UI tests drive all of this: <code>PlaytestUITests</code> covers the orb and power-up loop, the rarer power-ups, and all seven screens when sideways, using a debug-only <code>-placePickups</code> launch flag to line up pickups on the player&#39;s path. No screenshot today, because the capture script refused a past date.</p>
+</article></main>
+<footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>
