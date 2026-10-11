@@ -1,0 +1,1 @@
+Three projects had work on the 10th: QixForge, Prism Shift and mac-bin. The other flagged folder, `_handoffs`, held 13 new files from a working session on book samples and screenshots. It is scratch material that may touch unpublished manuscript text, so I left it out.
