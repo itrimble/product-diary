@@ -155,7 +155,7 @@ $ dumpsys activity activities | grep mResumedActivity
 
 Worth being precise about one thing: Projectivy is not a featherweight. At 160 MB it is lighter than Google's launcher by 98 MB, not by an order of magnitude. The larger share of the gain came from retiring `tvrecommendations`, which existed only to populate rows that no longer exist.
 
-Its default layout also turned out to suit this TV better than expected: inputs first, apps second. On a set whose owner mostly watches through an Apple TV box and a PS5 on HDMI, putting HDMI 1/2/3 at the top of the home screen is simply correct.
+Its default layout also turned out to suit this TV better than expected: inputs first, apps second. (I originally wrote that this set is watched "through an Apple TV box and a PS5 on HDMI". That was an inference from a list of *apps* the owner named, and it was wrong: there is no Apple TV box here. Apple TV is one of the apps running on the television itself. The PlayStation on HDMI 2 is real.)
 
 ![Projectivy, with inputs first and no sponsored rows](hisense-projectivy.png)
 
@@ -244,7 +244,7 @@ That the cheap boring fix was correct from the beginning. A replacement ERF2K60H
 
 The work was not wasted, but it is worth being precise about what it bought. It proved the input path is reachable without root: `KEY_RED` really does arrive on `/dev/input/event2`, uid 2000 in group `1004(input)` really can read the IR receiver, and `input keyevent 26` really does work. That is a genuinely useful off switch and a reliable one. It is simply not a power button, because half of what a power button does happens while the computer is off.
 
-HDMI-CEC remains the one path that solves power-on without new hardware, and it is already enabled here with `mAutoWakeup: true` — the PlayStation on HDMI 2 wakes this set reliably, which is how I recovered it every time I stranded myself. The Apple TV does not appear in the CEC device list, which is the next thing worth fixing and costs nothing.
+HDMI-CEC remains the one path that solves power-on without new hardware, and it is already enabled here with `mAutoWakeup: true` — the PlayStation on HDMI 2 wakes this set reliably, which is how I recovered it every time I stranded myself. I had also written that the Apple TV was missing from the CEC device list and was "worth fixing". It was not missing; it does not exist. There is no Apple TV box on this television, so the only CEC source available is the console.
 
 ## The answer was in a drawer
 
@@ -258,7 +258,9 @@ Two caveats worth recording before this is declared finished, because this proje
 
 **The remote is not talking to the computer yet.** `ioreg -c IOUSBHostDevice` shows only Apple hubs, and the system log has no USB enumeration events at all. Charge-only cable and flat battery are the obvious suspects.
 
-One more limitation worth knowing in advance: the **PlayStation has no infrared receiver**. No IR remote can power it on. That is a Bluetooth-only device, and without a Harmony Hub it is outside this remote's reach entirely — so the console keeps its own controller, and the Harmony takes the television, the soundbar and the Apple TV, all three of which do listen to IR.
+One more limitation worth knowing in advance: the **PlayStation has no infrared receiver**. No IR remote can power it on. That is a Bluetooth-only device, and without a Harmony Hub it is outside this remote's reach entirely — so the console keeps its own controller.
+
+Which leaves a shorter list than I first assumed. There is no Apple TV box, so the infrared devices in this room are exactly two: the television and the Bose soundbar. That is still enough, because the television is the one with the broken button. And there is a neat second use for a learning remote here — the Hisense remote's dedicated Netflix, Prime Video, YouTube and Google Play keys are discrete IR codes, so a Harmony can learn them and put them on a touchscreen page, which is closer to how this set is actually watched than any input list.
 
 ## Afterwards
 
