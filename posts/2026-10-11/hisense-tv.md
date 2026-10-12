@@ -246,6 +246,20 @@ The work was not wasted, but it is worth being precise about what it bought. It 
 
 HDMI-CEC remains the one path that solves power-on without new hardware, and it is already enabled here with `mAutoWakeup: true` — the PlayStation on HDMI 2 wakes this set reliably, which is how I recovered it every time I stranded myself. The Apple TV does not appear in the CEC device list, which is the next thing worth fixing and costs nothing.
 
+## The answer was in a drawer
+
+After all of that, the owner went and found a Logitech Harmony in a drawer. The label reads `N-R0007`, which is a **Harmony Ultimate One**: a 2.4-inch touchscreen universal remote with a backlit keypad and a charging cradle, good for fifteen devices.
+
+It is the right tool for exactly the reason the software could not be. A Harmony sends **infrared**, and the one component of this television that has worked flawlessly all along is its IR receiver — `/dev/input/event2`, the MStar IR receiver, which reported every key I pressed and which is demonstrably powered during deep standby, because that is how any television wakes on its own power button. The whole morning's problem was that the thing *listening* for a wake signal is not Android, and the thing I could reach *was* Android. An IR remote talks to the layer that is actually awake.
+
+Two caveats worth recording before this is declared finished, because this project has already produced two claims I had to retract.
+
+**The software is on a knife edge.** The original MyHarmony desktop app is 32-bit and will not launch on anything since macOS Catalina. Its replacement, Harmony Desktop, is 64-bit and does list the Ultimate One among the models it supports — alongside the 200, 300, 350, 600, 650, 665, 700, Touch and 950. That it is listed at all is luck: Logitech ended support for the *legacy* Harmony software on 28 May 2025, and every cradle-charged model from that era — the 880, 885, 890, 900, 1000 and 1100 — can no longer be reconfigured at all. They still run whatever they were last told to do, forever. The Ultimate One missed that cull by being a later design.
+
+**The remote is not talking to the computer yet.** `ioreg -c IOUSBHostDevice` shows only Apple hubs, and the system log has no USB enumeration events at all. Charge-only cable and flat battery are the obvious suspects.
+
+One more limitation worth knowing in advance: the **PlayStation has no infrared receiver**. No IR remote can power it on. That is a Bluetooth-only device, and without a Harmony Hub it is outside this remote's reach entirely — so the console keeps its own controller, and the Harmony takes the television, the soundbar and the Apple TV, all three of which do listen to IR.
+
 ## Afterwards
 
 Two smaller findings worth recording.
