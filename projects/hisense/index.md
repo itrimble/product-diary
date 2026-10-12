@@ -1,0 +1,1 @@
+This is a repair log and toolkit for one Hisense Android television that had become very slow and kept reporting a corrupt USB drive. The scripts measure the TV over a network debugging link, report storage and memory, and apply reversible tweaks. The main fault, a broken USB storage setup, was fixed on October 11, and the TV now runs as well as its small memory allows.
