@@ -116,7 +116,7 @@ Every figure below is read from the device, not estimated.
 | Stale volume records | 7 (2 private, 5 public) | 0 | cleared |
 | Disabled packages | 1 | 15 | 14 added |
 | Play Store app install | failed, `status_code 1047` | Apple TV 17 s, HBO Max 54 s | fixed |
-| Remote power button | dead (emits no scancode) | red colour bar, both directions | remapped |
+| Remote power button | dead (emits no scancode) | red colour bar; off always, on within ~9 min | partly remapped |
 | CPU idle | 348% / 400% | 342% / 400% | unchanged — never the problem |
 | Internal storage | 4.3 GB total | 4.3 GB total | unchanged — hardware |
 | Max refresh rate | 60 Hz | 60 Hz | unchanged — hardware |
@@ -190,14 +190,33 @@ while read -r _type key val; do
 done
 ```
 
-The part I expected to fail was waking the set back up. A userspace watcher should die the moment the TV sleeps. It does not — on this chassis, standby is screen-off rather than suspend-to-RAM, the IR receiver keeps streaming, and ADB stays on the network:
+The part I expected to fail was waking the set back up, and the first test said it worked:
 
 ```
 09:37:45 RED -> POWER (sleep)
 09:37:52 RED -> WAKEUP
 ```
 
-So the red bar is a complete power toggle, on and off, from a remote whose power button is dead. It is still a workaround with a dependency — it needs a machine on the LAN holding the ADB connection — and a $10 replacement remote is the better answer for most people. But it is a working button today, and it is a reminder that "the hardware is broken" and "nothing can be done" are different claims.
+I wrote that up as a complete power toggle. It is not, and the mistake is the same shape as the one I made with `KEY_POWER` earlier in this project: I tested the easy case and generalised from it. Those two log lines are **seven seconds apart**.
+
+Standby on this chassis has two stages. For the first few minutes the panel is off but the SoC is up, Wi-Fi is associated, and ADB answers — which is the window my test fell into. Then the set drops to real deep standby and powers the radio down. The full log says exactly when:
+
+```
+09:38:02 RED -> POWER (sleep)
+09:38:44 event stream ended; reconnecting
+09:38:52 watching ...                       <- still reachable
+09:43:11 watching ...                       <- still reachable, stream flaky
+09:47:15 event stream ended; reconnecting   <- gone
+(nothing for 21 minutes)
+```
+
+Nine minutes and thirteen seconds. After that the TV is off the network: no ping, no ARP entry, port 5555 closed. Wake-on-LAN does not help either, because the radio itself is unpowered — magic packets to both the wireless and wired MACs, on broadcast and directed, ports 7 and 9, produced nothing.
+
+And the watcher sees the red button *through* ADB. So the moment the TV leaves the network, the remap goes blind. Which means what I actually built was a button that reliably turns the television **off**, and can only turn it back **on** if you press it again within about nine minutes. Past that you are reaching for the set's own power button, or waking it over HDMI-CEC by switching on the PlayStation.
+
+That is worse than useless as a default: it is a trap, and the person who set the trap was me. The honest summary is narrower than the one I first wrote. The remap proves the input path is reachable without root — `KEY_RED` really does arrive, `input keyevent 26` really does work, and uid 2000 in group `1004(input)` really can read the IR receiver. It does not solve power-on, and nothing in userspace can, because the operating system is not running to be remapped.
+
+The fixes that actually address power-on are all below or beside Android: `WakeUpHotKey` in the vendor settings, which gates which scancodes the firmware honours as a wake key and is set to `0` here; HDMI-CEC, which is already enabled on this set with `mAutoWakeup: true`; or a replacement remote for about ten dollars. The last one is almost certainly the right answer, and it is worth saying plainly after this much work that the cheap boring fix was the correct one all along.
 
 ## Afterwards
 
