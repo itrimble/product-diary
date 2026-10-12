@@ -116,7 +116,7 @@ Every figure below is read from the device, not estimated.
 | Stale volume records | 7 (2 private, 5 public) | 0 | cleared |
 | Disabled packages | 1 | 15 | 14 added |
 | Play Store app install | failed, `status_code 1047` | Apple TV 17 s, HBO Max 54 s | fixed |
-| Remote power button | dead (emits no scancode) | red colour bar turns it **off**; on needs CEC or a new remote | partly solved |
+| Remote power button | dead (emits no scancode) | **Harmony Ultimate One over IR**, on and off from deep standby | solved |
 | CPU idle | 348% / 400% | 342% / 400% | unchanged — never the problem |
 | Internal storage | 4.3 GB total | 4.3 GB total | unchanged — hardware |
 | Max refresh rate | 60 Hz | 60 Hz | unchanged — hardware |
@@ -261,6 +261,30 @@ Two caveats worth recording before this is declared finished, because this proje
 One more limitation worth knowing in advance: the **PlayStation has no infrared receiver**. No IR remote can power it on. That is a Bluetooth-only device, and without a Harmony Hub it is outside this remote's reach entirely — so the console keeps its own controller.
 
 Which leaves a shorter list than I first assumed. There is no Apple TV box, so the infrared devices in this room are exactly two: the television and the Bose soundbar. That is still enough, because the television is the one with the broken button. And there is a neat second use for a learning remote here — the Hisense remote's dedicated Netflix, Prime Video, YouTube and Google Play keys are discrete IR codes, so a Harmony can learn them and put them on a touchscreen page, which is closer to how this set is actually watched than any input list.
+
+## It works
+
+The Harmony Ultimate One syncs through Harmony Desktop, and the `65A53FUA` profile — a sibling model, chosen because this television's own `60A53FUA` is not in Logitech's database — drives this set correctly.
+
+The test was built to be hard to fool, because by this point I had twice published a conclusion that did not survive contact with evidence. The television was left in genuine deep standby: off the network entirely, ADB dead, ping failing, port 5555 closed. My userspace watcher was unloaded, so nothing on the LAN could reach it. A baseline was recorded beforehand. Then a human pressed power on the Harmony.
+
+```
+                 baseline        after
+mLastWakeTime    2852948    ->   4412452      (+1,559,504 ms)
+mLastSleepTime   3276567    ->   3276567      (unchanged)
+mWakefulness     Asleep     ->   Awake
+Display Power    OFF        ->   ON
+```
+
+`mLastWakeTime` is the only number that settles this. Reachability does not: three separate times today a single dropped ping looked like a wake and was not, because Wi-Fi power-save drops packets in light standby. A moved wake timestamp, with the sleep timestamp unchanged, means the panel came up from deep standby and nothing else.
+
+So the thing that could not be fixed in software was fixed by a remote from a drawer, for the reason that was visible from the very first `getevent`: the IR receiver is the one part of this television that never stopped working. It reported every key press cleanly, including from a remote whose power switch is dead, and it stays powered when the operating system does not. Infrared talks to the layer that is awake. Everything I built talks to the layer that is not.
+
+It is worth being clear about what the day's software work was and was not. It established real things — that `KEY_RED` arrives, that uid 2000 in group `1004(input)` can read the IR receiver without root, that `input keyevent 26` sleeps the set and `224` wakes it, that standby here is two-stage and the second stage takes the radio down after about nine minutes. None of that was wrong. It simply could not add up to a power button, and I spent several hours and two retractions learning why.
+
+The remote is also no longer a one-off. It is now the TV's remote: the Hisense profile lives on the device itself, so it needs no hub, no application, no Logitech account and no computer from here on. That matters more than it sounds, because Logitech ended support for the *legacy* Harmony software on 28 May 2025 and every cradle-charged remote of that era — the 880, 885, 890, 900, 1000 and 1100 — is now frozen with whatever configuration it last received. The Ultimate One missed that cull by one product generation.
+
+Two things nearly stopped it, both worth recording. The first sync failed while the remote was in a dock; Logitech's own documentation says to connect it directly, and that was exactly right. The second failure was subtler: Harmony Desktop is a 32-bit-era application shipped as a 64-bit Intel binary in January 2022, sandboxed, and it needs **Input Monitoring** permission to read the remote as a HID device — a requirement that did not exist when it was written. Without that grant it sat at 0% CPU, parked in a condition variable, looking for a device that was plainly on the bus.
 
 ## Afterwards
 
