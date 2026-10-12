@@ -27,7 +27,7 @@ Android's watchdog had flagged `system_server`. That is not a tuning problem, it
 | Adopted storage volume created | 2026-10-08 17:14 |
 | `system_server` current start | 2026-10-08 ~17:00 |
 
-Three days earlier someone had chosen **Set up as device storage** on the USB stick. That option tells Android to adopt the drive as an extension of internal storage, encrypt it to the TV, and move apps onto it. On this chassis it partitioned the drive *mixed* — half portable, half adopted — and the portable half came out with a damaged filesystem that `vold` could not mount. `sm mount` failed silently every time. `StorageManagerService` blocked on it, the watchdog tripped, and the television had been limping ever since.
+Three days earlier I had chosen **Set up as device storage** on the USB stick — this is my television, and it was my finger on the button. That option tells Android to adopt the drive as an extension of internal storage, encrypt it to the TV, and move apps onto it. On this chassis it partitioned the drive *mixed* — half portable, half adopted — and the portable half came out with a damaged filesystem that `vold` could not mount. `sm mount` failed silently every time. `StorageManagerService` blocked on it, the watchdog tripped, and the television had been limping ever since.
 
 The slowness and the "corrupt drive" message were not two problems. They were one.
 
@@ -86,7 +86,7 @@ VolumeInfo{emulated;0}:
     path=null  internalPath=null
 ```
 
-That UUID belonged to a *different* adopted volume from an earlier attempt — not the one from the 8th, an older one. The system still believed primary storage lived there. Because that volume was gone, `/sdcard` never mounted, and every install session was abandoned before a byte was downloaded. The dump listed two dead private volumes and five stale public records going back to 2020.
+That UUID belonged to a *different* adopted volume from an earlier attempt of mine — not the one from the 8th, an older one I had long forgotten. The system still believed primary storage lived there. Because that volume was gone, `/sdcard` never mounted, and every install session was abandoned before a byte was downloaded. The dump listed two dead private volumes and five stale public records going back to 2020.
 
 `sm forget all` cleared them. Primary storage reverted to `null`, which is correct for internal, and `emulated;0` moved from `unmounted` to `checking` to `mounted` on its own. `/sdcard` came back with its Android, Movies, Music and Pictures directories.
 
@@ -116,7 +116,7 @@ Every figure below is read from the device, not estimated.
 | Stale volume records | 7 (2 private, 5 public) | 0 | cleared |
 | Disabled packages | 1 | 15 | 14 added |
 | Play Store app install | failed, `status_code 1047` | Apple TV 17 s, HBO Max 54 s | fixed |
-| Remote power button | dead (emits no scancode) | red colour bar; off always, on within ~9 min | partly remapped |
+| Remote power button | dead (emits no scancode) | red colour bar turns it **off**; on needs CEC or a new remote | partly solved |
 | CPU idle | 348% / 400% | 342% / 400% | unchanged — never the problem |
 | Internal storage | 4.3 GB total | 4.3 GB total | unchanged — hardware |
 | Max refresh rate | 60 Hz | 60 Hz | unchanged — hardware |
@@ -216,7 +216,35 @@ And the watcher sees the red button *through* ADB. So the moment the TV leaves t
 
 That is worse than useless as a default: it is a trap, and the person who set the trap was me. The honest summary is narrower than the one I first wrote. The remap proves the input path is reachable without root — `KEY_RED` really does arrive, `input keyevent 26` really does work, and uid 2000 in group `1004(input)` really can read the IR receiver. It does not solve power-on, and nothing in userspace can, because the operating system is not running to be remapped.
 
-The fixes that actually address power-on are all below or beside Android: `WakeUpHotKey` in the vendor settings, which gates which scancodes the firmware honours as a wake key and is set to `0` here; HDMI-CEC, which is already enabled on this set with `mAutoWakeup: true`; or a replacement remote for about ten dollars. The last one is almost certainly the right answer, and it is worth saying plainly after this much work that the cheap boring fix was the correct one all along.
+The fixes that actually address power-on are all below or beside Android. I tried three of them.
+
+## Three things that did not work
+
+**`WakeUpHotKey`.** A vendor setting in `settings global`, shipped as `0`, with a name that reads exactly like "which scancodes may wake the panel". The IR receiver is demonstrably powered in deep standby — that is how any television wakes on its own power button — so if that gate could be widened to include `KEY_RED`, the problem solves itself with no ADB, no watcher and no LAN dependency.
+
+I set it to `1` and rebooted to be sure the vendor layer read it at boot. It persisted. Then the test, which took three attempts to run honestly: the TV parked in *confirmed* deep standby, off the network, port closed, and a human pressing the red bar several times. Nothing, for three minutes. `WakeUpHotKey=1` does not widen the wake gate, or at least not to this scancode. Reverted to `0`.
+
+**`IP Control Port`.** A Hisense networked-standby toggle buried in Device Preferences, shipped **off**. This looked like the real answer — it is the switch that keeps the IP stack alive while the set is off, and the entire failure mode here is the TV leaving the network. Turned on, slept the TV, watched.
+
+```
+without IP Control, nothing holding a connection   ~60 s
+without IP Control, watcher holding ADB open       ~9 min 13 s
+with IP Control, watcher holding ADB open          ~8 min 43 s
+```
+
+No effect. Within noise of the previous run. Deep standby arrives on its own schedule and takes the radio with it. (One honest caveat: the toggle may want a reboot to take effect, which I did not retest.) Turned back off, since it opens a listening port on the LAN for no demonstrated benefit.
+
+**`FAV/TV Button Customization`.** A genuine, supported, first-party remapping feature — `com.hisense.favkey` — sitting right there in the menu. Twenty options: Channels, the three HDMI inputs, Composite, Settings, Play Store, YouTube, Netflix, Prime Video, Apple TV, HBO Max, Projectivy Launcher, an input-source popup, and the rest. Every one of them is "jump to an app or an input". There is no power, no standby, no sleep. It also governs the FAV/TV button only, not the colour bars.
+
+So the one supported remapping surface on the whole television cannot express the one action I wanted.
+
+## What was actually learned
+
+That the cheap boring fix was correct from the beginning. A replacement ERF2K60H is about ten dollars, and I spent a morning establishing that nothing in software can substitute for it — because once the panel is in deep standby the operating system is not running to be remapped, and no amount of cleverness in userspace changes that.
+
+The work was not wasted, but it is worth being precise about what it bought. It proved the input path is reachable without root: `KEY_RED` really does arrive on `/dev/input/event2`, uid 2000 in group `1004(input)` really can read the IR receiver, and `input keyevent 26` really does work. That is a genuinely useful off switch and a reliable one. It is simply not a power button, because half of what a power button does happens while the computer is off.
+
+HDMI-CEC remains the one path that solves power-on without new hardware, and it is already enabled here with `mAutoWakeup: true` — the PlayStation on HDMI 2 wakes this set reliably, which is how I recovered it every time I stranded myself. The Apple TV does not appear in the CEC device list, which is the next thing worth fixing and costs nothing.
 
 ## Afterwards
 
@@ -226,6 +254,6 @@ The TV has no microphone at all: `android.hardware.microphone` is absent from th
 
 There is no 120 Hz mode to enable, either. The display subsystem reports exactly one mode, `1920x1080 @ 60.000004`, with a refresh range of `[0 60]`. The panel is 4K-capable and renders its UI at 1080p, but 60 Hz is the ceiling. Anything marketed as 120 on this class of set is motion interpolation, not refresh rate.
 
-The lesson is narrow and worth repeating: **do not choose "Set up as device storage"** when a TV offers it. Adoptable storage makes a USB stick part of the operating system, encrypts it so no other device can read it, and leaves records behind that outlive the drive. One bad adoption hung this television for three days. A second one, older and forgotten, was quietly blocking every app install. Both were invisible from the TV's own settings screen.
+The lesson is narrow and worth repeating, and I am the one who needed to learn it: **do not choose "Set up as device storage"** when a TV offers it. Adoptable storage makes a USB stick part of the operating system, encrypts it so no other device can read it, and leaves records behind that outlive the drive. One bad adoption hung this television for three days. A second one, older and forgotten, was quietly blocking every app install. Both were invisible from the TV's own settings screen.
 
 The hardware ceiling has not moved. But the TV is now running as well as that hardware allows, instead of being wedged on a drive it should never have swallowed.
