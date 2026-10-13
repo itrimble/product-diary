@@ -24,10 +24,13 @@ project: Display Name          # required, from PROJECTS.md, 2-40 chars
 summary: One plain sentence.   # required, 40-160 chars, ends with . ! or ?
                                # Plain language, same rule as the first
                                # paragraph: no code, no identifiers.
+format: longform               # optional; a full article, not a diary entry.
+                               # See "Long form" below.
 ---
 ```
 
-No other keys. `title` is allowed but optional; the build derives one otherwise.
+No other keys beyond `title` and `format`, both optional. The build derives a
+title otherwise.
 
 ## Entry body
 
@@ -61,6 +64,50 @@ first paragraph should still have learned something true and complete.
   is an acceptable outcome; not trying is not.
 - No code fences longer than 12 lines. No bare URLs to internal hosts
   (`192.168.*`, `*.local`, `/Volumes/*`).
+
+## Long form
+
+A day folder publishes whatever is in it, so the same pipeline carries a full
+article as readily as a diary entry. An article is not a diary entry, and the
+shape limits above would reject it, so it opts out of them explicitly:
+
+```yaml
+format: longform
+```
+
+That raises the shape limits and nothing else:
+
+| | entry | longform |
+|---|---|---|
+| summary | 40-160 chars | 40-240 |
+| body | 80-450 words | 80-5000 |
+| paragraphs | 2-6 | 2-200 |
+| headings | not allowed | allowed |
+| code fence | 12 lines | 40 |
+| em dashes per paragraph | 1 | 3 |
+
+Everything about substance still applies: the plain-language first paragraph,
+the banned words and constructions, the secret and internal-host scans, the
+concrete specific, a real summary. Those are the contract. The limits above are
+only what makes an entry a diary rather than an essay.
+
+A markdown table is not counted as a paragraph and is exempt from the em-dash
+limit, where a dash is a column rule rather than a choice.
+
+The route comes from the filename, so `posts/2026-10-11/hisense-tv.md` is served
+at `/hisense-tv/2026-10-11/`.
+
+**Adding one to a day that is already published re-opens that day.** The
+attestation covers every file in the folder, and a night's run only ever signs
+its own day, so an article dropped into an older folder leaves that day failing
+verification until it is signed again by hand:
+
+```
+bash bin/attest-day.sh sign YYYY-MM-DD
+```
+
+Writing it into the current day's folder before that night's run needs none of
+this: it is signed with everything else.
 
 ## Day overview (`index.md`)
 
