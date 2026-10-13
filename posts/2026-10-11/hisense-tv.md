@@ -2,6 +2,7 @@
 project: Hisense A4
 title: Getting Control Back of My Hisense TV
 summary: A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.
+format: longform
 ---
 The TV in the family room had been slow for days. Menus took a beat too long, apps opened grudgingly, and a notification kept coming back: *"hp USB drive is corrupt. Select to fix."* Selecting it did not fix it. The Storage screen listed the same physical stick three times, once as a 121 GB drive, once as "Not connected", and once as safely ejected.
 
