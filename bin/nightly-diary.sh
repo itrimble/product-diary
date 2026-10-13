@@ -326,6 +326,23 @@ else
   # Leave the working tree exactly on what was merged, so the next run rebases
   # cleanly rather than carrying a commit that was squashed upstream.
   git checkout -q main && git fetch -q origin main && git reset -q --hard origin/main
+
+  # Landing on main is not publishing. deploy.sh is what rebuilds
+  # blog.remnantsecurity.com from main, and it used to be a manual habit, so
+  # the site sat a day behind every night and nothing said so. Deploy after the
+  # reset above, never before, so the build is exactly what landed on main.
+  if [ -n "${DIARY_NO_DEPLOY:-}" ]; then
+    echo "DIARY_NO_DEPLOY set; $DATE is on main but the site was not rebuilt"
+  elif /bin/bash "$REPO/deploy.sh"; then
+    echo "deployed $DATE to the site"
+  else
+    # The day is merged and safe; only the site is stale. That is still a
+    # failure - a silently stale site is exactly what this step exists to
+    # prevent - so it exits non-zero and says how to finish the job by hand.
+    echo "ABORT: $DATE is published on main but deploy.sh failed; the site is"
+    echo "       stale. Recover with: bash $REPO/deploy.sh"
+    exit 1
+  fi
 fi
 
 npm run --silent deploy || fail "deploy failed"
