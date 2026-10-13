@@ -1,0 +1,1 @@
+A busy day for QixForge, Prism Shift, the Hisense television repair and a new promo-video tool, with a small addition to the Mac utility scripts. Two flagged folders got no entry: omarchy and ugreennas are infrastructure, which this diary ignores. Cybersecurity-Training-Links had one commit adding a Blog link to its site navigation, too small to write up.
