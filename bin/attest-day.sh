@@ -43,10 +43,16 @@ case "$mode" in
   sign)
     [ -f "$KEY" ] || { echo "no signing key at $KEY — run bin/mini-attest-setup.sh on the mini" >&2; exit 1; }
     manifest > "$DAY/.attest"
-    ssh-keygen -Y sign -f "$KEY" -n "$NAMESPACE" "$DAY/.attest" >/dev/null 2>&1 \
+    # ssh-keygen -Y sign will not overwrite an existing .sig: it asks "Overwrite
+    # (y/n)?", and with stdin closed it declines and STILL EXITS 0. Re-signing a
+    # day therefore used to rewrite the manifest while leaving the old signature
+    # behind, so the day failed verification with no error at signing time.
+    # Clear the old signature first, pin stdin, and confirm one was written.
+    rm -f "$DAY/.attest.sig"
+    ssh-keygen -Y sign -f "$KEY" -n "$NAMESPACE" "$DAY/.attest" </dev/null >/dev/null 2>&1 \
       || { echo "ssh-keygen could not sign $DAY/.attest" >&2; exit 1; }
-    mv "$DAY/.attest.sig" "$DAY/.attest.sig.tmp" 2>/dev/null
-    mv "$DAY/.attest.sig.tmp" "$DAY/.attest.sig" 2>/dev/null
+    [ -s "$DAY/.attest.sig" ] \
+      || { echo "ssh-keygen wrote no signature for $DAY/.attest" >&2; exit 1; }
     echo "signed posts/$date ($(wc -l < "$DAY/.attest" | tr -d ' ') files)"
     ;;
   verify)

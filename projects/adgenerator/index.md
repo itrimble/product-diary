@@ -1,0 +1,1 @@
+AdGenerator turns recordings of my apps into short promotional videos. It captures a demo, puts it in a device frame, then lays titles, captions and a closing call to action over it, and exports a video or a GIF. The first reel, for SnapDog, exists in widescreen and phone-shaped versions.
