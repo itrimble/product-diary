@@ -267,15 +267,25 @@ for (const f of entries) {
     continue;
   }
   for (const k of Object.keys(meta)) {
-    if (!["project", "summary", "title"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
+    if (!["project", "summary", "title", "format"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
   }
+  // Opt-in long form. It relaxes shape only: length, paragraph count, headings,
+  // em dashes and fence length. Every rule about substance still applies - the
+  // banned words, the banned constructions, the secret and internal-path scans,
+  // the plain-language lead and summary, the concrete-specific requirement.
+  // Those are the contract; the shape limits are what makes it a diary.
+  if (meta.format !== undefined && meta.format !== "longform") {
+    bad(f, `format "${meta.format}" is not a known value (only "longform")`);
+  }
+  const LONG = meta.format === "longform";
   if (!meta.project) bad(f, "frontmatter is missing project");
   else if (meta.project.length < 2 || meta.project.length > 40) bad(f, `project "${meta.project}" outside 2-40 chars`);
 
   if (!meta.summary) bad(f, "frontmatter is missing summary");
   else {
-    if (meta.summary.length < 40 || meta.summary.length > 160) {
-      bad(f, `summary is ${meta.summary.length} chars, contract says 40-160`);
+    const sMax = LONG ? 240 : 160;
+    if (meta.summary.length < 40 || meta.summary.length > sMax) {
+      bad(f, `summary is ${meta.summary.length} chars, contract says 40-${sMax}`);
     }
     if (!/[.!?]$/.test(meta.summary)) bad(f, "summary must end in . ! or ?");
   }
@@ -283,21 +293,30 @@ for (const f of entries) {
   // Body shape.
   const withoutFences = body.replace(/```[\s\S]*?```/g, "");
   const words = withoutFences.trim().split(/\s+/).filter(Boolean).length;
-  if (words < 80 || words > 450) bad(f, `body is ${words} words, contract says 80-450`);
+  const wMax = LONG ? 5000 : 450;
+  if (words < 80 || words > wMax) bad(f, `body is ${words} words, contract says 80-${wMax}`);
 
-  const paras = body.trim().split(/\n\s*\n/).filter((p) => p.trim() && !p.trim().startsWith("```"));
-  if (paras.length < 2 || paras.length > 6) bad(f, `${paras.length} paragraphs, contract says 2-6`);
+  // A fenced block is not a paragraph, and neither is a markdown table: a
+  // table has no prose shape, and its cells trip the em-dash rule below,
+  // which is there to stop em-dash-heavy prose, not to police table columns.
+  const isBlock = (p) => p.trim().startsWith("```") || /^\s*\|/.test(p);
+  const paras = body.trim().split(/\n\s*\n/).filter((p) => p.trim() && !isBlock(p));
+  const pMax = LONG ? 200 : 6;
+  if (paras.length < 2 || paras.length > pMax) bad(f, `${paras.length} paragraphs, contract says 2-${pMax}`);
 
-  if (/^#{1,6}\s/m.test(body)) bad(f, "contains a heading; the page supplies the heading");
+  // A long piece needs headings to be navigable; a diary entry does not.
+  if (!LONG && /^#{1,6}\s/m.test(body)) bad(f, "contains a heading; the page supplies the heading");
 
   for (const fence of body.match(/```[\s\S]*?```/g) || []) {
     const n = fence.split("\n").length - 2;
-    if (n > 12) bad(f, `a code block is ${n} lines, contract caps it at 12`);
+    const fMax = LONG ? 40 : 12;
+    if (n > fMax) bad(f, `a code block is ${n} lines, contract caps it at ${fMax}`);
   }
 
   for (const p of paras) {
     const dashes = (p.match(/—/g) || []).length;
-    if (dashes > 1) bad(f, `a paragraph uses ${dashes} em dashes, contract allows 1`);
+    const dMax = LONG ? 3 : 1;
+    if (dashes > dMax) bad(f, `a paragraph uses ${dashes} em dashes, contract allows ${dMax}`);
   }
 
   // Voice.
