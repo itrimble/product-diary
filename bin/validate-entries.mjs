@@ -105,7 +105,7 @@ function folderDisplayNames() {
   const f = path.join(PROJECTS_DIR, "PROJECTS.md");
   if (!fs.existsSync(f)) return map;
   for (const line of fs.readFileSync(f, "utf8").split("\n")) {
-    const m = line.match(/^\|\s*(?:nas|ext)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/);
+    const m = line.match(/^\|\s*(?:nas|ext|hub)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/);
     if (m) map.set(m[1], m[2]);
   }
   return map;
