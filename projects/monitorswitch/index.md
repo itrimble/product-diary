@@ -1,0 +1,1 @@
+Monitor Switch is a set of notes and tests on why one desk monitor would not follow a shared keyboard-and-display switch between two laptops. The cause is found and a workaround works: keep the work laptop's dock cable out of that monitor. A couple of follow-up checks are still open.
