@@ -114,12 +114,19 @@ function rewriteAssets(html, date, dayAssets) {
   });
 }
 
+// The site-wide social card, used by any page with no image of its own.
+const DEFAULT_OG = "/og-card.png";
+
 // ---- page shell ------------------------------------------------------------
 // opts: { desc, path, image } — path is the route, used for canonical and og:url.
 const page = (title, content, opts = {}) => {
   const desc = opts.desc || "What changed across the projects, day by day.";
   const url = `https://${DOMAIN}${opts.path ? `/${opts.path}/` : "/"}`.replace(/\/+$/, "/");
-  const img = opts.image ? `https://${DOMAIN}${opts.image}` : "";
+  // Fall back to the site card so no page ever ships without an og:image.
+  // Without one every share renders a bare box, and twitter:card would be
+  // advertising an image that does not exist.
+  const img = `https://${DOMAIN}${opts.image || DEFAULT_OG}`;
+  const isDefaultOg = !opts.image;
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
@@ -129,8 +136,12 @@ const page = (title, content, opts = {}) => {
 <meta property="og:type" content="${opts.path && opts.path.includes("/") ? "article" : "website"}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${esc(url)}">${img ? `\n<meta property="og:image" content="${esc(img)}">` : ""}
-<meta name="twitter:card" content="${img ? "summary_large_image" : "summary"}">
+<meta property="og:url" content="${esc(url)}">
+<meta property="og:image" content="${esc(img)}">${isDefaultOg ? `
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Product Diary by Remnant Security - what changed across the projects, day by day.">` : ""}
+<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE)}" href="/feed.xml">
 <link rel="stylesheet" href="/styles.css"></head>
 <body><header><a href="/" class="brand">${SITE}</a><span class="by">Remnant Security</span></header>
@@ -332,6 +343,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(path.join(DIST, "styles.css"), fs.readFileSync(path.join(ROOT, "styles.css")));
+fs.copyFileSync(path.join(ROOT, "og-card.png"), path.join(DIST, "og-card.png"));
 fs.writeFileSync(path.join(DIST, "CNAME"), DOMAIN + "\n");
 fs.writeFileSync(path.join(DIST, ".nojekyll"), "");
 console.log(
