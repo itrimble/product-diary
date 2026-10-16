@@ -26,10 +26,12 @@ summary: One plain sentence.   # required, 40-160 chars, ends with . ! or ?
                                # paragraph: no code, no identifiers.
 format: longform               # optional; a full article, not a diary entry.
                                # See "Long form" below.
+stats: Label = value | ...     # optional; real numbers only, rendered as the
+                               # stat bar at the top of the article.
 ---
 ```
 
-No other keys beyond `title` and `format`, both optional. The build derives a
+No other keys beyond `title`, `format` and `stats`, all optional. The build derives a
 title otherwise.
 
 ## Entry body
