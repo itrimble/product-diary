@@ -1,0 +1,1 @@
+Grok Bot is Ian Trimble's fleet of shop assistants for Remnant Security: sites, apps, listening, growth, inbox hygiene, and runtime care. Seventeen bots are active and one is retired. Shared docs live on the box and sync to the Mac mini; heavy coding goes through Hermes. This diary on blog.remnantsecurity.com is how the architecture work reaches a public page.
