@@ -1,0 +1,1 @@
+The weekly roundup collects a week of diary entries in one place each Friday. It pulls the week's real numbers from the diary itself, the site analytics, Apple's sales reports and the shop's own audits, and it lists what is coming next. Nothing in it is estimated: a number either comes from a source or is left out.
