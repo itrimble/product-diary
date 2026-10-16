@@ -2,9 +2,12 @@
 project: Weekly roundup
 title: "Week of October 12: Lightfence gets a name, and the shop writes down its rules"
 summary: A game renamed and sent to Apple in thirteen languages, two games on the television, site views up from 19 to 52, no paid sales, and model experiments still waiting to run.
+stats: Page views Oct 12-15 = 52 | Page views Oct 5-11 = 19 | Paid app sales = 0 | Lightfence late stages cleared = 59/120 | Diary words this week = 7,895
 format: longform
 ---
-The arcade game this diary had been calling QixForge got its own name this week, Lightfence, and went to Apple for review in thirteen languages. Both games in progress learned to run on a television, in the living room and in the shed. The company sites had 52 page views in four days, against 19 in the whole week before, mostly from people looking at the new Lightfence page. Nobody bought an app. Behind all of it, the assistants that run the shop got written rules and nine planned experiments about which model should do which job. None of those experiments has run yet.
+The arcade game this diary had been calling QixForge got its own name this week, Lightfence, and went to Apple for review in thirteen languages.
+
+![The Lightfence title screen on Apple TV, with glowing Continue, New Campaign, Endless and Light Core buttons](lightfence-title-tv.jpg) Both games in progress learned to run on a television, in the living room and in the shed. The company sites had 52 page views in four days, against 19 in the whole week before, mostly from people looking at the new Lightfence page. Nobody bought an app. Behind all of it, the assistants that run the shop got written rules and nine planned experiments about which model should do which job. None of those experiments has run yet.
 
 ## The week in numbers
 
@@ -32,6 +35,10 @@ The same day, four helpers marked 897 lines of interface text and 111 lines of s
 
 Then the second build went to Apple and the game was caught lying. The claimed-ground percentage counted open space between two claims, so a board 62% done could read 100% and end the stage early. The build was pulled, the count fixed and a test written with the exact shapes that fooled it. Honest counting made the late game brutal, so the last sectors were retuned: the final target dropped from 78% to 74% of the board, the Snarl's top speed was capped, and the simulated average player went from 40 to 59 cleared stages out of 120. The third build went to Apple for iPhone, iPad and Apple TV. Its review is still pending.
 
+![Lightfence gameplay on television in Sector 3, Magma Core, with claimed ground glowing orange around the board](lightfence-won-back.jpg)
+
+![Lightfence on iPhone in Sector 1, Aqua Reef, showing Fill 66% to win after the first claim](lightfence-lesson-target-phone.jpg)
+
 ![Stages an average player clears per sector, before and after the retune](lightfence-late-game.png)
 
 ## Two games on the television
@@ -39,6 +46,10 @@ Then the second build went to Apple and the game was caught lying. The claimed-g
 Both games in progress got Apple TV versions this week. QixForge arrived on Tuesday, steered with the small remote, with a tutorial that waits for you to try each move. Prism Shift arrived the same day on both televisions in the house. On Wednesday it stopped crashing at launch on the shed set, gained 36 achievements and a level picker covering all 62 checkpoints, and Ian played the first minutes and accepted them.
 
 The remote turned out to be the hard part for both. Swiping on its touch surface steered badly, with six direction changes in a third of a second in one Lightfence run. Lightfence now steers only by clicking the edge of the ring, and Prism Shift reads the click first and keeps swiping as an option. Whether either feels right from the couch is still a question for a person holding the remote.
+
+![The Lightfence pause screen photographed on the shed television, with Resume, Restart and Quit](lightfence-tv-pause.jpg)
+
+![Prism Shift on iPhone, showing the Awakening level picker and Play button](prismshift-game.jpg)
 
 ## The sites
 
@@ -56,7 +67,15 @@ A new tool for making short adverts from app recordings made its first one on Mo
 
 ## Around the house
 
-Smaller fixes filled the gaps. The red button on the television remote now does the job of its dead power button. A desk monitor that would not follow the input switch was traced to one cable from a docking station that kept the link alive with a blank picture, and unplugging it fixed it. StatBar, the menu bar monitor, gained optional weather, battery health and charge cycles. And the training business's course service and curriculum were put under private version control for the first time.
+Smaller fixes filled the gaps. The red button on the television remote now does the job of its dead power button. A desk monitor that would not follow the input switch was traced to one cable from a docking station that kept the link alive with a blank picture, and unplugging it fixed it. And the training business's course service and curriculum were put under private version control for the first time.
+
+### StatBar
+
+StatBar, the Mac menu bar monitor, gained optional weather, battery health and charge cycles this week (Oct 14 entry). Its dropdown now opens with a header naming the Mac, its chip, memory, startup disk and system version, and the battery section adds health and cycle count.
+
+![StatBar in the Mac menu bar, showing CPU, GPU, memory, disk, battery, temperature and fan readings](statbar-menubar-strip.jpg)
+
+![The StatBar dropdown showing This Mac, CPU, GPU, memory, disk, network, battery health and temperature](statbar-hero-menu.jpg)
 
 ## The shop behind the diary
 

@@ -70,6 +70,8 @@ if (fs.existsSync(POSTS)) {
         project: meta.project || slug,
         title: meta.title || `${meta.project || slug} — ${date}`,
         summary: meta.summary || "",
+        stats: meta.stats || "",
+        format: meta.format || "",
         html: marked.parse(body),
       });
     }
@@ -112,6 +114,16 @@ function rewriteAssets(html, date, dayAssets) {
     if (dayAssets && dayAssets.has(file)) return `${a}/assets/${date}/${encodeURIComponent(file)}${c}`;
     return `${a}/assets/${date}/${encodeURIComponent(file)}${c}`;
   });
+}
+
+function renderStatBar(p) {
+  if (!p.stats) return "";
+  const items = p.stats.split("|").map((s) => s.trim()).filter(Boolean).map((pair) => {
+    const i = pair.lastIndexOf("=");
+    return i < 0 ? null : { label: pair.slice(0, i).trim(), value: pair.slice(i + 1).trim() };
+  }).filter(Boolean);
+  if (!items.length) return "";
+  return `<div class="statbar" aria-label="Key numbers">${items.map((it) => `<div class="stat"><span class="stat-value">${esc(it.value)}</span><span class="stat-label">${esc(it.label)}</span></div>`).join("")}</div>`;
 }
 
 // The site-wide social card, used by any page with no image of its own.
@@ -270,7 +282,7 @@ for (const [slug, items] of groupBySlug(entries)) {
       path.join(slug, p.date),
       page(
         `${p.title} · ${SITE}`,
-        `<article><p class="crumbs"><a href="/${slug}/">${esc(p.project)}</a> · <time>${p.date}</time></p><h1>${esc(p.title)}</h1>${rewriteAssets(p.html, p.date, dayAssets.get(p.date))}</article>`,
+        `<article><p class="crumbs"><a href="/${slug}/">${esc(p.project)}</a> · <time>${p.date}</time></p><h1>${esc(p.title)}</h1>${renderStatBar(p)}${rewriteAssets(p.html, p.date, dayAssets.get(p.date))}</article>`,
         { path: `${slug}/${p.date}`, desc: p.summary || `${p.project} on ${p.date}.`, image: firstImage(p) },
       ),
     );
