@@ -134,6 +134,8 @@ const DEFAULT_OG = "/og-card.png";
 const page = (title, content, opts = {}) => {
   const desc = opts.desc || "What changed across the projects, day by day.";
   const url = `https://${DOMAIN}${opts.path ? `/${opts.path}/` : "/"}`.replace(/\/+$/, "/");
+  // Tables get a scrollable wrapper so wide tables stay readable on phones.
+  const wrapped = content.replaceAll("<table>", '<div class="table-wrap"><table>').replaceAll("</table>", "</table></div>");
   // Fall back to the site card so no page ever ships without an og:image.
   // Without one every share renders a bare box, and twitter:card would be
   // advertising an image that does not exist.
@@ -157,7 +159,7 @@ const page = (title, content, opts = {}) => {
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE)}" href="/feed.xml">
 <link rel="stylesheet" href="/styles.css"></head>
 <body><header><a href="/" class="brand">${SITE}</a><span class="by">Remnant Security</span></header>
-<main>${content}</main>
+<main>${wrapped}</main>
 <footer><a href="https://remnantsecurity.com">remnantsecurity.com</a> · <a href="/feed.xml">RSS</a></footer></body></html>
 `;
 };
