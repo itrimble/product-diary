@@ -1,0 +1,1 @@
+The shop that runs the writing-and-building assistants got its first real architecture notes, a weekday refresh, and this diary as a public stage. The overnight story is docs, guardrails, a tuned coding helper on the shared box, and nine routing experiments that are still only proposed.
