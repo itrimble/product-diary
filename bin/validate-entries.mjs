@@ -267,7 +267,7 @@ for (const f of entries) {
     continue;
   }
   for (const k of Object.keys(meta)) {
-    if (!["project", "summary", "title", "format"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
+    if (!["project", "summary", "title", "format", "stats"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
   }
   // Opt-in long form. It relaxes shape only: length, paragraph count, headings,
   // em dashes and fence length. Every rule about substance still applies - the
@@ -276,6 +276,9 @@ for (const f of entries) {
   // Those are the contract; the shape limits are what makes it a diary.
   if (meta.format !== undefined && meta.format !== "longform") {
     bad(f, `format "${meta.format}" is not a known value (only "longform")`);
+  }
+  if (meta.stats !== undefined && !/^[^=|]+=[^|]+(\|[^=|]+=[^|]+)*$/.test(meta.stats)) {
+    bad(f, `stats "${meta.stats}" is not "Label = value | Label = value"`);
   }
   const LONG = meta.format === "longform";
   if (!meta.project) bad(f, "frontmatter is missing project");
