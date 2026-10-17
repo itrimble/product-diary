@@ -104,7 +104,7 @@ The next project was vLLM, a high-throughput model server. The ready-made vLLM b
 error: no template named 'optiofal' in namespace 'std'; did you mean 'optional'?
 ```
 
-No such typo exists in PyTorch. The file had changed on my disk. I checked every installed Python file against the checksum its package publishes, and the answer was ugly: 97 corrupt files out of 78,042 in the vLLM environment, and 9 out of 66,699 in the one that runs ComfyUI, including parts of the compiler Triton uses. The two environments held different bytes for the same file. Linux's file system also logged a checksum failure on a cached file.
+No such typo exists in PyTorch. The file had changed on my disk. I checked every installed Python file against the checksum its package publishes. In the vLLM environment 97 files out of 78,042 failed, including torch headers with obvious single-character flips. In the environment that runs ComfyUI, 9 out of 66,699 failed, and I first read that as damage to the compiler Triton uses. I was wrong about seven of them. When I compared those Triton files with the downloaded package itself, whose checksum matches the package index, they were identical: the package's own checksum list is stale for those files. That leaves two unexplained files there, not nine. The vLLM damage and the memory test still stand. Linux's file system also logged a checksum failure on a cached file.
 
 ## "I think the RAM issue is bogus. Prove me wrong."
 
