@@ -1,0 +1,43 @@
+{
+  "default": "apps",
+  "categories": [
+    { "slug": "ai-local-models", "name": "AI and Local Models", "blurb": "Running models on hardware I own: what fits, what is fast, what broke." },
+    { "slug": "apps", "name": "Apps", "blurb": "Mac and iPhone utilities and the tools around them." },
+    { "slug": "games", "name": "Games", "blurb": "Games in progress, from first prototype to App Store review." },
+    { "slug": "security", "name": "Security", "blurb": "Training, courses and tools for people learning cybersecurity." },
+    { "slug": "homelab-hardware", "name": "Homelab and Hardware", "blurb": "Servers, TVs, networks and the machines in the closet." },
+    { "slug": "web", "name": "Web", "blurb": "Sites, templates and the plumbing that keeps them online." },
+    { "slug": "books-writing", "name": "Books and Writing", "blurb": "Manuscripts, publishing pipelines and the craft of finishing." },
+    { "slug": "weekly-roundups", "name": "Weekly Roundups", "blurb": "The week in one read." }
+  ],
+  "projects": {
+    "QixForge": "games",
+    "Prism Shift": "games",
+    "Civic Fortune 2026": "games",
+    "YOLK SOULS": "games",
+    "Pipe Flow": "games",
+    "Equilibrium": "games",
+    "SnapDog": "apps",
+    "StatBar": "apps",
+    "Monitor Switch": "apps",
+    "Lectern": "apps",
+    "AdGenerator": "apps",
+    "TilePilot": "apps",
+    "Window Switcher Pro": "apps",
+    "mac-bin": "apps",
+    "Grok Bot": "ai-local-models",
+    "Omarchy": "homelab-hardware",
+    "Hisense TV Tune-up": "homelab-hardware",
+    "Hisense A4": "homelab-hardware",
+    "Remnant Security": "web",
+    "Site Templates": "web",
+    "Remnant Security Academy": "security",
+    "Remnant Security Courses": "security",
+    "SecureWatch": "security",
+    "Insider Threat Assessment Tool": "security",
+    "CyberSim": "security",
+    "BookForge pipeline": "books-writing",
+    "Book manuscripts": "books-writing",
+    "Weekly roundup": "weekly-roundups"
+  }
+}

@@ -127,6 +127,15 @@ ssh ian@100.120.153.82 'launchctl kickstart -p gui/$(id -u)/com.ian.product-diar
 ssh ian@100.120.153.82 'launchctl print gui/$(id -u)/com.ian.product-diary'          # status
 ```
 
+## Categories and the site layout
+
+The site is laid out like a tech news site: a category bar, a lead story, a list of latest stories, and a sidebar. Each
+project belongs to one category in `categories.json` (AI and Local Models, Apps, Games, Security, Homelab and
+Hardware, Web, Books and Writing, Weekly Roundups). The nightly agent writes nothing extra: category comes from the
+project. A new project with no entry in `categories.json` is filed under the default and the build prints a note;
+add it to the map. An entry can carry `category: <slug>` to override. Category pages live at `/category/<slug>/`.
+Fonts are self-hosted (Public Sans and IBM Plex Mono, SIL Open Font License, in `assets/fonts/`).
+
 ## Writing a long-form article
 
 Long-form pieces follow `bin/ENTRY-CONTRACT.md` (see "Long form requirements"): real captioned screenshots, a Sources

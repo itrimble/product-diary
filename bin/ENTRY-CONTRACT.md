@@ -31,7 +31,9 @@ stats: Label = value | ...     # optional; real numbers only, rendered as the
 ---
 ```
 
-No other keys beyond `title`, `format` and `stats`, all optional. The build derives a
+No other keys beyond `title`, `format`, `stats` and `category`, all optional. `category` is a slug from
+`categories.json` and overrides the category the entry's project belongs to (the site files each project under one
+category; leave it out unless the story belongs elsewhere). The build derives a
 title otherwise.
 
 ## Entry body

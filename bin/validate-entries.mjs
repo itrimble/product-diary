@@ -267,7 +267,7 @@ for (const f of entries) {
     continue;
   }
   for (const k of Object.keys(meta)) {
-    if (!["project", "summary", "title", "format", "stats"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
+    if (!["project", "summary", "title", "format", "stats", "category"].includes(k)) bad(f, `unexpected frontmatter key "${k}"`);
   }
   // Opt-in long form. It relaxes shape only: length, paragraph count, headings,
   // em dashes and fence length. Every rule about substance still applies - the
@@ -279,6 +279,11 @@ for (const f of entries) {
   }
   if (meta.stats !== undefined && !/^[^=|]+=[^|]+(\|[^=|]+=[^|]+)*$/.test(meta.stats)) {
     bad(f, `stats "${meta.stats}" is not "Label = value | Label = value"`);
+  }
+  if (meta.category !== undefined) {
+    let known = [];
+    try { known = JSON.parse(fs.readFileSync(path.join(ROOT, "categories.json"), "utf8")).categories.map((c) => c.slug); } catch {}
+    if (!known.includes(meta.category)) bad(f, `category "${meta.category}" is not in categories.json (${known.join(", ")})`);
   }
   const LONG = meta.format === "longform";
   if (!meta.project) bad(f, "frontmatter is missing project");
