@@ -1,0 +1,1 @@
+Site Templates is a shared starter kit for the company's product web sites. It has one layout for apps and one for games, with room for a looping clip, screenshots, a stat bar and tables, and it comes with written design standards and a catalogue of which art may be published. Previews for nine products can be built locally; nothing is published from it directly.
