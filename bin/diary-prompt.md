@@ -113,6 +113,18 @@ It prints that project's last three entries. Use them:
 - Never contradict a published entry. If the earlier one turned out to be
   wrong, say so plainly in the new one.
 
+## Link related entries
+
+After you draft an entry, run:
+
+```sh
+DIARY_REPO/bin/related-links.py <your-draft.md>
+```
+
+It lists earlier entries that share distinctive terms with the draft. If one genuinely helps the reader (the story it
+continues, the fix it follows up), link it once, in running text, with its route (`/<slug>/<date>/`). If nothing
+helps, link nothing. Never link just to link.
+
 ## Keep the project page current
 
 Each project has a standing page at `projects/<project-slug>/index.md`, shown
