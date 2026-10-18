@@ -1,0 +1,1 @@
+One long read today starts a new public series. [Learning to Sell, part 1](/learning-to-sell/2026-10-18/) opens the sales tracker: $1,010 spent on Grok Bot, two paid sales on record, and every missing number marked missing instead of filled in.

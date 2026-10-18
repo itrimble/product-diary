@@ -456,7 +456,7 @@ for (const [slug, items] of groupBySlug(entries)) {
   const body = fs.existsSync(pj)
     ? marked.parse(parse(pj).body)
     : `<p class="lede">Rolling diary for ${esc(items[0].project)}.</p>`;
-  write(slug, page(`${items[0].project} · ${SITE}`, `<div class="layout"><div class="col"><h1>${esc(items[0].project)}</h1><div class="intro">${body}</div>${stories(items)}</div>${sidebar({ activeCat: items[0].category })}</div>`, {
+  if (slug !== "learning-to-sell") write(slug, page(`${items[0].project} · ${SITE}`, `<div class="layout"><div class="col"><h1>${esc(items[0].project)}</h1><div class="intro">${body}</div>${stories(items)}</div>${sidebar({ activeCat: items[0].category })}</div>`, {
     path: slug,
     active: items[0].category,
     desc: `Diary entries for ${items[0].project} — ${items.length} day${items.length === 1 ? "" : "s"}.`,
@@ -475,6 +475,45 @@ for (const [slug, items] of groupBySlug(entries)) {
     );
   }
 }
+
+
+// ---- Learning to Sell: landing + tracker, built from the data file ---------
+const LTS = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "learning-to-sell-tracker.json"), "utf8"));
+const ltsEntries = entries.filter((e) => e.category === "learning-to-sell");
+const ltsAnchor = `$${Number(LTS.anchor.grok_bot_cost_usd).toLocaleString("en-US")}`;
+const ltsMissing = '<span class="lts-missing">Missing — no data</span>';
+const ltsVal = (v) => (v === null || v === undefined || v === "" ? ltsMissing : esc(v));
+const ltsMoney = (row) => {
+  if (row.revenue_recorded === null || row.revenue_recorded === undefined) return ltsMissing;
+  const sym = row.currency === "EUR" ? "€" : row.currency === "USD" ? "$" : `${esc(row.currency || "")} `;
+  return `${sym}${Number(row.revenue_recorded).toFixed(2)}${row.currency ? ` ${esc(row.currency)}` : ""}`;
+};
+const ltsPrice = (row) => (row.price_usd === null || row.price_usd === undefined ? '<span class="lts-missing">Not recorded — see notes</span>' : `$${Number(row.price_usd).toFixed(2)}`);
+const ltsStatBar = `<div class="statbar" role="list" aria-label="Learning to Sell headline numbers">
+<div class="stat" role="listitem"><span class="stat-value">${ltsAnchor}</span><span class="stat-label">Grok Bot cost to earn back (${esc(LTS.anchor.status)})</span></div>
+<div class="stat" role="listitem"><span class="stat-value">${esc(LTS.totals_recorded.paid_units)}</span><span class="stat-label">Paid sales on record</span></div>
+<div class="stat" role="listitem"><span class="stat-value">€${esc(LTS.cumulative_vs_anchor.proceeds_recorded.amount)}</span><span class="stat-label">Proceeds on record (EUR, not converted)</span></div>
+<div class="stat" role="listitem"><span class="stat-value">${esc(LTS.cumulative_vs_anchor.value)}</span><span class="stat-label">Cumulative vs ${ltsAnchor} — ${esc(LTS.cumulative_vs_anchor.status)}</span></div>
+<div class="stat" role="listitem"><span class="stat-value">$${esc(LTS.total_tactical_spend_usd)}</span><span class="stat-label">Tactical / ad spend on record</span></div></div>`;
+const ltsDegraded = `<div class="lts-callout"><strong>${esc(LTS.cumulative_vs_anchor.status)} — cumulative vs ${ltsAnchor} is ${esc(LTS.cumulative_vs_anchor.value)}.</strong> ${esc(LTS.cumulative_vs_anchor.notes)} Missing means no source exists yet — it is never shown as zero.</div>`;
+const ltsPlatform = (row) => row.kind === "book" ? "book" : ({ "StatBar": "macOS", "PrismShift": "macOS / iPadOS", "Lightfence": "tvOS live / iOS Waiting for Review" }[row.item] || "not in tracker data");
+const ltsActivity = `<section class="lts-activity"><h2 class="lts-h2">Projects / activity — ~/projects</h2><p class="lts-src">Supply, not sales. Source: ${esc(LTS.project_activity.source)} Lanes: Now — ${esc(LTS.project_activity.lanes.now.join(", "))}; This-week — ${esc(LTS.project_activity.lanes.this_week.join(", "))}. Sales totals remain: ${esc(LTS.totals_recorded.paid_units)} paid, €${esc(LTS.totals_recorded.revenue_recorded[0].amount)} proceeds (EUR, not converted), $${esc(LTS.total_tactical_spend_usd)} spend.</p><div class="lts-grid">${LTS.project_activity.items.map((a) => `<article class="lts-card"><h3>${esc(a.product)}</h3><p class="lts-kind">${esc(a.folder)}${a.commits_sep_oct ? ` · ${esc(a.commits_sep_oct)} commits Sep–Oct` : ""}</p><p>${esc(a.status)}</p></article>`).join("")}</div></section>`;
+const trackerCard = (row) => `<article class="lts-card"><h3>${esc(row.item)}</h3><p class="lts-kind">${esc(row.kind)} · ${esc(row.channel_source || "Missing — no channel yet")}${row.series ? ` · ${esc(row.series)}` : ""}</p><dl class="lts-dl">
+<div><dt>Grouping</dt><dd>${esc(ltsPlatform(row))}</dd></div>
+<div><dt>Price</dt><dd>${ltsPrice(row)}</dd></div>
+<div><dt>Paid sales</dt><dd>${ltsVal(row.units)}</dd></div>
+<div><dt>Free downloads</dt><dd>${ltsVal(row.downloads_free)}</dd></div>
+<div><dt>Recorded money</dt><dd>${ltsMoney(row)}</dd></div>
+<div><dt>Spend</dt><dd>$${esc(row.spend_usd)}</dd></div>
+<div><dt>Status</dt><dd><span class="lts-badge ${row.status === "missing" ? "is-missing" : "is-degraded"}">${esc(row.status)}</span></dd></div></dl>
+${row.buy_url ? `<p><a class="lts-btn" href="${esc(row.buy_url)}">View / buy</a></p>` : ""}
+<details class="lts-notes"><summary>Source and notes</summary><p>${esc(row.notes || "")}</p><p class="lts-src">Source: ${esc(row.source_file_or_agent || "not recorded")} · Updated ${esc(row.last_updated || LTS.last_updated)}</p></details></article>`;
+write("learning-to-sell", page(`Learning to Sell · ${SITE}`,
+  `<div class="layout"><div class="col"><p class="lts-eyebrow">Build in public · Weekly · Raw numbers</p><h1>Learning to Sell</h1><p class="lede">Can the apps, games and books earn back the ${ltsAnchor} spent on the AI helpers that build and market them? A sale counts only when someone pays. If a number cannot be read yet, this page says missing — it does not invent one.</p>${ltsStatBar}${ltsDegraded}<figure class="lts-fig"><img src="/assets/2026-10-18/gumroad-store.png" alt="The Remnant Security Gumroad storefront showing Code Red, The Halcyon Key, StatBar and the Max Mercer Books 2 and 3 bundle with prices" loading="lazy" decoding="async"><figcaption>The public Remnant Security storefront on Gumroad, captured Oct 18, 2026. The public page shows prices but no sales counts, which is why book sales are marked missing in the tracker.</figcaption></figure><p><a class="lts-btn" href="/learning-to-sell/tracker/">Open the living sales tracker</a></p>${ltsActivity}<h2 class="lts-h2">Latest in the series</h2>${stories(ltsEntries)}<p class="lts-src">Window: ${esc(LTS.window)}. Last updated ${esc(LTS.last_updated)}. ${esc(LTS.books_note || "")}</p></div>${sidebar({ activeCat: "learning-to-sell" })}</div>`,
+  { path: "learning-to-sell", active: "learning-to-sell", desc: "Learning to Sell: a public tracker of whether Remnant Security's apps, games and books can earn back $1,010, with raw numbers and missing data marked missing.", image: "/assets/2026-10-18/gumroad-store.png" }));
+write(path.join("learning-to-sell", "tracker"), page(`Sales tracker · Learning to Sell · ${SITE}`,
+  `<div class="layout"><div class="col"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Diary</a><a href="/learning-to-sell/">Learning to Sell</a></nav><h1>Living sales tracker</h1><p class="lede">Every app, game and book on record, Sep 1–Oct 18, 2026. Apple data ends Oct 13. Missing is not zero.</p>${ltsStatBar}${ltsDegraded}<p class="lts-src">Experiments logged: ${esc(LTS.experiments.count)} (ITERATE ${esc(LTS.experiments.ITERATE)}, INCONCLUSIVE ${esc(LTS.experiments.INCONCLUSIVE)}, pending ${esc(LTS.experiments.pending)}, KEEP ${esc(LTS.experiments.KEEP)}, KILL ${esc(LTS.experiments.KILL)}). Source: ${esc(LTS.experiments.source)}.</p><div class="lts-grid">${LTS.rows.map(trackerCard).join("")}</div>${ltsActivity}<p class="lts-src">Grouping labels use Ledger-style platform categories (macOS / iOS / iOS-iPadOS as iOS / tvOS / book) only where tracker or projects-snapshot §6 (Foreman canonical) data supports them; otherwise “not in tracker data”. Data file: data/learning-to-sell-tracker.json (generated from the Learning to Sell tracker, Oct 18, 2026). Rules: ${esc(LTS.rules)}</p><p><a class="lts-btn" href="/learning-to-sell/">Back to Learning to Sell</a></p></div>${sidebar({ activeCat: "learning-to-sell" })}</div>`,
+  { path: "learning-to-sell/tracker", active: "learning-to-sell", desc: "The living Learning to Sell sales tracker: per-app, per-game and per-book sales versus the $1,010 Grok Bot cost, with missing data marked missing.", image: "/assets/2026-10-18/gumroad-store.png" }));
 
 write("404", page(`Not found · ${SITE}`, `<div class="layout"><div class="col"><h1>Not found</h1><p>That page is not here. <a href="/">Back to the diary</a>, or pick a category above.</p></div>${sidebar()}</div>`, { path: "404" }));
 fs.renameSync(path.join(DIST, "404", "index.html"), path.join(DIST, "404.html"));
@@ -516,6 +555,8 @@ ${feedItems}
 
 const urls = [
   "",
+  "learning-to-sell",
+  "learning-to-sell/tracker",
   ...CATS.filter((c) => catCounts.get(c.slug) > 0).map((c) => `category/${c.slug}`),
   ...days.map((d) => d),
   ...[...groupBySlug(entries).keys()],

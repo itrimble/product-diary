@@ -1,14 +1,51 @@
 {
   "default": "apps",
   "categories": [
-    { "slug": "ai-local-models", "name": "AI and Local Models", "blurb": "Running models on hardware I own: what fits, what is fast, what broke." },
-    { "slug": "apps", "name": "Apps", "blurb": "Mac and iPhone utilities and the tools around them." },
-    { "slug": "games", "name": "Games", "blurb": "Games in progress, from first prototype to App Store review." },
-    { "slug": "security", "name": "Security", "blurb": "Training, courses and tools for people learning cybersecurity." },
-    { "slug": "homelab-hardware", "name": "Homelab and Hardware", "blurb": "Servers, TVs, networks and the machines in the closet." },
-    { "slug": "web", "name": "Web", "blurb": "Sites, templates and the plumbing that keeps them online." },
-    { "slug": "books-writing", "name": "Books and Writing", "blurb": "Manuscripts, publishing pipelines and the craft of finishing." },
-    { "slug": "weekly-roundups", "name": "Weekly Roundups", "blurb": "The week in one read." }
+    {
+      "slug": "ai-local-models",
+      "name": "AI and Local Models",
+      "blurb": "Running models on hardware I own: what fits, what is fast, what broke."
+    },
+    {
+      "slug": "apps",
+      "name": "Apps",
+      "blurb": "Mac and iPhone utilities and the tools around them."
+    },
+    {
+      "slug": "games",
+      "name": "Games",
+      "blurb": "Games in progress, from first prototype to App Store review."
+    },
+    {
+      "slug": "security",
+      "name": "Security",
+      "blurb": "Training, courses and tools for people learning cybersecurity."
+    },
+    {
+      "slug": "homelab-hardware",
+      "name": "Homelab and Hardware",
+      "blurb": "Servers, TVs, networks and the machines in the closet."
+    },
+    {
+      "slug": "web",
+      "name": "Web",
+      "blurb": "Sites, templates and the plumbing that keeps them online."
+    },
+    {
+      "slug": "books-writing",
+      "name": "Books and Writing",
+      "blurb": "Manuscripts, publishing pipelines and the craft of finishing."
+    },
+    {
+      "slug": "weekly-roundups",
+      "name": "Weekly Roundups",
+      "blurb": "The week in one read."
+    },
+    {
+      "slug": "learning-to-sell",
+      "name": "Learning to Sell",
+      "blurb": "Can the apps, games and books earn back what the AI helpers cost? Raw sales numbers, in public, every week."
+    }
   ],
   "projects": {
     "QixForge": "games",
@@ -38,6 +75,7 @@
     "CyberSim": "security",
     "BookForge pipeline": "books-writing",
     "Book manuscripts": "books-writing",
-    "Weekly roundup": "weekly-roundups"
+    "Weekly roundup": "weekly-roundups",
+    "Learning to Sell": "learning-to-sell"
   }
 }
