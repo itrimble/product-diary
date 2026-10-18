@@ -347,5 +347,73 @@
     }
   ],
   "books_note": "Only 4 books for sale (Book Growth verified Oct 9/16, Gumroad Oct 17-18): Halcyon Key, Obsidian Protocol, Lazarus Directive, Code Red, plus Gumroad Max Mercer 2&3 bundle. Series widget $14.97 last verified Aug 26 - recheck, not headlined. StatBar is an app (Gumroad $9.95 /l/statbar), now tracked as an app sale per Ian Oct 18, not a book. PrismShift is a game, now tracked per Ian Oct 18 with channel/price UNKNOWN. Unpublished titles excluded.",
-  "row_count": 17
+  "row_count": 17,
+  "project_activity": {
+    "source": "Foreman canonical \u2014 AIMacMini:~/projects, Oct 18 ~18:26 CT (git+README only; ACTIVITY.md stale 2026-10-05, mirrors not read). Supersedes MBP Mutagen-synced where conflicting. See projects-snapshot.md \u00a76.",
+    "lanes": {
+      "now": [
+        "Lectern (Slideprocessor)",
+        "SnapDog (snapdog)",
+        "Lightfence (qix-swift)"
+      ],
+      "this_week": [
+        "TilePilot (appsnap)",
+        "civic-fortune-2026-ios",
+        "BookForge (bookpipeline)",
+        "Pipe Flow (not a git repo)",
+        "CyberSim (CyberTestApp)"
+      ]
+    },
+    "items": [
+      {
+        "product": "Lightfence",
+        "folder": "qix-swift",
+        "commits_sep_oct": 120,
+        "status": "tvOS live (App Store id6822773360 per lightfence-site); iOS Waiting for Review, expedite accepted 2026-10-18; 1.1 in progress NOT live; price unverified \u2014 do not quote"
+      },
+      {
+        "product": "StatBar",
+        "folder": "statbar",
+        "commits_sep_oct": 50,
+        "status": "1.4.0-1.4.2 all 2026-10-18, site+guide updated \u2014 strongest shipping tie-in"
+      },
+      {
+        "product": "PrismShift",
+        "folder": "prismshift",
+        "commits_sep_oct": 123,
+        "status": "signed iPhone/TV candidates 2026-10-15, active 2026-10-18, imminent, NO store-live evidence \u2014 sales row not-yet-launched"
+      },
+      {
+        "product": "SnapDog",
+        "folder": "snapdog",
+        "status": "2026-10-18 Creator Studio commits; 32 uncommitted on feature branch \u2014 not shipping-verified"
+      },
+      {
+        "product": "Lectern AI",
+        "folder": "Slideprocessor",
+        "status": "live Mac App Store 1.1 build23 per README/tag, cold since 2026-09-29; CONFLICT: earlier note said store 1.2"
+      },
+      {
+        "product": "CyberSim",
+        "folder": "CyberTestApp",
+        "status": "1 commit 2026-10-17"
+      },
+      {
+        "product": "TilePilot",
+        "folder": "appsnap",
+        "status": "v1.0.0 2026-10-17, PR merged 2026-10-18, pre-release \u2014 activity only, NOT a sales row"
+      },
+      {
+        "product": "BookForge",
+        "folder": "bookpipeline",
+        "commits_sep_oct": 68,
+        "status": "thru 2026-09-28 \u2014 activity only, NOT a sales row"
+      },
+      {
+        "product": "books lane",
+        "folder": "books",
+        "status": "Pandora's Deception added 2026-10-17 to private itrimble/books \u2014 NOT for sale, do not add to books-for-sale"
+      }
+    ]
+  }
 }

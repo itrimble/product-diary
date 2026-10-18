@@ -79,20 +79,21 @@ Not books, so not in this table: StatBar on Gumroad is an app. Unpublished / not
 
 ## Project activity — ~/projects
 
-Selling only matters if something is shipping, so this series will also track what is moving in `~/projects` — as supply, not as sales. Source for this entry: **MBP Mutagen-synced copy, verified Oct 18 evening** (checked directly on MBP-M4Max.lan and Ians-MacBookNeo.lan: Mutagen Connected/Watching, identical 53,934 dirs / 353,800 files / 84GB, with the sync beta connected and the NAS mounted on both; AIMacMini Grok Bot machine offline, but Mutagen beta connected, so the MBP copy is live-synced — this supersedes the earlier mini-unreachable DEGRADED label). The dates below are last verified project activity from `/workspace/learning-to-sell/projects-snapshot.md` §5 — they are **not release dates and not sales dates**, and no project activity is counted as a sale.
+Selling only matters if something is shipping, so this series will also track what is moving in `~/projects`, as supply, not as sales. Source for this entry: **Foreman canonical: AIMacMini:~/projects, Oct 18 ~18:26 CT (git + README only; ACTIVITY.md stale Oct 5, mirrors not read), superseding the MBP Mutagen-synced copy where they conflict** (`/workspace/learning-to-sell/projects-snapshot.md` §6). Lanes: **Now**: Lectern, SnapDog, Lightfence; **This-week**: TilePilot, civic-fortune-2026-ios, BookForge, Pipe Flow, CyberSim. The dates below are last verified project activity, **not release dates and not sales dates**, except where store-live status is explicitly stated, and no project activity is counted as a sale.
 
-| Product | ~/projects folder | Last verified activity | Status |
+| Product | ~/projects folder | Last verified activity (Foreman canonical) | Status |
 |---|---|---|---|
-| SnapDog | `snapdog` | 2026-10-18 12:41 CT (7c1a49c) | MBP Mutagen-synced copy, verified Oct 18 evening |
-| Lectern AI | `Slideprocessor` | 2026-09-29 (41d1da8) | MBP Mutagen-synced copy, verified Oct 18 evening |
-| CyberSim | `CyberTestApp` | 2026-10-17 20:00 CT (41a7213) | MBP Mutagen-synced copy, verified Oct 18 evening |
-| Plumber Puzzle: Pipe Flow | `Pipe Flow/PlumberPuzzle` | No git date verified — not a git repo | DEGRADED — file/version based only |
-| Lightfence (QixForge) | `qix-swift` | 2026-10-18 12:40 CT (c782acc, + iPad/iPhone/AppleTV/Mac commits today) | MBP Mutagen-synced copy, verified Oct 18 evening |
-| Books (Halcyon / Obsidian / Lazarus / Code Red + bundle) | `books-site` (box clone) | 2026-10-10 | Box clone only — manuscript activity not in MBP git check above |
-| PrismShift | `prismshift` | 2026-10-18 16:34 CT (0e57729) | Active — now in sales tracker per Ian Oct 18; **not yet launched** (not live/submitted, price undecided) |
-| StatBar | `statbar` | 2026-10-18 16:08 CT (80af669, v1.4.2) | Active — now in sales tracker per Ian Oct 18 (Gumroad $9.95 once /l/statbar, sales missing) |
+| SnapDog | `snapdog` | Oct 18 — Creator Studio / signed MCP commits | **Not shipping-verified: 32 uncommitted on feature branch** |
+| Lectern AI | `Slideprocessor` | Cold since Sep 29 | **Live Mac App Store 1.1 build23 per README/tag** — *conflict flag: an earlier note said store 1.2; canonical README/tag says 1.1 build23, so 1.2 is unverified until re-checked* |
+| CyberSim | `CyberTestApp` | Oct 17 — **1 commit** | — |
+| Plumber Puzzle: Pipe Flow | `Pipe Flow` | Not a git repo | This-week lane; file/version based only |
+| Lightfence (QixForge) | `qix-swift` | **120 commits Sep–Oct**, latest Oct 18; 1.1 (13 langs) in progress | **tvOS live** (App Store id6822773360 per lightfence-site); **iOS Waiting for Review** (expedite accepted Oct 18) — market tvOS now, iOS as coming-soon only; **1.1 is NOT live**; price still unverified, not quoted |
+| Books | `books` / `bookpipeline` | BookForge 68 commits thru Sep 28; *Pandora's Deception* added to books lane Oct 17 (private `itrimble/books`) | *Pandora's Deception* is **not for sale** and is not added to the books above; BookForge is activity only |
+| PrismShift | `prismshift` | **123 commits**; signed iPhone/TV candidates Oct 15; active Oct 18 | Imminent, **no store-live evidence** — sales row stays not-yet-launched |
+| StatBar | `statbar` | **50 commits; 1.4.0–1.4.2 all Oct 18**, site+guide updated | **Strongest shipping tie-in** — now in sales tracker (Gumroad $9.95 /l/statbar, sales missing) |
+| TilePilot | `appsnap` | v1.0.0 bump Oct 17; PR merged Oct 18 | Pre-release — **activity only, not a sales row** |
 
-PrismShift and StatBar were listed here as active projects; I have now decided to track sales for both, so they are also sales-tracker rows — StatBar on Gumroad at $9.95 (sales missing), PrismShift not yet launched — channel and price missing, store price undecided (sales null). Their missing sales do not change the totals above.
+PrismShift and StatBar are also sales-tracker rows — StatBar on Gumroad at $9.95 (sales missing), PrismShift not yet launched (sales null). TilePilot, BookForge and the books lane are activity only. Their missing sales do not change the totals above.
 
 ## What I cannot see yet
 
@@ -130,7 +131,7 @@ These are proposals, not results. None has run.
 - **Euros.** Both Pipe Flow buyers paid in euros. Apple's report lists the customer price as 2.99 in euros, and pays me €1.73 and €1.70 after its cut. The US list price is $2.99, so "2 × $2.99 = $5.98" is the list-price way of counting it, not what Apple recorded. I have not converted €3.43 to dollars, so the gap to $1,010 is not scored yet.
 - **Gumroad timing.** A check of my Gumroad store at about 9:27 PM Central on Oct 17 found no Halcyon or Code Red listing. The experiment log later the same night records both listings as live. The likely reason is timing: the listings went live after that check, at roughly 10:54 PM by the launch report, a time I have not matched to a file yet. I have not re-opened either page for this draft.
 - **Book prices.** Halcyon is $2.99 on Gumroad and $4.99 on Kindle. Obsidian and Lazarus are $4.99 on both Kindle and Gumroad (Kindle: Obsidian not in KU, Lazarus not in KU; Halcyon in KU). Code Red is $7.99 on Kindle (in KU, 5.0 from 1 review) and Gumroad, $18.99 in paperback. The Max Mercer Books 2 & 3 bundle is $8.99 on Gumroad. Kindle prices are from catalog checks Oct 9/16, which are not sales.
-- **Lightfence.** The launch post is real. I have not confirmed the price or which stores carry it for this entry, so neither is quoted here.
+- **Lightfence.** The launch post is real. Foreman canonical (Oct 18): tvOS is live (App Store id6822773360 per lightfence-site), iOS is Waiting for Review with an expedite accepted Oct 18, and 1.1 is in progress — not live. I have not confirmed the price, so it is not quoted here.
 - **Spend.** Every one of the 24 experiments records $0 spent. That changes the first time I pay for a test, and it will show up in the tracker the same week.
 
 Last week's [weekly roundup](/weekly-roundup/2026-10-16/) has the same "no paid sales" line from the other side, alongside what got built.
