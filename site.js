@@ -12,6 +12,20 @@
     store("pd-theme", root.dataset.theme);
   });
 
+  // Mobile category nav: closed by default (CSS), hamburger toggles a chip row.
+  var navBtn = document.getElementById("nav-toggle");
+  var catbar = document.getElementById("catbar");
+  if (navBtn && catbar) {
+    var setNav = function (open) {
+      catbar.classList.toggle("open", open);
+      navBtn.setAttribute("aria-expanded", String(open));
+      navBtn.setAttribute("aria-label", open ? "Hide categories" : "Show categories");
+    };
+    navBtn.addEventListener("click", function () { setNav(!catbar.classList.contains("open")); });
+    catbar.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && catbar.classList.contains("open")) { setNav(false); navBtn.focus(); } });
+  }
+
   // List or grid for story lists.
   var lists = document.querySelectorAll(".stories:not(.compact)");
   var view = document.querySelector(".view");
