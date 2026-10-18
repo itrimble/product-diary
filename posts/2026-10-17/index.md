@@ -1,0 +1,1 @@
+Two long reads today, both about the AI machine I built from an old home server. [One covers how it was set up and why its memory turned out to be faulty](/omarchy-ai-node/2026-10-17/), and [the other asks whether a stack of used game consoles could do the same job](/ps5-ai-cluster/2026-10-17/) for less.
