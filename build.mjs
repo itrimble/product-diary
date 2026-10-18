@@ -201,7 +201,7 @@ const ICON = {
 const catHref = (slug) => `/category/${slug}/`;
 const catCounts = new Map(CATS.map((c) => [c.slug, entries.filter((e) => e.category === c.slug).length]));
 const nav = (active) =>
-  `<nav class="catbar" aria-label="Categories"><div class="wrap"><ul>` +
+  `<nav class="catbar" id="catbar" aria-label="Categories"><div class="wrap"><ul>` +
   `<li><a href="/"${active === "home" ? ' aria-current="page"' : ""}>Home</a></li>` +
   CATS.filter((c) => catCounts.get(c.slug) > 0 || c.slug === active)
     .map((c) => `<li><a href="${catHref(c.slug)}"${active === c.slug ? ' aria-current="page"' : ""}>${esc(c.name)}</a></li>`)
@@ -243,7 +243,7 @@ const page = (title, content, opts = {}) => {
 <header class="top"><div class="wrap top-row">
 <a href="/" class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">${SITE}</span><span class="by">by Remnant Security</span></a>
 <form class="search" role="search" action="/" onsubmit="return false"><label class="sr" for="q">Search the diary</label>${ICON.search}<input id="q" type="search" placeholder="Search" autocomplete="off" aria-controls="results"><ul id="results" class="results" hidden></ul></form>
-<div class="tools"><a class="tool" href="/feed.xml" aria-label="RSS feed">${ICON.rss}</a><button class="tool" type="button" id="theme" aria-label="Switch between light and dark"><span class="i-moon">${ICON.moon}</span><span class="i-sun">${ICON.sun}</span></button></div>
+<div class="tools"><a class="tool rss-tool" href="/feed.xml" aria-label="RSS feed">${ICON.rss}</a><button class="tool" type="button" id="theme" aria-label="Switch between light and dark"><span class="i-moon">${ICON.moon}</span><span class="i-sun">${ICON.sun}</span></button><button class="tool nav-toggle" type="button" id="nav-toggle" aria-label="Show categories" aria-expanded="false" aria-controls="catbar">${ICON.list}</button></div>
 </div>${nav(opts.active || "")}</header>
 <main id="main" class="wrap">${wrapped}</main>
 <footer class="foot"><div class="wrap"><p>${SITE} is the public build log of <a href="https://remnantsecurity.com">Remnant Security</a>. Written by Ian Trimble and a nightly run.</p><p><a href="/feed.xml">RSS</a> · <a href="https://remnantsecurity.com">remnantsecurity.com</a></p></div></footer>
