@@ -127,6 +127,14 @@ ssh ian@100.120.153.82 'launchctl kickstart -p gui/$(id -u)/com.ian.product-diar
 ssh ian@100.120.153.82 'launchctl print gui/$(id -u)/com.ian.product-diary'          # status
 ```
 
+## Writing a long-form article
+
+Long-form pieces follow `bin/ENTRY-CONTRACT.md` (see "Long form requirements"): real captioned screenshots, a Sources
+section with verifiable links, and links to related earlier entries (`bin/related-links.py`). The shared
+`product-diary-blog` skill is the checklist and the checker: draft outside the repo, run its `blog-check.sh`, then a
+branch and pull request, signed on the mini, merged, and only then `./deploy.sh` from `main`. Deploying from an
+unmerged branch is undone by the next nightly deploy.
+
 ## Publishing by hand
 
 ```sh

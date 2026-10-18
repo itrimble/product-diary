@@ -111,6 +111,27 @@ bash bin/attest-day.sh sign YYYY-MM-DD
 Writing it into the current day's folder before that night's run needs none of
 this: it is signed with everything else.
 
+### Long form requirements (days from 2026-10-17)
+
+Long form is a magazine-style article, so it is held to a reader's standard of proof:
+
+- **Real screenshots.** At least one, three or more where the work allows. Each image is followed by an italic caption
+  line that says what it shows and when it was captured. Capture one window, never a whole screen, and look at the
+  image before it goes in: no emails, tokens, internal addresses or other people's data. A screenshot of a public
+  page cited as evidence is fine with credit in the caption.
+- **Sources a reader can open.** A `## Sources` section with at least two distinct https links, grouped if there are
+  many. Link claims inline where you make them. Say what you read, when, and what you did not verify. Links that
+  block bots (Reddit, eBay, Amazon return 403 to scripts) are allowed, but confirm them in a browser.
+- **Related stories.** Run `bin/related-links.py <draft.md>` before finishing. When it lists a strong match, link the
+  earlier entry with its route (`/<slug>/<date>/`); the same goes for related stories elsewhere on the web. Do not
+  force a link that does not help the reader.
+- **URLs are exempt from the word scans.** A link's slug is not a word choice, so the banned-word and construction
+  checks ignore URLs. They still apply to everything a reader sees.
+
+The validator enforces the first two for any long-form day dated 2026-10-17 or later. The shared `product-diary-blog`
+skill (`~/.agents/skills/product-diary-blog/`) runs the same checks, plus a build and a link check, before anything
+is pushed.
+
 ## Day overview (`index.md`)
 
 No frontmatter. 1-3 sentences framing the day across projects, or up to 6 when

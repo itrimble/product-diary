@@ -322,13 +322,37 @@ for (const f of entries) {
     if (dashes > dMax) bad(f, `a paragraph uses ${dashes} em dashes, contract allows ${dMax}`);
   }
 
-  // Voice.
+  // Long form, from 2026-10-17: real screenshots with captions, and sources a reader can
+  // check. Earlier long-form days are left alone so they still verify.
+  if (LONG && date >= "2026-10-17") {
+    const lines = body.split("\n");
+    const imgs = lines.filter((l) => /^!\[/.test(l));
+    if (imgs.length < 1) bad(f, "long form needs at least one real screenshot (see ENTRY-CONTRACT, Long form)");
+    lines.forEach((l, i) => {
+      if (!/^!\[/.test(l)) return;
+      let j = i + 1;
+      while (j < lines.length && !lines[j].trim()) j++;
+      if (j >= lines.length || !lines[j].startsWith("*")) bad(f, `image "${l.slice(0, 60)}" needs an italic caption line right after it`);
+    });
+    const src = body.match(/^##+\s*Sources[^\n]*\n([\s\S]*)$/im);
+    if (!src) bad(f, 'long form needs a "Sources" section with links a reader can open');
+    else {
+      const n = new Set((src[1].match(/\]\((https?:\/\/[^)\s]+)\)/g) || [])).size;
+      if (n < 2) bad(f, `"Sources" has ${n} distinct https links; long form needs at least 2`);
+    }
+  }
+
+  // Voice. URLs are exempt: a link's slug is not the writer's word choice.
+  const prose = withoutFences
+    .replace(/\]\((https?:\/\/|\/)[^)\s]*\)/g, "]")
+    .replace(/<https?:\/\/[^>\s]+>/g, " ")
+    .replace(/https?:\/\/\S+/g, " ");
   for (const w of BANNED_WORDS) {
-    const m = withoutFences.match(new RegExp(`\\b${w}\\b`, "i"));
+    const m = prose.match(new RegExp(`\\b${w}\\b`, "i"));
     if (m) bad(f, `banned word "${m[0]}"`);
   }
   for (const re of BANNED_PHRASES) {
-    if (re.test(withoutFences)) bad(f, `banned construction ${re}`);
+    if (re.test(prose)) bad(f, `banned construction ${re}`);
   }
 
   // The first paragraph is for a non-technical reader, so it is the one place
