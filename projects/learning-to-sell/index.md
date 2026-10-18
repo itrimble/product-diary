@@ -1,0 +1,1 @@
+Learning to Sell is a weekly public check on whether my apps, games and books can earn back the $1,010 spent on the assistants that help build and market them. Each entry shows the raw sales numbers beside the story, with a source for every figure. Where a number cannot be read yet, the tracker says missing rather than guessing.
