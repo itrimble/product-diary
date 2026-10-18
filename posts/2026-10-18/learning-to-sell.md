@@ -39,6 +39,8 @@ Apple's daily sales files cover September 1 to October 13. Nothing after October
 | The Lazarus Directive (Max Mercer #3) — Kindle $4.99 / Gumroad $4.99 | book | missing | n/a | missing | $0 | no Kindle or Gumroad export |
 | Code Red — Kindle $7.99, Paperback $18.99 / Gumroad $7.99 | book | missing | n/a | missing | $0 | no Kindle or Gumroad export; 5.0 from 1 review on Kindle |
 | Max Mercer Books 2 & 3 Bundle — Gumroad $8.99 | book bundle | missing | n/a | missing | $0 | no Gumroad export |
+| StatBar | app | missing | n/a | missing | $0 | Gumroad $9.95 /l/statbar (canonical; bafol internal permalink, same product); no Gumroad export |
+| PrismShift | game | missing (not yet launched) | missing | missing | $0 | NOT yet live/submitted to App Store Connect, price undecided; $4.99 price-research is recommendation only |
 | **Total on record** | | **2** | **15** | **€3.43 proceeds** | **$0** | |
 | **Against $1,010** | | | | **not scored (see below)** | | |
 
@@ -73,6 +75,24 @@ Not books, so not in this table: StatBar on Gumroad is an app. Unpublished / not
 - **Oct 13.** The last day of Apple data I have. No sales.
 - **Oct 17.** Both books went up on Gumroad, The Halcyon Key at $2.99 and Code Red at $7.99. That night, X posts went up for Halcyon, Lectern, Pipe Flow, Code Red and CyberSim, then a launch post for Lightfence.
 - **Oct 18.** We missed one. Someone on X asked what Mac app people would pay for, and a reply asked for screenshot-style annotations on PDFs, which is right next to what SnapDog does. Nothing caught it, because the post itself never named a product. So I switched on a daily watcher for exactly that kind of wish thread. And I approved this series.
+
+
+## Project activity — ~/projects
+
+Selling only matters if something is shipping, so this series will also track what is moving in `~/projects` — as supply, not as sales. Source for this entry: **MBP Mutagen-synced copy, verified Oct 18 evening** (checked directly on MBP-M4Max.lan and Ians-MacBookNeo.lan: Mutagen Connected/Watching, identical 53,934 dirs / 353,800 files / 84GB, with the sync beta connected and the NAS mounted on both; AIMacMini Grok Bot machine offline, but Mutagen beta connected, so the MBP copy is live-synced — this supersedes the earlier mini-unreachable DEGRADED label). The dates below are last verified project activity from `/workspace/learning-to-sell/projects-snapshot.md` §5 — they are **not release dates and not sales dates**, and no project activity is counted as a sale.
+
+| Product | ~/projects folder | Last verified activity | Status |
+|---|---|---|---|
+| SnapDog | `snapdog` | 2026-10-18 12:41 CT (7c1a49c) | MBP Mutagen-synced copy, verified Oct 18 evening |
+| Lectern AI | `Slideprocessor` | 2026-09-29 (41d1da8) | MBP Mutagen-synced copy, verified Oct 18 evening |
+| CyberSim | `CyberTestApp` | 2026-10-17 20:00 CT (41a7213) | MBP Mutagen-synced copy, verified Oct 18 evening |
+| Plumber Puzzle: Pipe Flow | `Pipe Flow/PlumberPuzzle` | No git date verified — not a git repo | DEGRADED — file/version based only |
+| Lightfence (QixForge) | `qix-swift` | 2026-10-18 12:40 CT (c782acc, + iPad/iPhone/AppleTV/Mac commits today) | MBP Mutagen-synced copy, verified Oct 18 evening |
+| Books (Halcyon / Obsidian / Lazarus / Code Red + bundle) | `books-site` (box clone) | 2026-10-10 | Box clone only — manuscript activity not in MBP git check above |
+| PrismShift | `prismshift` | 2026-10-18 16:34 CT (0e57729) | Active — now in sales tracker per Ian Oct 18; **not yet launched** (not live/submitted, price undecided) |
+| StatBar | `statbar` | 2026-10-18 16:08 CT (80af669, v1.4.2) | Active — now in sales tracker per Ian Oct 18 (Gumroad $9.95 once /l/statbar, sales missing) |
+
+PrismShift and StatBar were listed here as active projects; I have now decided to track sales for both, so they are also sales-tracker rows — StatBar on Gumroad at $9.95 (sales missing), PrismShift not yet launched — channel and price missing, store price undecided (sales null). Their missing sales do not change the totals above.
 
 ## What I cannot see yet
 

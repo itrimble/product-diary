@@ -313,7 +313,39 @@
       "source_file_or_agent": "Book Growth verified Gumroad list Oct 17-18 2026",
       "last_updated": "2026-10-18",
       "notes": "Gumroad bundle $8.99. Sales/revenue MISSING. Note: separate Amazon Max Mercer series widget $14.97 for 3 Kindle books was last verified Aug 26 2026 - RECHECK before quoting, do not headline."
+    },
+    {
+      "item": "StatBar",
+      "kind": "app",
+      "channel_source": "Gumroad /l/statbar (canonical; internal permalink bafol redirects there)",
+      "price_usd": 9.95,
+      "buy_url": "https://remnantsecurity.gumroad.com/l/statbar",
+      "units": null,
+      "downloads_free": null,
+      "revenue_recorded": null,
+      "currency": null,
+      "spend_usd": 0,
+      "status": "missing",
+      "source_file_or_agent": "Book Growth gumroad/2026-10-17-gumroad-inventory.md (bafol \u2014 canonical /l/statbar, $9.95); web/statbar-site; projects-snapshot.md \u00a75 (MBP Mutagen-synced, Oct 18 evening); Ian Oct 18",
+      "last_updated": "2026-10-18",
+      "notes": "Gumroad $9.95 once (statbar-site confirms; inventory 2026-10-17). v1.4.2 git 80af669 2026-10-18 16:08 on MBP Mutagen-synced copy. Sales/revenue MISSING: sales_count hidden, no dashboard export. Slug: /l/bafol internal permalink and /l/statbar canonical are same product."
+    },
+    {
+      "item": "PrismShift",
+      "kind": "game",
+      "channel_source": null,
+      "price_usd": null,
+      "units": null,
+      "downloads_free": null,
+      "revenue_recorded": null,
+      "currency": null,
+      "spend_usd": 0,
+      "status": "not yet launched",
+      "source_file_or_agent": "projects-snapshot.md \u00a75 correction (MBP Mutagen-synced copy, verified Oct 18 evening, git 0e57729 2026-10-18 16:34); Ian decision Oct 18 to track",
+      "last_updated": "2026-10-18",
+      "notes": "NOT YET LAUNCHED: release notes say NOT yet live/submitted to App Store Connect, store price undecided. Price/channel missing. price-research $4.99 is recommendation only \u2014 do not quote. Units/revenue null."
     }
   ],
-  "books_note": "Only 4 books for sale (Book Growth verified Oct 9/16, Gumroad Oct 17-18): Halcyon Key, Obsidian Protocol, Lazarus Directive, Code Red, plus Gumroad Max Mercer 2&3 bundle. StatBar is an app, excluded. Unpublished titles excluded. Series widget $14.97 last verified Aug 26 - recheck, not headlined."
+  "books_note": "Only 4 books for sale (Book Growth verified Oct 9/16, Gumroad Oct 17-18): Halcyon Key, Obsidian Protocol, Lazarus Directive, Code Red, plus Gumroad Max Mercer 2&3 bundle. Series widget $14.97 last verified Aug 26 - recheck, not headlined. StatBar is an app (Gumroad $9.95 /l/statbar), now tracked as an app sale per Ian Oct 18, not a book. PrismShift is a game, now tracked per Ian Oct 18 with channel/price UNKNOWN. Unpublished titles excluded.",
+  "row_count": 17
 }
