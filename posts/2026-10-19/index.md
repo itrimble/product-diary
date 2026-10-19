@@ -1,0 +1,1 @@
+Two assistants joined the shop over the weekend, the shared cloud computer became the place where work is coordinated, and the internal wiki went live. The AMD desktop went the other way: faulty RAM, powered off.
