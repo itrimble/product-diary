@@ -1,1 +1,1 @@
-Two assistants joined the shop over the weekend, the shared cloud computer became the place where work is coordinated, and the internal wiki went live. The AMD desktop went the other way: faulty RAM, powered off.
+A finished post spent Monday morning waiting for a signature from a computer that was never down, and the weekend behind it tells the fuller story: two new assistants, a new place to coordinate them, and real development on StatBar, Lightfence, SnapDog and PrismShift, each at a different distance from something a buyer can actually get.
