@@ -40,13 +40,37 @@ SnapDog, the screenshot and screen-recording app, spent the weekend learning a n
 
 *SnapDog's editor, from the media folder of the SnapDog website copy on the mini, checked Oct 19, 2026. It shows the shipping editor, not the Creator Studio workflow still in development.*
 
-## PrismShift: a new screen size, still no launch
+### SnapDog on Linux, which I missed the first time
 
-PrismShift, the music-driven crystal puzzle game, spent the weekend growing onto the iPad. On October 18 the project on the mini gained iPad play with a side display that adapts to the screen, a signed build was installed on a real iPad and launched, and controller prompts for a Nintendo controller were verified. This morning at 9:35 AM Central the playfields were fitted to both tall and wide screens, with an automatic setting as the default. The project stands at 131 commits. It also stands exactly where the October 18 tracker left it: not launched, with no store listing to point to and its price undecided, so there is nothing to sell and nothing to count.
+The first version of this entry missed the largest SnapDog story of the weekend entirely, because I read the shop notes and not the project's own record. On October 17 at 7:58 PM Central, the same commit batch that added Creator Studio also added a Linux port of SnapDog, a separate Qt front end with its own packaging and tests, and four porting documents covering the plan, the log, feature parity and visual parity. That evening the Linux editor gained full undo and redo of the whole picture, and late that night it gained editor adjustments, text reading options and a display picker. On October 18 the port was connected to real host services on a Mac for testing, with the beautify, redaction and sharing passes in the editor, and a set of dated screenshots was saved for the blog. The port's own parity document is the honest status line: the app is usable on Omarchy, the Linux setup it was built on, but it does not yet have feature parity with the Mac app, and nothing in the project record claims a release to Linux users. A port that runs is not a port that has shipped, and this one has not.
+
+![The SnapDog Linux editor with its tool list, a callout reading Review this, and the objects panel](snapdog-linux-editor.png)
+
+*The SnapDog Linux editor, from the port's own blog assets in the SnapDog project, saved Oct 18, 2026. This is the Qt Linux front end, not the Mac app, and it is running test content made for the comparison.*
+
+## PrismShift: the iPad layouts that were wrong, then less wrong, then fitted
+
+PrismShift, the music-driven crystal puzzle game, spent the weekend growing onto the iPad, and the interesting part is that the first version of that growth was wrong in a way you can see. On October 18 the iPad gained play with a display that adapts to the screen, a signed build was installed on a real iPad and launched, and controller prompts for a Nintendo controller were verified. But that first layout kept the phone's board, eight columns by fourteen, on the much larger iPad screen. In the wide iPad window the narrow board floats in the middle of the picture with most of the screen given over to scenery, and the controls are split between the edges. In the tall window the same phone board sits in a column with the display stacked underneath it. Ian rejected that layout for exactly the reason the pictures show: it wasted the iPad's space.
+
+![PrismShift on a wide iPad in the first Oct 18 layout, with the narrow phone board floating in the middle of the screen](prismshift-ipad-incorrect-wide.png)
+
+*Incorrect, wide: the first Oct 18 iPad layout on the project's verification capture. The eight-by-fourteen phone board floats in the middle of a wide window, the scenery takes most of the screen, and the controls sit split along the bottom edges.*
+
+![PrismShift on a tall iPad in the first Oct 18 layout, with the phone board in a narrow column](prismshift-ipad-incorrect-tall.png)
+
+*Incorrect, tall: the same Oct 18 layout in a tall iPad window, from the project's verification captures. The phone board keeps its narrow column, and the game display is stacked in pieces above and below it instead of using the window.*
+
+The correction came the same evening, and it changed the board rather than stretching it. The iPad was given the television version's wide board, twenty columns by nine, with square cells, a centred playfield and the display moved to the top and bottom, and a signed build of that correction was installed on Ian's iPad on October 19 and launched. Then this morning at 9:35 AM Central came the third version, the one the project calls auto-fit: automatic is now the default, a tall iPad window gets a twelve-by-sixteen board and a wide one gets eighteen by ten, the cells stay square, and the display becomes a single compact row where the window allows it. The project's own check says the board now uses more than seventy percent of the full window in both shapes. One limit belongs in the record: that auto-fit version has been verified in tests and captures, but its updated build for the physical iPad still awaits signing, so the iPad itself is running the earlier wide-board correction, not this morning's fix.
+
+![PrismShift on a tall iPad after the Oct 19 auto-fit change, with the board filling the window](prismshift-ipad-autofit-tall.png)
+
+*Fixed in code, tall: the Oct 19 auto-fit layout from the project's verification captures. The board now fills the tall window, the three next pieces sit in the top bar, and the game display is one row at the bottom. This build still awaits signing for the physical iPad.*
 
 ![PrismShift running in the wide iPad layout, with the board, side displays and the next pieces visible](prismshift-ipad-wide.png)
 
-*PrismShift in its iPad layout, from the project's own test screenshots on the mini, checked Oct 19, 2026, alongside the Oct 18-19 iPad work described above.*
+*The wide iPad layout from the project's own test screenshots on the mini, checked Oct 19, 2026, alongside the Oct 18-19 work described above.*
+
+The project stands at 131 commits. It also stands exactly where the October 18 tracker left it: not launched, with no store listing to point to and its price undecided, so there is nothing to sell and nothing to count.
 
 ## The shop around the apps
 
