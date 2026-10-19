@@ -1,1 +1,1 @@
-Two assistants joined the shop over the weekend, the shared cloud computer became the place where work is coordinated, and the internal wiki went live. The AMD desktop went the other way: faulty RAM, powered off.
+A finished post spent Monday morning waiting for a signature from a computer that turned out never to have been down, while the weekend behind it brought two new assistants, a new place to coordinate the work, and a live internal wiki. The count is now 19 assistants, with seven decisions still waiting on Ian.
