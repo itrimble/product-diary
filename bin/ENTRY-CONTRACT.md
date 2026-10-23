@@ -175,8 +175,10 @@ reported as a note, not a failure.
 
 ## Voice
 
-Notes-to-self, not marketing. Short sentences. Name the thing. Past tense for
-what happened.
+First person as Ian, candid and hands-on, in the spirit of MacStories and
+Thurrott.com. Not marketing. Short sentences next to one precise detail. Name the
+thing. Past tense for what happened. Commit hashes and file paths do not belong in
+running text unless the file is the cause of something the reader should know.
 
 Banned outright, because they are how a model fills space when it has nothing:
 *delve, leverage, robust, seamless, elevate, unlock, empower, game-changing,
