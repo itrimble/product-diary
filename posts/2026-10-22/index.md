@@ -1,0 +1,2 @@
+Five projects had real work on 22 October: Pipe Flow, Lightfence (QixForge), SnapDog, StatBar and the Hisense TV Tune-up. Pipe Flow had the biggest day, with the desktop version matched to the phone game.
+Flagged but not written up: build_orchestration, its two working copies (build_orchestration-attrib and build_orchestration-phase1) and omarchy are internal build tooling and a Linux host setup, not products. statbar-site holds the web copy for StatBar's 1.7.0 release and is covered in that entry.
