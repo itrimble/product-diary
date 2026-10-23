@@ -1,8 +1,12 @@
 #!/bin/bash
 # Off-box check for the nightly diary. Runs on the NAS (always on, independent of the Mac mini and of
-# whoever is logged in there), from cron at 08:30 Central:
+# whoever is logged in there), from a systemd user timer at 08:30 Central. User cron is not available on the
+# NAS (the spool is root-only), and the account lingers, so the timer runs without a login:
 #
-#   30 8 * * * /bin/bash $HOME/bin/diary-offbox-check.sh >> $HOME/diary-offbox.log 2>&1
+#   ~/.config/systemd/user/diary-offbox.timer    OnCalendar=*-*-* 08:30:00, Persistent=true
+#   ~/.config/systemd/user/diary-offbox.service  Type=oneshot, ExecStart=/bin/bash %h/bin/diary-offbox-check.sh,
+#                                                output appended to ~/diary-offbox.log
+#   enable with: systemctl --user daemon-reload && systemctl --user enable --now diary-offbox.timer
 #
 # It reads only the public site, so it needs no projects, no node and no keys: just curl and the ntfy
 # topic in ~/.config/ntfy-topic (mode 600). It stays quiet when yesterday's diary is live, because the
