@@ -16,12 +16,12 @@
 #
 # Overrides for testing: WATCHDOG_DATE=YYYY-MM-DD (the day to judge), WATCHDOG_NO_HEAL=1.
 set -uo pipefail
-export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 LABEL=com.ian.product-diary
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 SITE=https://blog.remnantsecurity.com
-LAUNCHLOG="$HOME/Library/Logs/product-diary/launch.log"
+LAUNCHLOG=${WATCHDOG_LAUNCHLOG:-$HOME/Library/Logs/product-diary/launch.log}
 REPO="$HOME/projects/product-diary"
 NOTIFY="$HOME/bin/notify.sh"
 GUI="gui/$(id -u)"
