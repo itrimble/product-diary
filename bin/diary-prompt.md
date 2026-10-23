@@ -160,6 +160,12 @@ says what is in the picture. If it prints a reason, carry on without a picture.
 Do not write your own build or screenshot commands. That is how a run ends up
 stuck at 3am on a build nobody is watching.
 
+## The daily story is not your job
+
+The contract below also describes a "Daily story". A separate pass writes it after you finish, once your entries
+have passed validation. Do not write one, do not create a `project: Daily Story` file, and do not leave a draft in the
+day folder. Spend the time on the project entries and their pictures.
+
 ## Finishing
 
 Do not build, commit, push, or deploy — the runner script does all of that after

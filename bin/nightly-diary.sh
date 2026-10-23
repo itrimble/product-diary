@@ -241,6 +241,12 @@ else
     [ $rc -eq 137 ] && echo "warn: provider $pname ignored TERM and was killed after ${AGENT_TIMEOUT}s + ${AGENT_KILL_GRACE}s"
     [ $rc -ne 0 ] && [ $rc -ne 124 ] && [ $rc -ne 137 ] && echo "warn: provider $pname exited $rc"
 
+    # The entry pass must not produce the story: that has its own pass and time limit, and a
+    # half-finished one here would fail the whole day's validation.
+    for sf in $(grep -l '^project: Daily Story' "$DAYDIR"/*.md 2>/dev/null); do
+      echo "note: removing a daily story written during the entry pass ($sf)"; rm -f "$sf"
+    done
+
     # The contract is what makes the blog consistent across providers.
     if node "$REPO/bin/validate-entries.mjs" "$DATE"; then
       PROVIDER_USED="$pname"
