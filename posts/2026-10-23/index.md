@@ -1,0 +1,1 @@
+The Hisense podcasts app gained a native library, older-episode caching, automatic refresh, and clearer remote controls. This article records the work so far today, with television screenshots and a reviewed public source release.
