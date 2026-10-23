@@ -9,6 +9,7 @@ that fails validation is not published.
 
 ```
 posts/YYYY-MM-DD/<project-slug>.md     one per qualifying project (required)
+posts/YYYY-MM-DD/<story-slug>.md       the daily story, from 2026-10-21 (see "Daily story")
 posts/YYYY-MM-DD/index.md              the day's overview (required)
 posts/YYYY-MM-DD/assets/<name>.png     images referenced by those entries
 ```
@@ -133,6 +134,64 @@ Long form is a magazine-style article, so it is held to a reader's standard of p
 The validator enforces the first two for any long-form day dated 2026-10-17 or later. The shared `product-diary-blog`
 skill (`~/.agents/skills/product-diary-blog/`) runs the same checks, plus a build and a link check, before anything
 is pushed.
+
+## Daily story (days from 2026-10-21)
+
+Every day that has project entries also gets **one long-form story** that tells the whole day as a magazine
+piece, in the voice described under "Voice". The per-project entries are the record; the story is what a reader
+finds, shares and gets found by. It is a normal long-form post with a reserved project name:
+
+```yaml
+---
+project: Daily Story
+title: Lightfence Goes to Apple Review While SnapDog Learns Linux   # 30-62 chars, names the apps and the event
+summary: One plain sentence, 110-160 characters, that works as the search result description.
+format: longform
+stats: Lightfence build = 1003 | Prism Shift commits = 32          # optional, real numbers only
+---
+```
+
+The file is `posts/YYYY-MM-DD/<descriptive-slug>.md`. The filename is the page address, so use 3-8 lowercase words that
+name the main apps and what happened (`lightfence-app-review-snapdog-linux-gifs.md`), never `story.md`.
+
+- **Evidence.** The story may only describe work the survey saw and the project entries already record. It has no
+  single project for the survey to check, so that check is skipped, but its facts are held to the same standard:
+  disclose what failed and what was not verified.
+- **Length and shape.** 700-2500 words. A plain-language first paragraph of 25-70 words (this becomes the search
+  snippet), then at least three `##` sections. Each heading names an app or an event; "Introduction", "Overview",
+  "Conclusion" and "Summary" are rejected. Never write a `#` heading; the page title is the only h1.
+- **Screenshots.** At least three real ones, each followed by an italic caption (what it shows, when it was captured,
+  what to notice). Take them from the project entries' assets, each project's own screenshot folders, and
+  `bin/shot-project.sh`. Open every image first and apply the screenshot hygiene rules. Never use art or footage
+  that `site-templates/docs/CATALOG.md` marks do-not-publish.
+- **Links.** At least three distinct internal links (the day's project entries, project pages, earlier stories), at
+  least one of them to a project entry of the same day, and a `## Sources` section with at least two distinct https
+  links. Every internal link must point at a page that exists.
+- **Failure is not fatal.** The story is written after the project entries have passed. A story that fails
+  validation is dropped and the entries still publish; the log says why.
+
+## SEO
+
+These rules apply to the daily story and, where marked, to every entry. The validator enforces what a script can
+check; the build supplies the rest.
+
+**You write:**
+
+| | Rule |
+|---|---|
+| Title | 30-62 characters, names the app and the event, not just a date. Unique across the site. |
+| Summary | 110-160 characters, plain language, reads as a complete sentence. It is the meta description and the share-card text. |
+| Filename | 3-8 descriptive words, lowercase with hyphens. It is the URL. |
+| Headings | At least three `##` headings that name something. No generic headings. One h1, supplied by the page. |
+| First paragraph | 25-70 words, says who did what and why it matters, with the main app name in it. |
+| Images | Descriptive filenames (`lightfence-title-screen-tv.png`, not `shot1.png`). Alt text of at least 6 words that says what is in the picture (3 for ordinary entries), plus an italic caption. |
+| Links | 3+ internal, 2+ external sources. Link text describes the target; never "click here". |
+| Words | Write for the reader. Use the app's real name once in the title and naturally in the text. No keyword stuffing, no hidden text, no invented claims. |
+
+**The build supplies (do not hand-write):** a canonical URL; Open Graph and Twitter card tags with the image alt;
+`robots` directives; a published and modified date; `BlogPosting` and `BreadcrumbList` structured data; a sitemap
+with `lastmod`; an RSS feed; the site-wide card as the fallback image. The Daily Story has no project page of its
+own, because a page per story would be near-duplicate content.
 
 ## Day overview (`index.md`)
 

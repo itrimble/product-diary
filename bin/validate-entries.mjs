@@ -160,6 +160,73 @@ if (NO_SURVEY) {
   }
 }
 
+// ---- the nightly story and its SEO rules ------------------------------------
+// One magazine-style post per day, written after the project entries. See "Daily story"
+// and "SEO" in ENTRY-CONTRACT.md. Days before STORY_FROM are left alone so they verify.
+const DAILY_STORY = "Daily Story";
+const STORY_FROM = "2026-10-21";
+const SEO_FROM = "2026-10-24";
+const GENERIC_SLUGS = new Set(["story", "daily-story", "daily", "diary", "post", "update", "today", "news"]);
+const GENERIC_HEADINGS = /^(introduction|intro|overview|conclusion|summary|final thoughts|wrapping up|closing thoughts|background|details)$/i;
+const GENERIC_IMAGE = /^(img|image|shot|screenshot|screen|photo|pic|picture|capture|untitled)[-_ ]?\d*\.(png|jpe?g|webp|gif)$/i;
+
+// Does an internal link point at a page that will exist?
+function internalLinkOk(href) {
+  const u = href.split("#")[0];
+  if (/^\/(category|assets|fonts)\//.test(u) || u === "/" || u === "/feed.xml" || u.startsWith("/learning-to-sell")) return true;
+  let m = u.match(/^\/(\d{4}-\d{2}-\d{2})\/$/);
+  if (m) return fs.existsSync(path.join(ROOT, "posts", m[1]));
+  m = u.match(/^\/([a-z0-9-]+)\/(\d{4}-\d{2}-\d{2})\/$/);
+  if (m) return fs.existsSync(path.join(ROOT, "posts", m[2], `${m[1]}.md`));
+  m = u.match(/^\/([a-z0-9-]+)\/$/);
+  if (m) {
+    for (const d of fs.readdirSync(path.join(ROOT, "posts"))) {
+      if (fs.existsSync(path.join(ROOT, "posts", d, `${m[1]}.md`))) return true;
+    }
+  }
+  return false;
+}
+
+function checkStory(f, slug, meta, body, paras, withoutFences, words) {
+  const slugWords = slug.split("-").filter(Boolean);
+  if (GENERIC_SLUGS.has(slug) || slugWords.length < 3 || slugWords.length > 8) {
+    bad(f, `story filename "${slug}" is the page address: use 3-8 descriptive words naming the app and what happened`);
+  }
+  if (!meta.title) bad(f, "a story needs a title in the frontmatter");
+  else {
+    if (meta.title.length < 30 || meta.title.length > 62) bad(f, `title is ${meta.title.length} chars, SEO spec says 30-62`);
+    if (/\d{4}-\d{2}-\d{2}/.test(meta.title)) bad(f, "title must not be just a date; name the app and what happened");
+  }
+  if (meta.summary && (meta.summary.length < 110 || meta.summary.length > 160)) {
+    bad(f, `summary is ${meta.summary.length} chars; the story's meta description must be 110-160`);
+  }
+  if (words < 700 || words > 2500) bad(f, `story is ${words} words, SEO spec says 700-2500`);
+  const lead = (paras[0] || "").trim().split(/\s+/).filter(Boolean).length;
+  if (lead < 25 || lead > 70) bad(f, `first paragraph is ${lead} words; it becomes the search snippet, so 25-70`);
+
+  const heads = [...body.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim());
+  const h2 = heads.filter((h) => !/^sources$/i.test(h));
+  if (h2.length < 3) bad(f, `${h2.length} section headings; the story needs at least 3 descriptive ## headings`);
+  for (const h of heads) if (GENERIC_HEADINGS.test(h)) bad(f, `heading "${h}" says nothing to a search engine; name the app or the event`);
+  if (/^#\s/m.test(body)) bad(f, "do not write a # heading; the page title is the only h1");
+
+  const imgs = [...body.matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)];
+  if (imgs.length < 3) bad(f, `${imgs.length} screenshots; the story needs at least 3`);
+  for (const [, alt, file] of imgs) {
+    if (alt.trim().split(/\s+/).filter(Boolean).length < 6) bad(f, `alt text "${alt}" needs at least 6 words describing what the picture shows`);
+    if (GENERIC_IMAGE.test(file) || /\s/.test(file)) bad(f, `image file "${file}" needs a descriptive name such as lightfence-title-screen-tv.png`);
+  }
+
+  const links = [...body.matchAll(/\[[^\]]+\]\((\/[^)\s]*)\)/g)].map((m) => m[1]);
+  const distinct = new Set(links.map((l) => l.split("#")[0]));
+  if (distinct.size < 3) bad(f, `${distinct.size} distinct internal links; link at least 3 of the day's entries, project pages or earlier stories`);
+  for (const l of distinct) if (!internalLinkOk(l)) bad(f, `internal link ${l} does not point at a page that exists`);
+  const dayEntries = fs.readdirSync(DAY).filter((x) => x.endsWith(".md") && x !== "index.md" && x !== f);
+  if (dayEntries.length && !dayEntries.some((x) => links.some((l) => l.startsWith(`/${x.replace(/\.md$/, "")}/${date}/`)))) {
+    bad(f, "link at least one of the day's project entries so readers and crawlers can reach the detail");
+  }
+}
+
 const files = fs.readdirSync(DAY).filter((f) => f.endsWith(".md"));
 const entries = files.filter((f) => f !== "index.md");
 const assetsDir = path.join(DAY, "assets");
@@ -286,6 +353,8 @@ for (const f of entries) {
     if (!known.includes(meta.category)) bad(f, `category "${meta.category}" is not in categories.json (${known.join(", ")})`);
   }
   const LONG = meta.format === "longform";
+  const STORY = meta.project === DAILY_STORY;
+  if (STORY && !LONG) bad(f, `a ${DAILY_STORY} must be format: longform`);
   if (!meta.project) bad(f, "frontmatter is missing project");
   else if (meta.project.length < 2 || meta.project.length > 40) bad(f, `project "${meta.project}" outside 2-40 chars`);
 
@@ -344,6 +413,15 @@ for (const f of entries) {
     else {
       const n = new Set((src[1].match(/\]\((https?:\/\/[^)\s]+)\)/g) || [])).size;
       if (n < 2) bad(f, `"Sources" has ${n} distinct https links; long form needs at least 2`);
+    }
+  }
+
+  // The nightly story is held to the SEO spec in ENTRY-CONTRACT.md. Later entries only
+  // get the cheap checks, so an older day still verifies.
+  if (STORY && date >= STORY_FROM) checkStory(f, slug, meta, body, paras, withoutFences, words);
+  if (!STORY && date >= SEO_FROM) {
+    for (const m of body.matchAll(/!\[([^\]]*)\]\(/g)) {
+      if (m[1].trim().split(/\s+/).filter(Boolean).length < 3) bad(f, `image alt text "${m[1]}" needs at least 3 words that describe the picture`);
     }
   }
 
@@ -428,6 +506,8 @@ for (const f of entries) {
   for (const f of entries) {
     const slug = slugify(f.replace(/\.md$/, ""));
     const { meta } = frontmatter(fs.readFileSync(path.join(DAY, f), "utf8"));
+    // The story covers the whole day, so it has no single project for the survey to confirm.
+    if (meta && meta.project === DAILY_STORY) continue;
     const claimed = meta && meta.project ? slugify(meta.project) : "";
     const ok = changedSlugs.has(slug) || changedByProduct.has(slug) ||
       (claimed && (changedSlugs.has(claimed) || changedByProduct.has(claimed)));

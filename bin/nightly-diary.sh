@@ -241,6 +241,12 @@ else
     [ $rc -eq 137 ] && echo "warn: provider $pname ignored TERM and was killed after ${AGENT_TIMEOUT}s + ${AGENT_KILL_GRACE}s"
     [ $rc -ne 0 ] && [ $rc -ne 124 ] && [ $rc -ne 137 ] && echo "warn: provider $pname exited $rc"
 
+    # The entry pass must not produce the story: that has its own pass and time limit, and a
+    # half-finished one here would fail the whole day's validation.
+    for sf in $(grep -l '^project: Daily Story' "$DAYDIR"/*.md 2>/dev/null); do
+      echo "note: removing a daily story written during the entry pass ($sf)"; rm -f "$sf"
+    done
+
     # The contract is what makes the blog consistent across providers.
     if node "$REPO/bin/validate-entries.mjs" "$DATE"; then
       PROVIDER_USED="$pname"
@@ -256,6 +262,43 @@ else
 
   [ -n "$PROVIDER_USED" ] || fail "no provider produced a day that meets the contract"
   echo "--- provider $PROVIDER_USED produced the day ---"
+
+  # --- the daily story ------------------------------------------------------
+  # A second, separate pass so a slow story can never cost the day its entries.
+  # It runs only once the entries have passed, with its own time limit, and a story
+  # that fails validation is removed and the entries publish on their own.
+  STORY_TIMEOUT=${DIARY_STORY_TIMEOUT:-1800}
+  if [ -z "${DIARY_SKIP_STORY:-}" ] && [ "$DATE" \> "2026-10-20" ] \
+     && ls "$DAYDIR"/*.md 2>/dev/null | grep -qv '/index\.md$'; then
+    story_line=""
+    for l in "${PROVIDER_LINES[@]}"; do [ "${l%%|*}" = "$PROVIDER_USED" ] && story_line=$l; done
+    if [ -n "$story_line" ]; then
+      IFS='|' read -r sname sbase smodel stoken <<< "$story_line"
+      backup=$(mktemp -d)
+      cp -R "$DAYDIR" "$backup/day"
+      story_prompt="$(sed -e "s/DIARY_DATE/$DATE/g" \
+                          -e "s|DIARY_REPO|$REPO|g" \
+                          -e "s|DIARY_PROJECTS|$PROJECTS|g" \
+                          "$REPO/bin/story-prompt.md")
+$(sed "s/YYYY-MM-DD/$DATE/g" "$REPO/bin/ENTRY-CONTRACT.md")"
+      echo "--- story pass start $(date '+%T'), timeout ${STORY_TIMEOUT}s ---"
+      ( prompt="$story_prompt"; AGENT_TIMEOUT=$STORY_TIMEOUT; run_provider "$sname" "$sbase" "$smodel" "$stoken" )
+      src=$?
+      [ $src -eq 124 ] && echo "warn: story pass hit its timeout (${STORY_TIMEOUT}s)"
+      [ $src -eq 137 ] && echo "warn: story pass was killed after ${STORY_TIMEOUT}s + ${AGENT_KILL_GRACE}s"
+      if grep -lq '^project: Daily Story' "$DAYDIR"/*.md 2>/dev/null && node "$REPO/bin/validate-entries.mjs" "$DATE"; then
+        echo "--- daily story accepted ---"
+      else
+        echo "warn: no valid daily story for $DATE; publishing the project entries alone"
+        mkdir -p "$REPO/logs/rejected"
+        rm -rf "$REPO/logs/rejected/$DATE-story"; cp -R "$DAYDIR" "$REPO/logs/rejected/$DATE-story"
+        rm -rf "$DAYDIR"; cp -R "$backup/day" "$DAYDIR"
+      fi
+      rm -rf "$backup"
+    fi
+  else
+    echo "--- story pass skipped ---"
+  fi
 fi
 
 # --- publish ----------------------------------------------------------------

@@ -37,6 +37,11 @@
       "blurb": "Manuscripts, publishing pipelines and the craft of finishing."
     },
     {
+      "slug": "daily-stories",
+      "name": "Daily Stories",
+      "blurb": "The day's work across every project, told as one story with screenshots."
+    },
+    {
       "slug": "weekly-roundups",
       "name": "Weekly Roundups",
       "blurb": "The week in one read."
@@ -76,6 +81,7 @@
     "BookForge pipeline": "books-writing",
     "Book manuscripts": "books-writing",
     "Weekly roundup": "weekly-roundups",
-    "Learning to Sell": "learning-to-sell"
+    "Learning to Sell": "learning-to-sell",
+    "Daily Story": "daily-stories"
   }
 }

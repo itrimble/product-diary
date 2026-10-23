@@ -57,6 +57,9 @@ function parseOptional(file) {
 }
 
 // ---- categories ------------------------------------------------------------
+// The nightly story is the one post per day that covers every project. It has no
+// project page of its own: a page per story slug would be thin duplicate content.
+const DAILY_STORY = "Daily Story";
 const CAT = JSON.parse(fs.readFileSync(path.join(ROOT, "categories.json"), "utf8"));
 const CATS = CAT.categories;
 const catBySlug = new Map(CATS.map((c) => [c.slug, c]));
@@ -117,6 +120,7 @@ if (fs.existsSync(POSTS)) {
         stats: meta.stats || "",
         format: meta.format || "",
         author: meta.format === "longform" ? "Ian Trimble" : "Product Diary",
+        words,
         minutes: Math.max(1, Math.round(words / 220)),
         toc,
         html,
@@ -197,6 +201,45 @@ const ICON = {
   user: ico('<circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/>'),
 };
 
+// ---- structured data -----------------------------------------------------------
+// JSON-LD for search engines: a BlogPosting plus breadcrumbs on every article, a Blog
+// on the home page. Values come from the same fields the page shows, so the markup
+// cannot claim anything the reader cannot see.
+const PUBLISHER = { "@type": "Organization", name: "Remnant Security", url: "https://remnantsecurity.com", logo: { "@type": "ImageObject", url: `https://${DOMAIN}${DEFAULT_OG}` } };
+const ldScript = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>\n`;
+function jsonLd(opts, title, desc, url, img) {
+  if (opts.article) {
+    const a = opts.article;
+    return (
+      ldScript({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: a.headline,
+        description: desc,
+        datePublished: a.date,
+        dateModified: a.date,
+        inLanguage: "en",
+        wordCount: a.words,
+        articleSection: a.section,
+        keywords: a.keywords,
+        image: [img],
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        author: { "@type": "Person", name: a.author, url: `https://${DOMAIN}/` },
+        publisher: PUBLISHER,
+      }) +
+      ldScript({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: a.crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: c.url })),
+      })
+    );
+  }
+  if (opts.path === "") {
+    return ldScript({ "@context": "https://schema.org", "@type": "Blog", name: SITE, description: TAGLINE, url: `https://${DOMAIN}/`, inLanguage: "en", publisher: PUBLISHER });
+  }
+  return "";
+}
+
 // ---- page shell ------------------------------------------------------------
 const catHref = (slug) => `/category/${slug}/`;
 const catCounts = new Map(CATS.map((c) => [c.slug, entries.filter((e) => e.category === c.slug).length]));
@@ -232,12 +275,23 @@ const page = (title, content, opts = {}) => {
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Product Diary by Remnant Security - what changed across the projects, day by day.">` : ""}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${esc(img)}">${opts.imageAlt ? `
+<meta property="og:image:alt" content="${esc(opts.imageAlt)}">
+<meta name="twitter:image:alt" content="${esc(opts.imageAlt)}">` : ""}
+<meta name="robots" content="${opts.noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1"}">${opts.article ? `
+<meta name="author" content="${esc(opts.article.author)}">
+<meta property="article:published_time" content="${opts.article.date}T12:00:00Z">
+<meta property="article:modified_time" content="${opts.article.date}T12:00:00Z">
+<meta property="article:section" content="${esc(opts.article.section)}">
+<meta property="article:author" content="https://${DOMAIN}/">` : ""}
 <meta name="color-scheme" content="light dark">
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE)}" href="/feed.xml">
 <link rel="preload" href="/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script>try{var t=localStorage.getItem("pd-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<script src="/site.js" defer></script></head>
+${jsonLd(opts, title, desc, url, img)}<script src="/site.js" defer></script></head>
 <body>
 <a class="skip" href="#main">Skip to the stories</a>
 <header class="top"><div class="wrap top-row">
@@ -269,7 +323,7 @@ const meta = (p, { project = false } = {}) =>
   `<p class="meta"><span class="m">${ICON.user}${esc(p.author)}</span><span class="m">${ICON.cal}<time datetime="${p.date}">${fmtDate(p.date)}</time></span>` +
   `<span class="m">${ICON.clock}${p.minutes} min read</span>` +
   `<a class="m cat" href="${catHref(p.category)}">${esc(catName(p.category))}</a>` +
-  (project ? `<a class="m proj" href="/${p.slug}/">${esc(p.project)}</a>` : "") +
+  (project && p.project !== DAILY_STORY ? `<a class="m proj" href="/${p.slug}/">${esc(p.project)}</a>` : "") +
   `</p>`;
 
 const thumb = (p, cls = "thumb") => {
@@ -300,6 +354,7 @@ function write(rel, html) {
 const projectCounts = (() => {
   const m = new Map();
   for (const p of entries) {
+    if (p.project === DAILY_STORY) continue;
     const cur = m.get(p.slug) || { slug: p.slug, name: p.project, n: 0 };
     cur.n++;
     m.set(p.slug, cur);
@@ -456,21 +511,40 @@ for (const [slug, items] of groupBySlug(entries)) {
   const body = fs.existsSync(pj)
     ? marked.parse(parse(pj).body)
     : `<p class="lede">Rolling diary for ${esc(items[0].project)}.</p>`;
-  if (slug !== "learning-to-sell") write(slug, page(`${items[0].project} · ${SITE}`, `<div class="layout"><div class="col"><h1>${esc(items[0].project)}</h1><div class="intro">${body}</div>${stories(items)}</div>${sidebar({ activeCat: items[0].category })}</div>`, {
+  if (slug !== "learning-to-sell" && items[0].project !== DAILY_STORY) write(slug, page(`${items[0].project} · ${SITE}`, `<div class="layout"><div class="col"><h1>${esc(items[0].project)}</h1><div class="intro">${body}</div>${stories(items)}</div>${sidebar({ activeCat: items[0].category })}</div>`, {
     path: slug,
     active: items[0].category,
     desc: `Diary entries for ${items[0].project} — ${items.length} day${items.length === 1 ? "" : "s"}.`,
   }));
   for (const p of items) {
     const sameCat = entries.filter((e) => e !== p && e.category === p.category).slice(0, 5);
-    const crumbs = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Diary</a><a href="${catHref(p.category)}">${esc(catName(p.category))}</a><a href="/${slug}/">${esc(p.project)}</a></nav>`;
-    const keep = entries.filter((e) => e !== p && (e.project === p.project || e.category === p.category)).slice(0, 3);
+    const crumbs = `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Diary</a><a href="${catHref(p.category)}">${esc(catName(p.category))}</a>${p.project === DAILY_STORY ? "" : `<a href="/${slug}/">${esc(p.project)}</a>`}</nav>`;
+    const keep = entries.filter((e) => e !== p && (e.category === p.category || (e.project === p.project && p.project !== DAILY_STORY))).slice(0, 3);
     write(
       path.join(slug, p.date),
       page(
-        `${p.title} · ${SITE}`,
+        p.title.length > 46 ? p.title : `${p.title} · ${SITE}`,
         `<div class="layout"><article class="col post${p.format === "longform" ? " long" : ""}">${crumbs}<h1>${esc(p.title)}</h1>${meta(p)}${p.summary ? `<p class="dek">${esc(p.summary)}</p>` : ""}${renderStatBar(p)}<div class="prose">${rewriteAssets(p.html, p.date, dayAssets.get(p.date))}</div>${keep.length ? `<section class="keep"><h2>Keep reading</h2><ul class="stories compact">${keep.map(story).join("")}</ul></section>` : ""}</article>${sidebar({ toc: p.toc, more: { title: `More in ${catName(p.category)}`, items: sameCat }, activeCat: p.category })}</div>`,
-        { path: `${slug}/${p.date}`, active: p.category, desc: p.summary || `${p.project} on ${p.date}.`, image: firstImage(p) },
+        {
+          path: `${slug}/${p.date}`,
+          active: p.category,
+          desc: p.summary || `${p.project} on ${p.date}.`,
+          image: firstImage(p),
+          imageAlt: firstImageAlt(p),
+          article: {
+            headline: p.title,
+            date: p.date,
+            author: p.author,
+            section: catName(p.category),
+            words: p.words,
+            keywords: [p.project === DAILY_STORY ? "" : p.project, catName(p.category), SITE].filter(Boolean).join(", "),
+            crumbs: [
+              { name: SITE, url: `https://${DOMAIN}/` },
+              { name: catName(p.category), url: `https://${DOMAIN}${catHref(p.category)}` },
+              { name: p.title, url: `https://${DOMAIN}/${slug}/${p.date}/` },
+            ],
+          },
+        },
       ),
     );
   }
@@ -559,14 +633,16 @@ const urls = [
   "learning-to-sell/tracker",
   ...CATS.filter((c) => catCounts.get(c.slug) > 0).map((c) => `category/${c.slug}`),
   ...days.map((d) => d),
-  ...[...groupBySlug(entries).keys()],
+  ...[...groupBySlug(entries)].filter(([, v]) => v[0].project !== DAILY_STORY).map(([k]) => k),
   ...entries.map((p) => `${p.slug}/${p.date}`),
 ];
+// Pages with a date carry it as lastmod; the rest take the newest day.
+const lastmodOf = (u) => (/^\d{4}-\d{2}-\d{2}$/.test(u) ? u : /\/(\d{4}-\d{2}-\d{2})$/.exec(u)?.[1] || days[0]);
 fs.writeFileSync(
   path.join(DIST, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>https://${DOMAIN}/${u ? `${u}/` : ""}</loc></url>`).join("\n")}
+${urls.map((u) => `  <url><loc>https://${DOMAIN}/${u ? `${u}/` : ""}</loc><lastmod>${lastmodOf(u)}</lastmod></url>`).join("\n")}
 </urlset>
 `,
 );
