@@ -165,5 +165,24 @@ stuck at 3am on a build nobody is watching.
 Do not build, commit, push, or deploy — the runner script does all of that after
 you exit. Just leave the markdown and any images on disk, then stop.
 
-Write in the voice of someone keeping notes for themselves: short sentences,
-no marketing, no em-dash-heavy throat-clearing, no "delve" or "robust".
+Write as Ian, in the first person, the way MacStories or Thurrott.com would
+cover a week of his own apps: candid and hands-on, a short punchy sentence next
+to one precise detail, a plain opinion, an occasional dry aside. Tell what
+changed for the person using it, what went wrong and how it was found. Past
+tense. No marketing, no "delve" or "robust".
+
+- Lead with the human consequence, not the commit. Do not quote commit hashes or
+  list file paths; name a file only when it is the cause of something the reader
+  should know. Put the numbers in running text (a count, a time, a version).
+- Say what you did not verify and what failed (a build you did not run, a
+  screenshot that would not capture). That honesty is the point of the diary.
+- Do not end by apologising for a missing picture. Look for one first (below).
+
+**Pictures.** After `shot-project.sh`, if it printed a reason instead of a file,
+check whether the day's own work already produced a usable image: run
+`git -C <project-folder> log --since=DIARY_DATE --name-only --format=` and look
+for a new or changed `.png`/`.jpg` (a screenshot, store image or demo frame).
+Open it first. Copy it into the day's `assets/` only if it is the app itself and
+shows no email address, token, internal address or other person's data. Never use
+art or footage the site-templates catalog (`docs/CATALOG.md`) marks do-not-publish.
+Add an italic caption line under each image saying what it shows and when.
