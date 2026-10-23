@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Watchdog for the nightly diary, installed into ~/Library/LaunchAgents on the Mac mini by
+     bin/install-watchdog.sh. /bin/bash is fine here: the script touches no NAS path (see its header),
+     and the program is not node, so the node permission that can break the diary cannot break this.
+     23:30 pre-flight, then 07:30 "is yesterday live?" check. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ian.product-diary-watchdog</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/ian/bin/product-diary-watchdog.sh</string>
+    <string>auto</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Hour</key><integer>23</integer><key>Minute</key><integer>30</integer></dict>
+  </array>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>LimitLoadToSessionType</key>
+  <string>Aqua</string>
+  <key>StandardOutPath</key>
+  <string>/Users/ian/Library/Logs/product-diary/watchdog.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/ian/Library/Logs/product-diary/watchdog.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/Users/ian/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+</dict>
+</plist>

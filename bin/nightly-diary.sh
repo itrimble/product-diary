@@ -33,7 +33,14 @@ mkdir -p "$REPO/logs"
 exec > >(tee -a "$LOG") 2>&1
 echo "=== product diary for $DATE — started $(date '+%F %T %Z') on $(hostname -s) ==="
 
-fail() { echo "ABORT: $*"; exit 1; }
+# Phone alerts through the shared ntfy wrapper, when it exists (it does on the mini). A failure should
+# reach the phone when it happens, not when someone notices a missing post. Never fails the run.
+notify() { # title priority tags message
+  [ -n "${DIARY_DRY_RUN:-}" ] && return 0
+  [ -x "$HOME/bin/notify.sh" ] && "$HOME/bin/notify.sh" -t "$1" -p "$2" -g "$3" "$4" >/dev/null 2>&1
+  return 0
+}
+fail() { echo "ABORT: $*"; notify "Diary FAILED $DATE" high rotating_light "$*"; exit 1; }
 
 # launchd hands jobs a minimal PATH, so find the tools rather than assume them.
 for d in /opt/homebrew/bin /usr/local/bin "$HOME/.local/bin" "$HOME/bin"; do
@@ -290,6 +297,7 @@ $(sed "s/YYYY-MM-DD/$DATE/g" "$REPO/bin/ENTRY-CONTRACT.md")"
         echo "--- daily story accepted ---"
       else
         echo "warn: no valid daily story for $DATE; publishing the project entries alone"
+        notify "Diary $DATE: no story" default warning "The Daily Story failed validation or timed out; the project entries still publish. Attempt kept in logs/rejected/$DATE-story."
         mkdir -p "$REPO/logs/rejected"
         rm -rf "$REPO/logs/rejected/$DATE-story"; cp -R "$DAYDIR" "$REPO/logs/rejected/$DATE-story"
         rm -rf "$DAYDIR"; cp -R "$backup/day" "$DAYDIR"
@@ -384,6 +392,7 @@ else
     # prevent - so it exits non-zero and says how to finish the job by hand.
     echo "ABORT: $DATE is published on main but deploy.sh failed; the site is"
     echo "       stale. Recover with: bash $REPO/deploy.sh"
+    notify "Diary $DATE merged, SITE STALE" high rotating_light "$DATE is on main but deploy.sh failed. Recover on the mini: bash $REPO/deploy.sh"
     exit 1
   fi
 fi
