@@ -35,7 +35,9 @@ stats: Label = value | ...     # optional; real numbers only, rendered as the
 No other keys beyond `title`, `format`, `stats` and `category`, all optional. `category` is a slug from
 `categories.json` and overrides the category the entry's project belongs to (the site files each project under one
 category; leave it out unless the story belongs elsewhere). The build derives a
-title otherwise.
+title otherwise, except that **entries from 2026-10-24 need a real `title`**: 30-62 characters naming the project and
+what happened ("StatBar 1.7 Can Now Slim Down Phone Simulators"), because it is the page title in search results. A
+project-and-date stamp is rejected.
 
 ## Entry body
 
@@ -63,6 +65,10 @@ first paragraph should still have learned something true and complete.
   decision. "Various improvements" is a validation failure, not a style note.
 - Images referenced by bare filename only (`![alt](shot.png)`), and the file must
   exist under that day's `assets/`.
+- **No commit hashes in running text (entries from 2026-10-24).** Say what the change did for the person using the
+  thing. The hash is in git for anyone who wants it.
+- **No apology for a missing picture (entries from 2026-10-24).** An entry either has a captioned picture or says
+  nothing about one. Pictures live in the daily story.
 - **Every image has a caption (days from 2026-10-24, all posts).** An italic line right after the image, at
   least 4 words, saying what it shows and when it was captured. The build does not render alt text as a caption, so
   without the line a reader gets a bare picture. Long form has required this since 2026-10-17.

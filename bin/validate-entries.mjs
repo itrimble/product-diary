@@ -425,6 +425,22 @@ for (const f of entries) {
       if (m[1].trim().split(/\s+/).filter(Boolean).length < 3) bad(f, `image alt text "${m[1]}" needs at least 3 words that describe the picture`);
     }
   }
+  // Ordinary nightly entries, from SEO_FROM: a real title (it is the page title in search results, so a date
+  // stamp will not do), no commit hashes in running text (that is a changelog, not a story), and no apology for a
+  // missing picture (the daily story carries the pictures; an entry either has one or says nothing).
+  if (!LONG && !STORY && date >= SEO_FROM) {
+    const t = (meta.title || "").trim();
+    if (!t) bad(f, "an entry needs a title in the frontmatter (30-62 characters naming the project and what happened)");
+    else {
+      if (t.length < 30 || t.length > 62) bad(f, `title is ${t.length} chars, the entry spec says 30-62`);
+      if (/\d{4}-\d{2}-\d{2}/.test(t) || /^[^:]{1,40} [\u2014-] \d/.test(t)) bad(f, "the title must name what happened, not just the project and a date");
+    }
+    for (const m of withoutFences.matchAll(/`([0-9a-f]{7,40})`|\b(?:commit|commits|in|at)\s+([0-9a-f]{7,40})\b/g)) {
+      if (/[0-9]/.test(m[1] || m[2]) && /[a-f]/.test(m[1] || m[2])) bad(f, `commit hash "${m[1] || m[2]}" in running text; say what the change did and leave the hash in git`);
+    }
+    const ap = withoutFences.match(/\b(no (picture|screenshot|photo)s?\b[^.]{0,40}(tonight|today|this time)|there is no (picture|screenshot)|could(?: not|n'?t) (?:photograph|capture|screenshot)|screenshot (?:run|tool|capture|script) (?:failed|does not|did not|would not)|no picture (?:tonight|today))/i);
+    if (ap) bad(f, `do not apologise for a missing picture ("${ap[0].slice(0, 50)}"); an entry either has a captioned picture or says nothing about one`);
+  }
   // From SEO_FROM every screenshot in every post is captioned, not only long form: an italic line right
   // after the image saying what it shows and when it was captured (4+ words). The build does not render
   // alt text as a caption, so without this line the reader gets a bare picture.
