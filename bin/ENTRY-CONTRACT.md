@@ -63,6 +63,9 @@ first paragraph should still have learned something true and complete.
   decision. "Various improvements" is a validation failure, not a style note.
 - Images referenced by bare filename only (`![alt](shot.png)`), and the file must
   exist under that day's `assets/`.
+- **Every image has a caption (days from 2026-10-24, all posts).** An italic line right after the image, at
+  least 4 words, saying what it shows and when it was captured. The build does not render alt text as a caption, so
+  without the line a reader gets a bare picture. Long form has required this since 2026-10-17.
 - **Try for a picture.** Run `bin/shot-project.sh <folder> <date>` for each
   project you write about and include what it returns. It prints a filename on
   success or a one-line reason it could not, and never fails the run. A reason

@@ -157,6 +157,10 @@ it prints a filename, reference it by that bare name
 (`![what the reader is looking at](civic-fortune.png)`) and write alt text that
 says what is in the picture. If it prints a reason, carry on without a picture.
 
+**Caption every image.** Put an italic line directly under each picture, at least four words, saying what it shows
+and when it was captured (`*The settings window on 22 October, with the new Camera menu.*`). The validator rejects an
+image without one.
+
 Do not write your own build or screenshot commands. That is how a run ends up
 stuck at 3am on a build nobody is watching.
 
