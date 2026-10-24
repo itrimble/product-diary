@@ -164,6 +164,7 @@ if (NO_SURVEY) {
 // One magazine-style post per day, written after the project entries. See "Daily story"
 // and "SEO" in ENTRY-CONTRACT.md. Days before STORY_FROM are left alone so they verify.
 const DAILY_STORY = "Daily Story";
+const HELD = new Set((process.env.DIARY_HELD_FILES || "").split(/\s+/).filter(Boolean));
 const STORY_FROM = "2026-10-21";
 const SEO_FROM = "2026-10-24";
 const GENERIC_SLUGS = new Set(["story", "daily-story", "daily", "diary", "post", "update", "today", "news"]);
@@ -522,6 +523,10 @@ for (const f of entries) {
     const { meta } = frontmatter(fs.readFileSync(path.join(DAY, f), "utf8"));
     // The story covers the whole day, so it has no single project for the survey to confirm.
     if (meta && meta.project === DAILY_STORY) continue;
+    // Hand-written posts the nightly run held aside were already published and signed. They are
+    // written about work the survey need not re-confirm (an article can describe an earlier day's work
+    // or a project whose folder name differs), so only their shape and voice are re-checked.
+    if (HELD.has(f)) continue;
     const claimed = meta && meta.project ? slugify(meta.project) : "";
     const ok = changedSlugs.has(slug) || changedByProduct.has(slug) ||
       (claimed && (changedSlugs.has(claimed) || changedByProduct.has(claimed)));
