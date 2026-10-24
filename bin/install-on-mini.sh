@@ -11,9 +11,9 @@ set -euo pipefail
 
 HOST=${1:-100.120.153.82}
 USER_AT=${HOST%%@*}; [ "$USER_AT" = "$HOST" ] && HOST="ian@$HOST"
-# Expanded on the mini, not here: ~/projects is the source of truth and the
-# NAS copy is only a backup, so the installer must read the local checkout.
-REPO='$HOME/projects/product-diary'
+# Expanded on the mini, not here. The diary runs from a private clone outside the synced ~/projects
+# (see bin/mini-wrapper.sh); create it with:  git clone git@github.com:itrimble/product-diary.git ~/diary/product-diary
+REPO='$HOME/diary/product-diary'
 LABEL=com.ian.product-diary
 
 echo "--- reaching $HOST ---"

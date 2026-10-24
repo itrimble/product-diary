@@ -7,13 +7,15 @@
 # local; this wrapper waits for the NAS and then hands off to the real runner.
 set -uo pipefail
 
-# ~/projects is the source of truth; the NAS is a backup. ROOT is both the
-# projects tree the diary reads and the checkout it runs from, so the two can
-# never drift apart.
+# ~/projects is the source of truth for what the diary READS (the survey and the project folders).
 ROOT=${DIARY_ROOT:-$HOME/projects}
 # Back-compat: DIARY_NAS used to select the root as $DIARY_NAS/projects.
 [ -n "${DIARY_NAS:-}" ] && ROOT=$DIARY_NAS/projects
-REPO=$ROOT/product-diary
+# The checkout the diary RUNS from lives outside ~/projects on purpose. ~/projects is mirrored two-way
+# by mutagen to the laptops, which carries .git state (a branch checked out on a laptop became the
+# mini's branch) and keeps two sync agents rewriting a 59 MB cache every minute. A private clone
+# here cannot be touched by either laptop; it publishes through GitHub like everything else.
+REPO=${DIARY_REPO_DIR:-$HOME/diary/product-diary}
 export DIARY_PROJECTS_DIR=${DIARY_PROJECTS_DIR:-$ROOT}
 LOCAL_LOG=$HOME/Library/Logs/product-diary
 mkdir -p "$LOCAL_LOG"
