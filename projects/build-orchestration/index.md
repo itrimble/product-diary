@@ -1,0 +1,1 @@
+The Build Fleet spreads compiling and building work across the computers in the house, choosing machines with room to spare and keeping receipts that prove what ran where. It covers the Macs and, since October 2026, a virtual Windows machine, and it shows live memory pressure so heavy jobs avoid crowded boxes. A native menu bar view and an iPhone status client keep it visible.

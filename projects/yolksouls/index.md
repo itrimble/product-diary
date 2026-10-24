@@ -1,0 +1,1 @@
+YOLK SOULS is a hop-and-die game where every death leaves a permanent voxel tombstone and a narrator judges you for it. The playable vertical slice has seven biomes, thirteen characters and forty-five achievements, built in Godot with phone, desktop, web and Steam in mind. A store release is not close.
