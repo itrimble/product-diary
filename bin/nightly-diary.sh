@@ -40,7 +40,7 @@ notify() { # title priority tags message
   [ -x "$HOME/bin/notify.sh" ] && "$HOME/bin/notify.sh" -t "$1" -p "$2" -g "$3" "$4" >/dev/null 2>&1
   return 0
 }
-fail() { echo "ABORT: $*"; notify "Diary FAILED $DATE" high rotating_light "$*"; exit 1; }
+fail() { echo "ABORT: $*"; type restore_held >/dev/null 2>&1 && restore_held; notify "Diary FAILED $DATE" high rotating_light "$*"; exit 1; }
 
 # launchd hands jobs a minimal PATH, so find the tools rather than assume them.
 for d in /opt/homebrew/bin /usr/local/bin "$HOME/.local/bin" "$HOME/bin"; do
@@ -147,16 +147,44 @@ prompt="$(sed -e "s/DIARY_DATE/$DATE/g" \
               "$REPO/bin/diary-prompt.md")
 $(sed "s/YYYY-MM-DD/$DATE/g" "$REPO/bin/ENTRY-CONTRACT.md")"
 
-# Never silently rewrite a day that is already published.
+# Never silently rewrite a day that the nightly run already published.
+#
+# A day folder can also hold hand-written posts (a long-form article published during the day). Those
+# have no "Diary entry for DATE" commit, so they must not make the night skip itself: before this, any
+# post in the folder made the whole day look done, and the nights of 16, 17 and 18 October (and the
+# 23rd) never ran. In that case the hand-written files are held aside, the night runs in a clean folder,
+# and they are put back beside the nightly entries before anything is signed or published.
+HELD=""
 if [ -n "$(git ls-files -- "$DAYDIR")" ] && [ -z "${DIARY_FORCE:-}" ]; then
-  # Already written — by an earlier run, or by hand. That is a no-op, not a
-  # failure: exiting non-zero here made launchd record "last exit code = 1" on a
-  # night when the job did exactly the right thing. Say so and leave quietly, so
-  # a real failure still stands out in the log.
-  echo "$DAYDIR is already published; nothing to do (DIARY_FORCE=1 to rewrite it)"
-  echo "=== finished $(date '+%F %T %Z') ==="
-  exit 0
+  if git log --format=%s -- "$DAYDIR" | grep -q "^Diary entry for $DATE"; then
+    # Already written by an earlier run. That is a no-op, not a failure: exiting non-zero here made
+    # launchd record "last exit code = 1" on a night when the job did exactly the right thing.
+    echo "$DAYDIR is already published; nothing to do (DIARY_FORCE=1 to rewrite it)"
+    echo "=== finished $(date '+%F %T %Z') ==="
+    exit 0
+  fi
+  HELD=$(mktemp -d)
+  cp -R "$DAYDIR/." "$HELD/"
+  echo "note: $DAYDIR holds hand-written posts but no nightly entries; keeping them aside and writing the night beside them"
 fi
+
+# Put the day folder back exactly as it was published (used when the night cannot be merged).
+restore_held() {
+  [ -n "$HELD" ] || return 0
+  git checkout -- "$DAYDIR" 2>/dev/null; git clean -fdq -- "$DAYDIR" 2>/dev/null
+  [ -d "$DAYDIR" ] || { mkdir -p "$DAYDIR"; cp -R "$HELD/." "$DAYDIR/"; }
+}
+
+# Bring the held hand-written files back next to the nightly ones. The nightly overview (index.md) wins and the
+# old signature is dropped, because the whole folder is re-signed. Nothing already written tonight is overwritten.
+merge_held() {
+  [ -n "$HELD" ] || return 0
+  ( cd "$HELD" && find . -type f ! -name '.attest' ! -name '.attest.sig' ! -path './index.md' ) | while IFS= read -r f; do
+    if [ -e "$DAYDIR/$f" ]; then echo "note: tonight's file wins over held $f"; continue; fi
+    mkdir -p "$(dirname "$DAYDIR/$f")"; cp -p "$HELD/$f" "$DAYDIR/$f"
+  done
+  echo "--- held hand-written posts restored: $(cd "$HELD" && find . -type f -name '*.md' ! -name index.md | tr '\n' ' ')---"
+}
 
 # Run one provider. Its credentials live only inside the subshell, so a later
 # provider cannot inherit the previous one's endpoint or token.
@@ -269,6 +297,14 @@ else
 
   [ -n "$PROVIDER_USED" ] || fail "no provider produced a day that meets the contract"
   echo "--- provider $PROVIDER_USED produced the day ---"
+
+  # Put hand-written posts for this day back, then prove the combined day still meets the contract.
+  if [ -n "$HELD" ]; then
+    merge_held
+    if ! node "$REPO/bin/validate-entries.mjs" "$DATE"; then
+      fail "the nightly entries and the hand-written posts already on $DATE do not pass validation together; nothing published (the day was left as it was)"
+    fi
+  fi
 
   # --- the daily story ------------------------------------------------------
   # A second, separate pass so a slow story can never cost the day its entries.
