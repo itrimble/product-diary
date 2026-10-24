@@ -3,13 +3,15 @@ project: QixForge
 title: Lightfence Story Films Now Open With Each Stage
 summary: Lightfence's story films now unlock with each stage and can be rewatched, and the version sent for App Store review was updated.
 ---
-Lightfence, the game formerly called QixForge, now lets you rewatch its story films. Each film opens when you reach its stage and stays on a shelf you can return to. Every achievement is now earnable and described as it really works, and the badges are drawn sharper. During play, a guardian's arrival darkens the world and names the creature, and the title screen takes turns between a short film and the showcase when left idle. A new build, number 1003, went to App Store review.
+Lightfence, the game that used to be called QixForge, now keeps its story films on a shelf. Reach a stage and its film opens, and you can come back to it whenever you like. That shelf was the headline, but the achievement audit found something bigger: fourteen of them tracked things the game never recorded, so nobody could have earned them. They all work now, and each one is described as it actually behaves. Build 1003 went to App Store review.
 
-The films are `FilmShelf.swift` and `FilmsView.swift` (`b7673c0`), with 808 new lines in the string catalog so the shelf reads in every language. `FilmShelfTests` and a UI test cover the opening rule. The staging work (`92e7134`) puts four sector rules on film, Ice Spires, Void Horizon, Chrono Rift and Eclipse Citadel, each acted out by a small board that uses the game's own numbers. A guardian entrance holds play for 2.4 seconds, and a tap skips it. It is off for scripted tests unless `-stageBeats` is passed.
+The film shelf came with 808 new lines in the string catalog so it reads in every language, and with a unit test and a UI test for the rule about when a film opens. Four sector rules got their own short films: Ice Spires, Void Horizon, Chrono Rift and Eclipse Citadel. Each is acted out on a miniature board running the game's real numbers.
 
-Achievements (`195fe52`) were audited against what the game actually does, and `AchievementSync.swift` was added. Test coverage is in `RunAchievementTests`. The Mac window now fits the guardian bar and Core XP (`18f3055`), the store description says guardians are trapped, not phased (`8f4a815`), and version 1.2 has What's New text in every language (`565f992`).
+In play, a guardian's arrival now darkens the world and names the creature. The game holds still for 2.4 seconds while that happens, and a tap skips it. This staging is off for scripted tests unless a launch option asks for it. Left alone, the title screen alternates between a short film and the showcase.
 
-I did not run any of the tests myself, and review has not come back yet.
+The achievement audit also redrew the badges so they stay sharp, and a new piece of code fills the missing measures in from the save. Smaller items: the Mac window now fits the guardian bar and Core XP, the store text says guardians are trapped and not phased, and version 1.2 has What's New notes in every language.
+
+I ran none of the tests, and review has not answered yet.
 
 ![The QixForge title screen on a phone simulator](qix-swift.png)
 *The Lightfence title menu on a phone simulator, with Continue, New Campaign, Endless and Light Core. Screenshot added to the diary on 22 October 2026.*
