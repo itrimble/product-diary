@@ -1,0 +1,1 @@
+The assistant's work is now split across five different models, with a route for each kind of job. One of them runs entirely on the desk beside me and never sends a word off the house. Setting it up took two false starts, and the second one was the interesting kind: nothing was misconfigured, the service was simply still running the previous version of my own software.
