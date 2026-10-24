@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting Control Back of My Hisense TV · Product Diary</title>
+<meta name="description" content="A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.">
+<link rel="canonical" href="https://blog.remnantsecurity.com/hisense-tv/2026-10-11/">
+<meta property="og:site_name" content="Product Diary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Control Back of My Hisense TV · Product Diary">
+<meta property="og:description" content="A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.">
+<meta property="og:url" content="https://blog.remnantsecurity.com/hisense-tv/2026-10-11/">
+<meta property="og:image" content="https://blog.remnantsecurity.com/assets/2026-10-11/hisense-corrupt-notification.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Getting Control Back of My Hisense TV · Product Diary">
+<meta name="twitter:description" content="A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.">
+<meta name="twitter:image" content="https://blog.remnantsecurity.com/assets/2026-10-11/hisense-corrupt-notification.png">
+<meta property="og:image:alt" content="The notification that would not go away">
+<meta name="twitter:image:alt" content="The notification that would not go away">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="Ian Trimble">
+<meta property="article:published_time" content="2026-10-11T12:00:00Z">
+<meta property="article:modified_time" content="2026-10-11T12:00:00Z">
+<meta property="article:section" content="Homelab and Hardware">
+<meta property="article:author" content="https://blog.remnantsecurity.com/">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" type="application/rss+xml" title="Product Diary" href="/feed.xml">
+<link rel="preload" href="/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script>try{var t=localStorage.getItem("pd-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting Control Back of My Hisense TV","description":"A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"en","wordCount":4044,"articleSection":"Homelab and Hardware","keywords":"Hisense A4, Homelab and Hardware, Product Diary","image":["https://blog.remnantsecurity.com/assets/2026-10-11/hisense-corrupt-notification.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.remnantsecurity.com/hisense-tv/2026-10-11/"},"author":{"@type":"Person","name":"Ian Trimble","url":"https://blog.remnantsecurity.com/"},"publisher":{"@type":"Organization","name":"Remnant Security","url":"https://remnantsecurity.com","logo":{"@type":"ImageObject","url":"https://blog.remnantsecurity.com/og-card.png"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Product Diary","item":"https://blog.remnantsecurity.com/"},{"@type":"ListItem","position":2,"name":"Homelab and Hardware","item":"https://blog.remnantsecurity.com/category/homelab-hardware/"},{"@type":"ListItem","position":3,"name":"Getting Control Back of My Hisense TV","item":"https://blog.remnantsecurity.com/hisense-tv/2026-10-11/"}]}</script>
+<script src="/site.js" defer></script></head>
+<body>
+<a class="skip" href="#main">Skip to the stories</a>
+<header class="top"><div class="wrap top-row">
+<a href="/" class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Product Diary</span><span class="by">by Remnant Security</span></a>
+<form class="search" role="search" action="/" onsubmit="return false"><label class="sr" for="q">Search the diary</label><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="q" type="search" placeholder="Search" autocomplete="off" aria-controls="results"><ul id="results" class="results" hidden></ul></form>
+<div class="tools"><a class="tool rss-tool" href="/feed.xml" aria-label="RSS feed"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a14 14 0 0 1 14 14"/><path d="M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg></a><button class="tool" type="button" id="theme" aria-label="Switch between light and dark"><span class="i-moon"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg></span><span class="i-sun"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.8"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg></span></button><button class="tool nav-toggle" type="button" id="nav-toggle" aria-label="Show categories" aria-expanded="false" aria-controls="catbar"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div><nav class="catbar" id="catbar" aria-label="Categories"><div class="wrap"><ul><li><a href="/">Home</a></li><li><a href="/category/ai-local-models/">AI and Local Models</a></li><li><a href="/category/apps/">Apps</a></li><li><a href="/category/games/">Games</a></li><li><a href="/category/security/">Security</a></li><li><a href="/category/homelab-hardware/" aria-current="page">Homelab and Hardware</a></li><li><a href="/category/web/">Web</a></li><li><a href="/category/books-writing/">Books and Writing</a></li><li><a href="/category/daily-stories/">Daily Stories</a></li><li><a href="/category/weekly-roundups/">Weekly Roundups</a></li><li><a href="/category/learning-to-sell/">Learning to Sell</a></li></ul></div></nav></header>
+<main id="main" class="wrap"><div class="layout"><article class="col post long"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Diary</a><a href="/category/homelab-hardware/">Homelab and Hardware</a><a href="/hisense-tv/">Hisense A4</a></nav><h1>Getting Control Back of My Hisense TV</h1><p class="meta"><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>Ian Trimble</span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><time datetime="2026-10-11">Oct 11, 2026</time></span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg>18 min read</span><a class="m cat" href="/category/homelab-hardware/">Homelab and Hardware</a></p><p class="dek">A television that had been crawling for three days turned out to be hung on a USB stick it had half-swallowed, and a second ghost drive nobody knew was there was blocking every app install.</p><div class="prose"><p>The TV in the family room had been slow for days. Menus took a beat too long, apps opened grudgingly, and a notification kept coming back: <em>&quot;hp USB drive is corrupt. Select to fix.&quot;</em> Selecting it did not fix it. The Storage screen listed the same physical stick three times, once as a 121 GB drive, once as &quot;Not connected&quot;, and once as safely ejected.</p>
+<p><img loading="lazy" decoding="async" src="/assets/2026-10-11/hisense-corrupt-notification.png" alt="The notification that would not go away">
+<em>The notification that would not go away, Issue with hp USB drive, photographed on the television during the 11 October 2026 repair this post describes.</em></p>
+<p>The obvious theory was bloatware. An entry-level Android TV with 4.3 GB of internal storage is usually slow because it is full of preinstalled junk, and the usual advice is to connect over ADB and disable whatever you do not use. That theory was wrong twice over, and the second wrong turn was the interesting one.</p>
+<p><img loading="lazy" decoding="async" src="/assets/2026-10-11/hisense-three-entries.png" alt="The Storage screen listing the same USB stick three times">
+<em>The television&#39;s Storage screen listing the same HP USB stick three ways, as 121 GB, as Not connected and as safely ejected, photographed during the 11 October 2026 repair this post describes.</em></p>
+<h2 id="the-tv-was-not-slow-it-was-hung">The TV was not slow, it was hung</h2>
+<p><code>dumpsys</code> refused to answer at all:</p>
+<pre><code>$ dumpsys diskstats
+Service dumps disabled due to hung system process.
+</code></pre>
+<p>Android&#39;s watchdog had flagged <code>system_server</code>. That is not a tuning problem, it is a wedged operating system. The timestamps said when:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Adopted storage volume created</td>
+<td>2026-10-08 17:14</td>
+</tr>
+<tr>
+<td><code>system_server</code> current start</td>
+<td>2026-10-08 ~17:00</td>
+</tr>
+</tbody></table></div>
+<p>Three days earlier I had chosen <strong>Set up as device storage</strong> on the USB stick — this is my television, and it was my finger on the button. That option tells Android to adopt the drive as an extension of internal storage, encrypt it to the TV, and move apps onto it. On this chassis it partitioned the drive <em>mixed</em> — half portable, half adopted — and the portable half came out with a damaged filesystem that <code>vold</code> could not mount. <code>sm mount</code> failed silently every time. <code>StorageManagerService</code> blocked on it, the watchdog tripped, and the television had been limping ever since.</p>
+<p>The slowness and the &quot;corrupt drive&quot; message were not two problems. They were one.</p>
+<pre><code>$ sm list-volumes all
+public:8,241   unmountable                    &lt;- the corrupt notification
+private:8,242  mounted  eb2f2137-...          &lt;- adopted, and empty
+emulated;0            unmounted null
+emulated:8,242;0      unmounted null
+</code></pre>
+<p>The adopted half held 104 KB of 113 GB. Nothing had ever migrated to it. Repartitioning the whole disk as plain portable storage took one command, and a reboot cleared the watchdog.</p>
+<pre><code>$ sm partition disk:8,240 public
+$ dumpsys diskstats
+Latency: 1ms [512B Data Write]
+Recent Disk Write Speed (kB/s) = 4621
+</code></pre>
+<p>It answered.</p>
+<h2 id="there-was-no-bloatware">There was no bloatware</h2>
+<p>The second wrong assumption. A package count settles it: <strong>131 packages, zero third-party apps.</strong> Every single thing on the device shipped with it. The planned sweep of <code>pm disable-user</code> commands would have bought almost nothing while risking the HDMI inputs and the tuner.</p>
+<p>What actually helped was looking at who was holding memory, which only became possible once <code>dumpsys</code> worked again:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Holding</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>com.google.android.tvlauncher</code></td>
+<td>193 MB</td>
+<td>the launcher itself — kept</td>
+</tr>
+<tr>
+<td><code>com.netflix.ninja</code></td>
+<td>97 MB</td>
+<td>in use — kept</td>
+</tr>
+<tr>
+<td><code>com.android.vending</code> (+background)</td>
+<td>131 MB</td>
+<td>Play Store, in use — kept</td>
+</tr>
+<tr>
+<td><code>com.google.android.gms</code></td>
+<td>66 MB</td>
+<td>Play Services — kept</td>
+</tr>
+<tr>
+<td><code>com.google.android.katniss</code></td>
+<td>46 MB</td>
+<td>Assistant on a TV nobody talks to — <strong>disabled</strong></td>
+</tr>
+<tr>
+<td><code>com.google.android.videos</code></td>
+<td>25 MB</td>
+<td>Play Movies, unused — <strong>disabled</strong></td>
+</tr>
+<tr>
+<td><code>com.hisense.tv.smartsense</code></td>
+<td>11 MB</td>
+<td>ACR viewing tracker — <strong>disabled</strong></td>
+</tr>
+<tr>
+<td><code>air.com.vudu.air.DownloaderTablet</code></td>
+<td>13 MB</td>
+<td>Vudu, unused — <strong>disabled</strong></td>
+</tr>
+</tbody></table></div>
+<p>Fourteen packages went out in total, all with <code>pm disable-user</code> and never <code>pm uninstall</code>, so every one of them is a single command away from coming back.</p>
+<p>CPU, for the record, was 87% idle the whole time. The TV was never underpowered. It was stuck.</p>
+<h2 id="the-second-ghost">The second ghost</h2>
+<p>With the TV fast again, a different complaint surfaced: installs from the Play Store started and never finished. The log showed the store crashing on launch with a dependency-injection failure, which clearing its data fixed. But installs still died, now with a session that was created and immediately abandoned.</p>
+<p>The cause was a drive that had not existed for some time:</p>
+<pre><code>$ sm get-primary-storage-uuid
+c3603910-b796-4069-b1a2-e7e70e352d42
+
+VolumeInfo{emulated;0}:
+    type=EMULATED  state=UNMOUNTED
+    path=null  internalPath=null
+</code></pre>
+<p>That UUID belonged to a <em>different</em> adopted volume from an earlier attempt of mine — not the one from the 8th, an older one I had long forgotten. The system still believed primary storage lived there. Because that volume was gone, <code>/sdcard</code> never mounted, and every install session was abandoned before a byte was downloaded. The dump listed two dead private volumes and five stale public records going back to 2020.</p>
+<p><code>sm forget all</code> cleared them. Primary storage reverted to <code>null</code>, which is correct for internal, and <code>emulated;0</code> moved from <code>unmounted</code> to <code>checking</code> to <code>mounted</code> on its own. <code>/sdcard</code> came back with its Android, Movies, Music and Pictures directories.</p>
+<p>Both apps installed on the next attempt. Apple TV took seventeen seconds.</p>
+<p><img loading="lazy" decoding="async" src="/assets/2026-10-11/hisense-appletv-store.png" alt="The store page that had been refusing to install anything">
+<em>The store page for the Apple TV app, with its Install button, that had been refusing to install anything. Screenshot from the 11 October 2026 repair this post describes.</em></p>
+<h2 id="before-and-after">Before and after</h2>
+<p>Every figure below is read from the device, not estimated.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Before</th>
+<th>After</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>system_server</code></td>
+<td><strong>hung</strong> (watchdog tripped)</td>
+<td>healthy</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td><code>dumpsys</code></td>
+<td>refused to answer</td>
+<td>answers</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Available memory</td>
+<td>397,768 kB</td>
+<td><strong>848,912 kB</strong></td>
+<td><strong>+113%</strong></td>
+</tr>
+<tr>
+<td>Free memory</td>
+<td>60,604 kB</td>
+<td>395,320 kB</td>
+<td><strong>+552%</strong></td>
+</tr>
+<tr>
+<td>Swap in use</td>
+<td>332,668 kB (65%)</td>
+<td>228,624 kB (45%)</td>
+<td><strong>−31%</strong></td>
+</tr>
+<tr>
+<td>Running tasks</td>
+<td>614</td>
+<td>446</td>
+<td>−27%</td>
+</tr>
+<tr>
+<td>Zombie processes</td>
+<td>3</td>
+<td><strong>0</strong></td>
+<td>cleared</td>
+</tr>
+<tr>
+<td>Disk write latency</td>
+<td>unmeasurable</td>
+<td>1 ms</td>
+<td>measurable again</td>
+</tr>
+<tr>
+<td>Disk write speed</td>
+<td>unmeasurable</td>
+<td>4,621 kB/s</td>
+<td>—</td>
+</tr>
+<tr>
+<td>USB volume records</td>
+<td>3 (one <code>unmountable</code>)</td>
+<td>1 (<code>mounted</code>)</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Usable USB capacity</td>
+<td>0 B</td>
+<td><strong>115 GB</strong></td>
+<td>fixed</td>
+</tr>
+<tr>
+<td><code>/sdcard</code> (<code>emulated;0</code>)</td>
+<td><code>UNMOUNTED</code>, <code>path=null</code></td>
+<td><code>mounted</code></td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Primary storage UUID</td>
+<td><code>c3603910-…</code> (ghost)</td>
+<td><code>null</code> (internal)</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Stale volume records</td>
+<td>7 (2 private, 5 public)</td>
+<td>0</td>
+<td>cleared</td>
+</tr>
+<tr>
+<td>Disabled packages</td>
+<td>1</td>
+<td>15</td>
+<td>14 added</td>
+</tr>
+<tr>
+<td>Play Store app install</td>
+<td>failed, <code>status_code 1047</code></td>
+<td>Apple TV 17 s, HBO Max 54 s</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Remote power button</td>
+<td>dead (emits no scancode)</td>
+<td><strong>Harmony Ultimate One over IR</strong>, on and off from deep standby</td>
+<td>solved</td>
+</tr>
+<tr>
+<td>CPU idle</td>
+<td>348% / 400%</td>
+<td>342% / 400%</td>
+<td>unchanged — never the problem</td>
+</tr>
+<tr>
+<td>Internal storage</td>
+<td>4.3 GB total</td>
+<td>4.3 GB total</td>
+<td>unchanged — hardware</td>
+</tr>
+<tr>
+<td>Max refresh rate</td>
+<td>60 Hz</td>
+<td>60 Hz</td>
+<td>unchanged — hardware</td>
+</tr>
+</tbody></table></div>
+<p>The last three rows matter as much as the rest. Two numbers did not move because they cannot: the data partition is 4.3 GB and the panel tops out at 60 Hz. And CPU idle barely changed because the processor was never the bottleneck — a detail that would have been invisible if the first instinct, &quot;strip the bloatware&quot;, had gone unchallenged.</p>
+<p><img loading="lazy" decoding="async" src="/assets/2026-10-11/hisense-home.png" alt="The Hisense television&#39;s stock home screen with a sponsored banner and app shortcuts">
+<em>The television&#39;s stock home screen, with a sponsored banner at the top and app shortcuts below it. Screenshot from the 11 October 2026 repair this post describes.</em></p>
+<h2 id="the-launcher-was-the-last-big-thing">The launcher was the last big thing</h2>
+<p>With the storage faults gone, the biggest single consumer left was the home screen itself. Google&#39;s TV launcher held <strong>257 MB</strong>, and <code>tvrecommendations</code>, which feeds its rows, held another <strong>75 MB</strong> — 332 MB of a 1.8 GB device spent on a home screen that was serving a sponsored ad for a colon cancer screening kit above the app row.</p>
+<p>Replacing it with Projectivy Launcher, from the Play Store, took one install and one command:</p>
+<pre><code>$ cmd package set-home-activity com.spocky.projengmenu/.ui.home.MainActivity
+Success
+</code></pre>
+<p>That alone did nothing. The system kept resuming Google&#39;s launcher anyway — <code>set-home-activity</code> reported success, <code>get-default-launcher</code> reported Projectivy, and pressing HOME still landed on <code>com.google.android.tvlauncher/.MainActivity</code>. A force-stop did not help either. Only disabling the Google launcher outright left the home intent with somewhere else to resolve:</p>
+<pre><code>$ pm disable-user --user 0 com.google.android.tvlauncher
+$ dumpsys activity activities | grep mResumedActivity
+  mResumedActivity: ... com.spocky.projengmenu/.ui.home.MainActivity
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Launcher metric</th>
+<th>Before</th>
+<th>After</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Launcher process</td>
+<td>257,904 K</td>
+<td><strong>159,908 K</strong></td>
+<td><strong>−38%</strong></td>
+</tr>
+<tr>
+<td><code>tvrecommendations</code></td>
+<td>73,828 K</td>
+<td>disabled</td>
+<td>−74 MB</td>
+</tr>
+<tr>
+<td>Available memory</td>
+<td>539,208 K</td>
+<td><strong>848,912 K</strong></td>
+<td><strong>+57%</strong></td>
+</tr>
+<tr>
+<td>Free memory</td>
+<td>43,256 K</td>
+<td>395,320 K</td>
+<td><strong>+814%</strong></td>
+</tr>
+<tr>
+<td>Swap free</td>
+<td>237,812 K</td>
+<td>283,372 K</td>
+<td>+19%</td>
+</tr>
+<tr>
+<td>Sponsored rows on home</td>
+<td>2</td>
+<td><strong>0</strong></td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<p>Worth being precise about one thing: Projectivy is not a featherweight. At 160 MB it is lighter than Google&#39;s launcher by 98 MB, not by an order of magnitude. The larger share of the gain came from retiring <code>tvrecommendations</code>, which existed only to populate rows that no longer exist.</p>
+<p>Its default layout also turned out to suit this TV better than expected: inputs first, apps second. (I originally wrote that this set is watched &quot;through an Apple TV box and a PS5 on HDMI&quot;. That was an inference from a list of <em>apps</em> the owner named, and it was wrong: there is no Apple TV box here. Apple TV is one of the apps running on the television itself. The PlayStation on HDMI 2 is real.)</p>
+<p><img loading="lazy" decoding="async" src="/assets/2026-10-11/hisense-projectivy.png" alt="Projectivy, with inputs first and no sponsored rows">
+<em>The replacement launcher, Projectivy, showing inputs first and no sponsored rows, with a setup hint at the bottom. Screenshot from the 11 October 2026 repair this post describes.</em></p>
+<h2 id="the-power-button-really-was-broken">The power button really was broken</h2>
+<p>Earlier in this project I had written the power button off as a non-issue. The evidence looked clean: a <code>KEY_POWER</code> event at timestamp <code>454.393</code>, an <code>mLastSleepTime</code> of <code>454393</code>, fresh batteries. Button works, nobody retested, case closed.</p>
+<p>That was wrong, and the way it was wrong is worth recording. The <code>KEY_POWER</code> I had found was one I had injected myself over ADB. I had measured my own command and credited the remote with it.</p>
+<p>The honest test is to watch the input layer while a human presses the actual buttons:</p>
+<pre><code>$ getevent -lq
+/dev/input/event2: EV_MSC MSC_SCAN 0004fb52
+/dev/input/event2: EV_KEY KEY_RED   DOWN
+/dev/input/event2: EV_MSC MSC_SCAN 0004fb43
+/dev/input/event2: EV_KEY KEY_MENU  DOWN
+</code></pre>
+<p>Arrows, the colour bars, menu — every key on the remote reported cleanly on <code>/dev/input/event2</code>, the MStar IR receiver. The power key produced <strong>nothing at all</strong>. Not an unmapped scancode, not a dropped keycode: zero bytes. With Bluetooth showing an empty bond list, the remote was running pure IR, so this was not a pairing problem either. One switch on a <code>ERF2K60H</code> had simply died.</p>
+<p>The clean fix would be a keylayout edit. The IR receiver reads its map from <code>/vendor/usr/keylayout/Vendor_3697_Product_0001.kl</code>, and remapping <code>KEY_RED</code> to <code>POWER</code> there is a one-line change. On a production build with no root and a read-only <code>/vendor</code>, that file cannot even be read, let alone written.</p>
+<p>What <em>is</em> available is that the ADB shell user belongs to group <code>1004(input)</code>, which means it can read the IR receiver directly without root. So the remap lives in userspace: watch <code>/dev/input/event2</code>, and on <code>KEY_RED</code>, inject power.</p>
+<pre><code class="language-bash">adb shell getevent -lq /dev/input/event2 |
+while read -r _type key val; do
+  [ &quot;$key&quot; = &quot;KEY_RED&quot; ] &amp;&amp; [ &quot;$val&quot; = &quot;DOWN&quot; ] || continue
+  # 26 = KEYCODE_POWER, 224 = KEYCODE_WAKEUP
+  ...
+done
+</code></pre>
+<p>The part I expected to fail was waking the set back up, and the first test said it worked:</p>
+<pre><code>09:37:45 RED -&gt; POWER (sleep)
+09:37:52 RED -&gt; WAKEUP
+</code></pre>
+<p>I wrote that up as a complete power toggle. It is not, and the mistake is the same shape as the one I made with <code>KEY_POWER</code> earlier in this project: I tested the easy case and generalised from it. Those two log lines are <strong>seven seconds apart</strong>.</p>
+<p>Standby on this chassis has two stages. For the first few minutes the panel is off but the SoC is up, Wi-Fi is associated, and ADB answers — which is the window my test fell into. Then the set drops to real deep standby and powers the radio down. The full log says exactly when:</p>
+<pre><code>09:38:02 RED -&gt; POWER (sleep)
+09:38:44 event stream ended; reconnecting
+09:38:52 watching ...                       &lt;- still reachable
+09:43:11 watching ...                       &lt;- still reachable, stream flaky
+09:47:15 event stream ended; reconnecting   &lt;- gone
+(nothing for 21 minutes)
+</code></pre>
+<p>Nine minutes and thirteen seconds. After that the TV is off the network: no ping, no ARP entry, port 5555 closed. Wake-on-LAN does not help either, because the radio itself is unpowered — magic packets to both the wireless and wired MACs, on broadcast and directed, ports 7 and 9, produced nothing.</p>
+<p>And the watcher sees the red button <em>through</em> ADB. So the moment the TV leaves the network, the remap goes blind. Which means what I actually built was a button that reliably turns the television <strong>off</strong>, and can only turn it back <strong>on</strong> if you press it again within about nine minutes. Past that you are reaching for the set&#39;s own power button, or waking it over HDMI-CEC by switching on the PlayStation.</p>
+<p>That is worse than useless as a default: it is a trap, and the person who set the trap was me. The honest summary is narrower than the one I first wrote. The remap proves the input path is reachable without root — <code>KEY_RED</code> really does arrive, <code>input keyevent 26</code> really does work, and uid 2000 in group <code>1004(input)</code> really can read the IR receiver. It does not solve power-on, and nothing in userspace can, because the operating system is not running to be remapped.</p>
+<p>The fixes that actually address power-on are all below or beside Android. I tried three of them.</p>
+<h2 id="three-things-that-did-not-work">Three things that did not work</h2>
+<p><strong><code>WakeUpHotKey</code>.</strong> A vendor setting in <code>settings global</code>, shipped as <code>0</code>, with a name that reads exactly like &quot;which scancodes may wake the panel&quot;. The IR receiver is demonstrably powered in deep standby — that is how any television wakes on its own power button — so if that gate could be widened to include <code>KEY_RED</code>, the problem solves itself with no ADB, no watcher and no LAN dependency.</p>
+<p>I set it to <code>1</code> and rebooted to be sure the vendor layer read it at boot. It persisted. Then the test, which took three attempts to run honestly: the TV parked in <em>confirmed</em> deep standby, off the network, port closed, and a human pressing the red bar several times. Nothing, for three minutes. <code>WakeUpHotKey=1</code> does not widen the wake gate, or at least not to this scancode. Reverted to <code>0</code>.</p>
+<p><strong><code>IP Control Port</code>.</strong> A Hisense networked-standby toggle buried in Device Preferences, shipped <strong>off</strong>. This looked like the real answer — it is the switch that keeps the IP stack alive while the set is off, and the entire failure mode here is the TV leaving the network. Turned on, slept the TV, watched.</p>
+<pre><code>without IP Control, nothing holding a connection   ~60 s
+without IP Control, watcher holding ADB open       ~9 min 13 s
+with IP Control, watcher holding ADB open          ~8 min 43 s
+</code></pre>
+<p>No effect. Within noise of the previous run. Deep standby arrives on its own schedule and takes the radio with it. (One honest caveat: the toggle may want a reboot to take effect, which I did not retest.) Turned back off, since it opens a listening port on the LAN for no demonstrated benefit.</p>
+<p><strong><code>FAV/TV Button Customization</code>.</strong> A genuine, supported, first-party remapping feature — <code>com.hisense.favkey</code> — sitting right there in the menu. Twenty options: Channels, the three HDMI inputs, Composite, Settings, Play Store, YouTube, Netflix, Prime Video, Apple TV, HBO Max, Projectivy Launcher, an input-source popup, and the rest. Every one of them is &quot;jump to an app or an input&quot;. There is no power, no standby, no sleep. It also governs the FAV/TV button only, not the colour bars.</p>
+<p>So the one supported remapping surface on the whole television cannot express the one action I wanted.</p>
+<h2 id="what-was-actually-learned">What was actually learned</h2>
+<p>That the cheap boring fix was correct from the beginning. A replacement ERF2K60H is about ten dollars, and I spent a morning establishing that nothing in software can substitute for it — because once the panel is in deep standby the operating system is not running to be remapped, and no amount of cleverness in userspace changes that.</p>
+<p>The work was not wasted, but it is worth being precise about what it bought. It proved the input path is reachable without root: <code>KEY_RED</code> really does arrive on <code>/dev/input/event2</code>, uid 2000 in group <code>1004(input)</code> really can read the IR receiver, and <code>input keyevent 26</code> really does work. That is a genuinely useful off switch and a reliable one. It is simply not a power button, because half of what a power button does happens while the computer is off.</p>
+<p>HDMI-CEC remains the one path that solves power-on without new hardware, and it is already enabled here with <code>mAutoWakeup: true</code> — the PlayStation on HDMI 2 wakes this set reliably, which is how I recovered it every time I stranded myself. I had also written that the Apple TV was missing from the CEC device list and was &quot;worth fixing&quot;. It was not missing; it does not exist. There is no Apple TV box on this television, so the only CEC source available is the console.</p>
+<h2 id="the-answer-was-in-a-drawer">The answer was in a drawer</h2>
+<p>After all of that, the owner went and found a Logitech Harmony in a drawer. The label reads <code>N-R0007</code>, which is a <strong>Harmony Ultimate One</strong>: a 2.4-inch touchscreen universal remote with a backlit keypad and a charging cradle, good for fifteen devices.</p>
+<p>It is the right tool for exactly the reason the software could not be. A Harmony sends <strong>infrared</strong>, and the one component of this television that has worked flawlessly all along is its IR receiver — <code>/dev/input/event2</code>, the MStar IR receiver, which reported every key I pressed and which is demonstrably powered during deep standby, because that is how any television wakes on its own power button. The whole morning&#39;s problem was that the thing <em>listening</em> for a wake signal is not Android, and the thing I could reach <em>was</em> Android. An IR remote talks to the layer that is actually awake.</p>
+<p>Two caveats worth recording before this is declared finished, because this project has already produced two claims I had to retract.</p>
+<p><strong>The software is on a knife edge.</strong> The original MyHarmony desktop app is 32-bit and will not launch on anything since macOS Catalina. Its replacement, Harmony Desktop, is 64-bit and does list the Ultimate One among the models it supports — alongside the 200, 300, 350, 600, 650, 665, 700, Touch and 950. That it is listed at all is luck: Logitech ended support for the <em>legacy</em> Harmony software on 28 May 2025, and every cradle-charged model from that era — the 880, 885, 890, 900, 1000 and 1100 — can no longer be reconfigured at all. They still run whatever they were last told to do, forever. The Ultimate One missed that cull by being a later design.</p>
+<p><strong>The remote is not talking to the computer yet.</strong> <code>ioreg -c IOUSBHostDevice</code> shows only Apple hubs, and the system log has no USB enumeration events at all. Charge-only cable and flat battery are the obvious suspects.</p>
+<p>One more limitation worth knowing in advance: the <strong>PlayStation has no infrared receiver</strong>. No IR remote can power it on. That is a Bluetooth-only device, and without a Harmony Hub it is outside this remote&#39;s reach entirely — so the console keeps its own controller.</p>
+<p>Which leaves a shorter list than I first assumed. There is no Apple TV box, so the infrared devices in this room are exactly two: the television and the Bose soundbar. That is still enough, because the television is the one with the broken button. And there is a neat second use for a learning remote here — the Hisense remote&#39;s dedicated Netflix, Prime Video, YouTube and Google Play keys are discrete IR codes, so a Harmony can learn them and put them on a touchscreen page, which is closer to how this set is actually watched than any input list.</p>
+<h2 id="it-works">It works</h2>
+<p>The Harmony Ultimate One syncs through Harmony Desktop, and the <code>65A53FUA</code> profile — a sibling model, chosen because this television&#39;s own <code>60A53FUA</code> is not in Logitech&#39;s database — drives this set correctly.</p>
+<p>The test was built to be hard to fool, because by this point I had twice published a conclusion that did not survive contact with evidence. The television was left in genuine deep standby: off the network entirely, ADB dead, ping failing, port 5555 closed. My userspace watcher was unloaded, so nothing on the LAN could reach it. A baseline was recorded beforehand. Then a human pressed power on the Harmony.</p>
+<pre><code>                 baseline        after
+mLastWakeTime    2852948    -&gt;   4412452      (+1,559,504 ms)
+mLastSleepTime   3276567    -&gt;   3276567      (unchanged)
+mWakefulness     Asleep     -&gt;   Awake
+Display Power    OFF        -&gt;   ON
+</code></pre>
+<p><code>mLastWakeTime</code> is the only number that settles this. Reachability does not: three separate times today a single dropped ping looked like a wake and was not, because Wi-Fi power-save drops packets in light standby. A moved wake timestamp, with the sleep timestamp unchanged, means the panel came up from deep standby and nothing else.</p>
+<p>So the thing that could not be fixed in software was fixed by a remote from a drawer, for the reason that was visible from the very first <code>getevent</code>: the IR receiver is the one part of this television that never stopped working. It reported every key press cleanly, including from a remote whose power switch is dead, and it stays powered when the operating system does not. Infrared talks to the layer that is awake. Everything I built talks to the layer that is not.</p>
+<p>It is worth being clear about what the day&#39;s software work was and was not. It established real things — that <code>KEY_RED</code> arrives, that uid 2000 in group <code>1004(input)</code> can read the IR receiver without root, that <code>input keyevent 26</code> sleeps the set and <code>224</code> wakes it, that standby here is two-stage and the second stage takes the radio down after about nine minutes. None of that was wrong. It simply could not add up to a power button, and I spent several hours and two retractions learning why.</p>
+<p>The remote is also no longer a one-off. It is now the TV&#39;s remote: the Hisense profile lives on the device itself, so it needs no hub, no application, no Logitech account and no computer from here on. That matters more than it sounds, because Logitech ended support for the <em>legacy</em> Harmony software on 28 May 2025 and every cradle-charged remote of that era — the 880, 885, 890, 900, 1000 and 1100 — is now frozen with whatever configuration it last received. The Ultimate One missed that cull by one product generation.</p>
+<p>Two things nearly stopped it, both worth recording. The first sync failed while the remote was in a dock; Logitech&#39;s own documentation says to connect it directly, and that was exactly right. The second failure was subtler: Harmony Desktop is a 32-bit-era application shipped as a 64-bit Intel binary in January 2022, sandboxed, and it needs <strong>Input Monitoring</strong> permission to read the remote as a HID device — a requirement that did not exist when it was written. Without that grant it sat at 0% CPU, parked in a condition variable, looking for a device that was plainly on the bus.</p>
+<h2 id="afterwards">Afterwards</h2>
+<p>Two smaller findings worth recording.</p>
+<p>The TV has no microphone at all: <code>android.hardware.microphone</code> is absent from the feature list, and no package holds <code>RECORD_AUDIO</code>. The only mic is in the remote. The thing worth worrying about on these sets is not audio but ACR — Hisense&#39;s SmartSense samples video frames, including on HDMI inputs, which means a streaming box or a console plugged into the TV is in scope too. That package is now disabled.</p>
+<p>There is no 120 Hz mode to enable, either. The display subsystem reports exactly one mode, <code>1920x1080 @ 60.000004</code>, with a refresh range of <code>[0 60]</code>. The panel is 4K-capable and renders its UI at 1080p, but 60 Hz is the ceiling. Anything marketed as 120 on this class of set is motion interpolation, not refresh rate.</p>
+<p>The lesson is narrow and worth repeating, and I am the one who needed to learn it: <strong>do not choose &quot;Set up as device storage&quot;</strong> when a TV offers it. Adoptable storage makes a USB stick part of the operating system, encrypts it so no other device can read it, and leaves records behind that outlive the drive. One bad adoption hung this television for three days. A second one, older and forgotten, was quietly blocking every app install. Both were invisible from the TV&#39;s own settings screen.</p>
+<p>The hardware ceiling has not moved. But the TV is now running as well as that hardware allows, instead of being wedged on a drive it should never have swallowed.</p>
+</div><section class="keep"><h2>Keep reading</h2><ul class="stories compact"><li class="story"><a class="thumb" href="/hisense-podcasts-native-library/2026-10-23/" tabindex="-1" aria-hidden="true"><img src="/assets/2026-10-23/podcasts-library-high-contrast.png" alt="" loading="lazy" decoding="async"></a><div class="card"><h3><a href="/hisense-podcasts-native-library/2026-10-23/">Hisense Podcasts Gets a Native Library and Clearer Controls</a></h3><p class="meta"><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>Ian Trimble</span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><time datetime="2026-10-23">Oct 23, 2026</time></span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg>6 min read</span><a class="m cat" href="/category/homelab-hardware/">Homelab and Hardware</a><a class="m proj" href="/hisense-podcasts-native-library/">Hisense TV Tune-up</a></p><p class="sum">My television&#39;s podcasts app now puts private subscriptions beside regular shows, remembers older episodes, and makes its buttons easier to see.</p></div></li><li class="story"><a class="thumb" href="/hisense/2026-10-23/" tabindex="-1" aria-hidden="true"><img src="/assets/2026-10-23/podcasts-library-high-contrast.png" alt="" loading="lazy" decoding="async"></a><div class="card"><h3><a href="/hisense/2026-10-23/">Hisense Podcasts Gets a Native Library That Refreshes Itself</a></h3><p class="meta"><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>Product Diary</span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><time datetime="2026-10-23">Oct 23, 2026</time></span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg>1 min read</span><a class="m cat" href="/category/homelab-hardware/">Homelab and Hardware</a><a class="m proj" href="/hisense/">Hisense TV Tune-up</a></p><p class="sum">The Hisense television&#39;s podcasts app now keeps one native library of ordinary and paid private shows, reaches older episodes, and refreshes itself on launch.</p></div></li><li class="story no-thumb"><div class="card"><h3><a href="/hisense/2026-10-22/">Hisense Podcasts Gains Private Feeds and Remote Navigation</a></h3><p class="meta"><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>Product Diary</span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><time datetime="2026-10-22">Oct 22, 2026</time></span><span class="m"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg>1 min read</span><a class="m cat" href="/category/homelab-hardware/">Homelab and Hardware</a><a class="m proj" href="/hisense/">Hisense TV Tune-up</a></p><p class="sum">The television&#39;s podcasts app gained private show feeds, working remote navigation and a Now Playing card on the home screen.</p></div></li></ul></section></article><aside class="sidebar" aria-label="More from the diary"><section class="side toc"><h2>In this article</h2><ol><li><a href="#the-tv-was-not-slow-it-was-hung">The TV was not slow, it was hung</a></li><li><a href="#there-was-no-bloatware">There was no bloatware</a></li><li><a href="#the-second-ghost">The second ghost</a></li><li><a href="#before-and-after">Before and after</a></li><li><a href="#the-launcher-was-the-last-big-thing">The launcher was the last big thing</a></li><li><a href="#the-power-button-really-was-broken">The power button really was broken</a></li><li><a href="#three-things-that-did-not-work">Three things that did not work</a></li><li><a href="#what-was-actually-learned">What was actually learned</a></li><li><a href="#the-answer-was-in-a-drawer">The answer was in a drawer</a></li><li><a href="#it-works">It works</a></li><li><a href="#afterwards">Afterwards</a></li></ol></section><section class="side"><h2>More in Homelab and Hardware</h2><ul class="mini"><li><a href="/hisense-podcasts-native-library/2026-10-23/">Hisense Podcasts Gets a Native Library and Clearer Controls</a><span class="d">Oct 23, 2026</span></li><li><a href="/hisense/2026-10-23/">Hisense Podcasts Gets a Native Library That Refreshes Itself</a><span class="d">Oct 23, 2026</span></li><li><a href="/hisense/2026-10-22/">Hisense Podcasts Gains Private Feeds and Remote Navigation</a><span class="d">Oct 22, 2026</span></li><li><a href="/hisense/2026-10-21/">The Hisense TV Gets a Podcasts App That Resumes</a><span class="d">Oct 21, 2026</span></li><li><a href="/omarchy-ai-node/2026-10-17/">I Turned My Old Proxmox PC Into a Headless AI Box</a><span class="d">Oct 17, 2026</span></li></ul></section><section class="side"><h2>Browse</h2><ul class="cats"><li><a href="/category/ai-local-models/">AI and Local Models</a><span class="n">7</span></li><li><a href="/category/apps/">Apps</a><span class="n">22</span></li><li><a href="/category/games/">Games</a><span class="n">28</span></li><li><a href="/category/security/">Security</a><span class="n">6</span></li><li><a href="/category/homelab-hardware/" aria-current="page">Homelab and Hardware</a><span class="n">9</span></li><li><a href="/category/web/">Web</a><span class="n">6</span></li><li><a href="/category/books-writing/">Books and Writing</a><span class="n">1</span></li><li><a href="/category/daily-stories/">Daily Stories</a><span class="n">2</span></li><li><a href="/category/weekly-roundups/">Weekly Roundups</a><span class="n">1</span></li><li><a href="/category/learning-to-sell/">Learning to Sell</a><span class="n">1</span></li></ul></section><section class="side"><h2>Recent days</h2><ul class="mini"><li><a href="/2026-10-24/">Oct 24, 2026</a><span class="d">1 story</span></li><li><a href="/2026-10-23/">Oct 23, 2026</a><span class="d">16 stories</span></li><li><a href="/2026-10-22/">Oct 22, 2026</a><span class="d">6 stories</span></li><li><a href="/2026-10-21/">Oct 21, 2026</a><span class="d">6 stories</span></li><li><a href="/2026-10-20/">Oct 20, 2026</a><span class="d">1 story</span></li><li><a href="/2026-10-19/">Oct 19, 2026</a><span class="d">1 story</span></li><li><a href="/2026-10-18/">Oct 18, 2026</a><span class="d">1 story</span></li></ul></section><section class="side"><h2>Projects</h2><ul class="cats"><li><a href="/qix-swift/">QixForge</a><span class="n">12</span></li><li><a href="/prismshift/">Prism Shift</a><span class="n">10</span></li><li><a href="/snapdog/">SnapDog</a><span class="n">7</span></li><li><a href="/hisense/">Hisense TV Tune-up</a><span class="n">5</span></li><li><a href="/statbar/">StatBar</a><span class="n">5</span></li><li><a href="/adgenerator/">AdGenerator</a><span class="n">3</span></li><li><a href="/grokbot/">Grok Bot</a><span class="n">3</span></li><li><a href="/mac-bin/">mac-bin</a><span class="n">3</span></li><li><a href="/remnantsecurity-com/">Remnant Security</a><span class="n">3</span></li><li><a href="/pipe-flow/">Pipe Flow</a><span class="n">2</span></li></ul></section></aside></div></main>
+<footer class="foot"><div class="wrap"><p>Product Diary is the public build log of <a href="https://remnantsecurity.com">Remnant Security</a>. Written by Ian Trimble and a nightly run.</p><p><a href="/feed.xml">RSS</a> · <a href="https://remnantsecurity.com">remnantsecurity.com</a></p></div></footer>
+</body></html>
