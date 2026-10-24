@@ -1,0 +1,1 @@
+Epochs of Power is research toward a personal, touch-first historical strategy game in the spirit of Call to Power II. It advances by documentation: a study of the original game's released source, an asset register, and scripts that run the 2000 game headless so it can be probed automatically. Nothing is playable yet.

@@ -1,0 +1,1 @@
+Let Me Retire is a one-page joke site: I have a dream, it costs a million dollars, and one button stands between me and the beach. A Wall of Believers awaits anyone who wants in. The payment button is wired to a real checkout worker that is deliberately not configured, so no money can change hands.

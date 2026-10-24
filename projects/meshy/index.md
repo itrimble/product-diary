@@ -1,0 +1,1 @@
+Meshy is the service I use for turning written descriptions into three-dimensional game models, billed in monthly credits. A single handover document tells any coding assistant what is configured, how to prompt for usable models and what it costs, and a helper script with tests automates the basics. An independent audit records what is verified and what is not.

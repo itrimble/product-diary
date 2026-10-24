@@ -1,0 +1,1 @@
+Hermes Fleet is my house assistant's awareness of the machines around it: which computers answer, what each is good at, and where a job should therefore run. It pairs that inventory with a voice, turning long written answers into spoken recordings that are checked against their source before a word is spoken. Four scheduled jobs keep the inventory current.
