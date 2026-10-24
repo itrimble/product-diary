@@ -3,10 +3,8 @@ project: AdGenerator
 title: The SnapDog Ad Gets a Voiceover and a 16.5-Second Cut
 summary: The SnapDog advert was re-cut to sixteen and a half seconds, given a spoken voiceover and music, and re-rendered.
 ---
-The advert for the screenshot app got a voice. A spoken line now introduces each scene, music runs underneath, and the cut was tightened from twenty-five seconds to sixteen and a half so it plays like an advert rather than a demo. The story it tells changed too: it now opens on an email address left visible in a capture, points at the bug, and blurs the address before sharing. That is the product's whole pitch in three beats.
+The SnapDog advert now has a voice. A spoken line opens each scene, music runs underneath, and the length fell from twenty-five seconds to sixteen and a half, so it behaves like an ad and not a walkthrough. The plot is different as well: an email address is left visible in a capture, an arrow points at the leak, and a blur hides it before sharing. In three beats, that is the pitch for the whole app.
 
-The numbers, from `compose/src/storyboard.ts`: a 3.2 second hook, a 1.8 second product card, three clips of 2.4 to 2.8 seconds, and a 3.8 second close, all at 30 frames a second. The clips crop into a 3600-by-1834 source recording and deliberately stay inside the English-language order form, so the German menus, the system notification and this Mac's file locations in the browser bar never enter the frame.
+Timing is the discipline here, all at 30 frames a second. The hook is 3.2 seconds and the product card 1.8. Three clips run between 2.4 and 2.8 seconds, and the close takes 3.8. Each clip is cropped from a 3600-by-1834 recording and kept within the English-language order form, which hides the German menus, a system notification and, in the browser bar, the file locations on this Mac.
 
-`SnapDogReel.tsx` mixes the bed music with six spoken lines, one per scene, each generated as speech and named for its shot: hook, product, arrow, leak, blur, end. Both shapes were re-rendered, widescreen and upright, plus the GIF version. The framing choices are commented shot by shot in the storyboard, which is the closest thing this folder has to history; it still has no version control.
-
-There is no picture: the screenshot tool has no way to photograph a video project. The renders themselves are the output, in `compose/out/`.
+The reel carries six generated voice lines, one per scene, named after their shots: hook, product, arrow, leak, blur and end. The widescreen and upright cuts were rendered again, plus the GIF. Comments in the storyboard explain each framing choice shot by shot. They are the nearest thing this folder has to a history, since it has no version control, and I think that needs correcting.
