@@ -165,6 +165,9 @@ if [ -n "$(git ls-files -- "$DAYDIR")" ] && [ -z "${DIARY_FORCE:-}" ]; then
   fi
   HELD=$(mktemp -d)
   cp -R "$DAYDIR/." "$HELD/"
+  # The validator exempts these files from the "survey saw this project change" check: they were already
+  # published and signed, and an article's project name need not match a folder name.
+  export DIARY_HELD_FILES=$(cd "$HELD" && find . -maxdepth 1 -type f -name '*.md' ! -name index.md | sed 's#^\./##' | tr '\n' ' ')
   echo "note: $DAYDIR holds hand-written posts but no nightly entries; keeping them aside and writing the night beside them"
 fi
 
