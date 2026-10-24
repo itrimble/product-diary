@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog's Recording Focus Fix Is Still Unfinished
 summary: The recording focus fix is still unfinished, and the product site gained new pictures of the order page.
 ---
 Nothing new reached SnapDog users on this day. The fix that keeps your first click from being wasted when a screen recording starts, written up on September 30, is still sitting unfinished on the Mac mini. The site that sells the app gained new pictures of its order page, but that is the only visible change.

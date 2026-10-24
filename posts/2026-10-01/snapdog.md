@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog Fixes Flipped Arrows and Misplaced Click Rings
 summary: Arrows drawn leftward no longer flip, new captures open clean, and click rings in recordings land on the click.
 ---
 Three things in SnapDog that looked wrong now look right. An arrow or line dragged to the left or upward used to come out pointing the wrong way. The editor also reopened with the previous screenshot and its markings still on it, so a new capture started on top of old work. And in screen recordings, the yellow ring that marks a click swept in from a corner of the screen instead of growing where you clicked. All three are fixed, each with a test that fails without the fix.

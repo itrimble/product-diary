@@ -1,5 +1,6 @@
 ---
 project: Hisense TV Tune-up
+title: Hisense Podcasts Gains Private Feeds and Remote Navigation
 summary: The television's podcasts app gained private show feeds, working remote navigation and a Now Playing card on the home screen.
 ---
 The podcasts app on the Hisense television got easier to use with only the remote. You can now reach every show tile in the library with the arrow keys, and the play button picks up an episode even when another app was in front. Shows from a paid private feed now sit in the main library next to the regular ones. The home screen shows a Now Playing card, and the sleep timeout was raised to 30 minutes.

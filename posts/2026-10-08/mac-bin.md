@@ -1,5 +1,6 @@
 ---
 project: mac-bin
+title: My Skill-Sync Tool Stops Treating Backups as Skills
 summary: The tool that keeps Claude's skills in step across three Macs stopped treating its own backups as skills.
 ---
 mac-bin holds small scripts for running my three Macs. One of them copies Claude's add-on skills between the machines so each one has everything. Three changes landed in it, and the last fixed a mistake that showed up on the first real run. Skills are no longer lost, doubled up or written through the wrong link.

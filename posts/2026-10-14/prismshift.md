@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift on Apple TV Starts Reliably and Runs Smoother
 summary: The Apple TV version of the crystal game now starts reliably on the shed television, steers with the remote's touch ring, and runs smoother.
 ---
 Prism Shift's Apple TV version had a day of making the basics work. The game crashed on launch on the television in the shed, and that is fixed; Ian tried it and accepted the start-up and the first minutes of play. The remote now steers with its circular touch surface, the title and pause screens follow a reference design, and the water-themed worlds look more like water. Players can also pick any single level and carry on from it, and the game now has 36 achievements.
@@ -13,3 +14,4 @@ The look changed in the two water worlds. Dark Tide got lit rising bubbles, glos
 Verification is recorded plainly. The signed build was installed on a phone, but launching it from the Mac failed on a transport limit, so the phone was not played tonight. A World Three campaign run passed on the MacBook Pro, with remaining water checks listed as open. Whether the new feel is right is still a question for a person on the couch.
 
 ![Prism Shift running in the simulator](prismshift.png)
+*The Prism Shift menu on a phone simulator, with Continue Campaign greyed out and Play Challenge ready. Screenshot added to the diary on 15 October 2026.*

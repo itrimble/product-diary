@@ -1,5 +1,6 @@
 ---
 project: CyberSim
+title: CyberSim 1.1.0 Gets Its App Store Page and Paperwork
 summary: CyberSim got its App Store page written and its release paperwork set up, so version 1.1.0 can be sent to Apple.
 ---
 CyberSim, the practice-exam app for cybersecurity certifications, spent the day getting ready to be shipped rather than getting new features. Its App Store page now has real text: a name, a subtitle, and a long description that lists the ten certifications it covers and the four ways to practise. A new set of screenshots for phones and tablets was captured to go with it. Nothing in the app itself changed for people who already have it.
@@ -11,3 +12,4 @@ On the release side, the `fastlane/` release tooling was updated rather than set
 About 24 screenshots sit in the project root, including `ipad_02_certs.png`, `ipad_03_cert_selected.png`, `06_social_proof.png` and `07_solution.png`. The last two are marketing frames rather than raw captures. The git history for this folder stops in April, so none of this is committed yet. The app-previews folder is still empty.
 
 ![The CyberSim app on a simulator](cybertestapp.png)
+*CyberSim's first screen on a phone simulator, reading Pass your cert on the first try, with a Get Started button. Screenshot added to the diary on 7 October 2026.*

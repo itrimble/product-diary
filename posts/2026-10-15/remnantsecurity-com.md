@@ -1,5 +1,6 @@
 ---
 project: Remnant Security
+title: All Fourteen Remnant Security Web Addresses Now Pass
 summary: The company's web addresses were checked one by one for search and sharing, and all fourteen now pass, including the new StatBar site.
 ---
 The company's web addresses were all checked for the basics that make a site findable and shareable, and all fourteen now pass. Two were still open at the start of the day: the training academy, which got its fix and went live, and the Prism Shift game site, which turned out to have been finished already by a different working session. The StatBar site went live the same day and became the fourteenth.

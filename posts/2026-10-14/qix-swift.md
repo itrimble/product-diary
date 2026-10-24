@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: QixForge Becomes Lightfence in 13 Languages
 summary: The game was renamed Lightfence, translated into 13 languages, and filled in with a tutorial and living scenery before its App Store listing.
 ---
 QixForge got a new public name today: Lightfence. It was also translated into 13 languages, and its App Store listing was drafted with screenshots, categories and keywords. Inside the game, the ground you win back now shows the sector's painting lit and alive, with fish, fireflies, embers or snow moving through only the part you have claimed. Creatures in the world flinch when you lose a life or have a close call. New players get a short lesson that teaches by letting them play.

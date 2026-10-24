@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift's Second Version Gets Its Trickiest Pieces
 summary: The crystal game's second version gained its trickiest pieces, and the tablet layout and saved progress were made safer.
 ---
 Prism Shift's second, cross-platform version learned more of the original game's tricks today. Pieces that count down and then blow up, armored blocks, and the multi-stage boss encounters now work there. On the tablet, the board no longer slides under the window edge, and a corrected version was installed with players' saved settings intact. Saved campaign progress also got a version number, so an old save should carry forward instead of resetting.
@@ -12,4 +13,5 @@ On Apple devices, `046441d` versions the Swift campaign save and freezes the old
 
 Several commits record that the shared build fleet refused the pending native tests for lack of room. Those checks are still waiting, so the Mac settings and tide-shader work is not yet proven there.
 
-![Prism Shift running in the simulator](prismshift.png)
+![The Night Chorus title screen on a phone simulator with the new app icon and a Play Challenge button](prismshift.png)
+*The title screen on a phone simulator, now reading Night Chorus with its new app icon, a Play Challenge button and Settings. Screenshot added to the diary on 22 October 2026.*

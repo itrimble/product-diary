@@ -1,6 +1,6 @@
 ---
 project: Omarchy
-title: "I turned my old Proxmox PC into a headless AI box. Then I tried to prove its memory wasn't broken."
+title: I Turned My Old Proxmox PC Into a Headless AI Box
 summary: A retired server became an always-on machine for running AI models, and along the way its memory turned out to be quietly changing data, which I did not believe until we tested it.
 format: longform
 stats: Bits flipped at rest = 1,876 | Memory read back = 2,700 GiB | Speech to text = 18x faster on the graphics card | Image time = about 3 s

@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog's English Demo Video Finally Gets Recorded
 summary: A 35-second English demo video of SnapDog was finally recorded, after four failed attempts earlier in the day.
 ---
 SnapDog now has an English demo video. It is 35 seconds long and shows the whole job: open the menu, capture a region, draw an arrow, blur out a private email address, and save. German, French and Japanese versions were made in September, so this completes the set. The app itself did not change today. This is material for the product page and for ads.

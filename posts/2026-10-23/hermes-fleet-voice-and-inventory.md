@@ -1,6 +1,6 @@
 ---
 project: Hermes Fleet
-title: Teaching My Assistant to Survey the House and Read the Results Aloud
+title: Teaching My Assistant to Survey the House and Read Aloud
 summary: My assistant can now check which of my computers are awake, work out where each job should run, and speak a spoken summary of long answers as a playable recording.
 format: longform
 category: ai-local-models

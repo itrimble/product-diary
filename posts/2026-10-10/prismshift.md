@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift Starts Relaxed and Adds Color-Vision Shapes
 summary: Relaxed became the starting pace for new players, and color-vision options now mark crystals with shapes as well as colors.
 ---
 Prism Shift now starts new players on a calmer pace. Pieces fall and the rising tide climbs fifty percent slower, while the music and scoring stay the same. Players who already picked a difficulty keep it. Crystals also got a color-vision setting. Eight modes recolor them, and each crystal carries its own symbol, so two crystals never differ by color alone. The release is aimed at Sunday the 11th. Nothing was installed or played by a person on the phone yet, so how this feels is still unknown.

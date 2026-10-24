@@ -1,5 +1,6 @@
 ---
 project: Hisense TV Tune-up
+title: The Hisense TV Gets a Podcasts App That Resumes
 summary: The television now has a podcasts app that keeps playing with the screen off and picks up where you stopped.
 ---
 The Hisense television got its own podcasts app. It keeps playing with the screen off, offers to continue the episode you were on when you open it, and shows a slowly drifting Now Playing screen after a few quiet minutes. Chapters from Apple's catalog show on screen.

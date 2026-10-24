@@ -1,5 +1,6 @@
 ---
 project: Remnant Security Academy
+title: Remnant Academy Becomes Findable by Search Engines
 summary: The paid training site can now be found by search engines and shows a proper preview card when its pages are shared.
 ---
 The academy's public pages can now be found. Until today it was the only one of the company's sites with no search map and no preview image, so a shared link to a course showed a bare grey card and search engines had no list of its public pages. Now the shop-window pages carry titles, descriptions and a social card, while sign-in, checkout and lesson pages stay out of search. Pages that name a learner stay out too.

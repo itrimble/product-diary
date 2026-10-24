@@ -7,10 +7,12 @@ format: longform
 The TV in the family room had been slow for days. Menus took a beat too long, apps opened grudgingly, and a notification kept coming back: *"hp USB drive is corrupt. Select to fix."* Selecting it did not fix it. The Storage screen listed the same physical stick three times, once as a 121 GB drive, once as "Not connected", and once as safely ejected.
 
 ![The notification that would not go away](hisense-corrupt-notification.png)
+*The notification that would not go away, Issue with hp USB drive, photographed on the television during the 11 October 2026 repair this post describes.*
 
 The obvious theory was bloatware. An entry-level Android TV with 4.3 GB of internal storage is usually slow because it is full of preinstalled junk, and the usual advice is to connect over ADB and disable whatever you do not use. That theory was wrong twice over, and the second wrong turn was the interesting one.
 
-![One stick, three entries](hisense-three-entries.png)
+![The Storage screen listing the same USB stick three times](hisense-three-entries.png)
+*The television's Storage screen listing the same HP USB stick three ways, as 121 GB, as Not connected and as safely ejected, photographed during the 11 October 2026 repair this post describes.*
 
 ## The TV was not slow, it was hung
 
@@ -94,6 +96,7 @@ That UUID belonged to a *different* adopted volume from an earlier attempt of mi
 Both apps installed on the next attempt. Apple TV took seventeen seconds.
 
 ![The store page that had been refusing to install anything](hisense-appletv-store.png)
+*The store page for the Apple TV app, with its Install button, that had been refusing to install anything. Screenshot from the 11 October 2026 repair this post describes.*
 
 ## Before and after
 
@@ -124,7 +127,8 @@ Every figure below is read from the device, not estimated.
 
 The last three rows matter as much as the rest. Two numbers did not move because they cannot: the data partition is 4.3 GB and the panel tops out at 60 Hz. And CPU idle barely changed because the processor was never the bottleneck — a detail that would have been invisible if the first instinct, "strip the bloatware", had gone unchallenged.
 
-![Home](hisense-home.png)
+![The Hisense television's stock home screen with a sponsored banner and app shortcuts](hisense-home.png)
+*The television's stock home screen, with a sponsored banner at the top and app shortcuts below it. Screenshot from the 11 October 2026 repair this post describes.*
 
 ## The launcher was the last big thing
 
@@ -159,6 +163,7 @@ Worth being precise about one thing: Projectivy is not a featherweight. At 160 M
 Its default layout also turned out to suit this TV better than expected: inputs first, apps second. (I originally wrote that this set is watched "through an Apple TV box and a PS5 on HDMI". That was an inference from a list of *apps* the owner named, and it was wrong: there is no Apple TV box here. Apple TV is one of the apps running on the television itself. The PlayStation on HDMI 2 is real.)
 
 ![Projectivy, with inputs first and no sponsored rows](hisense-projectivy.png)
+*The replacement launcher, Projectivy, showing inputs first and no sponsored rows, with a setup hint at the bottom. Screenshot from the 11 October 2026 repair this post describes.*
 
 ## The power button really was broken
 

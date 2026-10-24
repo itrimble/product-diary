@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift Gets New Music for All Fifteen Levels
 summary: All fifteen levels now play brand-new music made on the home computer, and the game was installed on a real phone.
 ---
 Prism Shift now has a new soundtrack. Each of the fifteen levels got its own piece of music, made on the Mac mini by a music-writing program, and all fifteen are switched on in the game for Ian's personal use. Every level also now has its own look: a backdrop, a moving landmark, a lighting tint and a distinct way the crystals are cut. The updated game was installed on the phone. How the music actually sounds in play has not been judged by a person yet.

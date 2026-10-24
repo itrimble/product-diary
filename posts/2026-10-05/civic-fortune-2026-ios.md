@@ -1,5 +1,6 @@
 ---
 project: Civic Fortune 2026
+title: "Civic Fortune 2026: Three Ways to Win Now Work"
 summary: Three of the game's five ways to win could never be won; they now can, and a run saves itself so you can quit and come back.
 ---
 Three of the five ways to win Civic Fortune 2026 could not actually be won, and nothing had told me. The game also forgot your run the moment you closed it, which hurts in a game that lasts 52 weeks. Both are fixed. You can now quit mid-run and the menu offers to continue from the week you left, and every win condition can be reached. The buy button in the shop also works for people using the phone's screen reader, which it did not before.
@@ -10,3 +11,4 @@ With stable routing the real numbers appeared. Financial Runway, Influence and S
 
 Autosave is `RunStore`, one atomic slot in Application Support. It refuses saves from a newer format and shows a message on the menu if the file is corrupt. Finished runs clear the slot, and the end screen got Play Again. I played 7 weeks, killed the app, and the menu offered "Continue Run, Week 8". Haptics now fire on routes, event answers, Rest and Buy. The shop row had merged its whole contents for VoiceOver, hiding the Buy button, so now only the description merges and the button reads "Buy Side Hustle for 240 dollars". 47 tests pass.
 ![The Civic Fortune 2026 game screen](civic-fortune-2026-ios.png)
+*Civic Fortune 2026's start screen on a phone simulator, with the How to Play rules listed under the Start Run button. Screenshot added to the diary on 5 October 2026.*

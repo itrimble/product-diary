@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift's Fifteen Levels Get Their Own Music
 summary: All fifteen levels now have their own music, backdrops and layouts, and the music slides from one level into the next without stopping play.
 ---
 Prism Shift now feels like fifteen different places instead of three. Every level has its own piece of music, its own layout of crystals and its own scenery behind the board. The second and third worlds got new paintings, and the crystals themselves are cut differently in each world. When you clear a level, the next level's music fades in over the old one and you can keep playing through the fade instead of waiting for it.
@@ -11,3 +12,4 @@ The details are in `docs/SOUNDTRACK_AND_WORLD_VARIETY_OCT08.md` and `docs/LEVEL_
 For listening, `docs/audio-review/oct08/` holds a medley of all fifteen levels with 0.8-second crossfades, plus 5, 15 and 30 minute fatigue loops. The ten recorded scores have ten different file hashes, and all fifty stems pass the loop and headroom checks. Different hashes show the tracks differ. They do not show they sound good. Nobody has listened on a real phone yet, and the licensing for the recorded music is still unresolved. The repo is still not under version control, so tonight's changes are only on disk.
 
 ![The Prism Shift title screen on a phone, with the Play button and the world and level picker](prismshift.png)
+*The Prism Shift title screen on a phone simulator, with Play and Settings and the first level's goal, Build three connected colors. Screenshot added to the diary on 9 October 2026.*

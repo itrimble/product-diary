@@ -1,6 +1,6 @@
 ---
 project: Omarchy
-title: "Could eight used PS5s make a 128 GB local AI machine? I did the homework before spending a dime."
+title: Could Eight Used PS5s Make a 128 GB Local AI Machine?
 summary: Eight used game consoles add up to 128 GB of fast memory on paper, but locked software and slow network links change the plan, and a cheaper board with the same chip already has people clustering it.
 format: longform
 stats: Memory per console = 16 GB | Network per console = 1 Gbit | Consoles for 128 GB = 8 | Console firmware that runs Linux = 3.00 to 7.61

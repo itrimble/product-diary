@@ -1,5 +1,6 @@
 ---
 project: StatBar
+title: StatBar 1.0 Goes on Sale With One Price for All Macs
 summary: StatBar went on sale as version 1.0 with one price for unlimited Macs, and it gained a clean-up tool, AI developer views and a lighter memory footprint.
 ---
 StatBar, the Mac menu bar monitor, shipped as version 1.0 and is on sale. One licence covers unlimited Macs, with lifetime updates and support and no subscription. The Buy button and the in-app update check now point to the live store page, and its web site went public the same day. The app also gained a tool that frees up space, a view built for people running AI tools, and a smaller appetite for memory.

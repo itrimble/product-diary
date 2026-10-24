@@ -1,5 +1,6 @@
 ---
 project: Remnant Security
+title: Remnant Security's Front Page Becomes Search-Readable
 summary: The company's front page was made readable to search engines and link previews, and two game sites went live under their own addresses.
 ---
 The company's front page used to look empty to anything that did not run its scripts. Search engines saw no words, and a link shared in a chat app produced a bare grey card. Both are fixed: the page now carries readable text, a proper preview picture and a map for search engines. Two new sites also went live under the company's name. One is for Lightfence, the arcade game formerly known as QixForge. The other is a preview page for Prism Shift, with its Awakening soundtrack playable in the browser.

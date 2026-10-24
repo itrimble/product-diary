@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: Lightfence Story Films Now Open With Each Stage
 summary: Lightfence's story films now unlock with each stage and can be rewatched, and the version sent for App Store review was updated.
 ---
 Lightfence, the game formerly called QixForge, now lets you rewatch its story films. Each film opens when you reach its stage and stays on a shelf you can return to. Every achievement is now earnable and described as it really works, and the badges are drawn sharper. During play, a guardian's arrival darkens the world and names the creature, and the title screen takes turns between a short film and the showcase when left idle. A new build, number 1003, went to App Store review.
@@ -11,3 +12,4 @@ Achievements (`195fe52`) were audited against what the game actually does, and `
 I did not run any of the tests myself, and review has not come back yet.
 
 ![The QixForge title screen on a phone simulator](qix-swift.png)
+*The Lightfence title menu on a phone simulator, with Continue, New Campaign, Endless and Light Core. Screenshot added to the diary on 22 October 2026.*

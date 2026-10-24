@@ -1,5 +1,6 @@
 ---
 project: Grok Bot
+title: Pipe Flow Learns Windows, Mac and a Handheld Overnight
 summary: Overnight a phone puzzle game learned to run on Windows, the Mac and a handheld, three other apps moved onto new screens, and the failures stayed on file next to the fixes.
 stats: Pipe Flow commits = 16 | Prism Shift commits = 41 | Lightfence commits = 9 | Pipe Flow levels checked = 140
 format: longform

@@ -1,5 +1,6 @@
 ---
 project: StatBar
+title: StatBar 1.6.0 Checks Whether a Mac Is Ready to Work
 summary: StatBar 1.6.0 can now report whether a Mac is ready for heavy work, and it can check every Mac in a household at once.
 ---
 StatBar, the Mac menu bar monitor, gained a way to answer "is this Mac ready to work?" in one command, and another to ask the same of every Mac you own at once. It also now notices when a Mac is pushing memory out to disk at a worrying rate, and shows how busy the phone simulators are. Version 1.6.0 carries these changes, and the product site now has real output for them.

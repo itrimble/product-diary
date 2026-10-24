@@ -1,5 +1,6 @@
 ---
 project: Grok Bot
+title: Grok Bot Gets Real Docs, Shared Rules and This Public Diary
 summary: The shop of writing-and-building assistants got real docs, shared tool rules, a tuned coding helper, and this public diary, with nine routing experiments still waiting to run.
 stats: Active bots = 17 | Bots given CLI rules = 12 | Decisions Oct 15-16 = 7 | Model experiments proposed = 9
 format: longform

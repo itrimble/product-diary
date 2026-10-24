@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: QixForge Now Explains Why You Lost a Life
 summary: QixForge now explains why you lost a life, plays properly sideways, and starts on a dark screen.
 ---
 QixForge got a big round of play-testing and polish. When you lose a life, the game now tells you why, whether a monster cut your line, you crossed your own trail, or something else got you. Every screen now works when the phone or tablet is held sideways, where several menus used to spill off the edge. The game also opens on a dark screen instead of flashing white before the neon menu.

@@ -1,5 +1,6 @@
 ---
 project: Grok Bot
+title: A Finished Post Waited All Morning for a Signature
 summary: A finished post waited all morning for a signature from a computer that was never down, while the apps it writes about kept shipping all weekend.
 stats: Active bots = 19 (was 17) | Decisions Oct 17-18 = 2 | Decisions waiting on Ian = 7 | Review score = 6.5/10
 format: longform

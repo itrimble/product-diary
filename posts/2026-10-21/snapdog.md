@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog on Linux Records GIFs and Picks a Webcam
 summary: The Linux version of SnapDog can now record GIFs and lets you pick which camera appears in recordings.
 ---
 The Linux version of SnapDog took two more steps toward matching the Mac app. It can now finish recording an animated GIF, and the recording settings have a menu for choosing which webcam to use, listed by name. Both choices are remembered. Mac users see no change today. This is progress on a separate port that still has gaps against the Mac app.

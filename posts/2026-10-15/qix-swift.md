@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: Lightfence Menus Now Read From the Couch on Apple TV
 summary: Lightfence's menus now read from the couch on Apple TV, and the tutorial teaches the game's pickups and the glowing orb.
 ---
 Lightfence, the game formerly called QixForge, is easier to read on a television. Menu text that was too small to read from the couch now sits at a size Apple recommends, and the Arabic and long translated labels no longer run into the buttons or switches. New players are also taught the glowing orb, the Nexus and the power-ups, one lesson at a time, so a late level no longer buries them in captions.

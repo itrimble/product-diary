@@ -1,5 +1,6 @@
 ---
 project: Remnant Security Academy
+title: Remnant Academy Software Goes Under Private Version Control
 summary: The paid training service's software and two private business documents were placed under private version control for the first time.
 ---
 The training business's paid course service, the site behind the Career Jumpstart and bootcamp products, was placed under proper version control for the first time today. Two private business documents were also moved out of a public project's working folder, where one careless command could have published them to the world, and into the private one. Nothing changed for learners; this was insurance.

@@ -1,5 +1,6 @@
 ---
 project: BookForge pipeline
+title: BookForge Stops Claiming a Book Has No Chapters
 summary: The BookForge Mac app got a consistent look and stopped claiming a book had no chapters while it loaded.
 ---
 The BookForge Mac app had a bad habit of telling you a 17-chapter book had no chapters. It said "No chapters yet" while the book was still loading. It now shows a loading message until the chapters arrive. The rest of the day went into making the app look like one thing: empty screens, pop-up sheets and Settings now share the same ink colour and the same book-like styling.

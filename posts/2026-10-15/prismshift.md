@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift's Rising Water Now Fills the Drowned Spaces
 summary: The crystal game's rising water now fills the drowned spaces properly, and the television version got clearer text and a quieter start.
 ---
 Prism Shift's water now behaves like water. When the tide rises in the water worlds, it fills the spaces it has covered, where before it could leave a strip of dry rock showing above the drowned squares. The Apple TV version also got easier to read from the couch, with clearer mode names and text, and a faint ticking sound that played under the menus was silenced. Ian installed the finished game on the phone and on both televisions, and it launched.

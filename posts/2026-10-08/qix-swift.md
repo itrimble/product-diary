@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: QixForge Levels Get Hand-Built Obstacles and a Pace Choice
 summary: Every level got hand-built obstacles to claim around, and a slower or faster game pace can now be chosen in the options.
 ---
 QixForge levels now have solid blocks and walls on the board, and each one has a route to clear. Before, every stage was an empty rectangle. Claiming ground around an obstacle works the way you would hope, and the blocks never count against your percentage target. There is also a new Game Pace setting. Standard is the original speed. Fast runs the game 1.5 times quicker while the music and menus stay at normal speed. The choice is saved, and Restore Defaults puts it back to Standard without touching progress.
@@ -10,4 +11,5 @@ Fast pace is harder as expected: 265 of 300 average clears versus 282. Standard 
 
 In code, `BalanceSim` gained a pace argument that splits each frame into steps no longer than 1/60 second, a `gauntlet-search` mode for the level 99 hunter count and a `music-export` command. `TerritoryBoard.swift` excludes solid area from both captured and claimable area. A fixture claims a 14 by 12 rectangle around a 4 by 4 block and expects 152 of 384 on a 20 by 20 board. Menus, achievements, a campaign progress file and a render budget also appeared. All of it is uncommitted: 129 files changed, plus a pile of new ones.
 
-![The QixForge guardian introduction screen on a phone](qix-swift.png)
+![The QIX Sectors title menu on a phone simulator showing Continue, New Campaign, Endless and Scores](qix-swift.png)
+*The game's title menu on a phone simulator, still named QIX Sectors, with Continue, New Campaign and Endless. Screenshot added to the diary on 9 October 2026.*
