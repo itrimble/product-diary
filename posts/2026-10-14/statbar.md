@@ -1,5 +1,6 @@
 ---
 project: StatBar
+title: StatBar Adds Local Weather and Fuller Mac Readouts
 summary: The Mac menu bar monitor can now show the local weather, details about your Mac, and fuller battery, graphics and network readouts.
 ---
 StatBar now tells you more about the computer it sits on. A new header at the top of its dropdown names your Mac, with a picture in the right colour, and lists its chip, memory, startup disk and system version. The battery section shows how healthy the battery is and how many charge cycles it has had. Weather is available as an option, switched off until you turn it on. The bar also draws its own dark backing now, so the coloured readings stay legible when your wallpaper turns the menu bar light.

@@ -1,5 +1,6 @@
 ---
 project: AdGenerator
+title: The SnapDog Ad Gets a Voiceover and a 16.5-Second Cut
 summary: The SnapDog advert was re-cut to sixteen and a half seconds, given a spoken voiceover and music, and re-rendered.
 ---
 The advert for the screenshot app got a voice. A spoken line now introduces each scene, music runs underneath, and the cut was tightened from twenty-five seconds to sixteen and a half so it plays like an advert rather than a demo. The story it tells changed too: it now opens on an email address left visible in a capture, points at the bug, and blurs the address before sharing. That is the product's whole pitch in three beats.

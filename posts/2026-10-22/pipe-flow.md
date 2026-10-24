@@ -1,5 +1,6 @@
 ---
 project: Pipe Flow
+title: Pipe Flow on Desktop Catches Up With the Phone Game
 summary: The desktop version of Pipe Flow was brought much closer to the phone game in feel, sound, menus and 13 languages.
 ---
 The desktop version of Pipe Flow, the pipe-turning water puzzle, spent the day catching up with the phone game. Water now fills each pipe gradually instead of all at once. Leaks arrive when they do on the phone, rather than early. Banners, clear cards, sounds, menus, the How to Play screen and the trophy page now behave like the original, and the game follows your system language in 13 of them. Every one of the 140 levels was played through by a script and can still be cleared with three stars.

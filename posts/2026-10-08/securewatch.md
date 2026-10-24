@@ -1,5 +1,6 @@
 ---
 project: SecureWatch
+title: SecureWatch Sheds Nearly 15,000 Leftover Build Files
 summary: The code history was cleared of nearly fifteen thousand leftover build files that were clogging every status check.
 ---
 SecureWatch's project history got a clean-up. Nearly fifteen thousand files that were only the leftovers of building the software had been recorded in its history by mistake, and every status check had been showing them as phantom changes. They are no longer tracked, so a check shows what really changed. Nothing the product does is different.

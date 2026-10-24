@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: A Bot Play-Tested All 100 QixForge Levels
 summary: All 100 levels were play-tested by a bot and rebalanced, and the game gained story scenes and per-sector music.
 ---
 QixForge got a full balance pass across its 100 levels, plus story scenes and music. A computer-driven player played the whole campaign, and what it found got fixed: some levels could be won with one straight line, skipping the boss, and early sectors were too harsh. Each sector now has its own music, and 32 short neon story scenes introduce sectors, bosses and the ending. Result-screen buttons also answer every tap now.

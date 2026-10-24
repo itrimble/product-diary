@@ -1,5 +1,6 @@
 ---
 project: Lectern
+title: Lectern Can Now Find and Download Local AI Models
 summary: Lectern can now find and download local AI models inside the app, and the main screens were reworked.
 ---
 Lectern, the Mac app that turns slide decks into lecture material, can now manage local AI models by itself. You can see which models are available on your own machine, download one without leaving the app, and the defaults are chosen to suit smaller Macs. The main steps of the app were also tidied so they stay readable at small window sizes in both light and dark mode.

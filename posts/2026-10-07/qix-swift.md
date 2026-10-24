@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: QixForge's Hardest Level Becomes Finishable
 summary: The game's hardest level became finishable for ordinary players, and everything was fitted to the phone screen for release.
 ---
 QixForge spent the day getting ready to ship. The campaign's final stage was close to unwinnable for an ordinary player, and it was tuned until a computer stand-in that plays like an average person could finish it, without getting easier for a skilled one. The game's menus, achievement pages, credits and tip popups were re-fitted to a phone-sized screen, the flashing effects were turned down for players sensitive to them, and the words for the store listing, including the name Qix Sectors, were drafted.
@@ -10,4 +11,5 @@ The phone fitting is a visible iteration trail under `docs/release/iphone-qa/`, 
 
 The rest of the release pile: two new painted backdrops (ice crystal, magma basalt) each with an art note, a soundtrack analysis pass through BalanceSim's MusicCheck confirming the per-stage music behaves, a privacy manifest backed by a source audit, an acknowledgments file with its sources listed, and named guardian encounter phases in `Forge.toml` (Reef Crown, Caldera Heart, Ice Warden). The store copy is explicitly a local draft, no store record created. None of this is committed yet; the whole pass sits in the working tree, 44 files touched on the day.
 
-![The guardian introduction screen on a phone, showing the Reef Crown encounter in the magma sector with its tip text and a tap-to-begin prompt](qix-swift.png)
+![The QIX Sectors title menu on a phone simulator showing Continue, New Campaign, Endless and Scores](qix-swift.png)
+*The game's title menu on a phone simulator, still named QIX Sectors, with Continue, New Campaign and Endless. Screenshot added to the diary on 8 October 2026.*

@@ -1,5 +1,6 @@
 ---
 project: Remnant Security Courses
+title: Remnant Security Course Materials Get a Canonical Home
 summary: The course materials behind the training business, lessons, labs and assessments, were placed under version control as the canonical source.
 ---
 The teaching materials got a home of their own today. The curriculum for the training business, every lesson, lab, assessment and recording plan, had been sitting in a folder with no version history at all; it is now the canonical source of record for what the academy teaches. Nothing a learner sees changed. The safety net did.

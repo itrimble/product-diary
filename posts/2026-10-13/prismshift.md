@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift's Chain Payoff Is Rebuilt From Feedback
 summary: The crystal game's chain payoff was rebuilt through player feedback, and it now runs on both televisions in the house.
 ---
 Prism Shift's chain payoff was rebuilt around the player's feedback. Matched crystal groups now melt into solid colored masses, outline first and then an eased fill, after two rounds of review said the effect was first too weak and then too quick. The game also came to the television: a wide board for the big screen, steered with the remote or a gamepad, and installed on both TVs in the house. The animated scenery around the board was made properly visible too, after hiding almost entirely behind the play area.

@@ -1,5 +1,6 @@
 ---
 project: Hisense TV Tune-up
+title: The Red Button Now Powers the Hisense TV On and Off
 summary: The television's dead power button was worked around by making the red button on the remote switch the set on and off.
 ---
 The remote for the Hisense television has a dead power button, and a workaround now makes the red button do its job. Pressing red puts the set to sleep, and pressing it again wakes it. That works in both directions, which was not expected. A small program on the Mac mini does the watching, so the television only responds while the mini is on and on the same home network. A new remote costs about ten dollars and is the real fix.

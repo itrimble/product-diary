@@ -1,5 +1,6 @@
 ---
 project: QixForge
+title: QixForge Gains a Hundred Songs, One Per Level
 summary: The game gained a hundred songs, one per level, and its animated backdrops now stay off the part of the screen where you play.
 ---
 QixForge now has a different song for every one of its hundred levels, and the busy animated scenery that used to drift across the play area has been pushed out to the edges. Each stage also shows its own title on the frame around the board. Two changes came from listening and looking rather than from numbers. A constant low tone that tension used to produce sounded like a painful hum, so it is gone. And moving lines drawn over the board made it harder to see what you were claiming.

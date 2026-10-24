@@ -1,5 +1,6 @@
 ---
 project: mac-bin
+title: Clicking a Download Link Now Reaches My File Server
 summary: Clicking a download link on any of my Macs can now hand it straight to the file server's download manager.
 ---
 Clicking a magnet link, or dropping a download file in the Downloads folder, on any of my three Macs now sends it to the download manager on the file server. A notification says if the server cannot be reached. Before, a link had to be copied over by hand. The notes for rebuilding a Mac were also updated, because this feature has a piece that restoring from the repo does not bring back.

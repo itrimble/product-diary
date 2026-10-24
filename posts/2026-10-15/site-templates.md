@@ -1,5 +1,6 @@
 ---
 project: Site Templates
+title: "Site Templates: A Shared Starter Kit for Product Sites"
 summary: A shared starter kit for the company's product web sites was built, with one layout for apps and one for games.
 ---
 Ian now has a shared starter kit for product web sites. Before, each product site was built from scratch, and they drifted apart in look and in how well they could be found. The kit has one layout for apps and one for games, and both can carry a looping clip, screenshots, a stat bar and a table. It was started from the StatBar site, which was the first to prove the idea.

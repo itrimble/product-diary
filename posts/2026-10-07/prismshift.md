@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift Passes Every Walkthrough on a Small Phone
 summary: Every scripted walkthrough of the whole game now passes on a small phone screen, three days before its planned release.
 ---
 Prism Shift is a new puzzle game for the phone, appearing here for the first time. You place crystals to build energy networks, and a line sweeping across the board in time with the music ignites them in chain reactions. The game is three days from its planned release on Sunday, and today the whole thing was walked end to end by scripted checks on a small phone screen: all 31 guided walkthroughs now pass, rewards you earn survive closing the app, and the ending and credits got screens of their own.
@@ -11,3 +12,4 @@ The pass also changed the game itself. Eight achievements, each with its own gen
 Still open before Sunday: how the controls actually feel on a physical phone, distribution signing and the beta upload, and the licensing paperwork for the recorded music stems. The project also has no version control at all yet — worth fixing before release day, not after.
 
 ![The game's title screen on a phone, with its Play button, world and level picker, and buttons for settings, achievements and credits](prismshift.png)
+*The Prism Shift title screen on a phone simulator, with the Play and Settings buttons and the first world's level picker. Screenshot added to the diary on 8 October 2026.*

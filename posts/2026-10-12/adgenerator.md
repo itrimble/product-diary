@@ -1,5 +1,6 @@
 ---
 project: AdGenerator
+title: AdGenerator Renders a First SnapDog Promo Video
 summary: A first finished promo video for SnapDog was assembled and rendered, in both widescreen and phone-shaped versions.
 ---
 AdGenerator made its first real advert tonight. It is a 25 second promo video for the SnapDog screenshot app, rendered twice: once in widescreen for websites and once upright for phones. It opens with a hook, shows the product name, plays four short clips of the app with a caption on each, and ends on a line pointing to the Mac App Store. The tool exists to turn recordings of my apps into short ads without editing by hand.

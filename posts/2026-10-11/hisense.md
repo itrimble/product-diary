@@ -1,5 +1,6 @@
 ---
 project: Hisense TV Tune-up
+title: Fixing a Slow Hisense TV With a Broken USB Drive
 summary: A slow television with a broken USB drive was diagnosed and repaired, and it now runs noticeably more smoothly.
 ---
 A Hisense television that had become painfully slow was repaired today. It also kept complaining that the memory stick plugged into it was corrupt, and the settings screen listed that one stick three times. Both problems turned out to be the same fault. The TV is now responsive again, the stick shows up once as a clean drive with plenty of room, and the warning is gone. Nothing on the stick needed saving, which is what made the repair safe to do.

@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog on Linux Captures a Clicked Window Cleanly
 summary: SnapDog on Linux now captures a clicked window correctly, without leftover tint or menu ghosts in the picture.
 ---
 SnapDog's Linux version, still a separate port behind the Mac app, now saves a clean picture when you capture a single window. Before, clicking the window you wanted did nothing useful, and the first picture that did come out had a grey tint and a badge from the picker baked into it. Both are fixed and checked on a real Arch-based Linux machine. Mac users see no change today.

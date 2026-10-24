@@ -1,5 +1,6 @@
 ---
 project: mac-bin
+title: Backup Scripts Now Survive a Stuck Network Drive
 summary: The scripts that back up my projects and report on my Macs now survive a stuck network drive and a one-off failed copy.
 ---
 The scripts that keep my three Macs in order took a hit from two outages this week, and the fixes are now saved in the repo. The status report each Mac sends to the file server no longer hangs when the server's shared drive freezes. The nightly backup no longer gives up after one quick retry. And the check that raises the alarm when a backup goes missing can now see a single missed night.

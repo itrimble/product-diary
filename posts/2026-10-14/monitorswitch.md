@@ -1,5 +1,6 @@
 ---
 project: Monitor Switch
+title: A Stubborn Monitor Was Really a Cable Problem
 summary: A monitor that refused to follow the desk switch to the personal laptop was traced to a cable, and unplugging it fixed it.
 ---
 One monitor on the desk would not follow the switch box when it was flipped to the personal laptop. Ian had to pick the right input in the monitor's own menu by hand every time. The cause turned out to be one cable. The work laptop's docking station was also plugged into that monitor, and the monitor stayed loyal to it even when nothing useful was coming through. With that cable unplugged, the monitor follows the switch on its own. No software was needed.

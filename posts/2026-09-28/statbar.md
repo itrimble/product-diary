@@ -1,5 +1,6 @@
 ---
 project: StatBar
+title: StatBar's Release Build Stops Hanging on Apple's Check
 summary: Building a release of the app no longer hangs forever waiting on Apple's security check.
 ---
 Putting out a new copy of StatBar no longer hangs forever when Apple's security check does not answer. Last week a release attempt sat for two days with no message and no error, because the Mac went to sleep in the middle of the upload. Now the process gives up after half an hour and says so, so a stuck release is something you notice the same morning.

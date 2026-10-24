@@ -1,5 +1,6 @@
 ---
 project: StatBar
+title: StatBar 1.7.0 Trims and Slims Phone Simulators
 summary: StatBar 1.7.0 can now trim and slim the phone simulators on a Mac on its own, freeing memory and disk.
 ---
 StatBar, the Mac menu bar monitor, can now shrink the phone simulators that developers leave around. It can clear their caches and logs, and it can switch off background services inside a simulator so it runs lighter. Version 1.7.0 does this without any extra program to install. In one test, a simulator dropped from 215 running processes using 2.94 GB of memory to 96 processes using 1.08 GB.

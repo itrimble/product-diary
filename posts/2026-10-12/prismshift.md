@@ -1,5 +1,6 @@
 ---
 project: Prism Shift
+title: Prism Shift Chain Reactions Get a Camera-Zoom Payoff
 summary: Chain reactions now trigger a big camera-zoom flourish, blocks pulse softly to the music, and each level's scenery lasts across several stages.
 ---
 Prism Shift got a bigger payoff for its best moves and a livelier board. When a big chain of crystals goes off, the camera now pushes in on the board with sparkles and rising notes tuned to the song. Blocks also pulse very gently in time with the music. Each of the fifteen worlds now lasts several stages instead of one, so the scenery and the song carry on across them without a break. None of it has been played on the phone yet, and Ian has asked for the phone to be left alone until they are back.

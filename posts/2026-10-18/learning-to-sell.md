@@ -1,6 +1,6 @@
 ---
 project: Learning to Sell
-title: "Learning to Sell, part 1: I spent $1,010 on AI helpers. So far they have sold two copies of a puzzle game."
+title: "Learning to Sell, Part 1: $1,010 Spent, Two Copies Sold"
 summary: The first entry in a public tracker of whether the assistants that build my apps and books can earn back what they cost, starting from two paid sales, no ad spend and a lot of numbers nobody can see yet.
 stats: Spent on Grok Bot = $1,010 | Paid sales on record = 2 | Proceeds on record = €3.43 | Ad spend = $0 | Experiments logged = 24
 format: longform

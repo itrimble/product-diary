@@ -1,5 +1,6 @@
 ---
 project: SnapDog
+title: SnapDog Stops Stealing Focus When Recording Starts
 summary: Starting a screen recording no longer leaves SnapDog in front, so your first click lands in the app you are recording.
 ---
 When you started a screen recording in SnapDog, the app stayed in front of everything else after you picked what to record. Your first click in the app you were recording was spent waking that app up instead of pressing the button you aimed at. Recording now hands control back to the right app as soon as you choose, so the first click does what you meant it to.
