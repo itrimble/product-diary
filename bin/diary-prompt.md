@@ -157,6 +157,13 @@ it prints a filename, reference it by that bare name
 (`![what the reader is looking at](civic-fortune.png)`) and write alt text that
 says what is in the picture. If it prints a reason, carry on without a picture.
 
+**Give every entry a real title.** Frontmatter `title`, 30-62 characters, naming the project and what happened
+(`StatBar 1.7 Can Now Slim Down Phone Simulators`). Never "Project — date". It is the search-result headline.
+
+**No commit hashes, no apologies.** Do not put commit hashes in the text (say what the change did), and do not say a
+picture is missing; the validator rejects both. If a project has no picture, write about the work and say nothing
+about pictures.
+
 **Caption every image.** Put an italic line directly under each picture, at least four words, saying what it shows
 and when it was captured (`*The settings window on 22 October, with the new Camera menu.*`). The validator rejects an
 image without one.
