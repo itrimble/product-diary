@@ -95,7 +95,7 @@ mkdir -p "$(dirname "$out")"
 
 # NUL-delimited: folder names contain spaces.
 find "$PROJECTS" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -not -name product-diary -print0 \
-  | xargs -0 -P 12 -n 1 "$0" --one "$date" \
+  | xargs -0 -P 12 -n 1 /bin/bash "$0" --one "$date" \
   | sort > "$out"
 
 total=$(wc -l < "$out" | tr -d ' ')
