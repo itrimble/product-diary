@@ -424,6 +424,20 @@ for (const f of entries) {
       if (m[1].trim().split(/\s+/).filter(Boolean).length < 3) bad(f, `image alt text "${m[1]}" needs at least 3 words that describe the picture`);
     }
   }
+  // From SEO_FROM every screenshot in every post is captioned, not only long form: an italic line right
+  // after the image saying what it shows and when it was captured (4+ words). The build does not render
+  // alt text as a caption, so without this line the reader gets a bare picture.
+  if (date >= SEO_FROM) {
+    const lines = body.split("\n");
+    lines.forEach((l, i) => {
+      if (!/^!\[/.test(l)) return;
+      let j = i + 1;
+      while (j < lines.length && !lines[j].trim()) j++;
+      const cap = j < lines.length ? lines[j].trim() : "";
+      if (!/^\*[^*].*\*$/.test(cap)) bad(f, `image "${l.slice(0, 60)}" needs an italic caption line right after it (what it shows and when it was captured)`);
+      else if (cap.replace(/\*/g, "").trim().split(/\s+/).length < 4) bad(f, `the caption under "${l.slice(0, 60)}" is too short; say what it shows and when it was captured`);
+    });
+  }
 
   // Voice. URLs are exempt: a link's slug is not the writer's word choice.
   const prose = withoutFences
