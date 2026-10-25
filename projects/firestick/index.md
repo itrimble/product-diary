@@ -1,0 +1,1 @@
+Fire TV Cleanup is a personal project to make a Fire TV Stick quieter: it disables telemetry, advertising and shopping services while keeping apps, Alexa, casting and updates. It keeps backups of the stick's settings and a script that restores the original home screen. It is a set of lists and scripts, not a released app, and is not yet under version control.
