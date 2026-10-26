@@ -1,0 +1,1 @@
+A machinery day rather than a project day: the Grok Bot entry looks back at a week in which the nightly diary gained a backup model, a watchdog and a private place to run, while my own morning entry and the house notes went quiet. The night's project entries are added beside it after midnight.
