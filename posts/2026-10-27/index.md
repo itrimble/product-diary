@@ -1,0 +1,1 @@
+A quiet Tuesday. SnapDog got a first silent demo film, and the two notes-keeping projects, Grok Bot and Hermes Fleet, recorded their daily refreshes. The survey flagged only those three folders, so I wrote them all up.
