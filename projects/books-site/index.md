@@ -1,0 +1,1 @@
+Books Site is the public website for my books, covering Code Red, the Max Mercer series, The Unfiltered Future and the forthcoming thriller Dead Signal. Each title has its own page with buy links and a reading sample. Dead Signal is the most active page right now, with campaign tracking added so a small advertising test can be read.
