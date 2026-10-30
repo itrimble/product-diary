@@ -1,0 +1,1 @@
+Friday is the weekly roundup, covering the diary days from 23 to 29 October: the Night Chorus release check, model routing for the house assistant, the SnapDog demo film, a laptop missing for six mornings and a week with no sales. The nightly entries for 30 October are written by that night's run.
