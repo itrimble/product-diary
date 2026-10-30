@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Product Diary</title>
+  <link>https://blog.remnantsecurity.com/</link>
+  <atom:link href="https://blog.remnantsecurity.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>What changed across the projects, day by day.</description>
+  <language>en</language>
+  <lastBuildDate>Thu, 29 Oct 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Epochs of Power Research Lands as SnapDog Gets a Slide</title>
+    <link>https://blog.remnantsecurity.com/epochs-of-power-research-snapdog-slide-lectern-ads/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/epochs-of-power-research-snapdog-slide-lectern-ads/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>A paperwork day: my Epochs of Power game research was saved to git, SnapDog got a one-slide story, and Lectern&#39;s ads were corrected.</description>
+  </item>
+  <item>
+    <title>Epochs of Power Records Where the Old Game Decides Ties</title>
+    <link>https://blog.remnantsecurity.com/civclone/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/civclone/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Epochs of Power</category>
+    <description>My strategy-game research gained a long set of written findings about Call to Power II, plus scripts that watch the original game run.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Record a Quiet Day and a Mac Mini Back Online</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of assistants recorded no changes to any bot, and noted that the Mac mini reconnected after a day offline.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Misses the Same Laptop for a Sixth Morning</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant&#39;s overnight head-count again could not find one laptop, and my NAS now has less spare memory than at any earlier check.</description>
+  </item>
+  <item>
+    <title>Lectern Gets Ad Copy That Matches What the Store Sells</title>
+    <link>https://blog.remnantsecurity.com/slideprocessor/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/slideprocessor/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Lectern</category>
+    <description>The Mac app itself did not change; I wrote new ad copy after finding my own notes undersold what the store version already does.</description>
+  </item>
+  <item>
+    <title>SnapDog Gets a One-Slide Story of Its Road to the Store</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-29/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-29/</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>The app itself was unchanged, but I added a one-slide summary of how it went from idea to the Mac App Store.</description>
+  </item>
+  <item>
+    <title>Dead Signal&#39;s Book Page Gets Tracking and a New Sample Address</title>
+    <link>https://blog.remnantsecurity.com/books-site/2026-10-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/books-site/2026-10-28/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Books Site</category>
+    <description>The Dead Signal pages on my books site now report where visitors came from, and the opening sample has moved to a new address.</description>
+  </item>
+  <item>
+    <title>Dead Signal Gets Ad Tracking as SnapDog Notes Get Fixed</title>
+    <link>https://blog.remnantsecurity.com/dead-signal-ad-tracking-snapdog-notes-fixed/2026-10-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dead-signal-ad-tracking-snapdog-notes-fixed/2026-10-28/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>Dead Signal&#39;s book pages learned to track where ad visitors come from, and my own SnapDog notes turned out to be wrong about its release.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Misses the Same Laptop for a Fifth Morning</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-28/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant&#39;s overnight head-count again could not reach one laptop, and the spare memory on my NAS fell to its lowest figure so far.</description>
+  </item>
+  <item>
+    <title>Remnant Academy Gets a Tax Switch and a Payment Fix</title>
+    <link>https://blog.remnantsecurity.com/remnant-academy/2026-10-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/remnant-academy/2026-10-28/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Security</category>
+    <category>Remnant Security Academy</category>
+    <description>The academy&#39;s checkout can now collect sales tax once I switch it on, and a payment-recording check that could hide failures was tightened.</description>
+  </item>
+  <item>
+    <title>SnapDog Gets New Ad Research After Its Own Notes Were Wrong</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-28/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-28/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>The app did not change, but I wrote new ad copy for SnapDog after finding my own notes still called the shipped app unreleased.</description>
+  </item>
+  <item>
+    <title>SnapDog Gets a First Demo Film as Hermes Fleet Fails</title>
+    <link>https://blog.remnantsecurity.com/snapdog-first-demo-film-hermes-fleet-fails/2026-10-27/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog-first-demo-film-hermes-fleet-fails/2026-10-27/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>SnapDog, my Mac screenshot app, now has a two-minute silent demo film for its website, while my house assistant failed its morning check again.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Record Eleven Assistants Renamed in a Day</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-10-27/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-10-27/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of assistants noted that eleven bots were renamed with a new title style, and that no new bots appeared.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Fails Its Morning Check for a Fourth Day</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-27/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-27/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant&#39;s morning health report failed again and its head-count still cannot reach one laptop, but the other three machines answered normally.</description>
+  </item>
+  <item>
+    <title>SnapDog Gets a First Silent Film Cut for Its Website</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-27/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-27/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>The first complete demo film for SnapDog&#39;s website exists as a silent two-minute story, and the notes say plainly which features it does not yet prove.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Misses a Laptop as Grok Bot Adds Two Bots</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet-laptop-grok-bot-snapdog-proof/2026-10-26/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet-laptop-grok-bot-snapdog-proof/2026-10-26/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>A quiet Monday: SnapDog&#39;s old proof files went into version control, Hermes Fleet lost a laptop again, and Grok Bot&#39;s notes caught up.</description>
+  </item>
+  <item>
+    <title>Grok Bot Documents Two New Assistants After a Missed Week</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-10-26/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-10-26/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The house notes for my fleet of assistants caught up after five days without a refresh and added two new bots, one for election mail and one for phone calls.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Recounts the House and Still Misses a Laptop</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-26/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-26/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant&#39;s overnight head-count still cannot reach one laptop, and its morning health report failed again because the model server stayed silent.</description>
+  </item>
+  <item>
+    <title>SnapDog Files Its Scrolling-Capture Proof and Two Decks</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-26/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-26/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>The app did not change; I filed the proof that scrolling capture works, my demo-film shoot notes and two slide decks telling its story.</description>
+  </item>
+  <item>
+    <title>Hermes WebUI Went Live and the Fleet Lost Its Voice</title>
+    <link>https://blog.remnantsecurity.com/hermes-webui-live-fleet-loses-voice/2026-10-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-webui-live-fleet-loses-voice/2026-10-25/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>My house assistant put a web front-end on my private network in eight minutes, while its morning health report failed and its evening voice crashed.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Loses Its Voice and a Laptop Stays Missing</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-25/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Hermes Fleet</category>
+    <description>The house assistant&#39;s morning health report failed and its evening spoken summary crashed outright, while the overnight head-count still misses one laptop.</description>
+  </item>
+  <item>
+    <title>Hermes WebUI Gives My House Assistant a Screen of Its Own</title>
+    <link>https://blog.remnantsecurity.com/hermes-webui/2026-10-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-webui/2026-10-25/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Hermes WebUI</category>
+    <description>The house assistant installed a browser front-end for itself tonight and had it answering on my phone within eight minutes.</description>
+  </item>
+  <item>
+    <title>Lightfence&#39;s Mac Steam Candidate Is Built and Recorded</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-25/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>QixForge</category>
+    <description>A complete unsigned Mac build of the puzzle game now exists as a Steam candidate, and its build record landed in the repository tonight.</description>
+  </item>
+  <item>
+    <title>SnapDog Stops One Blank Frame From Killing a Recording</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-25/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>A Mac screen recording could be ruined by a single empty frame; SnapDog now drops those frames and the recording survives.</description>
+  </item>
+  <item>
+    <title>Epochs of Power Opponent Stops Peeking at Your Units</title>
+    <link>https://blog.remnantsecurity.com/civclone/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/civclone/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Epochs of Power</category>
+    <description>The computer opponent in my strategy prototype no longer sees the whole map, so it now has to scout like a player would.</description>
+  </item>
+  <item>
+    <title>A Fire TV Stick Loses Its Trackers, With an Undo Button</title>
+    <link>https://blog.remnantsecurity.com/firestick/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/firestick/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Fire TV Cleanup</category>
+    <description>I started stripping tracking and advertising services off a streaming stick, with backups and a one-command way to put everything back.</description>
+  </item>
+  <item>
+    <title>My Assistant Now Picks Which Model Does Each Job</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet-model-routing/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet-model-routing/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Hermes Fleet</category>
+    <description>My assistant can hand a job to a different model depending on the work, from one running on my own desk to a paid cloud one, and the last route took two false starts to get working.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Notices That One Computer Has Gone Missing</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant re-checked which computers it can reach overnight and found one of them no longer answers to its name.</description>
+  </item>
+  <item>
+    <title>Night Chorus TV Version Now Shares One Purchase</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Night Chorus</category>
+    <description>Night Chorus, the crystal game formerly called Prism Shift, now uses one identity across all its Apple versions, so a single purchase should cover them.</description>
+  </item>
+  <item>
+    <title>Lightfence Stops Crashing When the Sound Fails to Start</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-24/</guid>
+    <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>QixForge</category>
+    <description>Lightfence could quit on its own if the phone&#39;s audio was busy when a sound played, and that crash is now fixed.</description>
+  </item>
+  <item>
+    <title>AdGenerator Now Feeds on LaunchDeck&#39;s Recordings</title>
+    <link>https://blog.remnantsecurity.com/adgenerator/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/adgenerator/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AdGenerator</category>
+    <description>The ad pipeline can now pull its footage straight from LaunchDeck&#39;s recordings of the real apps, with no copying files by hand between the two tools.</description>
+  </item>
+  <item>
+    <title>The Build Fleet Learns Windows and Stops Losing Job Receipts</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>The build system that spreads my compiling work across the house added a Windows worker, kept receipts when connections dropped, and showed memory pressure.</description>
+  </item>
+  <item>
+    <title>Epochs of Power Probes Call to Power II Without a Screen</title>
+    <link>https://blog.remnantsecurity.com/civclone/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/civclone/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>Epochs of Power</category>
+    <description>My research project toward a touch-first historical strategy game spent the day documenting the 2000 original and probing it automatically without a display.</description>
+  </item>
+  <item>
+    <title>Teaching My Assistant to Survey the House and Read Aloud</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet-voice-and-inventory/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet-voice-and-inventory/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Hermes Fleet</category>
+    <description>My assistant can now check which of my computers are awake, work out where each job should run, and speak a spoken summary of long answers as a playable recording.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Takes Stock of the House and Reads Answers Aloud</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant can now survey which computers are awake, and read long answers aloud as recordings that refuse to say anything the written answer did not.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts Gets a Native Library and Clearer Controls</title>
+    <link>https://blog.remnantsecurity.com/hisense-podcasts-native-library/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense-podcasts-native-library/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Homelab and Hardware</category>
+    <category>Hisense TV Tune-up</category>
+    <description>My television&#39;s podcasts app now puts private subscriptions beside regular shows, remembers older episodes, and makes its buttons easier to see.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts Gets a Native Library That Refreshes Itself</title>
+    <link>https://blog.remnantsecurity.com/hisense/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Homelab and Hardware</category>
+    <category>Hisense TV Tune-up</category>
+    <description>The Hisense television&#39;s podcasts app now keeps one native library of ordinary and paid private shows, reaches older episodes, and refreshes itself on launch.</description>
+  </item>
+  <item>
+    <title>LaunchDeck Learns All Thirty-Three Apps and Films Godot Too</title>
+    <link>https://blog.remnantsecurity.com/launchdeck/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/launchdeck/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>LaunchDeck</category>
+    <description>My marketing pipeline tool now knows all thirty-three of my apps and games as build-and-film recipes, including games made in the Godot engine.</description>
+  </item>
+  <item>
+    <title>Let Me Retire Publishes One Dream, One Button and No Payments</title>
+    <link>https://blog.remnantsecurity.com/letmeretire/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/letmeretire/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Web</category>
+    <category>Let Me Retire</category>
+    <description>I published a one-page joke site called Let Me Retire: one dream, one million dollars, one button, and a checkout that honestly reports it is not configured.</description>
+  </item>
+  <item>
+    <title>Meshy&#39;s 3D Pipeline Gets a Manual and a Real Audit</title>
+    <link>https://blog.remnantsecurity.com/meshy/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/meshy/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Meshy</category>
+    <description>The toolbox that turns text into three-dimensional models got a single manual for every coding assistant, plus an audit that verified what it can really do.</description>
+  </item>
+  <item>
+    <title>Pipe Flow&#39;s Website Now Plays Three Boards in the Browser</title>
+    <link>https://blog.remnantsecurity.com/pipe-flow/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/pipe-flow/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>Pipe Flow</category>
+    <description>The Pipe Flow website gained a playable three-board demo built from the game&#39;s own art and sound, and the game itself gained tests and a Linux build script.</description>
+  </item>
+  <item>
+    <title>Night Chorus Gets a Release Path, and Alerts Reach My Phone</title>
+    <link>https://blog.remnantsecurity.com/night-chorus-release-path-phone-alerts/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/night-chorus-release-path-phone-alerts/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Web</category>
+    <category>Prism Shift</category>
+    <description>One Friday of plumbing: failures now reach my phone, a skipped night cannot hide, and Night Chorus&#39;s first release check found four problems in seconds.</description>
+  </item>
+  <item>
+    <title>Night Chorus Builds for Steam and Fails Its Own Release Check</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>Prism Shift</category>
+    <description>Night Chorus, the crystal game formerly called Prism Shift, built a Linux candidate for Steam and wrote itself a release checklist that failed its first run.</description>
+  </item>
+  <item>
+    <title>Lightfence 1.3 Repaints Its Art and Its Site Says Out Now</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>QixForge</category>
+    <description>Lightfence&#39;s next version repaints every picture in the game at high resolution with shimmering gems, and its website now carries the store badge.</description>
+  </item>
+  <item>
+    <title>SnapDog Rewrites Its Website Films Around Remote Help</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>The Mac app&#39;s help menu now opens the SnapDog website, and the site&#39;s demo films were re-planned twice to tell one story about helping someone remotely.</description>
+  </item>
+  <item>
+    <title>YOLK SOULS Rewrites Its README to Match the Real Game</title>
+    <link>https://blog.remnantsecurity.com/yolksouls/2026-10-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/yolksouls/2026-10-23/</guid>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>YOLK SOULS</category>
+    <description>The hop-and-die adventure game&#39;s project card now describes the playable build that exists, not the month-old design it had outgrown.</description>
+  </item>
+  <item>
+    <title>Pipe Flow&#39;s Desktop Audit Found Leaks 34 Seconds Early</title>
+    <link>https://blog.remnantsecurity.com/pipe-flow-desktop-audit-lightfence-fold-statbar/2026-10-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/pipe-flow-desktop-audit-lightfence-fold-statbar/2026-10-22/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>Checking Pipe Flow&#39;s desktop port against the phone game found leaks bursting early on 111 of 140 levels, while Lightfence, SnapDog and StatBar also moved.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts Gains Private Feeds and Remote Navigation</title>
+    <link>https://blog.remnantsecurity.com/hisense/2026-10-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense/2026-10-22/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Homelab and Hardware</category>
+    <category>Hisense TV Tune-up</category>
+    <description>The television&#39;s podcasts app gained private show feeds, working remote navigation and a Now Playing card on the home screen.</description>
+  </item>
+  <item>
+    <title>Pipe Flow on Desktop Catches Up With the Phone Game</title>
+    <link>https://blog.remnantsecurity.com/pipe-flow/2026-10-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/pipe-flow/2026-10-22/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>Pipe Flow</category>
+    <description>The desktop version of Pipe Flow was brought much closer to the phone game in feel, sound, menus and 13 languages.</description>
+  </item>
+  <item>
+    <title>Lightfence Gets a Tabletop Layout for Folding Phones</title>
+    <link>https://blog.remnantsecurity.com/qix-swift/2026-10-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/qix-swift/2026-10-22/</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>QixForge</category>
+    <description>Lightfence gained a tabletop layout for a folding phone, and build 1004 went to App Store review.</description>
+  </item>
+</channel>
+</rss>
