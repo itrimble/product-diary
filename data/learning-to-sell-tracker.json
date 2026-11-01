@@ -1,9 +1,9 @@
 {
   "tracker": "learning-to-sell",
-  "owner_site": "Beacon /learning-to-sell/ (draft, not published)",
+  "owner_site": "Beacon /learning-to-sell/ (Beacon publishes; this bot does not deploy)",
   "approved_by": "Ian Trimble 2026-10-18",
-  "last_updated": "2026-10-18",
-  "window": "2026-09-01..2026-10-18 (ASC data ends 2026-10-13)",
+  "last_updated": "2026-11-01",
+  "window": "2026-09-01..2026-10-31 (ASC daily pulled through 2026-10-31 on Nov 1; Gumroad/KDP missing)",
   "sale_definition": "Paid purchase of an app, book or game (Ian, Oct 18). Free downloads tracked, not sales.",
   "rules": "null = missing (no source). No currency conversion. revenue_recorded is in the stated currency only.",
   "anchor": {
@@ -20,13 +20,13 @@
       "amount": 3.43,
       "currency": "EUR"
     },
-    "notes": "No consistent USD revenue source. EUR not converted. List-price-only total 2 x $2.99 = $5.98 is NOT recorded revenue. Books missing."
+    "notes": "No consistent USD revenue source. EUR not converted. No new paid units Oct 14-31 (ASC daily). Books missing (no Gumroad/KDP export). Remaining vs $1,010: not scored."
   },
   "total_tactical_spend_usd": 0,
-  "total_tactical_spend_source": "ledger/experiments.csv spend_usd = 0 on all 24 rows",
+  "total_tactical_spend_source": "ledger/experiments.csv spend_usd = 0 on all 27 rows (checked 2026-11-01)",
   "totals_recorded": {
     "paid_units": 2,
-    "downloads_free": 15,
+    "downloads_free": 17,
     "revenue_recorded": [
       {
         "amount": 3.43,
@@ -35,11 +35,11 @@
     ]
   },
   "experiments": {
-    "source": "ledger/experiments.csv",
-    "count": 24,
+    "source": "ledger/experiments.csv (last Ledger week check 2026-10-26; Oct 27-29 notes appended)",
+    "count": 27,
     "ITERATE": 1,
-    "INCONCLUSIVE": 22,
-    "pending": 1,
+    "INCONCLUSIVE": 26,
+    "pending": 0,
     "KEEP": 0,
     "KILL": 0
   },
@@ -55,22 +55,22 @@
       "spend_usd": 0,
       "status": "DEGRADED",
       "source_file_or_agent": "portfolio-marketing/sales/D_2026-09-30.tsv; D_2026-10-03.tsv",
-      "last_updated": "2026-10-18",
-      "notes": "Paid units BE 2026-09-30 (proceeds 1.73 EUR) and PT 2026-10-03 (proceeds 1.70 EUR). revenue_recorded = developer proceeds. Customer price 2.99 EUR each (customer currency EUR); US list price $2.99. Not converted. Unattributable (no pt=). ASC data ends Oct 13."
+      "last_updated": "2026-11-01",
+      "notes": "Paid units BE 2026-09-30 (proceeds 1.73 EUR) and PT 2026-10-03 (proceeds 1.70 EUR). revenue_recorded = developer proceeds. Customer price 2.99 EUR each (customer currency EUR); US list price $2.99. Not converted. Unattributable (no pt=). ASC data ends Oct 13. | Nov 1: ASC daily Oct 14-31 shows 0 Pipe Flow units (paid or free)."
     },
     {
       "item": "CyberSim: Cert Exam Practice",
       "kind": "app",
       "channel_source": "App Store (ASC daily TSV)",
       "units": 0,
-      "downloads_free": 11,
+      "downloads_free": 13,
       "revenue_recorded": 0,
       "currency": "USD",
       "spend_usd": 0,
       "status": "DEGRADED",
       "source_file_or_agent": "portfolio-marketing/sales/D_2026-09-*.tsv; ledger/sales/daily-2026-10-07.tsv; daily-2026-10-12.tsv",
-      "last_updated": "2026-10-18",
-      "notes": "Free units: 9 in Sep, Oct 7, Oct 12. No full-unlock price quoted. ASC data ends Oct 13."
+      "last_updated": "2026-11-01",
+      "notes": "Free units: 9 in Sep, Oct 7, Oct 12, Oct 17 (JP, iPad), Oct 28 (IN). 0 paid. 1.1.2 (unlock fix) rejected Oct 19, so the unlock is still not purchasable. Source: ledger/sales/daily-2026-10-17.tsv; learning-to-sell/2026-11-01/asc/daily-2026-10-28.tsv. Unattributable (no pt)."
     },
     {
       "item": "Lectern AI",
@@ -83,8 +83,8 @@
       "spend_usd": 0,
       "status": "DEGRADED",
       "source_file_or_agent": "portfolio-marketing/sales/D_2026-09-02.tsv; D_2026-09-09.tsv; ledger/sales/daily-2026-10-07.tsv; daily-2026-10-11.tsv",
-      "last_updated": "2026-10-18",
-      "notes": "Free units Sep 2, Sep 9, Oct 7, Oct 11. Pro subscription report not checked. ASC data ends Oct 13."
+      "last_updated": "2026-11-01",
+      "notes": "Free units Sep 2, Sep 9, Oct 7, Oct 11. Pro subscription report not checked. ASC data ends Oct 13. | Nov 1: ASC daily Oct 14-31 shows 0 Lectern units. Live store version 1.2 (build 26) per asc-watch Oct 30, which settles the 1.1 vs 1.2 conflict."
     },
     {
       "item": "SnapDog: Capture & Annotate",
@@ -97,22 +97,22 @@
       "spend_usd": 0,
       "status": "DEGRADED",
       "source_file_or_agent": "ASC TSVs Sep 1-Oct 13; ledger/experiments.csv EXP-20260903-SNAPDOG-X-01",
-      "last_updated": "2026-10-18",
-      "notes": "0 units Sep-Oct 13. SnapDog X = ITERATE (313 imp, 8 eng, 0 site visits, 0 purchases). ASC data ends Oct 13."
+      "last_updated": "2026-11-01",
+      "notes": "0 units Sep 1-Oct 31 (ASC daily). SnapDog X = ITERATE. Oct 27 10:01 AM CT: first tagged App Store button click on record (visitor from the notsacke-built X reply, PostHog), no purchase followed through Oct 31. Live 1.2.1 at $14.99; 1.2.2 being prepared. Unattributable at store level (no pt)."
     },
     {
       "item": "Lightfence",
       "kind": "game",
       "channel_source": "App Store",
-      "units": null,
-      "downloads_free": null,
-      "revenue_recorded": null,
-      "currency": null,
+      "units": 0,
+      "downloads_free": 0,
+      "revenue_recorded": 0,
+      "currency": "USD",
       "spend_usd": 0,
-      "status": "missing",
+      "status": "DEGRADED",
       "source_file_or_agent": "ledger/experiments.csv EXP-20261017-LIGHTFENCE-X-01",
-      "last_updated": "2026-10-18",
-      "notes": "Launch X post Oct 17 23:12 CT only. Price/availability UNVERIFIED; do not quote. No sales pulled."
+      "last_updated": "2026-11-01",
+      "notes": "App Store id6822773360, $3.99 per App Store lookup (Ledger Oct 26). 1.2 released Oct 23 for iPhone, iPad and Mac. ASC daily Oct 15-31: 0 units. X launch post 50 impressions, 0 engagement. Unattributable (no pt)."
     },
     {
       "item": "The Halcyon Key",
@@ -131,8 +131,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified list Oct 9/16 2026; Amazon author B0BRL7WV64",
-      "last_updated": "2026-10-18",
-      "notes": "Kindle $4.99, in Kindle Unlimited. Sales/revenue MISSING: no KDP export."
+      "last_updated": "2026-11-01",
+      "notes": "Kindle $4.99, in Kindle Unlimited. Sales/revenue MISSING: no KDP export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "The Halcyon Key",
@@ -151,8 +151,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Ledger EXP-20261017-HALCYON-GUMROAD-01; ledger/books.md; Book Growth (live Oct 17)",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad $2.99, live Oct 17. Sales/revenue MISSING: sales_count hidden, no dashboard export."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad $2.99, live Oct 17. Sales/revenue MISSING: sales_count hidden, no dashboard export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "The Obsidian Protocol",
@@ -171,8 +171,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified list Oct 9/16 2026; Amazon author B0BRL7WV64",
-      "last_updated": "2026-10-18",
-      "notes": "Kindle $4.99, NOT in Kindle Unlimited. Sales/revenue MISSING: no KDP export."
+      "last_updated": "2026-11-01",
+      "notes": "Kindle $4.99, NOT in Kindle Unlimited. Sales/revenue MISSING: no KDP export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "The Obsidian Protocol",
@@ -191,8 +191,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified Gumroad list Oct 17-18 2026",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad $4.99. Sales/revenue MISSING: no dashboard export."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad $4.99. Sales/revenue MISSING: no dashboard export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "The Lazarus Directive",
@@ -211,8 +211,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified list Oct 9/16 2026; Amazon author B0BRL7WV64",
-      "last_updated": "2026-10-18",
-      "notes": "Kindle $4.99, NOT in Kindle Unlimited. Sales/revenue MISSING: no KDP export."
+      "last_updated": "2026-11-01",
+      "notes": "Kindle $4.99, NOT in Kindle Unlimited. Sales/revenue MISSING: no KDP export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "The Lazarus Directive",
@@ -231,8 +231,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified Gumroad list Oct 17-18 2026",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad $4.99. Sales/revenue MISSING: no dashboard export."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad $4.99. Sales/revenue MISSING: no dashboard export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "Code Red: The Race to Build and Control Artificial Intelligence",
@@ -251,8 +251,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified list Oct 9/16 2026; Amazon author B0BRL7WV64",
-      "last_updated": "2026-10-18",
-      "notes": "Kindle $7.99, in Kindle Unlimited, 5.0 from 1 review. Sales/revenue MISSING: no KDP export."
+      "last_updated": "2026-11-01",
+      "notes": "Kindle $7.99, in Kindle Unlimited, 5.0 from 1 review. Sales/revenue MISSING: no KDP export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "Code Red: The Race to Build and Control Artificial Intelligence",
@@ -271,8 +271,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified list Oct 9/16 2026",
-      "last_updated": "2026-10-18",
-      "notes": "Paperback $18.99. Sales/revenue MISSING: no KDP export."
+      "last_updated": "2026-11-01",
+      "notes": "Paperback $18.99. Sales/revenue MISSING: no KDP export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "Code Red: The Race to Build and Control Artificial Intelligence",
@@ -291,8 +291,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Ledger EXP-20261017-CODERED-GUMROAD-01; ledger/books.md; Book Growth (live Oct 17)",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad $7.99, live Oct 17. Sales/revenue MISSING: no dashboard export."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad $7.99, live Oct 17. Sales/revenue MISSING: no dashboard export. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "Max Mercer Books 2 & 3 Bundle (Obsidian + Lazarus)",
@@ -311,8 +311,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth verified Gumroad list Oct 17-18 2026",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad bundle $8.99. Sales/revenue MISSING. Note: separate Amazon Max Mercer series widget $14.97 for 3 Kindle books was last verified Aug 26 2026 - RECHECK before quoting, do not headline."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad bundle $8.99. Sales/revenue MISSING. Note: separate Amazon Max Mercer series widget $14.97 for 3 Kindle books was last verified Aug 26 2026 - RECHECK before quoting, do not headline. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "StatBar",
@@ -327,8 +327,8 @@
       "spend_usd": 0,
       "status": "missing",
       "source_file_or_agent": "Book Growth gumroad/2026-10-17-gumroad-inventory.md (bafol \u2014 canonical /l/statbar, $9.95); web/statbar-site; projects-snapshot.md \u00a75 (MBP Mutagen-synced, Oct 18 evening); Ian Oct 18",
-      "last_updated": "2026-10-18",
-      "notes": "Gumroad $9.95 once (statbar-site confirms; inventory 2026-10-17). v1.4.2 git 80af669 2026-10-18 16:08 on MBP Mutagen-synced copy. Sales/revenue MISSING: sales_count hidden, no dashboard export. Slug: /l/bafol internal permalink and /l/statbar canonical are same product."
+      "last_updated": "2026-11-01",
+      "notes": "Gumroad $9.95 once (statbar-site confirms; inventory 2026-10-17). v1.4.2 git 80af669 2026-10-18 16:08 on MBP Mutagen-synced copy. Sales/revenue MISSING: sales_count hidden, no dashboard export. Slug: /l/bafol internal permalink and /l/statbar canonical are same product. | Nov 1: listing still returns 200; still no Gumroad/KDP sales export, so sales remain MISSING."
     },
     {
       "item": "PrismShift",
@@ -342,8 +342,8 @@
       "spend_usd": 0,
       "status": "not yet launched",
       "source_file_or_agent": "projects-snapshot.md \u00a75 correction (MBP Mutagen-synced copy, verified Oct 18 evening, git 0e57729 2026-10-18 16:34); Ian decision Oct 18 to track",
-      "last_updated": "2026-10-18",
-      "notes": "NOT YET LAUNCHED: release notes say NOT yet live/submitted to App Store Connect, store price undecided. Price/channel missing. price-research $4.99 is recommendation only \u2014 do not quote. Units/revenue null."
+      "last_updated": "2026-11-01",
+      "notes": "Renamed Night Chorus. 1.0 versions for iPhone, Apple TV and Mac prepared in App Store Connect, nothing submitted (Dev Diary Oct 23; release check failed 4 ways). No price, no sales. Not launched."
     }
   ],
   "books_note": "Only 4 books for sale (Book Growth verified Oct 9/16, Gumroad Oct 17-18): Halcyon Key, Obsidian Protocol, Lazarus Directive, Code Red, plus Gumroad Max Mercer 2&3 bundle. Series widget $14.97 last verified Aug 26 - recheck, not headlined. StatBar is an app (Gumroad $9.95 /l/statbar), now tracked as an app sale per Ian Oct 18, not a book. PrismShift is a game, now tracked per Ian Oct 18 with channel/price UNKNOWN. Unpublished titles excluded.",
