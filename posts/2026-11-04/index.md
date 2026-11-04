@@ -1,0 +1,1 @@
+Wednesday was a day of finding out my own parts-picker website was wrong. It grew from a handful of graphics cards to 55, and trying it on my own computer showed two mistakes of mine: its power check ignored the card already in the machine, and the memory sticks I planned to buy do not come in the type I assumed.
