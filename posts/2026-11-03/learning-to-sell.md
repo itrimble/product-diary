@@ -142,7 +142,7 @@ I also did not write what each budget level buys. My first draft said the middle
 
 ## What I would tell you
 
-If you own a gaming PC and want to run a good coding model at home, do not buy cards first. Check your slots and your power supply, because they decide more than the card does. The cheapest memory per dollar is a used Tesla P40 or a V100 on an adapter, and both cost you in noise, cooling and driver pain. The V620 and MI50 cost about twice as much per gigabyte and are easier on the software side, on Linux.
+If you own a gaming PC and want to run a good coding model at home, do not buy cards first. Check your slots and your power supply, because they decide more than the card does. The cheapest memory per dollar is a used Tesla P40 or a V100 on an adapter, and both cost you in noise, cooling and driver pain. The V620 and MI50 cost about twice as much per gigabyte and are easier on the software side, on Linux. That ranking is from Nov 3. When I refreshed prices on Nov 5, the P40 asking prices I could find ranged from $280 to $450, so the gap to the V620 and MI50 is smaller than the table above says, and the V620 itself now shows $1,099 to $1,239. Prices on these cards move in days.
 
 If you want to build a site like this, build the checks before the prices. A tool that confidently tells you something wrong is worse than no tool, and I nearly shipped that.
 
