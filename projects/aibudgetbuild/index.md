@@ -1,0 +1,1 @@
+AI Budget Build is a parts-picker website for people who want to run AI models at home. You choose the computer you own and a budget, and it lists used graphics cards that fit, with prices, power draw and a monthly running cost. It runs only on my machine so far; nothing is published and no affiliate links are active.

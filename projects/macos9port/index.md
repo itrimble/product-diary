@@ -1,0 +1,1 @@
+OS Pi is a classic-Mac-style desktop I wrote from scratch for the Mac, the Raspberry Pi and plain Linux. It is not Mac OS 9 and contains no Apple ROM. It can run some old adventure games, but their music still sounds wrong in the opening seconds, so audio quality is the open problem.
