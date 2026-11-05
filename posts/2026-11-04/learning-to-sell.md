@@ -2,7 +2,7 @@
 project: Learning to Sell
 title: "Learning to Sell, Day Two: 55 Cards and Two Mistakes"
 summary: I tried my parts-picker site on my own computer and found it wrong about power and memory. Then I added more parts, showed what I could not prove, and kept the money at zero.
-stats: Affiliate earnings = $0 | Affiliate programs active = 0 | Cards priced = 55 | Automated tests passing = 83
+stats: Affiliate earnings = $0 | Affiliate programs active = 0 | Cards priced = 55 | Automated tests passing = 88
 format: longform
 category: learning-to-sell
 ---
@@ -74,6 +74,22 @@ Once the picker passed fifty cards, the list ran to about 40,000 pixels on my ph
 
 Not verified: the search box and the limit on a real phone. I checked the layout at 390 pixels wide in an automated browser and did not type into the box there.
 
+## Where to get the models, and why almost no torrents
+
+I wanted the site to keep links to the models current, from trusted places, and to include torrents if any were reputable. The first part was easy to do properly. The second part came out nearly empty, and I think that is the honest result.
+
+Every model on the site already linked to the maker's page on Hugging Face. Now each one also shows when that page last changed, the licence Hugging Face reports, and a link to the GGUF files used for the size figures. When those files come from someone other than the maker, the card says "a re-quantised copy by unsloth, not by the maker". A script checks all 135 Hugging Face repos the site names against Hugging Face's public data, one request each, no login, nothing downloaded. The audit warns if that check is more than 30 days old.
+
+The first run found things I would have missed. Two repos had moved to new owners, so I fixed those links. Thirteen are gated: you need a Hugging Face account and have to accept the maker's terms, which now shows on the card. Ten hold only older pickle-style files that can run code when you load them, such as MusicGen, AudioGen, XTTS-v2 and Kokoro, which also now shows on the card. For every model that reports a licence, Hugging Face agreed with mine.
+
+Torrents are the part where I held back. I looked for makers that publish their own. Mistral does: its own Hugging Face page links its original Mixtral 8x7B torrent, so that one is on the card with the page where Mistral says so. It holds Mistral's original file layout, not the files llama.cpp reads, and the card says that. Mistral's page for the bigger Mixtral points at a post on X that I could not open, so I left it out. Nobody else I checked publishes torrents for the models on this site. Community torrent indexes exist and some look well run, but a magnet link only proves the bytes are consistent, not that they are authentic. The site links none of them, and a collapsed note says why, along with the checksum and file-type basics.
+
+![The What can I run page scrolled to the Mixtral 8x7B row, with links to Mistral's page, a note that the GGUF files are a re-quantised copy by someone else, and a box describing the torrent Mistral published](model-links-and-torrent.jpg)
+
+*The What can I run page, captured Nov 4, 2026, 6:11 PM Central in a regular Chrome window. Each row now says where to get the weights and when the link was checked. The boxed text is the one maker-published torrent the site lists.*
+
+Not verified: that every re-quantiser is trustworthy (the card says when a repo is not the maker's), the torrent's contents, and anything that sits behind a login.
+
 ## What changed in the data on Nov 4
 
 Most of Nov 4 was spent turning held-back parts into usable ones. A part goes into the picker only when every field the compatibility checks need is read from the maker and it has a dated price. That rule moved the card list from 25 to 55 cards, added real power supplies, a board with 16 memory slots, RAM kits and case prices, and left 5 cards, 5 boards and 16 power supplies out. Rather than hide those, the page now has a collapsed section, "Researched, not selectable yet", listing each one with exactly what is missing.
@@ -89,7 +105,7 @@ Two honest limits. First, most of the new prices came through search-result exce
 | Cards priced | 55 for sale, 2 owned examples | Asking prices, each dated Nov 3 or Nov 4, 2026 |
 | Boards in the picker | 26 | 24 real, 2 generic. Five more are held back: no US non-eBay price, or no lane map read from the maker |
 | User stories | 40 | Invented, not interviewed |
-| Automated tests | 83 passing | Slot, power, cooling, affiliate and data-accuracy rules |
+| Automated tests | 88 passing | Slot, power, cooling, affiliate and data-accuracy rules |
 | Free photos found | 3 of 15 searched | The 15 were cards and boards I searched for on Nov 3. Most of the 55 cards in the picker were never searched for; every card without a photo shows an icon tile |
 | Card spec fields checked against the maker | 259 of 327 | 68 shown as not verified on cards. Five fields (memory, power, slot width, connectors, cooling) plus architecture, on 55 cards, counted from the data on Nov 4 |
 | Speeds measured by me | 0 | Everything on the site is from other people, and labelled |
