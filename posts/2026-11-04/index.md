@@ -1,0 +1,3 @@
+Three projects had real work on Wednesday: AI Budget Build got its first working parts picker, SnapDog's studio gained simulator tools, and OS Pi spent the day measuring game audio it still cannot get right.
+
+Flagged but left out: TilePilot (appsnap), BookForge pipeline, Civic Fortune 2026 and barfly only gained generated sales ad copy files. Pipe Flow, prismshift and its parity folders, gamevalidator, build_orchestration, hermes-fleet, Claudeception, tailscale, Hermes ai and omarchy changed in scratch art, logs, generated docs or uncommitted work I did not examine in time. leaving_kentucky and revenge-tour are marked do not promote, and the Leaving Kentucky material is unpublished manuscript territory.
