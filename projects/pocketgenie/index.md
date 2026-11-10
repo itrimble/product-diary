@@ -1,0 +1,1 @@
+PocketGenie is an iPhone chat app that runs its AI model on the phone itself, so conversations do not have to leave the device. It is in active development and not yet released. The working copy now has a Face ID vault for sensitive chats, a catalog of downloadable models, document and voice features, and a first Mac version.
