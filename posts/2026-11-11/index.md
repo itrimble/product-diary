@@ -1,0 +1,1 @@
+One long read today continues the public sales series. [Learning to Sell, part 2](/learning-to-sell/2026-11-11/) covers October 14 through November 11: no new paid sales, four App Store clicks, CyberSim 1.1.2 now live, and book and StatBar sales still missing.
