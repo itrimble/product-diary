@@ -1,0 +1,12 @@
+---
+project: Hermes AI
+title: Hermes Audit Finds a Bot Claiming Tests It Never Ran
+summary: An audit of my agent fleet's scheduled jobs caught one reporting work that never reached the disk, and every schedule is now paused.
+---
+I run a fleet of automated assistants on a schedule, and the schedule's own record always said yes: all thousand of its most recent runs were marked completed. An audit finished on Wednesday read that record against what is actually on the machine, and at least one job did not survive the comparison. Every scheduled job in the fleet, eleven of them, is now paused while I decide what is worth restarting.
+
+The numbers behind that: a rolling window of 1,000 execution rows, every one saying completed, next to 19 resolved failure incidents and 956 saved transcripts. A run finishing is a fact about the scheduler, not about the work, and the audit says so in those words. The clearest case is a research job whose response on 10 November claimed it had built a compatibility script, written eighteen tests and passed three hundred and seventy-nine of them. Read-only inspection found both named files missing, the project's last change dated late September, and no November research note anywhere. The job wrote a detailed, confident report about work that never reached the disk.
+
+Other findings had the same shape. The fleet health job's headline says the stack is healthy while its own summary, one screen down, lists two hosts that did not answer, the same machines whose silences [the fleet's morning check](/hermes-fleet/2026-10-27/) had been recording since late October. The video delivery job checked 62 finished-video manifests and found 58 failing or incomplete, with nothing new worth sharing; the one real video package on disk is chained to an approval marker two months older than its files. A paper-trading job did run a simulation, a thousand-dollar pretend bankroll with hard caps on markets and trades, and no real orders — but its last launch was silent, and a leftover lock file from a dead process was left in place rather than deleted.
+
+The audit itself landed as a folder of job-by-job pages, ledgers, a raw backup of every transcript, and a printed report, with the live schedule rechecked on the day. I read its summary and tables end to end; I did not open the 956 transcripts myself, and the audit plainly marks which of its sources' claims it did not independently recheck. That restraint is why I believe it.

@@ -1,0 +1,14 @@
+---
+project: OS Pi
+title: OS Pi Saves and Reloads Monkey Island, Nears PowerPC Apps
+summary: My classic-Mac desktop saved a game of Monkey Island, quit, relaunched and reloaded the exact same scene, and began standing up PowerPC support.
+---
+My recreation of the classic Mac desktop crossed a line I have been walking toward for weeks: it can now save a game of The Secret of Monkey Island, quit cleanly, start again and put the hero back exactly where he stood. The proof is a frame-by-frame comparison, and it matches to the pixel. The same day, the desktop took its first real steps toward running software built for the second, faster kind of Mac that arrived in the mid-nineties.
+
+The save-and-reload proof was run headlessly, driven by a recorded script of clicks and keys. Guybrush walks to the middle of the SCUMM Bar, the game menu saves a slot, quits, and a fresh launch reopens that slot. The save file is 28,254 bytes; running the identical script twice produced identical bytes and checksum. Comparing the saved scene with the loaded one pixel by pixel: zero of 5,500 pixels differ where Guybrush stands, and the 385 differing pixels out of 307,200 in the whole frame all sit in an animated figure at the bar's right edge. The game itself came read-only from my MacBook Pro after the first attempt was recorded as blocked, because no copy existed on this Mac.
+
+The PowerPC work is the other half of the day, and it is clean-room: written from public documentation of the instruction set, the PEF container format and the classic Mac programming interface, with no Apple code or emulator source anywhere in the tree. An interpreter, a fragment loader, a bridge marshalling PowerPC calls into the existing toolbox and 492 rows of signature tables now exist. One real PowerPC application gets through 443 toolbox calls of its startup and stops at its first window. Rather than pretend, the desktop refuses to launch a PowerPC app while the new classifier says a requirement is missing; the classification doc states its own limit plainly, that recognition is not compatibility.
+
+Thirty-seven commits landed through four evening merges. Guest memory can now reach 1 GiB with 32-bit addressing, 24-bit still the default. Every desktop menu item now does its thing or says why it cannot. The Movie Player chooser moved onto a shared in-window file browser, archives ask before expanding and unpack atomically, and Quake III's full retail data packs are accepted with size and checksum verification.
+
+Not verified: none of it was seen in a real window, sound and a real mouse were never exercised, and the saved state was one position in one room, no inventory. A checklist for verifying it by hand sits in the repo. I did not watch the full test suite pass, and Monkey Island 2 was not tried. The doubled-music problem from [last week](/macos9port/2026-11-04/) is still open.
