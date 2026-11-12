@@ -1,0 +1,26 @@
+There's an issue with your CyberSim: Cert Exam Practice (iOS) submission.
+From App Store Connect <no_reply@email.apple.com>
+Received Oct 19, 2026, 7:39 PM CT (America/Chicago)
+
+Hello Ian,
+
+Thank you for submitting your items for review. We noticed an issue
+with your submission that requires your attention.
+
+Submitted: Oct 19, 2026 at 03:05 PM Pacific Daylight Time
+Submitted by: API Key
+Number of items submitted: 2
+Submission ID: 8c73fea6-bab2-4c4b-8ac4-9cb7487aa096
+App Name: CyberSim: Cert Exam Practice
+
+We look forward to working with you to resolve the issues with the
+following items:
+
+App Version
+1.1.2 for iOS
+
+For details, next steps, and to ask questions about these issues,
+please visit the App Review page in App Store Connect.
+
+Best regards,
+App Review
