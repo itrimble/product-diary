@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Product Diary</title>
+  <link>https://blog.remnantsecurity.com/</link>
+  <atom:link href="https://blog.remnantsecurity.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>What changed across the projects, day by day.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 13 Nov 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Hermes Benchmark Fails 3 of 5 Local Models on Day One</title>
+    <link>https://blog.remnantsecurity.com/hermes-local-model-benchmark-statbar-weather-retry/2026-11-13/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-local-model-benchmark-statbar-weather-retry/2026-11-13/</guid>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>I built a fair test for small coding models on my Mac mini, and three of five routes failed the warm-up. StatBar&#39;s weather fixes also reached git.</description>
+  </item>
+  <item>
+    <title>Hermes AI Gets a Fair Test for Small Local Coding Models</title>
+    <link>https://blog.remnantsecurity.com/hermesai/2026-11-13/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermesai/2026-11-13/</guid>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes AI</category>
+    <description>I built a repeatable test for which small AI models on my Mac mini can really write a working app, and three of five routes failed the warm-up.</description>
+  </item>
+  <item>
+    <title>StatBar&#39;s Weather Retry Button and Signing Fix Get Committed</title>
+    <link>https://blog.remnantsecurity.com/statbar/2026-11-13/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar/2026-11-13/</guid>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>StatBar</category>
+    <description>The weather menu&#39;s clickable status line and a signing fix for the location permission dialog were committed late Friday, ahead of the unreleased 1.11.0.</description>
+  </item>
+  <item>
+    <title>Week of November 6: Honest Numbers, a Paused Fleet, No Sales</title>
+    <link>https://blog.remnantsecurity.com/weekly-roundup/2026-11-13/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/weekly-roundup/2026-11-13/</guid>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Weekly Roundups</category>
+    <category>Weekly roundup</category>
+    <description>A week of making numbers tell the truth. StatBar stopped promising disk space it could not free, an audit paused every scheduled agent job, OS Pi got its timing right, and nothing sold.</description>
+  </item>
+  <item>
+    <title>Sprout Platformer Playable, OS Pi Installs Classic Apps</title>
+    <link>https://blog.remnantsecurity.com/sprout-platformer-os-pi-classic-installer/2026-11-12/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/sprout-platformer-os-pi-classic-installer/2026-11-12/</guid>
+    <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>Sprout and the Clockwork Orchard became a playable web platformer in one day, while OS Pi gained a classic app installer and proven video decoding.</description>
+  </item>
+  <item>
+    <title>OS Pi Gets a Classic App Installer and Proven YouTube Video</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-12/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-12/</guid>
+    <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>My classic-Mac-style desktop gained an installer for old programs and a larger default memory, and I proved video decoding on the graphics chip.</description>
+  </item>
+  <item>
+    <title>Sprout and the Clockwork Orchard Is a Playable Platformer</title>
+    <link>https://blog.remnantsecurity.com/sprout-clockwork-orchard/2026-11-12/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/sprout-clockwork-orchard/2026-11-12/</guid>
+    <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Sprout and the Clockwork Orchard</category>
+    <description>A new original 3D platformer, with one finished level and gamepad support checked on a real controller, now runs in a web browser.</description>
+  </item>
+  <item>
+    <title>Grok Bot&#39;s Scan Logs a Quiet Day in a Busy Folder</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-11/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-11/</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of assistants recorded a quiet day, and the morning scan&#39;s only news was my own classic-Mac project landing its work.</description>
+  </item>
+  <item>
+    <title>Hermes Audit Finds a Bot Claiming Tests It Never Ran</title>
+    <link>https://blog.remnantsecurity.com/hermesai/2026-11-11/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermesai/2026-11-11/</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes AI</category>
+    <description>An audit of my agent fleet&#39;s scheduled jobs caught one reporting work that never reached the disk, and every schedule is now paused.</description>
+  </item>
+  <item>
+    <title>OS Pi Saves and Reloads Monkey Island, Nears PowerPC Apps</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-11/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-11/</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>My classic-Mac desktop saved a game of Monkey Island, quit, relaunched and reloaded the exact same scene, and began standing up PowerPC support.</description>
+  </item>
+  <item>
+    <title>StatBar&#39;s Weather Button Now Fixes Its Own Failure</title>
+    <link>https://blog.remnantsecurity.com/statbar/2026-11-11/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar/2026-11-11/</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>StatBar</category>
+    <description>The weather menu&#39;s status line became a button that retries a failed location fix, and a signing gap that would silence the permission dialog was closed.</description>
+  </item>
+  <item>
+    <title>StatBar Weather Follows Your Mac, OS Pi Gets Screen Sizes</title>
+    <link>https://blog.remnantsecurity.com/statbar-weather-follows-mac-os-pi-screen-sizes/2026-11-10/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar-weather-follows-mac-os-pi-screen-sizes/2026-11-10/</guid>
+    <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>I fixed StatBar&#39;s weather so it can follow a travelling Mac, and taught OS Pi, my classic-Mac-style desktop, thirty screen sizes in five builds.</description>
+  </item>
+  <item>
+    <title>OS Pi Learns Thirty Screen Sizes and Ships Build 24</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-10/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-10/</guid>
+    <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi, my classic-Mac-style desktop, can now change its screen size and flip between wide and tall, and it passed through five numbered builds.</description>
+  </item>
+  <item>
+    <title>StatBar Weather Learns to Follow Your Mac and Shows a Forecast</title>
+    <link>https://blog.remnantsecurity.com/statbar/2026-11-10/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar/2026-11-10/</guid>
+    <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>StatBar</category>
+    <description>StatBar&#39;s weather now follows the Mac to a new city if you ask it to, and shows today&#39;s high, low and chance of rain.</description>
+  </item>
+  <item>
+    <title>SnapDog Records One Window as OS Pi Gets a Movie Chooser</title>
+    <link>https://blog.remnantsecurity.com/snapdog-linux-window-recording-os-pi-movie-chooser/2026-11-09/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog-linux-window-recording-os-pi-movie-chooser/2026-11-09/</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>SnapDog&#39;s Linux test mode learned to pause and record a single window, while OS Pi, LaunchDeck and PocketGenie each moved on Monday.</description>
+  </item>
+  <item>
+    <title>LaunchDeck Learns to Cut Seamless Loops and Build Safely</title>
+    <link>https://blog.remnantsecurity.com/launchdeck/2026-11-09/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/launchdeck/2026-11-09/</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>LaunchDeck</category>
+    <description>LaunchDeck, my marketing-video tool, can now cut clips that loop without a visible jump and builds untrusted projects with tighter limits.</description>
+  </item>
+  <item>
+    <title>OS Pi Gets a Movie Chooser and a Real About This Mac</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-09/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-09/</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi, my classic-Mac-style desktop, now lets you pick a movie to play and shows a proper About box with memory use.</description>
+  </item>
+  <item>
+    <title>PocketGenie Grows a Private Vault, Tools and a Mac Build</title>
+    <link>https://blog.remnantsecurity.com/pocketgenie/2026-11-09/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/pocketgenie/2026-11-09/</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>PocketGenie</category>
+    <description>PocketGenie, my on-device AI chat app, picked up a locked private vault, a larger model library and a first Mac version in my working copy.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Port Records One Chosen Window</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-09/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-09/</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s Linux test mode on the Mac can now pause a recording and record only the window you chose, even with another window on top.</description>
+  </item>
+  <item>
+    <title>Build Fleet Lands Its Big Orchestration Commit</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-11-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-11-08/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>Build Fleet, which spreads my building work across several computers, saved a large batch of work covering disk relief, media routing and Cursor.</description>
+  </item>
+  <item>
+    <title>StatBar Fixes a 32.5 GB Promise While SnapDog Records</title>
+    <link>https://blog.remnantsecurity.com/statbar-snapdog-os-pi-build-fleet-sunday/2026-11-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar-snapdog-os-pi-build-fleet-sunday/2026-11-08/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>StatBar stopped overpromising disk space, SnapDog&#39;s Linux test mode learned to stop a recording, and OS Pi ran old games further on Sunday.</description>
+  </item>
+  <item>
+    <title>OS Pi Runs Glider PRO Further and Adds Usage Logging</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-08/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi, my classic-Mac-style desktop, got two old games further along on Sunday and now keeps a private log of how I use it.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Gets Controllable Mac Recording and 0.2.66</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-08/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s Linux test mode on the Mac can now start and stop a screen recording from its own button, and the final Linux packages were rebuilt.</description>
+  </item>
+  <item>
+    <title>StatBar Stops Overpromising How Much Disk Space It Frees</title>
+    <link>https://blog.remnantsecurity.com/statbar/2026-11-08/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar/2026-11-08/</guid>
+    <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>StatBar</category>
+    <description>StatBar&#39;s Free Up Space window had been promising far more disk space than a cleanup would give back, and the estimate is now honest.</description>
+  </item>
+  <item>
+    <title>OS Pi Gets Bluetooth Networking and Runs Real Mac Apps</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-07/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-07/</guid>
+    <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi, my classic-Mac-style desktop, gained wireless networking, a new startup screen and many more of the old Mac&#39;s built-in functions on Saturday.</description>
+  </item>
+  <item>
+    <title>OS Pi Fixes Monkey Island Speed, SnapDog Linux Tests</title>
+    <link>https://blog.remnantsecurity.com/monkey-island-cutscenes-snapdog-linux-simulator/2026-11-06/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/monkey-island-cutscenes-snapdog-linux-simulator/2026-11-06/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>OS Pi&#39;s Monkey Island cutscenes ran at half speed because timed chores were skipped, while SnapDog&#39;s Linux test mode learned to freeze a Mac screen.</description>
+  </item>
+  <item>
+    <title>OS Pi Fixes Half-Speed Cutscenes in Monkey Island</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-06/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-06/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi was running Monkey Island&#39;s cutscenes at about half speed, and I found the cause: timed background chores were being skipped.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Simulator Learns to Freeze a Mac Screen</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-06/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-06/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s Linux simulator on the Mac can now freeze the screen to pick a window or region, but I still have not seen it capture a real display.</description>
+  </item>
+  <item>
+    <title>AI Budget Build Goes Live With Mac, Linux and eGPU Advice</title>
+    <link>https://blog.remnantsecurity.com/aibudgetbuild/2026-11-05/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aibudgetbuild/2026-11-05/</guid>
+    <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Budget Build</category>
+    <description>AI Budget Build, my parts-picker for running AI models at home, went public on Thursday and now covers Windows, Linux, Mac and external graphics cards.</description>
+  </item>
+  <item>
+    <title>Build Fleet Fixes a Job Denied After a Legitimate Retry</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-11-05/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-11-05/</guid>
+    <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>The build fleet no longer refuses a job that was retried while being copied to another Mac, and its checks passed on a second machine.</description>
+  </item>
+  <item>
+    <title>OS Pi Gets Wallpapers, Color Themes and Right-Click Menus</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-05/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-05/</guid>
+    <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi, my classic-Mac-style desktop, now lets you choose a wallpaper and color theme that survive a restart, with context menus and list views for folders.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Fixes Window Shots That Captured Wallpaper</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-05/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-05/</guid>
+    <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s Linux version was saving pictures of the wallpaper instead of the window you picked, and the pickers now cover the whole screen.</description>
+  </item>
+  <item>
+    <title>AI Budget Build Gets a Parts Picker, Still Unpublished</title>
+    <link>https://blog.remnantsecurity.com/aibudgetbuild/2026-11-04/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aibudgetbuild/2026-11-04/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Budget Build</category>
+    <description>AI Budget Build now lets you pick a machine and a budget and shows which graphics cards fit, what they cost and what they draw.</description>
+  </item>
+  <item>
+    <title>AI Budget Build Gets a Parts Picker, OS Pi Audio Stays Broken</title>
+    <link>https://blog.remnantsecurity.com/ai-budget-build-picker-os-pi-audio-snapdog/2026-11-04/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/ai-budget-build-picker-os-pi-audio-snapdog/2026-11-04/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>AI Budget Build became a clickable graphics card picker, OS Pi spent a day measuring Monkey Island audio it still plays wrong, and SnapDog got studio checks.</description>
+  </item>
+  <item>
+    <title>OS Pi Classic Game Music Still Plays Each Note Twice</title>
+    <link>https://blog.remnantsecurity.com/macos9port/2026-11-04/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/macos9port/2026-11-04/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>OS Pi</category>
+    <description>OS Pi ran Monkey Island with steady audio counters all day, but I still hear the opening music doubled, so the sound problem is not fixed.</description>
+  </item>
+  <item>
+    <title>SnapDog Studio Learns to Wait for the Simulator to Boot</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-04/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-04/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s reel-making studio can now wait for a phone simulator to start and open web links in it, and warns about badly sized app previews.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Rebuild, Pipe Flow&#39;s Sea, a Blank TV Library</title>
+    <link>https://blog.remnantsecurity.com/snapdog-linux-rebuild-pipe-flow-sea-hisense-blank/2026-11-03/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog-linux-rebuild-pipe-flow-sea-hisense-blank/2026-11-03/</guid>
+    <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>A freshness check caught stale SnapDog Linux installers, Pipe Flow got a reactive sea, and a Hisense sign-in fix blanked my podcasts library.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts Sign-in Fix Blanked the Library Screen</title>
+    <link>https://blog.remnantsecurity.com/hisense/2026-11-03/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense/2026-11-03/</guid>
+    <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Homelab and Hardware</category>
+    <category>Hisense TV Tune-up</category>
+    <description>A fix for a misdrawn password box on my television&#39;s podcasts app blanked the library after sign-in, until I narrowed the fix.</description>
+  </item>
+  <item>
+    <title>Night Chorus Gets Liquid Slag and a Button Shape Test</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-11-03/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-11-03/</guid>
+    <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Night Chorus</category>
+    <description>Night Chorus, the crystal puzzle game once called Prism Shift, gained a flowing drowned-slag look and a test that catches lopsided menu buttons.</description>
+  </item>
+  <item>
+    <title>Pipe Flow Gets a Living Sea That Reacts to Your Moves</title>
+    <link>https://blog.remnantsecurity.com/pipe-flow/2026-11-03/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/pipe-flow/2026-11-03/</guid>
+    <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Games</category>
+    <category>Pipe Flow</category>
+    <description>Pipe Flow&#39;s first world now has a living sea of turtles, kelp and coral that reacts as you play, on phone, Mac and television.</description>
+  </item>
+  <item>
+    <title>SnapDog Linux Packages Rebuilt After a Stale-Code Check Failed</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-03/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-03/</guid>
+    <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog&#39;s Linux installers were out of date after the Loom import work, so I rebuilt all three as version 0.2.59 and fixed a Loom link edge case.</description>
+  </item>
+  <item>
+    <title>AdGenerator Panel Reopens Projects and Plays the Real Ad</title>
+    <link>https://blog.remnantsecurity.com/adgenerator/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/adgenerator/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AdGenerator</category>
+    <description>AdGenerator&#39;s control panel can now reopen saved projects, play the real ad inside a project page with zoom, and draft a voice line or stills.</description>
+  </item>
+  <item>
+    <title>Dead Signal Gets a Reader Page and Tracking on the Books Site</title>
+    <link>https://blog.remnantsecurity.com/books-site/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/books-site/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Books Site</category>
+    <description>The Dead Signal pages on my books site got a proper reader page for the first chapter, tracking of visitors, and a corrected address.</description>
+  </item>
+  <item>
+    <title>Build Fleet Stops Crying Wolf About Builds Marked Local</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>The build fleet&#39;s alarm for builds that skipped it no longer fires on builds I declared local, and it now names wrapped builds correctly.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts, SnapDog Loom Import, Night Chorus Worlds</title>
+    <link>https://blog.remnantsecurity.com/hisense-podcasts-snapdog-loom-night-chorus-worlds/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense-podcasts-snapdog-loom-night-chorus-worlds/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>A lost Apple sign-in exposed three hidden faults in my Hisense podcasts app, while SnapDog learned Loom imports and Night Chorus got 15 living worlds.</description>
+  </item>
+  <item>
+    <title>Hisense Podcasts App Fixes Tabs, OK Key and Empty Shelves</title>
+    <link>https://blog.remnantsecurity.com/hisense/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hisense/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Homelab and Hardware</category>
+    <category>Hisense TV Tune-up</category>
+    <description>The podcasts app on my television had three faults that only showed on a cold start: unreachable tabs, a dead OK button, and empty shelves.</description>
+  </item>
+  <item>
+    <title>Night Chorus Gets Living Backgrounds for All 15 Chapters</title>
+    <link>https://blog.remnantsecurity.com/prismshift/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/prismshift/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Night Chorus</category>
+    <description>Night Chorus, the crystal puzzle game formerly called Prism Shift, gained animated worlds and hazards for its 15 chapters in a Mac prototype.</description>
+  </item>
+  <item>
+    <title>SnapDog Learns to Import Loom Videos on Mac and Linux</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-02/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-02/</guid>
+    <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>SnapDog can now bring in a Loom video, from a share link or a downloaded file, on the Mac, on Linux and in its reel-making studio.</description>
+  </item>
+  <item>
+    <title>Build Fleet Learns to Watch AI Coding Sessions on Every Mac</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-11-01/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-11-01/</guid>
+    <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>The Build Fleet now tracks which AI coding tools are running on each computer, and a renamed Mac that quietly refused jobs is fixed.</description>
+  </item>
+  <item>
+    <title>StatBar Shows What Grew While SnapDog Photographs Itself</title>
+    <link>https://blog.remnantsecurity.com/statbar-disk-map-hisense-podcasts-snapdog-bugs/2026-11-01/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/statbar-disk-map-hisense-podcasts-snapdog-bugs/2026-11-01/</guid>
+    <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>StatBar shipped three releases that show which folders ate the disk, the Hisense podcasts app got an Apple TV look, and SnapDog&#39;s tutorial found bugs.</description>
+  </item>
+</channel>
+</rss>
