@@ -1,0 +1,1 @@
+Golfprompt is a one-hole 3D golf game that runs in a web browser, called Quiet Links. It has four weather settings, two swing styles and procedural sound, and it passes its own unit and browser tests. The real golfer art has not been added yet, so it currently shows a warning card where the golfer should be.
