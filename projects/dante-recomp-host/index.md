@@ -1,0 +1,1 @@
+Dante Recomp Host is a Mac build of a converted PlayStation 3 game, made with a toolkit that translates the console's machine code into source files a Mac can compile. It is an experiment on my own hardware. At last check the whole host project compiled and linked into two programs, one for the game and one for its window, but I have not run either.
