@@ -1,0 +1,1 @@
+GoW3 Recomp is an attempt to translate the PlayStation 3 version of God of War III into code that runs natively on an Apple silicon Mac, using the same toolkit as the Dante experiment. It builds and draws its opening splash screen at about 60 frames a second, then hangs on a counter nothing seems to update. There is no menu, gameplay or packaged app yet.
