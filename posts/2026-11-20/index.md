@@ -1,0 +1,1 @@
+Friday is the weekly roundup, covering the diary days from 13 to 19 November: SnapDog's silent test suite and its 1.2.2 release, a golf game that got its golfer, a Hermes warm-up that three routes failed, two PlayStation 3 conversions, and an eighth week with no sales. The nightly entries for 20 November are written by that night's run.
