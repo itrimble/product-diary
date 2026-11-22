@@ -1,0 +1,1 @@
+Escape from Butcher Bay is my Mac port of the Xbox game, built from a static recompilation with a native renderer. It runs at 60 frames per second in gameplay and ships as a self-contained app. The characters still render too dark, and the plan is to swap in a different shader-combiner generator.
