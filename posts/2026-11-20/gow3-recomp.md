@@ -11,4 +11,6 @@ The host holds 23 chunks of translated game code and 1,239 system-call handlers.
 
 The stall is the one from [Thursday's entry](/dante-recomp-host-plays-gow3-recomp-hangs/2026-11-19/): a main thread sleeping until a counter reaches zero. I did not find what should count it down tonight. The system firmware library was translated again in three numbered passes during the day. I did not confirm what any of them changed.
 
-The 40 GB disc copy stays off the diary, and I am not publishing frames from this game.
+The 40 GB disc copy stays off the diary.
+![The Sony Computer Entertainment presents splash from the God of War III conversion](gow3-recomp-sony-splash-presents.png)
+*The Sony Computer Entertainment presents splash, captured at 19:04 on 19 November 2026, which is still as far as a run gets.*

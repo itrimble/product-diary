@@ -52,17 +52,45 @@ Four times speed gained almost nothing, at 174.7 seconds. The game paces its vid
 | Baseline | 175.5 s | not recorded | not recorded |
 | Corrected | 128.9 s | 242.0 s | 382.9 s |
 
-Two later runs still ended without a save, with the boss at best around 72 percent health. So nothing in this game can be called finished. It also gained a Graphics page as a seventh row in the original Options list: 30, 40 or 60 frames a second, 1x to 3x resolution, two upscalers and two edge smoothers. I changed the resolution from 2x to 3x in the real game and the setting saved. Options that would be dishonest, such as uncapped frame rate, stay greyed out. I have no new picture of it, and I am not publishing frames from a commercial game.
+Two later runs still ended without a save, with the boss at best around 72 percent health. So nothing in this game can be called finished. It also gained a Graphics page as a seventh row in the original Options list: 30, 40 or 60 frames a second, 1x to 3x resolution, two upscalers and two edge smoothers. I changed the resolution from 2x to 3x in the real game and the setting saved. Options that would be dishonest, such as uncapped frame rate, stay greyed out.
+
+![The original Options list with Recomp Graphics as a new seventh row](dante-recomp-host-options-recomp-graphics-row.png)
+
+*The Options list on 20 November 2026, captured around 23:11, with Recomp Graphics added as a seventh row.*
+
+![The Recomp Graphics page still on 2x resolution with a brown backdrop](dante-recomp-host-recomp-graphics-menu-2x.png)
+
+*The Recomp Graphics page at 2x (1440p) on 20 November 2026, still with the brown backdrop and the performance readout in the title bar.*
+
+![The Recomp Graphics page after 3x 4K resolution was saved](dante-recomp-host-recomp-graphics-3x-saved.png)
+
+*The same page after I changed Internal Resolution to 3x (4K) on 20 November 2026; the title bar says the setting saved and a restart is required.*
 
 ## Eternal Darkness holds 60 in a window
 
 The [Eternal Darkness entry](/eternal-darkness/2026-11-20/) is a modest win. My Mac conversion of the 2002 GameCube horror game, which [Nintendo published](https://en.wikipedia.org/wiki/Eternal_Darkness), ran in a window on my MacBook Pro and sat at 60 frames a second on the title screen at 19:45. It read 58 on the Nintendo logo and dipped to between 48 and 51 during the opening movie. I did not time a fight or a corridor walk, so I would not call it a lock.
+
+![The Nintendo logo in the Eternal Darkness window with a 58 FPS overlay](eternal-darkness-nintendo-logo-58fps.png)
+
+*The Nintendo logo at 19:44 on 20 November 2026, with the window title and overlay both reading 58 fps.*
+
+![The Eternal Darkness title screen with a 60 FPS overlay in the corner](eternal-darkness-title-screen-60fps.png)
+
+*The title screen at 19:46 on 20 November 2026, holding 60 frames a second as the window title records.*
+
+![The Eternal Darkness options book with Frame rate set to 60](eternal-darkness-options-frame-rate.png)
+
+*The Options page at 19:50 on 20 November 2026, with Frame rate at 60 and a note that smoother motion needs a faster screen.*
 
 I also added an option called Variable for screens whose refresh rate can change. It correctly stayed hidden. All four screens on my desk reported a fixed rate, three at 60 and one at 165, and the laptop panel was missing from the list. So the option is written but untested on the one kind of screen that matters. The disc and texture pack stay on this machine.
 
 ## GoW3 Recomp writes a handover instead of an app
 
 The [GoW3 Recomp entry](/gow3-recomp/2026-11-20/) records a deliberate non-release. My God of War III conversion still stops after the Sony splash screen. I wrote a gate table instead: the workspace and translated code are done, getting past the splash is not done, and graphics, upscaling, input and packaging are not started.
+
+![The Sony Computer Entertainment presents splash from the God of War III conversion](gow3-recomp-sony-splash-presents.png)
+
+*The Sony Computer Entertainment presents splash, captured at 19:04 on 19 November 2026. Friday's run still stopped here; this is not a new capture from Friday night.*
 
 ![A terminal log where a thirty microsecond sleep repeats while a frame counter creeps from 54 to 55](weekly-roundup-gow3-terminal-deadlock-log.png)
 

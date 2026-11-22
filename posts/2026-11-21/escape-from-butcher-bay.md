@@ -11,4 +11,6 @@ The darkness took most of the day. I ruled out gamma first. Applying the console
 
 One dump contradicted the others by reading zero everywhere, which I now suspect is an artefact of a shader the driver declined. So I stopped probing and recorded the decision: replace the combiner generator with the one from the xemu emulator rather than keep guessing. I also got xemu itself running by installing the Vulkan loader and MoltenVK, fixing a broken disc path, and learning it needs a debug BIOS, not a retail one.
 
-I did not rerun the final build against the reference after the last merge, and I took no screenshot, so I am showing none. The handover notes now carry the Mac state: 60 frames per second in gameplay, the gamma fix, and the measuring rules.
+I did not rerun the final build against the reference after the last merge. The handover notes now carry the Mac state: 60 frames per second in gameplay, the gamma fix, and the measuring rules.
+![A frame from the Mac build during gameplay in the cell block](butcher-bay-mac-gameplay-cellblock.png)
+*A 640 by 480 frame from the Mac build in the cell block, saved to the project folder on 21 November 2026 at about 14:56.*

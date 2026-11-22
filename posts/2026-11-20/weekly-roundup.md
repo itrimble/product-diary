@@ -69,11 +69,23 @@ Three of the five routes failed that. The paid cloud baseline failed all five at
 
 ## Two PlayStation 3 conversions, one working and one frozen
 
-On Wednesday my Dante conversion experiment, which turns a PlayStation 3 game into code a Mac can build, compiled to the end and made two programs. I had not launched either. On Thursday it ran: publisher logos by lunchtime, then the menu, then the opening cutscene and a first stretch of play. I took 11 screenshots along the way and I am not publishing any of them, because they are frames from a commercial game.
+On Wednesday my Dante conversion experiment, which turns a PlayStation 3 game into code a Mac can build, compiled to the end and made two programs. I had not launched either. On Thursday it ran: publisher logos by lunchtime, then the menu, then the opening cutscene and a first stretch of play. I took 11 screenshots along the way. Two of them are below, and the [Thursday story](/dante-recomp-host-plays-gow3-recomp-hangs/2026-11-19/) has the full set.
+
+![The Dante's Inferno title screen with Press START under the logo](dante-recomp-host-title-screen.png)
+
+*The title screen at 13:02 on 19 November 2026, with Press START under the logo.*
+
+![Gameplay in Acre with a combat tutorial over the opening fight](dante-recomp-host-gameplay-acre.png)
+
+*The first stretch of gameplay in Acre, captured at 16:40 on 19 November 2026, with the combat tutorial on screen.*
 
 A robot player I wrote did less well. It reads the rendered frames, presses virtual buttons and counts a run as a success only if the game writes a real save file. Ten checkpoint runs ended with no saved game. Seven times the game was still alive when the time ran out. Three times it died. I have not traced those three, and a robot that cannot finish a level is as likely to be bad at the game as the port is to be bad.
 
 The second conversion, God of War III, starts on my Apple silicon Mac, draws its opening splash screen at about 60 frames a second for nearly 13 seconds and then freezes for good. The first cause was mine: the code gave up after 50 milliseconds on a graphics step the game patches about 77 milliseconds later. Raising the wait to 1,000 milliseconds moved the boot from flip 750 to flip 770. Twenty flips. The second cause is open. The main thread sits in a tiny sleep loop waiting for a counter to reach zero, and I have not found what is meant to count it down.
+
+![The Sony Computer Entertainment presents splash from the God of War III conversion](gow3-recomp-sony-splash-presents.png)
+
+*The Sony Computer Entertainment presents splash, captured at 19:04 on 19 November 2026, which is as far as the run got before it froze.*
 
 ![A terminal log with a short sleep call repeating while the flip counter creeps from 54 to 55](weekly-roundup-gow3-terminal-deadlock-log.png)
 *A terminal log from the God of War III freeze, saved the evening of 19 November 2026. It shows terminal text only, no game footage. One unresolved system function is flagged in red.*

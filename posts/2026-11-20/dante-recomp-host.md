@@ -11,4 +11,10 @@ The first corrected run then missed the jump tutorial. The robot player's attack
 
 The graphics page is a seventh row in the original Options list. It offers 30, 40 or 60 frames a second, 1x to 3x internal resolution, two upscalers and two edge smoothers. Upscaling and smoothing apply at once; frame rate and resolution wait for a restart. I changed the resolution from 2x to 3x in the real game and the setting saved. Choices that would not be honest stay greyed out: uncapped frame rate, wide-range colour and baked lighting.
 
-I looked at the screen and asked for the page to lose its brown backdrop and the title-bar readout, so the next build calls it simply Graphics. I have no new picture of that change, and no physical controller test. I also built a private 8.3 GB app bundle, ad-hoc signed, not tried on a second Mac. As before, I am not publishing frames from a commercial game.
+I looked at the screen and asked for the page to lose its brown backdrop and the title-bar readout, so the next build calls it simply Graphics. I have no physical controller test. I also built a private 8.3 GB app bundle, ad-hoc signed, not tried on a second Mac.
+![The original Options list with Recomp Graphics as a new seventh row](dante-recomp-host-options-recomp-graphics-row.png)
+*The Options list around 23:11 on 20 November 2026, with Recomp Graphics as a seventh row.*
+![The Recomp Graphics page still on 2x resolution with a brown backdrop](dante-recomp-host-recomp-graphics-menu-2x.png)
+*The Recomp Graphics page at 2x on 20 November 2026, still with the brown backdrop and title-bar readout.*
+![The Recomp Graphics page after 3x 4K resolution was saved](dante-recomp-host-recomp-graphics-3x-saved.png)
+*The same page after I saved 3x (4K) on 20 November 2026; the title bar says a restart is required.*

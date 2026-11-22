@@ -202,4 +202,13 @@ for a new or changed `.png`/`.jpg` (a screenshot, store image or demo frame).
 Open it first. Copy it into the day's `assets/` only if it is the app itself and
 shows no email address, token, internal address or other person's data. Never use
 art or footage the site-templates catalog (`docs/CATALOG.md`) marks do-not-publish.
+
+Screenshots and frames from Ian's own game ports and recomp projects are
+publishable and should be used. That includes Dante's Inferno recomp host,
+Eternal Darkness, GoW3 recomp, Escape from Butcher Bay, and similar work.
+They get the same hygiene as any other screenshot: one window, and no emails,
+tokens, internal addresses or other people's data. Do not write that those
+frames are being withheld. The catalog rule above is unchanged: art it marks
+do-not-publish still stays out.
+
 Add an italic caption line under each image saying what it shows and when.
