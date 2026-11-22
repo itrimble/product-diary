@@ -1,0 +1,1 @@
+AI Models is a static catalog of local AI models with a page of published speed measurements, each row labelled with its machine, context length and source. It is rebuilt from a data file by a small Python script.
