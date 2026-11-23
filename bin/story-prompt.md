@@ -31,7 +31,7 @@ result. If two entries disagree, say so.
 
 Open every image with the Read tool before using it. Reject anything showing an email address, token, key, internal
 address, another person's data, chat from another project, or art and footage that
-`DIARY_PROJECTS/site-templates/docs/CATALOG.md` marks do-not-publish. Copy accepted files into
+`DIARY_PROJECTS/site-templates/docs/CATALOG.md` marks do-not-publish. Screenshots and frames from Ian's own game ports and recomp projects (Dante's Inferno recomp host, Eternal Darkness, GoW3 recomp, Escape from Butcher Bay, and similar) are publishable and should be used, with the same hygiene: one window, and no emails, tokens, internal addresses or other people's data. Do not write that those frames are being withheld. The catalog rule is unchanged. Copy accepted files into
 `DIARY_REPO/posts/DIARY_DATE/assets/` under a descriptive lowercase name (`lightfence-title-screen-tv.png`). Write alt
 text that says what is in the picture (six words or more) and an italic caption line under every image.
 

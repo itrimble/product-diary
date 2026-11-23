@@ -76,6 +76,7 @@ first paragraph should still have learned something true and complete.
   project you write about and include what it returns. It prints a filename on
   success or a one-line reason it could not, and never fails the run. A reason
   is an acceptable outcome; not trying is not.
+  Screenshots and frames from Ian's own game ports and recomp projects (Dante's Inferno recomp host, Eternal Darkness, GoW3 recomp, Escape from Butcher Bay, and similar) are publishable and should be used. Apply the same hygiene: one window, and no emails, tokens, internal addresses or other people's data. Do not write that those frames are being withheld. Art or footage that `site-templates/docs/CATALOG.md` marks do-not-publish still stays out.
 - No code fences longer than 12 lines. No bare URLs to internal hosts
   (`192.168.*`, `*.local`, `/Volumes/*`).
 
@@ -131,6 +132,7 @@ Long form is a magazine-style article, so it is held to a reader's standard of p
   line that says what it shows and when it was captured. Capture one window, never a whole screen, and look at the
   image before it goes in: no emails, tokens, internal addresses or other people's data. A screenshot of a public
   page cited as evidence is fine with credit in the caption.
+  Screenshots and frames from Ian's own game ports and recomp projects (Dante's Inferno recomp host, Eternal Darkness, GoW3 recomp, Escape from Butcher Bay, and similar) are publishable and should be used, with that same hygiene. Do not write that those frames are being withheld. The catalog rule below is unchanged.
 - **Sources a reader can open.** A `## Sources` section with at least two distinct https links, grouped if there are
   many. Link claims inline where you make them. Say what you read, when, and what you did not verify. Links that
   block bots (Reddit, eBay, Amazon return 403 to scripts) are allowed, but confirm them in a browser.
@@ -173,6 +175,7 @@ name the main apps and what happened (`lightfence-app-review-snapdog-linux-gifs.
   what to notice). Take them from the project entries' assets, each project's own screenshot folders, and
   `bin/shot-project.sh`. Open every image first and apply the screenshot hygiene rules. Never use art or footage
   that `site-templates/docs/CATALOG.md` marks do-not-publish.
+  Screenshots and frames from Ian's own game ports and recomp projects (Dante's Inferno recomp host, Eternal Darkness, GoW3 recomp, Escape from Butcher Bay, and similar) are publishable and should be used, with the same hygiene. Do not write that those frames are being withheld. The catalog rule is unchanged.
 - **Links.** At least three distinct internal links (the day's project entries, project pages, earlier stories), at
   least one of them to a project entry of the same day, and a `## Sources` section with at least two distinct https
   links. Every internal link must point at a page that exists.

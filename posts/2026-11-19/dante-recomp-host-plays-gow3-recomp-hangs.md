@@ -13,7 +13,51 @@ On Wednesday [I could only say Dante compiled](/dante-recomp-host-links-build-fl
 
 Colours were wrong early on. I fixed that at about 12:50. Nothing dramatic about it, but a game with the wrong palette is hard to believe in, so it felt like a milestone.
 
-I kept a screenshot at each stage, 11 in all, taken between 12:09 and 16:40. I am not publishing any of them. They are frames from a commercial game, and that is not mine to post. You will have to take my word for the logos and the menu, which is a fair thing to be suspicious of. What I can offer instead is what did not work.
+I kept a screenshot at each stage, 11 in all, taken between 12:09 and 16:40. Here they are, from the first frame through to the opening fight in Acre.
+
+![The first Dante window showing a glowing cross on a dark shroud](dante-recomp-host-first-frame-cross.png)
+
+*The first frame in the ps3recomp window, captured at 12:09 on 19 November 2026, with a glowing cross on a dark shroud.*
+
+![An early misty frame in the Dante window just before the publisher logo](dante-recomp-host-intro-mist.png)
+
+*An early misty frame at 12:13 on 19 November 2026, still in the same window, just as the publisher logo begins to form.*
+
+![The Electronic Arts logo filling the Dante recomp window](dante-recomp-host-ea-logo.png)
+
+*The Electronic Arts logo at 12:14 on 19 November 2026, still with the colours a little off.*
+
+![The Dante recomp window at launch with the same glowing cross](dante-recomp-host-app-window-launch.png)
+
+*The app window at launch, captured at 12:16 on 19 November 2026, again showing the glowing cross before the logos settled.*
+
+![The Visceral Games logo in the Dante window after the colour fix](dante-recomp-host-visceral-games-logo.png)
+
+*The Visceral Games logo at 12:49 on 19 November 2026, after I fixed the early colour error.*
+
+![The Dante's Inferno title screen with Press START under the logo](dante-recomp-host-title-screen.png)
+
+*The title screen at 13:02 on 19 November 2026, with Press START under the logo.*
+
+![The Dante's Inferno main menu with Start Game and other options listed](dante-recomp-host-main-menu.png)
+
+*The main menu at 13:10 on 19 November 2026, with Start Game selected and Trials of St. Lucia marked coming soon.*
+
+![The Dante's Inferno difficulty menu listing Knight, Death, Hell and Inferno](dante-recomp-host-difficulty-menu.png)
+
+*The difficulty menu at 13:45 on 19 November 2026, listing Knight, Death, Hell and Inferno.*
+
+![A black narration card about knights capturing the city of Acre](dante-recomp-host-opening-narration.png)
+
+*A narration card at 15:25 on 19 November 2026, introducing the capture of Acre in the year 1191.*
+
+![An opening cutscene of a bloodied hand over a basin](dante-recomp-host-opening-cutscene.png)
+
+*An opening cutscene still at 16:38 on 19 November 2026, with a bloodied hand over a basin.*
+
+![Gameplay in Acre with a combat tutorial over the opening fight](dante-recomp-host-gameplay-acre.png)
+
+*The first stretch of gameplay in Acre, captured at 16:40 on 19 November 2026, with the combat tutorial on screen.*
 
 ### The robot player never finished a level
 
@@ -41,6 +85,10 @@ I want to be plain about the overlay. It is code I read, not numbers I saw. I di
 The second project is the one I am less proud of, and the one I understand better. I spent Thursday trying to get God of War III running natively on my Apple silicon Mac using the same translate-the-code-ahead-of-time approach. The [GoW3 Recomp entry](/gow3-recomp/2026-11-19/) has the summary. It now starts, draws the "Sony Computer Entertainment presents" splash at about 60 frames a second for nearly 13 seconds, and then freezes for good.
 
 I did not package it as an app. A splash screen is not a game, and I did not want to end the day holding something that only looks finished.
+
+![The Sony Computer Entertainment presents splash from the God of War III conversion](gow3-recomp-sony-splash-presents.png)
+
+*The Sony Computer Entertainment presents splash, captured at 19:04 on 19 November 2026 from a boot frame. This is as far as the run got before it froze.*
 
 ![Terminal output showing the first lines of the God of War III boot, with the title identifier read from the game's own parameter file](gow3-recomp-terminal-boot-first-lines.png)
 
@@ -109,7 +157,7 @@ Two folders changed and did not make the cut. The Hermes fleet folder has uncomm
 
 ## What I would tell you
 
-If you are chasing a port like this, take the first picture on the first day and keep every one. I had 11 frames of Dante and could not show you a single one. That is the cost of working on a commercial game, and I should have planned a different way to show progress: terminal logs, frame-rate numbers, timing tables. Next time I will capture those first.
+If you are chasing a port like this, take the first picture on the first day and keep every one. I had 11 frames of Dante, from the first cross to the fight in Acre, and they are the proof the port actually ran.
 
 Second, do not let a robot declare victory for you, or defeat. Ten runs with no saved game tell me the test is strict. They do not tell me the game is broken.
 
