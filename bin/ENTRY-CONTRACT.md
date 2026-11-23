@@ -95,7 +95,7 @@ That raises the shape limits and nothing else:
 | | entry | longform |
 |---|---|---|
 | summary | 40-160 chars | 40-240 |
-| body | 80-450 words | 80-5000 |
+| body | 80-450 words | 80-7000 |
 | paragraphs | 2-6 | 2-200 |
 | headings | not allowed | allowed |
 | code fence | 12 lines | 40 |
