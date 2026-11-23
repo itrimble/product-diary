@@ -1,0 +1,1 @@
+Sunday was mostly the Mac ports and a runbook for two new mini computers. Other flagged folders: hermes-webui only pulled upstream changes into an unmodified copy, and bosgame and xemuriddick each held just an empty initial commit. The efbb-vertex folder and the Dante's Inferno planning folder are working copies of the projects above, so they are covered there.

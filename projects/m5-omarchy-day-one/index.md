@@ -1,0 +1,1 @@
+M5 Omarchy Day One is a runbook for setting up two Bosgame M5 mini computers, each with 128 GB of memory, as local AI model servers running Omarchy Linux. It holds boot settings, package lists, build and launch scripts, and a verified inventory of 30 model builds on my network storage. It is written but untested: nothing has been booted on the real machines yet.
