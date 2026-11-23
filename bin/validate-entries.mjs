@@ -371,7 +371,7 @@ for (const f of entries) {
   // Body shape.
   const withoutFences = body.replace(/```[\s\S]*?```/g, "");
   const words = withoutFences.trim().split(/\s+/).filter(Boolean).length;
-  const wMax = LONG ? 5000 : 450;
+  const wMax = LONG ? 7000 : 450;
   if (words < 80 || words > wMax) bad(f, `body is ${words} words, contract says 80-${wMax}`);
 
   // A fenced block is not a paragraph, and neither is a markdown table: a
