@@ -1,0 +1,1 @@
+M5 Omarchy Day One is my setup kit for two Bosgame M5 mini computers, each with 128 GB of memory, that serve local AI models on Omarchy Linux. One script now takes the first machine, strix1, from a fresh install to running chat, image, speech and benchmark workloads. The second machine has not been set up yet.

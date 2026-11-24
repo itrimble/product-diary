@@ -1,0 +1,1 @@
+The Grok Bot Wiki is my private reference for the fleet of assistant bots and the home network they run on. It has a visitor guide, a glossary, grouped bot pages, decision notes and search. It is served only to my own devices over Tailscale, and the public address shows a neutral notice.
