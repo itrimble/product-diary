@@ -1,0 +1,1 @@
+Wednesday's long read is [Two Bosgame M5s Serve One 748B DeepSeek Model](/two-m5s-one-deepseek/2026-11-25/): the second mini computer joined the first, the two of them now run one model too big for either, and four failed loads showed exactly where the memory was going. The nightly diary for the rest of the day follows tonight.
