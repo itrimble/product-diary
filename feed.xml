@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Product Diary</title>
+  <link>https://blog.remnantsecurity.com/</link>
+  <atom:link href="https://blog.remnantsecurity.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>What changed across the projects, day by day.</description>
+  <language>en</language>
+  <lastBuildDate>Fri, 27 Nov 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>AI Benchmark Suite Starts Scoring Local Models on Real Tasks</title>
+    <link>https://blog.remnantsecurity.com/aibenchmarksuite/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aibenchmarksuite/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Benchmark Suite</category>
+    <description>A new test bench now sets 25 build-it tasks for AI models on my two home machines and scores what they produce, resumes stuck runs and keeps receipts.</description>
+  </item>
+  <item>
+    <title>AI Models Site Lists 25 Agent Tasks and Saves Routing Receipts</title>
+    <link>https://blog.remnantsecurity.com/aimodels-site/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aimodels-site/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Models</category>
+    <description>The benchmarks page in my local AI model catalog now lists the agent tasks I test models on, with a way to keep a record of each run.</description>
+  </item>
+  <item>
+    <title>Bosgame M5 Pair Serves DeepSeek and Strata Stops Swapping</title>
+    <link>https://blog.remnantsecurity.com/bosgame/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/bosgame/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Bosgame M5</category>
+    <description>My two small AI computers now run one huge model together over a single cable, and a memory-hungry setting that made one of them swap is fixed.</description>
+  </item>
+  <item>
+    <title>AI Benchmark Suite Scores Local Models as Quiet Links Grows</title>
+    <link>https://blog.remnantsecurity.com/ai-benchmark-suite-bosgame-quiet-links-golf/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/ai-benchmark-suite-bosgame-quiet-links-golf/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>I built a bench that scores local AI models on 25 real tasks, paired two Bosgame machines on one huge model, and Quiet Links golf got crowds.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Fixes Shadows That Bled Onto Cutscenes</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante&#39;s Interno Recomp PS3</category>
+    <description>The shadows in my Mac version of the PlayStation 3 game no longer smear over the cutscenes, and the first measured frame rates with them on are in.</description>
+  </item>
+  <item>
+    <title>Butcher Bay on Mac Adds Mouse Play and PlayStation Buttons</title>
+    <link>https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Escape from Butcher Bay</category>
+    <description>The Mac port of the Xbox game now plays with mouse and keyboard, shows PlayStation or keyboard buttons on screen, and runs as one self-contained app.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Gets Real Crowds, Boulders and an iPhone App</title>
+    <link>https://blog.remnantsecurity.com/golfprompt/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Golfprompt</category>
+    <description>My browser golf game now has mowed stripes, rocks that stop the ball, a crowd built from the golfer, and a first install on my phone.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Log the Second Bosgame M5 Joining the Network</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-25/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-25/</guid>
+    <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of assistants recorded my second mini AI computer joining the private network, with one machine low on memory and two still missing.</description>
+  </item>
+  <item>
+    <title>AI Models Catalog Swaps Six Results for 32 Measured Ones</title>
+    <link>https://blog.remnantsecurity.com/aimodels-site/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aimodels-site/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Models</category>
+    <description>The benchmarks page in my local AI model catalog now shows 32 speed results from my own machine, replacing the six it had the day before.</description>
+  </item>
+  <item>
+    <title>Bosgame M5 Gets Remote Desktop and 32 Speed Results</title>
+    <link>https://blog.remnantsecurity.com/bosgame/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/bosgame/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Bosgame M5</category>
+    <description>My first mini AI computer can now be controlled from my laptop&#39;s screen, and every model on it has a measured speed on two graphics paths.</description>
+  </item>
+  <item>
+    <title>Bosgame M5 Gets Real Speeds, Butcher Bay Gets Game Mode</title>
+    <link>https://blog.remnantsecurity.com/bosgame-m5-speed-results-butcher-bay-game-mode/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/bosgame-m5-speed-results-butcher-bay-game-mode/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>On 24 November my Bosgame M5 got 32 measured model speeds and remote desktop, and the Mac port of Escape from Butcher Bay switched Game Mode on.</description>
+  </item>
+  <item>
+    <title>Dante Audit Host Adds Ray-Traced Shadow Settings</title>
+    <link>https://blog.remnantsecurity.com/dante-audit-host/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-audit-host/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante Audit Host</category>
+    <description>The cautious Mac build of the PlayStation 3 game gained menu options for ray-traced shadows, but nothing has been committed or tried in play.</description>
+  </item>
+  <item>
+    <title>Butcher Bay on Mac Now Switches Game Mode On at Launch</title>
+    <link>https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Escape from Butcher Bay</category>
+    <description>The Mac port of the Xbox game now draws crisply in a window, goes 4K in full screen, and the Mac recognises it as a game.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Gets Reflections, Refraction and Pad Test</title>
+    <link>https://blog.remnantsecurity.com/golfprompt/2026-11-24/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt/2026-11-24/</guid>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Golfprompt</category>
+    <description>My browser golf game now draws the pond&#39;s reflections of off-screen trees and bends the pond bed, and a game controller is covered by a test.</description>
+  </item>
+  <item>
+    <title>The First Bosgame M5 Boots and Corrects My Runbook</title>
+    <link>https://blog.remnantsecurity.com/bosgame/2026-11-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/bosgame/2026-11-23/</guid>
+    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Bosgame M5</category>
+    <description>The first of two small home AI computers was set up from one script and now runs my chat models, though the hardware overruled several of my plans.</description>
+  </item>
+  <item>
+    <title>Butcher Bay on Mac Gets Its Missing Floor and a 4K Renderer</title>
+    <link>https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-23/</guid>
+    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Escape from Butcher Bay</category>
+    <description>The Mac port of the Xbox game lost its black strip of missing floor in the courtyard, and it now has a new native Apple graphics path that draws at 4K.</description>
+  </item>
+  <item>
+    <title>The Grok Bot Wiki Gets a Front Door, Then Goes Private</title>
+    <link>https://blog.remnantsecurity.com/grokbot-wiki/2026-11-23/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot-wiki/2026-11-23/</guid>
+    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Grok Bot Wiki</category>
+    <description>My wiki about the fleet of assistants gained search and a visitor guide on Monday, then I took it off the public internet because it describes my home network.</description>
+  </item>
+  <item>
+    <title>Butcher Bay Mac Port Gets Debug Tools as M5 Boxes Near</title>
+    <link>https://blog.remnantsecurity.com/butcher-bay-mac-overlay-dante-audit-m5-runbook/2026-11-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/butcher-bay-mac-overlay-dante-audit-m5-runbook/2026-11-22/</guid>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>Sunday I gave my Mac port of Escape from Butcher Bay better ways to chase its dark characters, tested a careful Dante build and wrote an M5 runbook.</description>
+  </item>
+  <item>
+    <title>Dante Audit Host Gets a Careful Build That Picks a Difficulty</title>
+    <link>https://blog.remnantsecurity.com/dante-audit-host/2026-11-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-audit-host/2026-11-22/</guid>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante Audit Host</category>
+    <description>My Mac version of a PlayStation 3 game now has a separate, cautious test build that reached the difficulty screen and the opening story.</description>
+  </item>
+  <item>
+    <title>Butcher Bay on Mac Gets a Performance Overlay and Debug Views</title>
+    <link>https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-22/</guid>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Escape from Butcher Bay</category>
+    <description>The Mac port of the Xbox game now has an Apple performance overlay and a truer frame-rate readout, plus new tools for chasing the dark characters.</description>
+  </item>
+  <item>
+    <title>Learning to Sell, Part 2: Four Weeks, No Paid Sales, One Tagged Click</title>
+    <link>https://blog.remnantsecurity.com/learning-to-sell/2026-11-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/learning-to-sell/2026-11-22/</guid>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Learning to Sell</category>
+    <category>Learning to Sell</category>
+    <description>Four weeks after the first entry, nothing new has sold, ad spend is still zero, and the only tagged sign of life is one SnapDog store click that didn&#39;t buy. CyberSim&#39;s Full Access purchase is live. Book and StatBar sales are still missing.</description>
+  </item>
+  <item>
+    <title>A Runbook for Two Bosgame M5 Mini PCs Before They Arrive</title>
+    <link>https://blog.remnantsecurity.com/m5-omarchy-day-one/2026-11-22/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/m5-omarchy-day-one/2026-11-22/</guid>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>M5 Omarchy Day One</category>
+    <description>I wrote a ready-to-run setup guide for two new small Linux computers that will host my local AI models, before either one has been switched on.</description>
+  </item>
+  <item>
+    <title>AI Models Catalog Gets a Measured Benchmarks Page</title>
+    <link>https://blog.remnantsecurity.com/aimodels-site/2026-11-21/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/aimodels-site/2026-11-21/</guid>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>AI Models</category>
+    <description>My local AI model catalog now has a page of real speed measurements, each labelled as reading speed or writing speed with its source.</description>
+  </item>
+  <item>
+    <title>Comfy Golf Gets a Landing Page, a Guide and a Playable Demo</title>
+    <link>https://blog.remnantsecurity.com/comfygolf-site/2026-11-21/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/comfygolf-site/2026-11-21/</guid>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Comfy Golf</category>
+    <description>Comfy Golf now has a public website with a how-to-play guide and a demo you can try in the browser without installing anything.</description>
+  </item>
+  <item>
+    <title>Butcher Bay Mac Port Hits 60 fps, Comfy Golf Gets a Site</title>
+    <link>https://blog.remnantsecurity.com/butcher-bay-mac-port-comfy-golf-site/2026-11-21/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/butcher-bay-mac-port-comfy-golf-site/2026-11-21/</guid>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>The Mac port of Escape from Butcher Bay now plays smoothly but draws characters too dark, while Comfy Golf and my AI models catalog gained new pages.</description>
+  </item>
+  <item>
+    <title>Butcher Bay on Mac Runs Smooth, but Characters Stay Dark</title>
+    <link>https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-21/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/escape-from-butcher-bay/2026-11-21/</guid>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Escape from Butcher Bay</category>
+    <description>The Mac port of the Xbox game now plays smoothly and packages as a real app, but the characters still render too dark.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Gets a Swing as Dante Recomp Speeds Up</title>
+    <link>https://blog.remnantsecurity.com/quiet-links-golf-swing-dante-recomp-eternal-darkness/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/quiet-links-golf-swing-dante-recomp-eternal-darkness/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>On Friday my browser golf game Quiet Links gained a three-press swing and a caddie, while three Mac game conversions each moved a little.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Skips Ahead and Gets a Graphics Menu</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante Recomp Host</category>
+    <description>My Mac version of a PlayStation 3 game now reaches its first battle 47 seconds sooner and has a graphics settings page inside the game&#39;s own menu.</description>
+  </item>
+  <item>
+    <title>Eternal Darkness Holds 60 in a Window on My Mac</title>
+    <link>https://blog.remnantsecurity.com/eternal-darkness/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/eternal-darkness/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Eternal Darkness</category>
+    <description>A Mac conversion of a GameCube horror game held 60 frames a second in a window, and its new faster-screen option stayed hidden on my fixed screens.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Gets a Three-Press Swing and a Caddie</title>
+    <link>https://blog.remnantsecurity.com/golfprompt/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Golfprompt</category>
+    <description>My browser golf game now has a swing you control with three presses, a second course, a caddie and a golfer you can dress yourself.</description>
+  </item>
+  <item>
+    <title>GoW3 Recomp Writes Its Handover Note Without an App</title>
+    <link>https://blog.remnantsecurity.com/gow3-recomp/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/gow3-recomp/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>GoW3 Recomp</category>
+    <description>My PlayStation 3 God of War III conversion still stops after its opening splash screen, so I wrote a handover and chose not to package it.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Show a Quiet Day on the New Connector</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of assistants recorded a second quiet day on the built-in network connector, plus a new God of War folder and five stray empty ones.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Reports a Golf Build That Does Not Match Its Link</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant wrote three progress reports on Friday and admitted that the golf preview link served an older build than the code.</description>
+  </item>
+  <item>
+    <title>Week of November 13: Silent Tests, a Golfer, a Frozen Splash</title>
+    <link>https://blog.remnantsecurity.com/weekly-roundup/2026-11-20/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/weekly-roundup/2026-11-20/</guid>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Weekly Roundups</category>
+    <category>Weekly roundup</category>
+    <description>A week of green lights that meant less than they seemed. SnapDog&#39;s tests had stopped running, a golf game got its golfer, a PS3 conversion froze on a splash screen, and nothing sold.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Plays on My Mac as GoW3 Recomp Hangs</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host-plays-gow3-recomp-hangs/2026-11-19/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host-plays-gow3-recomp-hangs/2026-11-19/</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>A converted PlayStation 3 game reached real gameplay on my Mac while a second, God of War III, drew a splash screen and froze.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Plays From Logo to the First Level</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host/2026-11-19/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host/2026-11-19/</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante Recomp Host</category>
+    <description>The converted PlayStation 3 game now starts on my Mac and reaches real gameplay, though an automated tester has not yet got it through a level.</description>
+  </item>
+  <item>
+    <title>GoW3 Recomp Draws Its Splash Screen, Then Hangs</title>
+    <link>https://blog.remnantsecurity.com/gow3-recomp/2026-11-19/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/gow3-recomp/2026-11-19/</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>GoW3 Recomp</category>
+    <description>A PlayStation 3 God of War game converted for my Mac reaches its own opening splash screen, then freezes for a reason I have pinned down.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Log the Server Box Switching Connectors</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-19/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-19/</guid>
+    <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>My server box stopped using a home-built private-network workaround and now uses its built-in connector, which also closed one failed-scan note.</description>
+  </item>
+  <item>
+    <title>Build Fleet Guide Explains Why Generated Files Go Missing</title>
+    <link>https://blog.remnantsecurity.com/build-orchestration/2026-11-18/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/build-orchestration/2026-11-18/</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Build Fleet</category>
+    <description>My build fleet&#39;s guide now says why folders of generated files never reach another computer, and how to get them there without cheating.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Links Two Programs, Nothing Run Yet</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host-links-build-fleet-gitignore-note/2026-11-18/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host-links-build-fleet-gitignore-note/2026-11-18/</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>My PS3 game-conversion experiment finished a Mac build on Wednesday, but I have not launched it, while Grok Bot and Hermes Fleet reported quietly.</description>
+  </item>
+  <item>
+    <title>Dante Recomp Host Compiles and Links Two Programs</title>
+    <link>https://blog.remnantsecurity.com/dante-recomp-host/2026-11-18/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/dante-recomp-host/2026-11-18/</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Dante Recomp Host</category>
+    <description>A game-conversion experiment finished an 84-step build on the Mac and linked two programs, but nothing has been run yet.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Add Game Guru and Log a Failed Scan</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-18/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-18/</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>A new assistant called Game Guru joined my fleet on Tuesday afternoon, but its profile is a name and nothing else, and one overnight scan failed.</description>
+  </item>
+  <item>
+    <title>Hermes Fleet Writes Seven Progress Previews on Wednesday</title>
+    <link>https://blog.remnantsecurity.com/hermes-fleet/2026-11-18/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/hermes-fleet/2026-11-18/</guid>
+    <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Hermes Fleet</category>
+    <description>My house assistant wrote seven short progress reports on Wednesday, while its list of household computers is still a week out of date.</description>
+  </item>
+  <item>
+    <title>Golfprompt&#39;s Quiet Links Gets a Golfer and Phone Controls</title>
+    <link>https://blog.remnantsecurity.com/golfprompt-quiet-links-golfer-phone-controls/2026-11-17/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt-quiet-links-golfer-phone-controls/2026-11-17/</guid>
+    <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>My browser golf game Quiet Links got a real golfer, a swing that hits the ball and touch controls on Tuesday, while my assistant fleet&#39;s notes stayed quiet.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Game Gets a Real Golfer and Phone Controls</title>
+    <link>https://blog.remnantsecurity.com/golfprompt/2026-11-17/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt/2026-11-17/</guid>
+    <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Golfprompt</category>
+    <description>My browser golf game now has a real golfer who hits the ball, a loading screen, and touch controls that run on a phone instead of crawling.</description>
+  </item>
+  <item>
+    <title>Grok Bot Notes Record Tools Returning After a Box Rewrite</title>
+    <link>https://blog.remnantsecurity.com/grokbot/2026-11-17/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/grokbot/2026-11-17/</guid>
+    <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    <category>AI and Local Models</category>
+    <category>Grok Bot</category>
+    <description>The notes on my fleet of 30 assistants logged no bot changes on Tuesday, but the coding tools missing from the server box were back.</description>
+  </item>
+  <item>
+    <title>SnapDog 1.2.2 Goes to Apple Review, Golf Game Gets Built</title>
+    <link>https://blog.remnantsecurity.com/snapdog-apple-review-golfprompt-missing-art/2026-11-16/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog-apple-review-golfprompt-missing-art/2026-11-16/</guid>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>SnapDog 1.2.2 went to Apple for review after I restored three fixes an old change had undone, and a one-hole browser golf game appeared overnight.</description>
+  </item>
+  <item>
+    <title>Quiet Links Golf Prototype Gets an Honest Missing-Art Card</title>
+    <link>https://blog.remnantsecurity.com/golfprompt/2026-11-16/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/golfprompt/2026-11-16/</guid>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>Golfprompt</category>
+    <description>A one-hole 3D golf game built in a browser now plays start to finish, and its stand-in golfer has been replaced by a plain warning card.</description>
+  </item>
+  <item>
+    <title>SnapDog 1.2.2 Goes to Apple Review With Loom Import</title>
+    <link>https://blog.remnantsecurity.com/snapdog/2026-11-16/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog/2026-11-16/</guid>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Apps</category>
+    <category>SnapDog</category>
+    <description>I sent SnapDog 1.2.2 to Apple for review after restoring three fixes that an old commit had quietly undone.</description>
+  </item>
+  <item>
+    <title>SnapDog Tests Revived, App Store Status Corrected</title>
+    <link>https://blog.remnantsecurity.com/snapdog-tests-revived-app-store-status-corrected/2026-11-15/</link>
+    <guid isPermaLink="true">https://blog.remnantsecurity.com/snapdog-tests-revived-app-store-status-corrected/2026-11-15/</guid>
+    <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+    <category>Daily Stories</category>
+    <category>Daily Story</category>
+    <description>I got SnapDog&#39;s dead test suite running again on Sunday and found its Loom import was never shipped, so nobody outside my machines has it.</description>
+  </item>
+</channel>
+</rss>
