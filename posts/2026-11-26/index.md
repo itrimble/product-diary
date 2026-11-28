@@ -1,0 +1,1 @@
+Thursday was quiet. The survey covered 282 project folders and found no commits and no changed files dated 26 November in any of them, so there are no project entries today. No folder was flagged, so there is nothing left out on purpose.
