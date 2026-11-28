@@ -1,0 +1,1 @@
+The AI Benchmark Suite is my test bench for local AI models. It holds 25 written tasks, from games to image workflows, and runs a model on one inside a sandbox on my two Bosgame mini computers. Each run is scored automatically and leaves a receipt with timings and resumes. It is under heavy construction, with a live lab page and a runner that resumes stuck runs.
